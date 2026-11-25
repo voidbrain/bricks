@@ -41,6 +41,15 @@ Three layers, each read only by the next. Prefix `--bx-`.
 | `--bx-ok`, `--bx-warn`, `--bx-danger`, `--bx-info` / `--bx-on-status` | status fills / text on a status fill |
 | `--bx-font`, `--bx-radius`, `--bx-radius-badge` | the theme's type family and corner radii |
 
+### Component tokens
+
+| Token | Use |
+|---|---|
+| `--bx-card-bg`, `--bx-card-fg`, `--bx-card-border`, `--bx-card-radius`, `--bx-card-padding`, `--bx-card-gap` | card surface, text, border, radius and spacing |
+| `--bx-badge-radius`, `--bx-badge-font-size`, `--bx-badge-padding` | badge radius, type size and padding |
+| `--bx-control-bg`, `--bx-control-fg`, `--bx-control-border`, `--bx-control-radius`, `--bx-control-padding` | form controls (`bx-button`, `bx-input`, `bx-select`, `bx-toggle`) |
+| `--bx-tag-bg`, `--bx-tag-fg`, `--bx-tag-border`, `--bx-tag-radius` | tag chip (`bx-tag`) surface, text, border and radius |
+
 ### Themes
 
 | Theme | Look | Source |
@@ -67,6 +76,11 @@ A theme is applied with `data-bx-theme="<name>"` on any element (`applyTheme()` 
 
 | Component | Entry point | Use |
 |---|---|---|
+| `bx-button` | `components` | action button (`primary`, `secondary`, `danger`, `ghost`), emits `pressed` |
+| `bx-input` | `components` | single-line text input bound with `[(value)]`, `[formField]` or a reactive form control; sets `aria-invalid` when `invalid`; emits `touch` on blur |
+| `bx-select` | `components` | native select over `SelectOption[]`, bound like `bx-input`; emits `touch` on blur |
+| `bx-toggle` | `components` | accessible binary switch (`role="switch"`) bound with `[(checked)]`, `[formField]` or a reactive form control; emits `touch` on blur |
+| `bx-tag` | `components` | bordered chip for metadata or filters; `removable` adds an accessible remove button emitting `removed` |
 | `bx-card` | `components` | a raised panel; `label` makes it a named region |
 | `bx-icon` | `components` | an inline SVG icon from the set in `currentColor`; decorative unless given a `label` (then `role="img"` with that name); an unknown name draws nothing |
 | `bx-badge` | `components` | a short label on a tone (`accent`, `ok`, `warn`, `danger`, `info`); `live` gives it `role="status"` |

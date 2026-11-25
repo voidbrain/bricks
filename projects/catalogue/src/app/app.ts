@@ -1,5 +1,17 @@
-import { Component } from '@angular/core';
-import { BADGE_TONES, BxBadge, BxCard, BxIcon } from '@voidbrain/bricks/components';
+import { Component, signal } from '@angular/core';
+import {
+  BADGE_TONES,
+  BUTTON_VARIANTS,
+  BxBadge,
+  BxButton,
+  BxCard,
+  BxIcon,
+  BxInput,
+  BxSelect,
+  BxTag,
+  BxToggle,
+  type SelectOption,
+} from '@voidbrain/bricks/components';
 import { ICON_NAMES } from '@voidbrain/bricks/foundations';
 import { THEMES } from '@voidbrain/bricks/themes';
 import { SEMANTIC_TOKENS } from '@voidbrain/bricks/tokens';
@@ -12,7 +24,7 @@ import { samples } from './samples';
  */
 @Component({
   selector: 'cat-root',
-  imports: [BxBadge, BxCard, BxIcon, BxSurface],
+  imports: [BxBadge, BxButton, BxCard, BxIcon, BxInput, BxSelect, BxSurface, BxTag, BxToggle],
   template: `
     <header class="page-head">
       <h1>Bricks catalogue</h1>
@@ -29,6 +41,55 @@ import { samples } from './samples';
               <li><span class="swatch" [style.background]="'var(' + token + ')'"></span><code>{{ token }}</code></li>
             }
           </ul>
+
+          <h3>Button</h3>
+          <div class="row">
+            @for (variant of buttonVariants; track variant) {
+              <bx-button [variant]="variant">{{ variant }}</bx-button>
+            }
+            <bx-button variant="primary" [disabled]="true">disabled</bx-button>
+          </div>
+
+          <h3>Input and select</h3>
+          <div class="controls">
+            <div class="field">
+              <label [for]="'filter-' + theme">Filter query ({{ theme }})</label>
+              <bx-input
+                [inputId]="'filter-' + theme"
+                placeholder="Type a station code"
+                [(value)]="filterText"
+              />
+            </div>
+            <div class="field">
+              <label [for]="'invalid-' + theme">Invalid sample ({{ theme }})</label>
+              <bx-input
+                [inputId]="'invalid-' + theme"
+                value="bad-port"
+                [invalid]="true"
+              />
+            </div>
+            <div class="field">
+              <label [for]="'channel-' + theme">Channel ({{ theme }})</label>
+              <bx-select
+                [selectId]="'channel-' + theme"
+                [options]="channelOptions"
+                [(value)]="selectedChannel"
+              />
+            </div>
+          </div>
+
+          <h3>Toggle</h3>
+          <div class="row">
+            <bx-toggle>Telemetry relay</bx-toggle>
+            <bx-toggle [checked]="true">Auto reconnect</bx-toggle>
+            <bx-toggle [disabled]="true">Maintenance lock</bx-toggle>
+          </div>
+
+          <h3>Tag</h3>
+          <div class="row">
+            <bx-tag>sector-north</bx-tag>
+            <bx-tag [removable]="true" [removeLabel]="'Remove sector-east in ' + theme">sector-east</bx-tag>
+          </div>
 
           <h3>Badge</h3>
           <div class="row">
@@ -135,7 +196,23 @@ import { samples } from './samples';
     .row {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: var(--bx-space-2);
+    }
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+      gap: var(--bx-space-3);
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: var(--bx-space-1);
+      min-inline-size: 0;
+    }
+    .field label {
+      font-size: var(--bx-font-size-sm);
+      color: var(--bx-text-muted);
     }
     .three {
       --bx-columns: 3;
@@ -172,6 +249,14 @@ export class App {
   protected readonly themes = THEMES;
   protected readonly tones = BADGE_TONES;
   protected readonly icons = ICON_NAMES;
+  protected readonly buttonVariants = BUTTON_VARIANTS;
+  protected readonly filterText = signal('relay-01');
+  protected readonly selectedChannel = signal('ch-1');
+  protected readonly channelOptions: readonly SelectOption[] = [
+    { value: 'ch-1', label: 'Primary channel' },
+    { value: 'ch-2', label: 'Backup channel' },
+    { value: 'ch-3', label: 'Standby (offline)', disabled: true },
+  ];
   protected readonly colourTokens = SEMANTIC_TOKENS.filter((t) => !/font|radius/.test(t));
   private readonly byTheme = new Map(THEMES.map((t) => [t, samples(t)]));
   protected samplesFor(theme: (typeof THEMES)[number]) {

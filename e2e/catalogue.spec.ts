@@ -63,6 +63,29 @@ test.describe('catalogue', () => {
     expect(outline).not.toBe('none');
   });
 
+  test('every theme renders all five form primitives with keyboard operation and focus outline', async ({
+    page,
+  }) => {
+    for (const theme of THEMES) {
+      const section = page.locator(`section[data-bx-theme="${theme}"]`);
+      await expect(section.locator('bx-button button').first()).toBeVisible();
+      await expect(section.locator('bx-input input').first()).toBeVisible();
+      await expect(section.locator('bx-select select').first()).toBeVisible();
+      await expect(section.locator('bx-toggle button[role="switch"]').first()).toBeVisible();
+      await expect(section.locator('bx-tag').first()).toBeVisible();
+    }
+
+    const toggle = page
+      .locator('section[data-bx-theme="eva"] bx-toggle button[role="switch"]')
+      .first();
+    await expect(toggle).toHaveAttribute('aria-checked', 'false');
+    await toggle.focus();
+    await page.keyboard.press('Space');
+    await expect(toggle).toHaveAttribute('aria-checked', 'true');
+    const outline = await toggle.evaluate((el) => getComputedStyle(el).outlineStyle);
+    expect(outline).not.toBe('none');
+  });
+
   test('fits a 320 px phone without horizontal scroll', async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 800 });
     const overflow = await page.evaluate(
