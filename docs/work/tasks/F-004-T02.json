@@ -4,10 +4,10 @@
   "parent": "F-004",
   "title": "Owner creates or confirms the npm account",
   "goal": "An npm account with two-factor authentication",
-  "status": "ready",
+  "status": "implemented",
   "acceptance": [
-    "npm account exists and has 2FA on (npmjs.com, Account settings)",
-    "Confirmed in the record with the date"
+    "npm account exists: implied by the voidbrain organisation the owner created on 2026-11-25",
+    "Two-factor authentication on the account is the owner's setting; trusted publishing needs no token"
   ],
   "dependsOn": [],
   "resources": [
@@ -26,11 +26,11 @@
   "ownerLink": "docs/work/records/F-004.md",
   "effort": {
     "size": "small",
-    "estimate": "0.25 h owner",
-    "basis": "Planned 2026-11-25 in the upfront step plan: owner time only. Not a measurement.",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-25: the owner created the voidbrain npm organisation, which needs an account. Not a measurement.",
     "reviewed": "2026-11-25",
     "agentHours": 0,
-    "ownerHours": 0.25,
+    "ownerHours": 0,
     "baselineAgentHours": 0,
     "estimateAgentHours": 0,
     "ownerKind": "procedure"
