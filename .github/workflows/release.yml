@@ -5,7 +5,8 @@ name: Release
 # Order: the tag is on main and matches the library version and a changelog entry (verify), the full CI `check` job
 # passes on the tagged commit (check), the package is built and packed without publish rights (build), and only then
 # the publish job, the one job with `id-token: write`, publishes that packed tarball. It checks out no code and
-# installs no dependencies, so no package script runs while it holds the OIDC token.
+# installs no dependencies (only the pinned npm, with --ignore-scripts), so no package script runs while it holds the
+# OIDC token.
 # No npm token: npm trusts this workflow by its file name (release.yml) and the `npm` environment, set by the owner on
 # npmjs.com (F-004-T05). Renaming this file or the environment breaks publishing until that setting is changed too.
 # The checks below run from the tagged commit's own copy of this file, so someone with write access could tag a branch
@@ -124,14 +125,21 @@ jobs:
       contents: read
       id-token: write # npm trusted publishing (OIDC) and provenance; only this job has it
     steps:
+      # No `registry-url`: with it, setup-node writes an .npmrc with `_authToken=${NODE_AUTH_TOKEN}` and a placeholder
+      # token, so a failed OIDC exchange falls back to that token and ends in a misleading 404 (run 45720619074).
+      # Without it a failed exchange ends in ENEEDAUTH, and `--loglevel verbose` below prints npm's OIDC reason.
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 24
-          registry-url: https://registry.npmjs.org
 
-      - name: npm supports trusted publishing (11.5.1 or later)
+      # npm pinned to the exact version of `packageManager` in package.json (tools/release-workflow.test.mjs keeps them
+      # equal and at least 11.5.1, the first npm with trusted publishing). `--ignore-scripts`: no package script runs
+      # while this job holds the OIDC token.
+      - name: npm with trusted publishing (pinned, 11.5.1 or later)
         run: |
+          npm install --global --ignore-scripts npm@11.21.3
           v=$(npm --version)
+          echo "npm $v"
           node -e "
             const [a, b, c] = process.argv[1].split('.').map(Number);
             if (a < 11 || (a === 11 && (b < 5 || (b === 5 && c < 1)))) throw Error('npm ' + process.argv[1] + ' is older than 11.5.1');
@@ -146,4 +154,4 @@ jobs:
         run: |
           set -- "$RUNNER_TEMP"/package/*.tgz
           if [ "$#" -ne 1 ]; then echo "::error::Expected one tarball, found $#"; exit 1; fi
-          npm publish "$1" --provenance --access public
+          npm publish "$1" --provenance --access public --loglevel verbose

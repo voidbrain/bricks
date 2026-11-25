@@ -7,7 +7,7 @@
   "status": "implemented",
   "acceptance": [
     ".github/workflows/release.yml: on a pushed tag vX.Y.Z only (never a PR); verify (tag on main, matches projects/bricks/package.json version, CHANGELOG entry), the full CI check job (reusable ci.yml), build and npm pack without publish rights, then `npm publish --provenance --access public` of that tarball",
-    "id-token: write only in the publish job (environment npm), which checks out no code and installs no dependencies; no NPM_TOKEN; npm 11.5.1 or later asserted",
+    "id-token: write only in the publish job (environment npm), which checks out no code and installs no dependencies (only npm itself, pinned to packageManager's exact version with --ignore-scripts); no NPM_TOKEN and no setup-node registry-url placeholder token; npm 11.5.1 or later asserted and printed; tools/release-workflow.test.mjs checks these",
     "The tag must match projects/bricks/package.json version"
   ],
   "dependsOn": [
@@ -25,6 +25,7 @@
   "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
   "validation": [
     "npm run check:fast",
+    "npm run test:tools",
     "npm test",
     "npm run build",
     "npm run test:browser",
