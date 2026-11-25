@@ -58,13 +58,17 @@ A theme is applied with `data-bx-theme="<name>"` on any element (`applyTheme()` 
 - **Radii and lines:** `--bx-radius-0`, `-sm` 3 px, `-md` 6 px, `-lg` 8 px; 1 px lines.
 - **Focus:** a 3 px `--bx-focus` outline, 2 px offset, on `:focus-visible`, inside any themed root (`foundations.css`).
 - **Motion:** `--bx-duration-fast` 120 ms, `--bx-duration-base` 200 ms, one standard easing; `prefers-reduced-motion` stops motion.
-- **Layout and icons:** not yet; added on demand (F-003).
+- **Layout:** classes in `foundations.css`, names in `LAYOUT_CLASSES` (`@voidbrain/bricks/foundations`). `bx-stack` (a column), `bx-cluster` (a wrapping row), `bx-grid` (as many columns as fit `--bx-grid-min`, default 16rem, never wider than the screen), `bx-columns` (one column below `md`, `--bx-columns` from `md` up), `bx-safe-area` (padding clear of a phone's notch and home indicator, at least `--bx-safe-min`; the page needs `viewport-fit=cover`). Gaps come from the spacing scale: `--bx-gap`, or a `bx-gap-n` class for `--bx-space-n`; default `--bx-space-3`.
+- **Breakpoints:** phone first, `min-width` only: `sm` 480 px, `md` 768 px, `lg` 1024 px (`BREAKPOINTS`, `minWidth()`). A media query cannot read a custom property, so CSS repeats the numbers; the browser suite checks `bx-columns` switches at `md`. Everything fits 320 px without horizontal scroll.
+- **Safe areas:** `--bx-safe-top`, `-right`, `-bottom`, `-left`: `env(safe-area-inset-*)`, 0 px off phones.
+- **Icons:** a small line set on a 24 px box, 2 px stroke, round caps, in `currentColor` so it takes the text colour of every theme (`ICON_NAMES`: check, close, plus, minus, chevrons, menu, more, search, info, warning, error). Inline SVG through `bx-icon`; no icon font, sprite file or CDN. Size `--bx-icon-size` (1.25em), stroke `--bx-icon-stroke`. An icon next to text that says the same is decorative (hidden from screen readers); an icon alone gets a `label`. Colour never carries meaning alone, so a status icon sits next to its status in text. A new icon is added on real demand, drawn to the same box and stroke.
 
 ## Components
 
 | Component | Entry point | Use |
 |---|---|---|
 | `bx-card` | `components` | a raised panel; `label` makes it a named region |
+| `bx-icon` | `components` | an inline SVG icon from the set in `currentColor`; decorative unless given a `label` (then `role="img"` with that name); an unknown name draws nothing |
 | `bx-badge` | `components` | a short label on a tone (`accent`, `ok`, `warn`, `danger`, `info`); `live` gives it `role="status"` |
 | `bx-status-card`, `bx-notice-card`, `bx-checklist-card`, `bx-recipe-card` | `surfaces` | NERV's four genUI cards, same component ids, schemas and validation |
 | `bx-surface` | `surfaces` | validates one surface payload and renders its card, or a rejection alert; emits `rejected` and `checklistToggle` |

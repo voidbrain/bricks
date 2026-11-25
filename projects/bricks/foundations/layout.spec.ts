@@ -1,10 +1,4 @@
-import {
-  BREAKPOINTS,
-  LAYOUT_CLASSES,
-  SAFE_AREA_TOKENS,
-  gapClass,
-  minWidth,
-} from './layout';
+import { BREAKPOINTS, LAYOUT_CLASSES, SAFE_AREA_TOKENS, gapClass, minWidth } from './layout';
 
 describe('layout foundations', () => {
   it('names the breakpoints in ascending order, phone first', () => {
@@ -19,7 +13,13 @@ describe('layout foundations', () => {
   });
 
   it('names the layout classes with the bricks prefix', () => {
-    expect([...LAYOUT_CLASSES]).toEqual(['bx-stack', 'bx-cluster', 'bx-grid', 'bx-columns', 'bx-safe-area']);
+    expect([...LAYOUT_CLASSES]).toEqual([
+      'bx-stack',
+      'bx-cluster',
+      'bx-grid',
+      'bx-columns',
+      'bx-safe-area',
+    ]);
   });
 
   it('maps a spacing step to a gap class', () => {

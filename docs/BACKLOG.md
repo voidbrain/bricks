@@ -3,7 +3,7 @@
 Current work ledger, reviewed 25 November 2026 against main `15ee8d9`. Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 60 h agent + 0.5 h owner across 29 open steps of 9 features. Generated from the task files.
+**Remaining effort:** 56 h agent + 0.5 h owner across 29 open steps of 9 features. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -349,7 +349,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟣 Very large | 35 h | — | — | 🤖 | — | — |
+| 🔴 Open | 🔹 P3 | 🟣 Very large | 31 h | — | — | 🤖 | — | — |
 
 💻 **→** Next: F-003-T01 — Primitives: button, input, select, toggle, tag (Planned).
 
@@ -365,12 +365,12 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 |---|---|---|---|---|---|---|---|
 | 🔴 Large | <a id="f-003-t01"></a>F-003-T01 — Primitives: button, input, select, toggle, tag | 6 h | 0 h | 6 h | Planned | — | [F-003-T02](#f-003-t02), [F-003-T04](#f-003-t04), [F-003-T05](#f-003-t05) |
 | 🟡 Medium | <a id="f-003-t03"></a>F-003-T03 — Live-view helper: render once, update changed values, keyed rows | 4 h | 0 h | 4 h | Planned | — | — |
-| 🟡 Medium | <a id="f-003-t07"></a>F-003-T07 — Foundations: layout and icons | 4 h | 0 h | 4 h | Planned | — | — |
+| 🟢 Small | <a id="f-003-t07"></a>F-003-T07 — Foundations: layout and icons | 4 h | 0 h | 0 h | Implemented; verification pending | — | — |
 | 🔴 Large | <a id="f-003-t02"></a>F-003-T02 — Components: form field, list row, tabs | 5 h | 0 h | 5 h | Planned | [F-003-T01](#f-003-t01) | [F-003-T06](#f-003-t06) |
 | 🔴 Large | <a id="f-003-t04"></a>F-003-T04 — Dialog and toast | 5 h | 0 h | 5 h | Planned | [F-003-T01](#f-003-t01) | — |
 | 🔴 Large | <a id="f-003-t05"></a>F-003-T05 — Patterns: status row, approval card, empty state | 5 h | 0 h | 5 h | Planned | [F-003-T01](#f-003-t01) | — |
 | 🔴 Large | <a id="f-003-t06"></a>F-003-T06 — Patterns: data table and filters | 6 h | 0 h | 6 h | Planned | [F-003-T02](#f-003-t02) | — |
-| 🟣 Very large | **Total** | 35 h | 0 h (0 of 7 steps recorded) | 35 h | 0 of 7 completed | | |
+| 🟣 Very large | **Total** | 35 h | 0 h (0 of 7 steps recorded) | 31 h | 0 of 7 completed | | |
 
 <details>
 <summary>Next action, estimates and PR history</summary>

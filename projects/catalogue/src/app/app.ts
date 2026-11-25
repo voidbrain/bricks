@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { BADGE_TONES, BxBadge, BxCard } from '@voidbrain/bricks/components';
+import { BADGE_TONES, BxBadge, BxCard, BxIcon } from '@voidbrain/bricks/components';
+import { ICON_NAMES } from '@voidbrain/bricks/foundations';
 import { THEMES } from '@voidbrain/bricks/themes';
 import { SEMANTIC_TOKENS } from '@voidbrain/bricks/tokens';
 import { BxSurface } from '@voidbrain/bricks/surfaces';
@@ -11,13 +12,13 @@ import { samples } from './samples';
  */
 @Component({
   selector: 'cat-root',
-  imports: [BxBadge, BxCard, BxSurface],
+  imports: [BxBadge, BxCard, BxIcon, BxSurface],
   template: `
     <header class="page-head">
       <h1>Bricks catalogue</h1>
-      <p>Every component and genUI surface in every theme. Themes: {{ themes.join(', ') }}.</p>
+      <p>Every foundation, component and genUI surface in every theme. Themes: {{ themes.join(', ') }}.</p>
     </header>
-    <main>
+    <main class="bx-safe-area">
       @for (theme of themes; track theme) {
         <section class="theme" [attr.data-bx-theme]="theme" [attr.aria-labelledby]="'theme-' + theme">
           <h2 [id]="'theme-' + theme">Theme: {{ theme }}</h2>
@@ -35,6 +36,31 @@ import { samples } from './samples';
               <bx-badge [tone]="tone">{{ tone }}</bx-badge>
             }
           </div>
+
+          <h3>Layout</h3>
+          <div class="bx-stack bx-gap-4" data-testid="layout-stack">
+            <div class="bx-cluster bx-gap-2">
+              <bx-badge tone="info">cluster</bx-badge>
+              <bx-badge tone="ok">wraps</bx-badge>
+              <bx-badge tone="warn">on a phone</bx-badge>
+            </div>
+            <div class="bx-columns three" data-testid="layout-columns">
+              <bx-card><p class="flush">One column on a phone.</p></bx-card>
+              <bx-card><p class="flush">Three from the md breakpoint.</p></bx-card>
+              <bx-card><p class="flush">Gaps on the spacing scale.</p></bx-card>
+            </div>
+            <div class="bx-safe-area safe" data-testid="layout-safe-area">
+              <p class="flush">A safe area: clear of a notch, at least 12 px in.</p>
+            </div>
+          </div>
+
+          <h3>Icons</h3>
+          <ul class="icons bx-grid bx-gap-2" data-testid="icons">
+            @for (icon of icons; track icon) {
+              <li><bx-icon [name]="icon" /><code>{{ icon }}</code></li>
+            }
+            <li><bx-icon name="warning" label="Warning" /><span>labelled: Warning</span></li>
+          </ul>
 
           <h3>Card</h3>
           <bx-card><p class="flush">A card holds any content on the raised surface.</p></bx-card>
@@ -111,6 +137,24 @@ import { samples } from './samples';
       flex-wrap: wrap;
       gap: var(--bx-space-2);
     }
+    .three {
+      --bx-columns: 3;
+    }
+    .safe {
+      --bx-safe-min: var(--bx-space-3);
+      border: var(--bx-line-width) dashed var(--bx-border);
+    }
+    .icons {
+      --bx-grid-min: 10rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .icons li {
+      display: flex;
+      align-items: center;
+      gap: var(--bx-space-2);
+    }
     .nested {
       display: flex;
       flex-direction: column;
@@ -127,6 +171,7 @@ import { samples } from './samples';
 export class App {
   protected readonly themes = THEMES;
   protected readonly tones = BADGE_TONES;
+  protected readonly icons = ICON_NAMES;
   protected readonly colourTokens = SEMANTIC_TOKENS.filter((t) => !/font|radius/.test(t));
   private readonly byTheme = new Map(THEMES.map((t) => [t, samples(t)]));
   protected samplesFor(theme: (typeof THEMES)[number]) {

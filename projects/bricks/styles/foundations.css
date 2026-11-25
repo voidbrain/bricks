@@ -1,4 +1,4 @@
-/* Bricks foundations: type, focus and motion applied inside any themed root. Load after tokens and a theme. */
+/* Bricks foundations: type, focus, motion and layout applied inside any themed root. Load after tokens and a theme. */
 [data-bx-theme] {
   font-family: var(--bx-font);
   font-size: var(--bx-font-size-md);
@@ -17,4 +17,66 @@
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/*
+ * Layout (foundations/layout.ts, LAYOUT_CLASSES): stack, cluster, grid, columns and safe area, on the spacing
+ * scale. `--bx-gap` sets the gap (a `bx-gap-n` class picks step n); `--bx-grid-min` and `--bx-columns` tune the
+ * grids, `--bx-safe-min` the least padding a safe area keeps. Breakpoints are BREAKPOINTS (sm 480, md 768, lg 1024 px): a media query cannot read a custom property.
+ */
+.bx-stack,
+.bx-cluster,
+.bx-grid,
+.bx-columns {
+  gap: var(--bx-gap, var(--bx-space-3));
+  min-inline-size: 0;
+}
+.bx-stack {
+  display: flex;
+  flex-direction: column;
+}
+.bx-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.bx-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--bx-grid-min, 16rem)), 1fr));
+}
+.bx-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 768px) {
+  .bx-columns {
+    grid-template-columns: repeat(var(--bx-columns, 2), minmax(0, 1fr));
+  }
+}
+.bx-safe-area {
+  padding: max(var(--bx-safe-min, 0px), var(--bx-safe-top))
+    max(var(--bx-safe-min, 0px), var(--bx-safe-right))
+    max(var(--bx-safe-min, 0px), var(--bx-safe-bottom))
+    max(var(--bx-safe-min, 0px), var(--bx-safe-left));
+}
+.bx-gap-1 {
+  --bx-gap: var(--bx-space-1);
+}
+.bx-gap-2 {
+  --bx-gap: var(--bx-space-2);
+}
+.bx-gap-3 {
+  --bx-gap: var(--bx-space-3);
+}
+.bx-gap-4 {
+  --bx-gap: var(--bx-space-4);
+}
+.bx-gap-5 {
+  --bx-gap: var(--bx-space-5);
+}
+.bx-gap-6 {
+  --bx-gap: var(--bx-space-6);
+}
+.bx-gap-8 {
+  --bx-gap: var(--bx-space-8);
 }

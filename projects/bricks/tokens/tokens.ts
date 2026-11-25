@@ -34,6 +34,8 @@ export const COMPONENT_TOKENS = [
   '--bx-badge-radius',
   '--bx-badge-font-size',
   '--bx-badge-padding',
+  '--bx-icon-size',
+  '--bx-icon-stroke',
 ] as const;
 export type ComponentToken = (typeof COMPONENT_TOKENS)[number];
 

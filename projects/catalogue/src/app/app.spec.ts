@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { ICON_NAMES } from '@voidbrain/bricks/foundations';
 import { App } from './app';
 
 describe('catalogue', () => {
@@ -14,6 +15,10 @@ describe('catalogue', () => {
     for (const section of el.querySelectorAll('section.theme')) {
       expect(section.querySelectorAll('bx-surface').length).toBe(9);
       expect(section.querySelectorAll('[role=alert]').length).toBe(1);
+      expect(section.querySelectorAll('[data-testid=icons] bx-icon svg').length).toBe(
+        ICON_NAMES.length + 1,
+      );
+      expect(section.querySelector('[data-testid=layout-columns].bx-columns')).not.toBeNull();
     }
   });
 });
