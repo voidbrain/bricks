@@ -34,6 +34,15 @@ export const COMPONENT_TOKENS = [
   '--bx-badge-radius',
   '--bx-badge-font-size',
   '--bx-badge-padding',
+  '--bx-control-bg',
+  '--bx-control-fg',
+  '--bx-control-border',
+  '--bx-control-radius',
+  '--bx-control-padding',
+  '--bx-tag-bg',
+  '--bx-tag-fg',
+  '--bx-tag-border',
+  '--bx-tag-radius',
 ] as const;
 export type ComponentToken = (typeof COMPONENT_TOKENS)[number];
 
