@@ -87,7 +87,7 @@ Each component is shown in every theme in the catalogue (`npm start`). Component
 
 ## Live views
 
-Render once, then update only what changed; lists are keyed rows (`@for … track id`): a new payload patches, adds, moves or removes rows, never rebuilds the list. The checklist card keeps a row's DOM node across payloads (unit-tested). A framework-free helper for non-Angular pages is planned (F-003-T03).
+Render once, then update only what changed; lists are keyed rows (`@for … track id`): a new payload patches, adds, moves or removes rows, never rebuilds the list. The checklist card keeps a row's DOM node across payloads (unit-tested). Non-Angular pages use `@voidbrain/bricks/live` (`createLiveView`, `patchKeyedRows`, `setText`, `setAttr`), which builds nodes with DOM APIs only (never `innerHTML`) and writes only changed text and attributes.
 
 ## Accessibility
 

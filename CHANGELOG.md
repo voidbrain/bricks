@@ -9,6 +9,7 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 ### Added
 
 - `@voidbrain/bricks/components`: `bx-button`, `bx-input`, `bx-select`, `bx-toggle` and `bx-tag` form primitives (`bx-input`, `bx-select` and `bx-toggle` bind `[(value)]`/`[(checked)]`, signal forms `[formField]` and reactive form controls, and emit `touch` on blur), plus `--bx-control-*` and `--bx-tag-*` component tokens (`COMPONENT_TOKENS`).
+- `@voidbrain/bricks/live`: framework-free live-view helpers (`setText`, `setAttr`, `patchKeyedRows`, `createLiveView`) that render once with DOM nodes (no `innerHTML`) and patch only changed values and keyed rows.
 
 ## [0.1.0] - 2026-11-25
 

@@ -299,6 +299,10 @@
       [
         "projects/bricks/foundations/",
         []
+      ],
+      [
+        "projects/bricks/live/",
+        []
       ]
     ],
     "sourceDirs": [

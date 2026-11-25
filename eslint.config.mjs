@@ -15,6 +15,7 @@ const PURE_GLOBS = [
   'projects/bricks/tokens/**/*.ts',
   'projects/bricks/themes/**/*.ts',
   'projects/bricks/foundations/**/*.ts',
+  'projects/bricks/live/**/*.ts',
   'projects/bricks/surfaces/surface.ts',
 ];
 

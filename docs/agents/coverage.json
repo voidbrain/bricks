@@ -1,14 +1,14 @@
 {
  "projects/bricks/": {
-  "lines": 90.6,
-  "statements": 91.3,
-  "branches": 88.4,
-  "functions": 98.1
+  "lines": 88.4,
+  "statements": 89.3,
+  "branches": 85.2,
+  "functions": 95.3
  },
  "all": {
-  "lines": 90.6,
-  "statements": 91.3,
-  "branches": 88.4,
-  "functions": 98.1
+  "lines": 88.4,
+  "statements": 89.3,
+  "branches": 85.2,
+  "functions": 95.3
  }
 }
