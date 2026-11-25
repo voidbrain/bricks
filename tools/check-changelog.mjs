@@ -27,7 +27,9 @@ export function changelogErrors(version, text) {
   if (!date || !isoDate(date))
     return [`The heading for ${version} needs a release date: "## [${version}] - YYYY-MM-DD".`];
   const next = lines.findIndex((line, j) => j > i && /^#{1,2} /.test(line));
-  const body = lines.slice(i + 1, next < 0 ? undefined : next).filter((line) => line.trim());
+  const body = lines
+    .slice(i + 1, next < 0 ? undefined : next)
+    .filter((line) => line.trim() && !/^#/.test(line)); // subheadings alone (### Added) are not an entry
   if (body.length === 0) return [`The entry for ${version} is empty: say what changed and what breaks.`];
   return [];
 }

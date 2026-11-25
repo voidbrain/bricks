@@ -51,6 +51,13 @@ test('an entry with no lines under it fails', () => {
   assert.equal(changelogErrors('0.2.0', text).length, 1);
 });
 
+test('an entry with only subheadings under it fails', () => {
+  const text = ['# Changelog', '', '## [0.2.0] - 2026-12-01', '', '### Added', '', '## [0.1.0] - 2026-11-25', '- A change.'].join(
+    '\n',
+  );
+  assert.equal(changelogErrors('0.2.0', text).length, 1);
+});
+
 test('checkRepository reads the library package and CHANGELOG.md, and reports a missing changelog', () => {
   const root = mkdtempSync(join(tmpdir(), 'bricks-changelog-'));
   mkdirSync(join(root, 'projects/bricks'), { recursive: true });
