@@ -4,15 +4,22 @@
   "parent": "F-003",
   "title": "Foundations: layout and icons",
   "goal": "Layout helpers and an icon approach",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
-    "Layout classes or components (stack, cluster, columns) on spacing tokens",
-    "Icon approach decided (inline SVG set, no remote fonts) with one icon component"
+    "Layout classes on the spacing scale (bx-stack, bx-cluster, bx-grid, bx-columns, bx-safe-area, bx-gap-n), breakpoints (BREAKPOINTS sm 480, md 768, lg 1024) and safe-area tokens (--bx-safe-*)",
+    "Icon approach decided: a small inline SVG set (foundations/icons.ts) in currentColor, no icon font or CDN, with one icon component (bx-icon) that is decorative or labelled",
+    "In the catalogue in all three themes with axe passing; unit and browser tests written first"
   ],
   "dependsOn": [],
   "resources": [
     "projects/bricks/foundations/**",
     "projects/bricks/styles/**",
+    "projects/bricks/components/icon.ts",
+    "projects/bricks/components/icon.spec.ts",
+    "projects/catalogue/**",
+    "e2e/catalogue.spec.ts",
+    "docs/STYLE-GUIDE.md",
+    "CHANGELOG.md",
     "docs/work/records/F-003.md"
   ],
   "capabilities": [
@@ -32,14 +39,14 @@
   ],
   "effort": {
     "size": "medium",
-    "estimate": "4 h agent, 1 d",
-    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 1 focused day(s). Not a measurement.",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-25 in one PR; verification is its CI. No actual: the step's start time was not recorded.",
     "reviewed": "2026-11-25",
-    "agentHours": 4,
+    "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 4,
     "estimateAgentHours": 4,
-    "days": 1,
+    "days": 0,
     "baselineDays": 1
   }
 }

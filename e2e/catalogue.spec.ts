@@ -1,6 +1,8 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import { THEMES } from '../projects/bricks/themes/themes';
+import { ICON_NAMES } from '../projects/bricks/foundations/icons';
+import { BREAKPOINTS } from '../projects/bricks/foundations/layout';
 import { SEMANTIC_TOKENS } from '../projects/bricks/tokens/tokens';
 
 test.describe('catalogue', () => {
@@ -121,5 +123,69 @@ test.describe('catalogue', () => {
       .withTags(['wcag2a', 'wcag2aa'])
       .analyze();
     expect(results.violations.map((v) => v.id)).toEqual([]);
+  });
+
+  test('layout: columns stack on a phone and widen from the md breakpoint, gaps follow the spacing scale', async ({
+    page,
+  }) => {
+    const columns = (theme: string) =>
+      page
+        .locator(`section[data-bx-theme="${theme}"] [data-testid="layout-columns"]`)
+        .evaluate((el) => getComputedStyle(el).gridTemplateColumns.split(' ').length);
+    await page.setViewportSize({ width: BREAKPOINTS.md - 1, height: 800 });
+    for (const theme of THEMES) expect(await columns(theme)).toBe(1);
+    await page.setViewportSize({ width: BREAKPOINTS.md, height: 800 });
+    for (const theme of THEMES) expect(await columns(theme)).toBe(3);
+    const gap = await page
+      .locator('section[data-bx-theme="base"] [data-testid="layout-stack"]')
+      .evaluate((el) => getComputedStyle(el).rowGap);
+    expect(gap).toBe('16px');
+  });
+
+  test('layout: a safe area keeps at least its minimum padding and reads the inset tokens', async ({
+    page,
+  }) => {
+    const area = page.locator('section[data-bx-theme="base"] [data-testid="layout-safe-area"]');
+    const read = await area.evaluate((el) => {
+      const s = getComputedStyle(el);
+      return {
+        padding: [s.paddingTop, s.paddingRight, s.paddingBottom, s.paddingLeft],
+        top: s.getPropertyValue('--bx-safe-top').trim(),
+      };
+    });
+    expect(read.padding).toEqual(['12px', '12px', '12px', '12px']);
+    expect(read.top).not.toBe('');
+  });
+
+  test('icons: every icon in every theme is inline, in currentColor, and named or hidden', async ({
+    page,
+  }) => {
+    for (const theme of THEMES) {
+      const icons = page.locator(`section[data-bx-theme="${theme}"] [data-testid="icons"] bx-icon`);
+      await expect(icons).toHaveCount(ICON_NAMES.length + 1);
+    }
+    const problems = await page.locator('bx-icon svg').evaluateAll((svgs) =>
+      svgs.flatMap((svg) => {
+        const out: string[] = [];
+        const named = svg.getAttribute('role') === 'img' && !!svg.getAttribute('aria-label');
+        if (!named && svg.getAttribute('aria-hidden') !== 'true')
+          out.push('neither named nor hidden');
+        if (getComputedStyle(svg).stroke !== getComputedStyle(svg.parentElement!).color)
+          out.push('stroke is not currentColor');
+        if (svg.querySelector('use, image, foreignObject')) out.push('external reference');
+        return out;
+      }),
+    );
+    expect(problems).toEqual([]);
+  });
+
+  test('loads nothing from another origin: no icon font, no CDN', async ({ page, baseURL }) => {
+    const foreign: string[] = [];
+    page.on('request', (r) => {
+      if (new URL(r.url()).origin !== new URL(baseURL!).origin) foreign.push(r.url());
+    });
+    await page.reload();
+    await expect(page.locator('section.theme')).toHaveCount(THEMES.length);
+    expect(foreign).toEqual([]);
   });
 });

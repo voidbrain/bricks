@@ -9,6 +9,12 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 ### Added
 
 - `@voidbrain/bricks/components`: `bx-button`, `bx-input`, `bx-select`, `bx-toggle` and `bx-tag` form primitives (`bx-input`, `bx-select` and `bx-toggle` bind `[(value)]`/`[(checked)]`, signal forms `[formField]` and reactive form controls, and emit `touch` on blur), plus `--bx-control-*` and `--bx-tag-*` component tokens (`COMPONENT_TOKENS`).
+- `@voidbrain/bricks/foundations`: layout classes in `foundations.css` (`bx-stack`, `bx-cluster`, `bx-grid`, `bx-columns`, `bx-safe-area`, `bx-gap-1` to `bx-gap-8`) and their names (`LAYOUT_CLASSES`, `gapClass()`), breakpoints (`BREAKPOINTS`, `minWidth()`), safe-area tokens (`--bx-safe-top`, `-right`, `-bottom`, `-left`, `SAFE_AREA_TOKENS`), and a 14-icon inline SVG set (`ICONS`, `ICON_NAMES`, `iconPaths()`, `isIconName()`).
+- `@voidbrain/bricks/components`: `bx-icon`, an inline SVG icon in `currentColor`, decorative unless given a `label`; component tokens `--bx-icon-size` and `--bx-icon-stroke`.
+
+### Breaking
+
+- Nothing.
 
 ## [0.1.0] - 2026-11-25
 
