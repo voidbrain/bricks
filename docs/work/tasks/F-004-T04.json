@@ -4,10 +4,10 @@
   "parent": "F-004",
   "title": "Release workflow with npm trusted publishing",
   "goal": "A v* tag publishes from GitHub Actions without a token",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
-    ".github/workflows/release.yml: on tag v* from main, npm ci, the full checks, build, `npm publish --provenance --access public` from dist/bricks",
-    "permissions id-token: write; no NPM_TOKEN; Node and npm versions that support trusted publishing",
+    ".github/workflows/release.yml: on a pushed tag vX.Y.Z only (never a PR); verify (tag on main, matches projects/bricks/package.json version, CHANGELOG entry), the full CI check job (reusable ci.yml), build and npm pack without publish rights, then `npm publish --provenance --access public` of that tarball",
+    "id-token: write only in the publish job (environment npm), which checks out no code and installs no dependencies; no NPM_TOKEN; npm 11.5.1 or later asserted",
     "The tag must match projects/bricks/package.json version"
   ],
   "dependsOn": [
@@ -35,14 +35,14 @@
   ],
   "effort": {
     "size": "medium",
-    "estimate": "3 h agent, 1 d",
-    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 1 focused day(s). Not a measurement.",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-25 in one PR with a fresh-context design review; verification is the first publish (F-004-T06). No actual: the step's start time was not recorded.",
     "reviewed": "2026-11-25",
-    "agentHours": 3,
+    "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 3,
     "estimateAgentHours": 3,
-    "days": 1,
+    "days": 0,
     "baselineDays": 1
   }
 }
