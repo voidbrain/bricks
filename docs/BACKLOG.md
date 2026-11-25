@@ -91,7 +91,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-004-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded. [#1](https://github.com/voidbrain/bricks/pull/1), [#2](https://github.com/voidbrain/bricks/pull/2) (npm organisation created) |
+| PR / evidence | Steps: F-004-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded. [#1](https://github.com/voidbrain/bricks/pull/1), [#2](https://github.com/voidbrain/bricks/pull/2) (npm organisation created), [#3](https://github.com/voidbrain/bricks/pull/3) (owner steps marked, status Open) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
@@ -119,7 +119,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Who | PRs |
 |---|---|---|---|---|---|:---:|---|
-| 🟢 Small | <a id="f-001-t01"></a>F-001-T01 — Scaffold the workspace and apply harness v10.21.3 | 4 h | 0 h | 0 h | Implemented; verification pending | 🤖 | [PR #1](https://github.com/voidbrain/bricks/pull/1) workspace, harness and first content |
+| 🟢 Small | <a id="f-001-t01"></a>F-001-T01 — Scaffold the workspace and apply harness v10.21.3 | 4 h | 0 h | 0 h | Implemented; verification pending | 🤖 | [PR #1](https://github.com/voidbrain/bricks/pull/1) workspace, harness and first content; [PR #3](https://github.com/voidbrain/bricks/pull/3) patterns entry point, Hobo leftovers removed |
 | 🟢 Small | <a id="f-001-t02"></a>F-001-T02 — Owner sets branch protection and auto-merge | 0 h | 0 h | 0 h agent + 0.25 h owner | Ready | [🧑‍🔧](work/records/F-001.md) | — |
 | 🟢 Small | **Total** | 4 h | 0 h (0 of 2 steps recorded) | 0.25 h owner | 0 of 2 completed | | |
 
@@ -130,7 +130,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-001-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) workspace, harness and first content. [#1](https://github.com/voidbrain/bricks/pull/1) |
+| PR / evidence | Steps: F-001-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) workspace, harness and first content; [PR #3](https://github.com/voidbrain/bricks/pull/3) patterns entry point, Hobo leftovers removed. [#1](https://github.com/voidbrain/bricks/pull/1) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
@@ -160,7 +160,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 |---|---|---|---|---|---|---|
 | 🟢 Small | <a id="f-002-t01"></a>F-002-T01 — Tokens, foundations and the base, plain and eva themes | 3 h | 0 h | 0 h | Implemented; verification pending | [PR #1](https://github.com/voidbrain/bricks/pull/1) tokens and themes |
 | 🟢 Small | <a id="f-002-t02"></a>F-002-T02 — Port the four genUI surface cards with their schemas and validation | 4 h | 0 h | 0 h | Implemented; verification pending | [PR #1](https://github.com/voidbrain/bricks/pull/1) genUI surfaces |
-| 🟢 Small | <a id="f-002-t03"></a>F-002-T03 — Catalogue in all three themes with axe in CI | 2 h | 0 h | 0 h | Implemented; verification pending | [PR #1](https://github.com/voidbrain/bricks/pull/1) catalogue and axe |
+| 🟢 Small | <a id="f-002-t03"></a>F-002-T03 — Catalogue in all three themes with axe in CI | 2 h | 0 h | 0 h | Implemented; verification pending | [PR #1](https://github.com/voidbrain/bricks/pull/1) catalogue and axe; [PR #3](https://github.com/voidbrain/bricks/pull/3) nested-theme test, review fixes |
 | 🟢 Small | **Total** | 9 h | 0 h (0 of 3 steps recorded) | 0 h | 0 of 3 completed | |
 
 <details>
@@ -170,7 +170,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-002-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) tokens and themes · F-002-T02: [PR #1](https://github.com/voidbrain/bricks/pull/1) genUI surfaces · F-002-T03: [PR #1](https://github.com/voidbrain/bricks/pull/1) catalogue and axe. [#1](https://github.com/voidbrain/bricks/pull/1) |
+| PR / evidence | Steps: F-002-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) tokens and themes · F-002-T02: [PR #1](https://github.com/voidbrain/bricks/pull/1) genUI surfaces · F-002-T03: [PR #1](https://github.com/voidbrain/bricks/pull/1) catalogue and axe; [PR #3](https://github.com/voidbrain/bricks/pull/3) nested-theme test, review fixes. [#1](https://github.com/voidbrain/bricks/pull/1) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |

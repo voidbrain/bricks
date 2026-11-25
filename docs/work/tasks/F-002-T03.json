@@ -48,6 +48,10 @@
     {
       "pr": 1,
       "note": "catalogue and axe"
+    },
+    {
+      "pr": 3,
+      "note": "nested-theme test, review fixes"
     }
   ]
 }
