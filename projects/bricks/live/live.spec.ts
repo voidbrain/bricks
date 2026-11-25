@@ -194,4 +194,93 @@ describe('live-view helper (F-003-T03)', () => {
     expect(input.value).toBe('after-blur');
     input.remove();
   });
+
+  it('rejects duplicate keys before touching the DOM', () => {
+    const ul = document.createElement('ul');
+    const spec = makeSpec([]);
+    patchKeyedRows(ul, [{ id: 'a', label: 'Alpha', packets: 1, status: 'ok' }], spec);
+    const before = ul.firstElementChild;
+    expect(() =>
+      patchKeyedRows(
+        ul,
+        [
+          { id: 'b', label: 'Bravo', packets: 2, status: 'ok' },
+          { id: 'b', label: 'Bravo again', packets: 3, status: 'ok' },
+        ],
+        spec,
+      ),
+    ).toThrow(/Duplicate live-view row key "b"/);
+    expect(ul.children.length).toBe(1);
+    expect(ul.firstElementChild).toBe(before);
+  });
+
+  it('moves keyed rows with insertBefore only: no row is created or removed', () => {
+    const ul = document.createElement('ul');
+    const creates: string[] = [];
+    const spec = makeSpec(creates);
+    const rows = ['a', 'b', 'c', 'd'].map((id, i) => ({
+      id,
+      label: id,
+      packets: i,
+      status: 'ok' as const,
+    }));
+    patchKeyedRows(ul, rows, spec);
+    const byKey = new Map(
+      Array.from(ul.children).map((li) => [li.getAttribute('data-bx-key'), li]),
+    );
+    const texts = Array.from(ul.querySelectorAll('span')).map((s) => s.firstChild);
+
+    const observer = new MutationObserver(() => undefined);
+    observer.observe(ul, { childList: true, characterData: true, attributes: true, subtree: true });
+    patchKeyedRows(ul, [rows[3]!, rows[1]!, rows[0]!, rows[2]!], spec);
+    const records = observer.takeRecords();
+    observer.disconnect();
+
+    expect(creates).toEqual(['a', 'b', 'c', 'd']);
+    expect(Array.from(ul.children).map((li) => li.getAttribute('data-bx-key'))).toEqual([
+      'd',
+      'b',
+      'a',
+      'c',
+    ]);
+    for (const li of Array.from(ul.children)) {
+      expect(li).toBe(byKey.get(li.getAttribute('data-bx-key')));
+    }
+    for (const text of texts) {
+      expect(text && ul.contains(text)).toBe(true);
+    }
+    expect(records.every((r) => r.type === 'childList' && r.target === ul)).toBe(true);
+  });
+
+  it('goes from N rows to 0 and back to N with fresh, correct rows', () => {
+    const ul = document.createElement('ul');
+    const creates: string[] = [];
+    const spec = makeSpec(creates);
+    const rows = ['a', 'b', 'c'].map((id, i) => ({
+      id,
+      label: id.toUpperCase(),
+      packets: i,
+      status: 'ok' as const,
+    }));
+    patchKeyedRows(ul, rows, spec);
+    const first = Array.from(ul.children);
+    patchKeyedRows(ul, [], spec);
+    expect(ul.childNodes.length).toBe(0);
+    patchKeyedRows(ul, rows, spec);
+    expect(creates).toEqual(['a', 'b', 'c', 'a', 'b', 'c']);
+    expect(Array.from(ul.children).map((li) => li.textContent)).toEqual(['A0', 'B1', 'C2']);
+    expect(Array.from(ul.children).some((li) => first.includes(li))).toBe(false);
+    patchKeyedRows(ul, rows, spec);
+    expect(creates.length).toBe(6);
+  });
+
+  it('refuses event-handler attributes so data can never become script', () => {
+    const el = document.createElement('img');
+    expect(() => setAttr(el, 'onerror', 'alert(1)')).toThrow(/event-handler/);
+    expect(() => setAttr(el, 'ONload', 'alert(1)')).toThrow(/event-handler/);
+    expect(el.attributes.length).toBe(0);
+    expect(setAttr(el, 'alt', '"><script>alert(1)</script>')).toBe(true);
+    expect(el.getAttribute('alt')).toBe('"><script>alert(1)</script>');
+    expect(el.children.length).toBe(0);
+  });
 });
