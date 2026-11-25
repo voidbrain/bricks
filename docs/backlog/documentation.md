@@ -4,7 +4,7 @@ Read before you change documentation or close a record that changed behaviour. P
 
 ## Documentation consistency
 
-README summarizes capabilities and how to run it; `docs/DESIGN.md` (from F-001-T01) will own the domain model, routing maths, the map provider adapter and the NERV MCP surface; AGENTS directs repository work, with per-area rules in [docs/agents/areas.md](../agents/areas.md); BACKLOG-RULES and `docs/backlog/` own backlog procedure; BACKLOG holds current records and the quick lifecycle legend; the [style guide](../STYLE-GUIDE.md) owns UI and writing conventions. User instructions take precedence. Dated archives and audits preserve context and do not override current rules.
+README summarizes capabilities, entry points and how to run it; the [style guide](../STYLE-GUIDE.md) owns tokens, themes and the component list, and `projects/bricks/surfaces/surface.ts` owns the genUI contract (no `docs/DESIGN.md`: bricks has no domain model); AGENTS directs repository work, with per-area rules in [docs/agents/areas.md](../agents/areas.md); BACKLOG-RULES and `docs/backlog/` own backlog procedure; BACKLOG holds current records and the quick lifecycle legend; the [style guide](../STYLE-GUIDE.md) owns UI and writing conventions. User instructions take precedence. Dated archives and audits preserve context and do not override current rules.
 
 When changing shared rules, reconcile linked summaries and scoped exceptions in the same PR. The style guide's no-emoji rule covers the application UI: backlog markers are permitted. Keep historical evidence dated rather than rewriting it as current verification.
 

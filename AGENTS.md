@@ -114,8 +114,7 @@ Before changing an area, read its section in [docs/agents/areas.md](docs/agents/
 
 - Never commit secrets, tokens or personal data. Test data is neutral and invented.
 - Catalogue samples and test payloads are invented; never copy a consuming project's real data (NERV lists, recipes, devices) into bricks.
-- The owner's places, trips, home address, photos and routes are personal data: they stay on the owner's machine, never in git, fixtures or issues. Fixtures use invented places and coordinates.
-- API keys (OpenRouteService and later providers) live only in git-ignored `server/` config.
+- Publishing uses npm trusted publishing (GitHub Actions OIDC): no npm token is ever stored in the repository or its secrets (F-004).
 
 ## Work tracking
 

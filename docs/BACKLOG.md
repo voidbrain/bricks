@@ -55,7 +55,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🟡 Implemented | 🔶 P2 | 🔴 Large | 5 h agent + 0.25 h owner | [F-005-T01](#f-005-t01), [F-005-T02](#f-005-t02) | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🔴 Large | 5 h agent + 0.25 h owner | [F-005-T01](#f-005-t01), [F-005-T02](#f-005-t02) | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | 🤖 | — | — |
 
 💻 **→** Next: F-004-T01 — Registry decision: public npm with trusted publishing (Implemented; verification pending).
 
@@ -70,12 +70,19 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
 |---|---|---|---|---|---|---|---|:---:|---|
 | 🟢 Small | <a id="f-004-t01"></a>F-004-T01 — Registry decision: public npm with trusted publishing | 0 h | 0 h | 0 h | Implemented; verification pending | — | — | 🤖 | [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded |
-| 🟢 Small | <a id="f-004-t02"></a>F-004-T02 — Owner creates or confirms the npm account | 0 h | 0 h | 0 h | Implemented; verification pending | — | [F-004-T03](#f-004-t03) | 🤖 | — |
-| 🟢 Small | <a id="f-004-t03"></a>F-004-T03 — Owner creates the npm organisation voidbrain | 0 h | 0 h | 0 h | Implemented; verification pending | [F-004-T02](#f-004-t02) | [F-004-T05](#f-004-t05) | 🤖 | — |
 | 🟡 Medium | <a id="f-004-t04"></a>F-004-T04 — Release workflow with npm trusted publishing | 3 h | 0 h | 3 h | Planned | [F-005-T01](#f-005-t01) | [F-004-T05](#f-004-t05) | ⏳ 🤖 | — |
-| 🟢 Small | <a id="f-004-t05"></a>F-004-T05 — Owner enables trusted publishing for voidbrain/bricks | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-004-T03](#f-004-t03), [F-004-T04](#f-004-t04) | [F-004-T06](#f-004-t06) | ⏳ 🧑‍🔧 | — |
+| 🟢 Small | <a id="f-004-t05"></a>F-004-T05 — Owner enables trusted publishing for voidbrain/bricks | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-004-T04](#f-004-t04) | [F-004-T06](#f-004-t06) | ⏳ 🧑‍🔧 | — |
 | 🟡 Medium | <a id="f-004-t06"></a>F-004-T06 — First publish of 0.1.0 and an install check | 2 h | 0 h | 2 h | Planned | [F-004-T05](#f-004-t05), [F-005-T02](#f-005-t02) | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | ⏳ 🤖 | — |
-| 🔴 Large | **Total** | 5 h | 0 h (0 of 6 steps recorded) | 5 h agent + 0.25 h owner | 0 of 6 completed | | | | |
+| 🔴 Large | **Total** | 5 h | 0 h (0 of 6 steps recorded) | 5 h agent + 0.25 h owner | 2 of 6 completed | | | | |
+
+<details><summary>Done steps (2)</summary>
+
+| Effort | Step | Estimate | Actual | Status | PRs |
+|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-004-t02"></a>F-004-T02 — 🧑‍🔧 Owner creates or confirms the npm account | 0 h | 0 h | Verified | — |
+| 🟢 Small | <a id="f-004-t03"></a>F-004-T03 — 🧑‍🔧 Owner creates the npm organisation voidbrain | 0 h | 0 h | Verified | — |
+
+</details>
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -375,7 +382,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 ---
 ## Other changes
 
-**Plan revision, 2026-11-25 (fresh review relayed by the coordinator).** Storage is a small Node 24 `server/` with SQLite that the app talks to (IndexedDB only as an optional offline cache later); the OpenRouteService key lives in git-ignored `server/` config, never in `public/`; F-007-T01 now waits on F-002-T01; F-011-T01 also waits on F-003-T01 and F-004-T02; F-008-T04 on F-003-T01 and F-004-T03. Estimates unchanged.
+None yet.
 
 ## How to use this file
 

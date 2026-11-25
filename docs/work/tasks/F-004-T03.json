@@ -2,9 +2,9 @@
   "version": 1,
   "id": "F-004-T03",
   "parent": "F-004",
-  "title": "Owner creates the npm organisation voidbrain",
+  "title": "🧑‍🔧 Owner creates the npm organisation voidbrain",
   "goal": "The @voidbrain scope exists on npm",
-  "status": "implemented",
+  "status": "verified",
   "acceptance": [
     "Done 2026-11-25 (owner, relayed by the coordinator): npm organisation `voidbrain` created; the @voidbrain scope is reserved"
   ],

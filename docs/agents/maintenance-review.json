@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "reviewed": "2026-11-25T21:42:21.963Z",
+  "reviewed": "2026-11-25T21:56:09.289Z",
   "policy": "c9570a34ab0c7e4f1274fe37802a6eff8e7edfb8266c98f0cec7119533729b2b",
   "inputs": {
-    "AGENTS.md": "f725f6f550507029efda437d0c15067df3107d108be4f0621d8f5321dbdfb5ab",
+    "AGENTS.md": "896ed99addbf80c7b4ba71aff976007b0629e19a8df276b6d7b56f18539d0709",
     "docs/BACKLOG-RULES.md": "872efe6ea1ddcf00992aa42d94ea5e55eb7fc56f455f383b5bb47bfa675af83b",
     "docs/agents/architecture-review.md": "5d967314854912b1a5f1446aeab309763b14f9856bceb3c82df5c6c25c166526",
     "docs/agents/areas.md": "fe865ca9da1b9d46dbcd361854d70b58316aa562688a2db987ae9dce804b0079",
@@ -24,7 +24,7 @@
     "docs/agents/work-usage-launch.md": "3225858b8b840322d2bb073f30659c376826eea3d1f772df8582fb37eef74465",
     "docs/agents/work-usage.md": "9a4c574e6cd2b0af3ddd1cb5a70560dc84c962c991d42567b7829b9a25cae3be",
     "docs/backlog/closure.md": "621d7de170f1cf91b1fdbcbe5024f298a1c72f8fb754af8bae3a1c282d5a3ce1",
-    "docs/backlog/documentation.md": "c368616896a049d77aa2cc72c315e28e404c8490c1b69741c550037aee3e6674",
+    "docs/backlog/documentation.md": "51142e9e637f4997f192f9c07db01fe1229c424b9b3c27afbc28a133a02f760d",
     "docs/backlog/estimates.md": "464a51ccad0db3958a2afa36caa2ffd79e780c49fe66cab01d1a7d0793411912",
     "docs/backlog/evaluations.md": "7540bf69b6b5d40dc09dc9ce82138218525733c5f602945bdaa58d5c3a743f37",
     "docs/backlog/feature-plans.md": "f2377140ce4f2f38b449516498dd5ff6ba58ca04287aa92381a1029f7416f85b",
@@ -98,12 +98,7 @@
       "kind": "rule",
       "disposition": "implemented",
       "target": "AGENTS.md",
-      "evidence": "Adoption 2026-11-25 at v10.21.3 adapted to a library: entry points, tokens-only, restyle by theme, UI only, components on demand, contract version 1 frozen; check:rules passes."
-    },
-    {
-      "kind": "none",
-      "disposition": "no-change",
-      "evidence": "Copied tools byte-identical to v10.21.3; check:conventions configured with conventions.sourceDirs ['projects'] for the workspace layout."
+      "evidence": "Fresh review relayed by the coordinator 2026-11-25: Hobo privacy leftovers replaced with the npm trusted-publishing rule; patterns entry point added so AGENTS and README stay true; documentation ownership rewritten for a UI library; check:rules passes."
     },
     {
       "kind": "rule",
