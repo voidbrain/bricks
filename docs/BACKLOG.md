@@ -3,7 +3,7 @@
 Current work ledger, reviewed 25 November 2026 against main `15ee8d9`. Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 66 h agent + 0.5 h owner across 29 open steps of 9 features. Generated from the task files.
+**Remaining effort:** 63 h agent + 0.5 h owner across 29 open steps of 9 features. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -16,9 +16,9 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟡 Medium | 4 h | — | [F-004-T04](#f-004-t04), [F-004-T06](#f-004-t06) | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🟢 Small | 1 h | — | [F-004-T04](#f-004-t04), [F-004-T06](#f-004-t06) | 🤖 | — | — |
 
-💻 **→** Next: F-005-T01 — CHANGELOG.md and the version-to-changelog check (Planned).
+💻 **→** Next: F-005-T01 — CHANGELOG.md and the version-to-changelog check (Implemented; verification pending).
 
 | | |
 |---|---|
@@ -30,9 +30,9 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-005-t01"></a>F-005-T01 — CHANGELOG.md and the version-to-changelog check | 3 h | 0 h | 3 h | Planned | — | [F-004-T04](#f-004-t04), [F-005-T02](#f-005-t02) |
+| 🟢 Small | <a id="f-005-t01"></a>F-005-T01 — CHANGELOG.md and the version-to-changelog check | 3 h | 0 h | 0 h | Implemented; verification pending | — | [F-004-T04](#f-004-t04), [F-005-T02](#f-005-t02) |
 | 🟢 Small | <a id="f-005-t02"></a>F-005-T02 — Release procedure: version, changelog, tag | 1 h | 0 h | 1 h | Planned | [F-005-T01](#f-005-t01) | [F-004-T06](#f-004-t06) |
-| 🟡 Medium | **Total** | 4 h | 0 h (0 of 2 steps recorded) | 4 h | 0 of 2 completed | | |
+| 🟢 Small | **Total** | 4 h | 0 h (0 of 2 steps recorded) | 1 h | 0 of 2 completed | | |
 
 <details>
 <summary>Next action, estimates and PR history</summary>
