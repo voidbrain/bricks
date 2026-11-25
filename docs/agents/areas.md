@@ -32,5 +32,5 @@ Detailed rules and lessons for each part of the project, kept out of AGENTS.md s
 ## Consumers and releases
 
 - The package `@voidbrain/bricks` is built by `npm run build` into `dist/bricks` from `projects/bricks/package.json` `exports`. It is not published yet. Owner decision 2026-11-25: the public npm registry with npm trusted publishing (GitHub Actions OIDC, no stored token); the npm account, the `voidbrain` organisation and the trusted-publisher setting are owner steps in F-004.
-- Versions follow semantic versioning with a `CHANGELOG.md` (F-005). Before 1.0.0 a minor version may break; the changelog says so.
+- Versions follow semantic versioning with a `CHANGELOG.md` (F-005, Keep a Changelog layout). Before 1.0.0 a minor version may break; the changelog says so. `npm run check:changelog` (in CI and `check:fast`) fails when the version in `projects/bricks/package.json` has no `## [X.Y.Z] - YYYY-MM-DD` heading with lines under it; `node tools/check-changelog.mjs --version X.Y.Z` checks another version, such as a release tag. Its tests run with `npm run test:tools`.
 - Consumers (NERV F-006, Hobo F-007, Grover F-008, FPVBuddy F-009 after its Angular 22 upgrade) adopt bricks in their own repositories; the records here hold only bricks' side (what the consumer needs from bricks and the release it ships in).

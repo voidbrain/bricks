@@ -77,6 +77,10 @@ jobs:
       - name: Backlog records and layout
         run: npm run check:backlog
 
+      # Project step (F-005-T01): the library version has a CHANGELOG.md entry; tests of the project's own tools.
+      - name: Changelog entry for the library version, and project tool tests
+        run: npm run check:changelog && npm run test:tools
+
       - name: Harness template, for the release check below
         # check-harness compares this project with the template's release tags; the template is public, so no token.
         run: |
