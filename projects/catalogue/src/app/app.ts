@@ -39,6 +39,14 @@ import { samples } from './samples';
           <h3>Card</h3>
           <bx-card><p class="flush">A card holds any content on the raised surface.</p></bx-card>
 
+          @if (theme === 'eva') {
+            <h3>Nested theme</h3>
+            <div class="nested" data-bx-theme="base" data-testid="nested-theme">
+              <bx-card><p class="flush">A base card inside eva: themes nest without leaking.</p></bx-card>
+              <bx-badge tone="ok">ok</bx-badge>
+            </div>
+          }
+
           <h3>Surfaces</h3>
           <div class="grid">
             @for (sample of samplesFor(theme); track sample.name) {
@@ -102,6 +110,12 @@ import { samples } from './samples';
       display: flex;
       flex-wrap: wrap;
       gap: var(--bx-space-2);
+    }
+    .nested {
+      display: flex;
+      flex-direction: column;
+      gap: var(--bx-space-3);
+      padding: var(--bx-space-4);
     }
     .grid {
       display: grid;

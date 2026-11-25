@@ -21,6 +21,7 @@
     "./foundations": "./foundations/public-api.ts",
     "./components": "./components/public-api.ts",
     "./surfaces": "./surfaces/public-api.ts",
+    "./patterns": "./patterns/public-api.ts",
     "./styles/*": "./styles/*"
   }
 }

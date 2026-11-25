@@ -68,4 +68,35 @@ test.describe('catalogue', () => {
     );
     expect(overflow).toBeLessThanOrEqual(0);
   });
+  test('a theme nested inside another takes its own tokens, and nothing leaks either way', async ({
+    page,
+  }) => {
+    const nested = page.locator('[data-testid="nested-theme"]');
+    await expect(nested).toHaveAttribute('data-bx-theme', 'base');
+    const read = (selector: string) =>
+      page
+        .locator(selector)
+        .first()
+        .evaluate((el) => {
+          const s = getComputedStyle(el);
+          return {
+            bg: s.backgroundColor,
+            fg: s.color,
+            card: s.getPropertyValue('--bx-card-bg').trim(),
+          };
+        });
+    const inner = await read('[data-testid="nested-theme"] bx-card .card');
+    const outer = await read('section[data-bx-theme="eva"] > bx-card .card');
+    const base = await read('section[data-bx-theme="base"] > bx-card .card');
+    expect(inner.bg).toBe(base.bg);
+    expect(inner.fg).toBe(base.fg);
+    expect(inner.card).toBe('#ffffff');
+    expect(outer.bg).not.toBe(base.bg);
+    expect(outer.card).toBe('#0d0d12');
+    const results = await new AxeBuilder({ page })
+      .include('[data-testid="nested-theme"]')
+      .withTags(['wcag2a', 'wcag2aa'])
+      .analyze();
+    expect(results.violations.map((v) => v.id)).toEqual([]);
+  });
 });

@@ -51,6 +51,10 @@
     {
       "pr": 1,
       "note": "workspace, harness and first content"
+    },
+    {
+      "pr": 3,
+      "note": "patterns entry point, Hobo leftovers removed"
     }
   ]
 }

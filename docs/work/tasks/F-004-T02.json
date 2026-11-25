@@ -2,9 +2,9 @@
   "version": 1,
   "id": "F-004-T02",
   "parent": "F-004",
-  "title": "Owner creates or confirms the npm account",
+  "title": "🧑‍🔧 Owner creates or confirms the npm account",
   "goal": "An npm account with two-factor authentication",
-  "status": "implemented",
+  "status": "verified",
   "acceptance": [
     "npm account exists: implied by the voidbrain organisation the owner created on 2026-11-25",
     "Two-factor authentication on the account is the owner's setting; trusted publishing needs no token"
