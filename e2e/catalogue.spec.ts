@@ -84,6 +84,29 @@ test.describe('catalogue', () => {
     expect(outline).not.toBe('none');
   });
 
+  test('live-view demo renders in every theme, keeps DOM nodes on unchanged updates, and patches single values', async ({
+    page,
+  }) => {
+    for (const theme of THEMES) {
+      await expect(
+        page.locator(`section[data-bx-theme="${theme}"] [data-testid="live-demo"]`),
+      ).toBeVisible();
+    }
+
+    const demo = page.locator('section[data-bx-theme="eva"] [data-testid="live-demo"]');
+    const details = demo.locator('details').first();
+    await details.locator('summary').click();
+    await expect(details).toHaveAttribute('open', '');
+
+    await demo.getByRole('button', { name: 'Replay unchanged' }).click();
+    await expect(demo.locator('[data-testid="live-mutations"]')).toHaveText('0');
+    await expect(details).toHaveAttribute('open', '');
+
+    await demo.getByRole('button', { name: 'Tick one value' }).click();
+    await expect(demo.locator('[data-testid="live-mutations"]')).toHaveText('1');
+    await expect(details).toHaveAttribute('open', '');
+  });
+
   test('fits a 320 px phone without horizontal scroll', async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 800 });
     const overflow = await page.evaluate(
