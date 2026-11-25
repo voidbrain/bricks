@@ -13,7 +13,7 @@ const job = (name) => {
   const lines = workflow.split('\n');
   const start = lines.indexOf(`  ${name}:`);
   assert.notEqual(start, -1, `release.yml has no ${name} job`);
-  const end = lines.findIndex((line, i) => i > start && /^ {2}\S/.test(line));
+  const end = lines.findIndex((line, i) => i > start && /^ {2}[^\s#]/.test(line));
   return lines.slice(start, end === -1 ? undefined : end).join('\n');
 };
 
