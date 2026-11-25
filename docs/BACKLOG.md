@@ -137,7 +137,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-001-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) workspace, harness and first content; [PR #3](https://github.com/voidbrain/bricks/pull/3) patterns entry point, Hobo leftovers removed. [#1](https://github.com/voidbrain/bricks/pull/1) |
+| PR / evidence | Steps: F-001-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) workspace, harness and first content; [PR #3](https://github.com/voidbrain/bricks/pull/3) patterns entry point, Hobo leftovers removed. [#1](https://github.com/voidbrain/bricks/pull/1); [#4](https://github.com/voidbrain/bricks/pull/4) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
