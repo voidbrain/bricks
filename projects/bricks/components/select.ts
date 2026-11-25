@@ -1,4 +1,4 @@
-import { Component, input, model } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
 
 export interface SelectOption {
   readonly value: string;
@@ -6,7 +6,7 @@ export interface SelectOption {
   readonly disabled?: boolean;
 }
 
-/** Native select control bound with `[(value)]`. Pair with a `<label [for]="selectId">` or `ariaLabel`. */
+/** Native select control bound with `[(value)]`, `[formField]` or a reactive form control. Pair with a `<label [for]="selectId">` or `ariaLabel`. */
 @Component({
   selector: 'bx-select',
   template: `
@@ -19,6 +19,7 @@ export interface SelectOption {
       [attr.aria-label]="ariaLabel() || null"
       [attr.aria-invalid]="invalid() ? 'true' : null"
       (change)="onChange($event)"
+      (blur)="touch.emit()"
     >
       @for (option of options(); track option.value) {
         <option [value]="option.value" [disabled]="option.disabled ?? false" [selected]="option.value === value()">
@@ -65,6 +66,8 @@ export class BxSelect {
   readonly ariaLabel = input<string>('');
   readonly disabled = input(false);
   readonly invalid = input(false);
+  /** Emitted on blur; Angular forms mark the bound field touched. */
+  readonly touch = output<void>();
 
   protected onChange(event: Event): void {
     this.value.set((event.target as HTMLSelectElement).value);

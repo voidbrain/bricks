@@ -74,9 +74,9 @@ A theme is applied with `data-bx-theme="<name>"` on any element (`applyTheme()` 
 | Component | Entry point | Use |
 |---|---|---|
 | `bx-button` | `components` | action button (`primary`, `secondary`, `danger`, `ghost`), emits `pressed` |
-| `bx-input` | `components` | single-line text input bound with `[(value)]`, sets `aria-invalid` when `invalid` |
-| `bx-select` | `components` | native select bound with `[(value)]` over `SelectOption[]` |
-| `bx-toggle` | `components` | accessible binary switch (`role="switch"`) bound with `[(checked)]` |
+| `bx-input` | `components` | single-line text input bound with `[(value)]`, `[formField]` or a reactive form control; sets `aria-invalid` when `invalid`; emits `touch` on blur |
+| `bx-select` | `components` | native select over `SelectOption[]`, bound like `bx-input`; emits `touch` on blur |
+| `bx-toggle` | `components` | accessible binary switch (`role="switch"`) bound with `[(checked)]`, `[formField]` or a reactive form control; emits `touch` on blur |
 | `bx-tag` | `components` | bordered chip for metadata or filters; `removable` adds an accessible remove button emitting `removed` |
 | `bx-card` | `components` | a raised panel; `label` makes it a named region |
 | `bx-badge` | `components` | a short label on a tone (`accent`, `ok`, `warn`, `danger`, `info`); `live` gives it `role="status"` |

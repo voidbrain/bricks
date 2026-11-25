@@ -1,9 +1,9 @@
-import { Component, input, model } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
 
 export const INPUT_TYPES = ['text', 'search', 'email', 'url', 'tel', 'password', 'number'] as const;
 export type InputType = (typeof INPUT_TYPES)[number];
 
-/** Single-line text control bound with `[(value)]`. Pair with a `<label [for]="inputId">` or `ariaLabel`. */
+/** Single-line text control bound with `[(value)]`, `[formField]` or a reactive form control. Pair with a `<label [for]="inputId">` or `ariaLabel`. */
 @Component({
   selector: 'bx-input',
   template: `
@@ -20,6 +20,7 @@ export type InputType = (typeof INPUT_TYPES)[number];
       [attr.aria-describedby]="ariaDescribedBy() || null"
       [attr.aria-invalid]="invalid() ? 'true' : null"
       (input)="onInput($event)"
+      (blur)="touch.emit()"
     />
   `,
   styles: `
@@ -66,6 +67,8 @@ export class BxInput {
   readonly disabled = input(false);
   readonly readonly = input(false);
   readonly invalid = input(false);
+  /** Emitted on blur; Angular forms mark the bound field touched. */
+  readonly touch = output<void>();
 
   protected onInput(event: Event): void {
     this.value.set((event.target as HTMLInputElement).value);

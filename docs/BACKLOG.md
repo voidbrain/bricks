@@ -379,7 +379,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-003-T01: [PR #7](https://github.com/voidbrain/bricks/pull/7) button, input, select, toggle and tag primitives (first consumer: NERV F-130 dashboard). [#7](https://github.com/voidbrain/bricks/pull/7) (F-003-T01); Test: `projects/bricks/components/primitives.spec.ts` and `e2e/catalogue.spec.ts` (`bbe6399`); No review: pending independent review on PR #7 |
+| PR / evidence | Steps: F-003-T01: [PR #7](https://github.com/voidbrain/bricks/pull/7) button, input, select, toggle and tag primitives (first consumer: NERV F-130 dashboard). [#7](https://github.com/voidbrain/bricks/pull/7) (F-003-T01); Test: `projects/bricks/components/primitives.spec.ts` and `e2e/catalogue.spec.ts` (`bbe6399`); Review: independent review on PR #7 2026-11-25 (Claude Opus 5.5): tokens, themes, keyboard, focus and exports checked; added `touch` on blur so reactive and signal forms mark controls touched (`projects/bricks/components/forms.spec.ts`) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |

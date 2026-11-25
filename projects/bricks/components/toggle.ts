@@ -1,6 +1,6 @@
-import { Component, input, model } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
 
-/** Accessible binary switch (`role="switch"`) bound with `[(checked)]`. */
+/** Accessible binary switch (`role="switch"`) bound with `[(checked)]`, `[formField]` or a reactive form control. */
 @Component({
   selector: 'bx-toggle',
   template: `
@@ -12,6 +12,7 @@ import { Component, input, model } from '@angular/core';
       [attr.aria-checked]="checked()"
       [attr.aria-label]="ariaLabel() || null"
       (click)="flip()"
+      (blur)="touch.emit()"
     >
       <span class="track" aria-hidden="true"><span class="thumb"></span></span>
       <span class="label"><ng-content /></span>
@@ -77,6 +78,8 @@ export class BxToggle {
   readonly checked = model(false);
   readonly disabled = input(false);
   readonly ariaLabel = input<string>('');
+  /** Emitted on blur; Angular forms mark the bound field touched. */
+  readonly touch = output<void>();
 
   protected flip(): void {
     if (!this.disabled()) {

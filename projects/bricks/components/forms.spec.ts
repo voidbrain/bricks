@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormField, form } from '@angular/forms/signals';
 import { BxInput, BxSelect, BxToggle, type SelectOption } from './public-api';
 
 @Component({
@@ -23,6 +24,18 @@ class ReactiveHost {
     channel: new FormControl('ch-2', { nonNullable: true }),
     relay: new FormControl(false, { nonNullable: true }),
   });
+}
+
+@Component({
+  imports: [FormField, BxInput, BxToggle],
+  template: `
+    <bx-input ariaLabel="Callsign" [formField]="f.callsign" />
+    <bx-toggle [formField]="f.relay">Telemetry relay</bx-toggle>
+  `,
+})
+class SignalFormHost {
+  readonly model = signal({ callsign: 'relay-01', relay: false });
+  readonly f = form(this.model);
 }
 
 describe('form primitives with Angular forms (F-003-T01)', () => {
@@ -61,5 +74,23 @@ describe('form primitives with Angular forms (F-003-T01)', () => {
     expect(input.disabled).toBe(true);
     expect(select.disabled).toBe(true);
     expect(sw.disabled).toBe(true);
+  });
+
+  it('bx-input and bx-toggle bind a signal form field with [formField]', async () => {
+    const fixture = TestBed.createComponent(SignalFormHost);
+    await fixture.whenStable();
+    const host = fixture.componentInstance;
+    const el: HTMLElement = fixture.nativeElement;
+    const input = el.querySelector<HTMLInputElement>('bx-input input')!;
+    const sw = el.querySelector<HTMLButtonElement>('bx-toggle button')!;
+    expect(input.value).toBe('relay-01');
+
+    input.value = 'relay-05';
+    input.dispatchEvent(new Event('input'));
+    sw.click();
+    input.dispatchEvent(new Event('blur'));
+    await fixture.whenStable();
+    expect(host.model()).toEqual({ callsign: 'relay-05', relay: true });
+    expect(host.f.callsign().touched()).toBe(true);
   });
 });
