@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "id": "F-005-T02",
+  "parent": "F-005",
+  "title": "Release procedure: version, changelog, tag",
+  "goal": "A written, repeatable release",
+  "status": "planned",
+  "acceptance": [
+    "Release steps in docs/agents/areas.md (\"Consumers and releases\"): bump, changelog, PR, tag vX.Y.Z on main",
+    "Breaking-change rule before and after 1.0.0"
+  ],
+  "dependsOn": [
+    "F-005-T01"
+  ],
+  "resources": [
+    "docs/agents/areas.md",
+    "docs/work/records/F-005.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h agent, 1 d",
+    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 1 focused day(s). Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 1,
+    "ownerHours": 0,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1,
+    "days": 1,
+    "baselineDays": 1
+  }
+}

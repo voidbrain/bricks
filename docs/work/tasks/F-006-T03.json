@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "id": "F-006-T03",
+  "parent": "F-006",
+  "title": "Migration note for NERV and the release that carries it",
+  "goal": "NERV can switch with one documented change",
+  "status": "planned",
+  "acceptance": [
+    "docs/adoption/nerv.md: token map (--panel → --bx-surface-raised …), surfaces, rejection logging, fallback text",
+    "Released in a published version named here"
+  ],
+  "dependsOn": [
+    "F-006-T01",
+    "F-004-T06"
+  ],
+  "resources": [
+    "docs/adoption/**",
+    "docs/work/records/F-006.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h agent, 1 d",
+    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 1 focused day(s). Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2,
+    "days": 1,
+    "baselineDays": 1
+  }
+}

@@ -1,0 +1,22 @@
+/* Theme "base": neutral and light. The default under :root, so an unthemed page still has every semantic token. */
+:root,
+[data-bx-theme='base'] {
+  color-scheme: light;
+  --bx-surface: #f4f5f7;
+  --bx-surface-raised: #ffffff;
+  --bx-surface-sunken: #f7f8fa;
+  --bx-border: #d8dde8;
+  --bx-text: #1a1d26;
+  --bx-text-muted: #5c657a;
+  --bx-accent: #1d5fd1;
+  --bx-on-accent: #ffffff;
+  --bx-focus: #1d5fd1;
+  --bx-ok: #166534;
+  --bx-warn: #a15c07;
+  --bx-danger: #b91c1c;
+  --bx-info: #0369a1;
+  --bx-on-status: #ffffff;
+  --bx-font: var(--bx-font-sans);
+  --bx-radius: var(--bx-radius-lg);
+  --bx-radius-badge: var(--bx-radius-sm);
+}

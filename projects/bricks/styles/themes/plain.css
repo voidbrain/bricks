@@ -1,0 +1,21 @@
+/* Theme "plain": neutral and dark (NERV's Simple · Dark · Blue palette). */
+[data-bx-theme='plain'] {
+  color-scheme: dark;
+  --bx-surface: #0b0c10;
+  --bx-surface-raised: #12141a;
+  --bx-surface-sunken: #0e1015;
+  --bx-border: #2a2e3a;
+  --bx-text: #e6e8ee;
+  --bx-text-muted: #8b93a7;
+  --bx-accent: #2a7fff;
+  --bx-on-accent: #000000;
+  --bx-focus: #2a7fff;
+  --bx-ok: #22c55e;
+  --bx-warn: #f59e0b;
+  --bx-danger: #ef4444;
+  --bx-info: #38bdf8;
+  --bx-on-status: #000000;
+  --bx-font: var(--bx-font-sans);
+  --bx-radius: var(--bx-radius-lg);
+  --bx-radius-badge: var(--bx-radius-sm);
+}

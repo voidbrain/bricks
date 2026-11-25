@@ -1,0 +1,20 @@
+/* Bricks foundations: type, focus and motion applied inside any themed root. Load after tokens and a theme. */
+[data-bx-theme] {
+  font-family: var(--bx-font);
+  font-size: var(--bx-font-size-md);
+  line-height: var(--bx-line-height-body);
+  color: var(--bx-text);
+  background: var(--bx-surface);
+}
+[data-bx-theme] :focus-visible {
+  outline: var(--bx-focus-width) solid var(--bx-focus);
+  outline-offset: var(--bx-focus-offset);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-bx-theme] *,
+  [data-bx-theme] *::before,
+  [data-bx-theme] *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

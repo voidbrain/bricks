@@ -1,0 +1,24 @@
+/*
+ * Theme "eva": NERV's EVA look (Eva · Dark · Orange, palette() in NERV's dashboard.js, F-047).
+ * Square corners, monospace type, orange on near-black. Share Tech Mono is used only when installed locally: no remote fonts.
+ */
+[data-bx-theme='eva'] {
+  color-scheme: dark;
+  --bx-surface: #050508;
+  --bx-surface-raised: #0d0d12;
+  --bx-surface-sunken: #09090d;
+  --bx-border: rgba(255, 102, 0, 0.4);
+  --bx-text: #ffaa66;
+  --bx-text-muted: #a67c52;
+  --bx-accent: #ff6600;
+  --bx-on-accent: #000000;
+  --bx-focus: #ff6600;
+  --bx-ok: #22c55e;
+  --bx-warn: #ffcc00;
+  --bx-danger: #ff0033;
+  --bx-info: #00aaff;
+  --bx-on-status: #000000;
+  --bx-font: 'Share Tech Mono', var(--bx-font-mono);
+  --bx-radius: var(--bx-radius-0);
+  --bx-radius-badge: var(--bx-radius-0);
+}

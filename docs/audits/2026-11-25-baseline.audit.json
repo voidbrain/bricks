@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "kind": "scoped",
+  "reviewed": "2026-11-25T21:42:47.000Z",
+  "baseline": "15ee8d9b7d0b68901d28c52c05ec61b32e420cda",
+  "report": "docs/audits/2026-11-25-baseline.md",
+  "areas": {
+    "code": {
+      "result": "checked",
+      "evidence": "docs/audits/2026-11-25-baseline.md: full read of the library and catalogue",
+      "limits": "First content only."
+    },
+    "logic": {
+      "result": "checked",
+      "evidence": "docs/audits/2026-11-25-baseline.md: surface validator compared with NERV's",
+      "limits": "No domain logic by design."
+    },
+    "tests": {
+      "result": "checked",
+      "evidence": "docs/audits/2026-11-25-baseline.md: unit and browser suites listed",
+      "limits": "Chromium only."
+    },
+    "documentation": {
+      "result": "checked",
+      "evidence": "docs/audits/2026-11-25-baseline.md: docs written against the code",
+      "limits": "No changelog yet (F-005)."
+    },
+    "harness": {
+      "result": "checked",
+      "evidence": "docs/audits/2026-11-25-baseline.md: adoption at v10.21.3",
+      "limits": "CI runs on the first PR."
+    },
+    "security": {
+      "result": "checked",
+      "evidence": "docs/audits/2026-11-25-baseline.md: payload rendering and secrets",
+      "limits": "Design review only; nothing published."
+    },
+    "delivery": {
+      "result": "checked",
+      "evidence": "docs/audits/2026-11-25-baseline.md: local build; npm publishing planned",
+      "limits": "Branch protection pending (F-001-T02)."
+    },
+    "backlog": {
+      "result": "checked",
+      "evidence": "docs/audits/2026-11-25-baseline.md: upfront step plan F-001 to F-009",
+      "limits": "First ledger."
+    }
+  }
+}

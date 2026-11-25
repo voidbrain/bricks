@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "F-009-T01",
+  "parent": "F-009",
+  "title": "Inventory FPVBuddy's UI against bricks",
+  "goal": "What FPVBuddy needs from bricks",
+  "status": "planned",
+  "acceptance": [
+    "FPVBuddy tokens and components mapped to bricks and F-003 steps (read only)"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "docs/work/records/F-009.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h agent, 1 d",
+    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 1 focused day(s). Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2,
+    "days": 1,
+    "baselineDays": 1
+  }
+}

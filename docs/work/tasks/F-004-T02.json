@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "id": "F-004-T02",
+  "parent": "F-004",
+  "title": "Owner creates or confirms the npm account",
+  "goal": "An npm account with two-factor authentication",
+  "status": "ready",
+  "acceptance": [
+    "npm account exists and has 2FA on (npmjs.com, Account settings)",
+    "Confirmed in the record with the date"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "docs/work/records/F-004.md"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "ownerLink": "docs/work/records/F-004.md",
+  "effort": {
+    "size": "small",
+    "estimate": "0.25 h owner",
+    "basis": "Planned 2026-11-25 in the upfront step plan: owner time only. Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 0,
+    "ownerHours": 0.25,
+    "baselineAgentHours": 0,
+    "estimateAgentHours": 0,
+    "ownerKind": "procedure"
+  }
+}

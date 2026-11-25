@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "id": "F-002-T02",
+  "parent": "F-002",
+  "title": "Port the four genUI surface cards with their schemas and validation",
+  "goal": "NERV payloads render unchanged in bricks",
+  "status": "implemented",
+  "acceptance": [
+    "surfaces/surface.ts: NERV's component ids, schemas and validateSurfaceResult unchanged, plus recipeSurfaceSchema and SURFACE_SCHEMAS",
+    "bx-status-card, bx-notice-card, bx-checklist-card, bx-recipe-card and bx-surface, on bx-card and bx-badge",
+    "Unit tests: validator cases, hostile text, fallbacks, checklist toggle and keyed rows, renderer rejection"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "projects/bricks/surfaces/**",
+    "projects/bricks/components/**",
+    "docs/work/records/F-002.md"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-25 in the setup PR; verification is the PR's CI and a visual look at the catalogue.",
+    "reviewed": "2026-11-25",
+    "agentHours": 0,
+    "ownerHours": 0,
+    "baselineAgentHours": 4,
+    "estimateAgentHours": 4,
+    "days": 0,
+    "baselineDays": 1
+  },
+  "prs": [
+    {
+      "pr": 1,
+      "note": "genUI surfaces"
+    }
+  ]
+}
