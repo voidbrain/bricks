@@ -4,10 +4,10 @@
   "parent": "F-005",
   "title": "CHANGELOG.md and the version-to-changelog check",
   "goal": "Every package version has a changelog entry, enforced in CI",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "CHANGELOG.md with the 0.1.0 entry",
-    "tools/check-changelog.mjs with a test; npm run check:changelog in CI and check:fast"
+    "tools/check-changelog.mjs with a test (tools/check-changelog.test.mjs, `npm run test:tools`); npm run check:changelog in CI and check:fast"
   ],
   "dependsOn": [],
   "resources": [
@@ -34,14 +34,14 @@
   ],
   "effort": {
     "size": "medium",
-    "estimate": "3 h agent, 1 d",
-    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 1 focused day(s). Not a measurement.",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-25 in one PR; verification is its CI. No actual: the step's start time was not recorded.",
     "reviewed": "2026-11-25",
-    "agentHours": 3,
+    "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 3,
     "estimateAgentHours": 3,
-    "days": 1,
+    "days": 0,
     "baselineDays": 1
   }
 }
