@@ -4,7 +4,7 @@
   "parent": "F-003",
   "title": "Live-view helper: render once, update changed values, keyed rows",
   "goal": "A framework-free helper for non-Angular pages",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "setText, setAttr and a keyed-row patcher (add, remove, move, patch) in a framework-free folder, unit-tested",
     "Same rules as NERV B-145; no innerHTML after first render"
@@ -31,14 +31,20 @@
   ],
   "effort": {
     "size": "medium",
-    "estimate": "4 h agent, 1 d",
-    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 1 focused day(s). Not a measurement.",
+    "estimate": "0 remaining",
+    "basis": "Implemented 2026-11-25 in PR #9 for non-Angular live views (NERV B-145); verification is green CI on PR #9 and merge.",
     "reviewed": "2026-11-25",
-    "agentHours": 4,
+    "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 4,
     "estimateAgentHours": 4,
-    "days": 1,
+    "days": 0,
     "baselineDays": 1
-  }
+  },
+  "prs": [
+    {
+      "pr": 9,
+      "note": "framework-free live-view helper and catalogue demo (demand: NERV B-145 non-Angular live views)"
+    }
+  ]
 }

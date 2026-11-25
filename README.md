@@ -12,7 +12,7 @@ Status: first content (0.1.0, unpublished; it will be published on the public np
 | `@voidbrain/bricks/themes` | `THEMES` (`base`, `plain`, `eva`) and `applyTheme`; CSS in `@voidbrain/bricks/styles/themes/<name>.css` |
 | `@voidbrain/bricks/foundations` | type and spacing scales; focus and motion in `@voidbrain/bricks/styles/foundations.css` |
 | `@voidbrain/bricks/live` | framework-free live-view helpers (`setText`, `setAttr`, `patchKeyedRows`, `createLiveView`) |
-| `@voidbrain/bricks/components` | `bx-button`, `bx-input`, `bx-select`, `bx-toggle`, `bx-tag`, `bx-card`, `bx-badge` |
+| `@voidbrain/bricks/components` | `bx-button`, `bx-input`, `bx-select`, `bx-toggle`, `bx-tag`, `bx-icon`, `bx-card`, `bx-badge` |
 | `@voidbrain/bricks/surfaces` | the genUI contract (schemas, `validateSurfaceResult`) and `bx-status-card`, `bx-notice-card`, `bx-checklist-card`, `bx-recipe-card`, `bx-surface` |
 | `@voidbrain/bricks/patterns` | the entry point exists; patterns (status row, approval card, data table, filters, empty state) land on demand (F-003) |
 
