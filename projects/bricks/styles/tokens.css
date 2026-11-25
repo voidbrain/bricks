@@ -54,4 +54,13 @@
   --bx-badge-radius: var(--bx-radius-badge);
   --bx-badge-font-size: var(--bx-font-size-xs);
   --bx-badge-padding: 2px var(--bx-space-2);
+  --bx-control-bg: var(--bx-surface-sunken);
+  --bx-control-fg: var(--bx-text);
+  --bx-control-border: var(--bx-border);
+  --bx-control-radius: var(--bx-radius);
+  --bx-control-padding: var(--bx-space-2) var(--bx-space-3);
+  --bx-tag-bg: var(--bx-surface-raised);
+  --bx-tag-fg: var(--bx-text);
+  --bx-tag-border: var(--bx-border);
+  --bx-tag-radius: var(--bx-radius-badge);
 }

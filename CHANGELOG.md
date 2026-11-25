@@ -6,7 +6,9 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 
 ## [Unreleased]
 
-- Nothing yet.
+### Added
+
+- `@voidbrain/bricks/components`: `bx-button`, `bx-input`, `bx-select`, `bx-toggle` and `bx-tag` form primitives, plus `--bx-control-*` and `--bx-tag-*` component tokens (`COMPONENT_TOKENS`).
 
 ## [0.1.0] - 2026-11-25
 
