@@ -379,7 +379,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | — |
+| PR / evidence | [#8](https://github.com/voidbrain/bricks/pull/8) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
