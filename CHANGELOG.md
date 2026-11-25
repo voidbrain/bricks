@@ -6,7 +6,13 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 
 ## [Unreleased]
 
-- Nothing yet.
+### Added
+
+- `@voidbrain/bricks/live`: framework-free live-view helpers (`setText`, `setAttr`, `patchKeyedRows`, `createLiveView`) that render once with DOM nodes (no `innerHTML`) and patch only changed values and keyed rows (F-003-T03).
+
+### Breaking
+
+- Nothing.
 
 ## [0.2.0] - 2026-11-26
 

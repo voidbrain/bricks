@@ -3,7 +3,7 @@
 Current work ledger, reviewed 25 November 2026 against main `15ee8d9`. Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 50 h agent + 0.5 h owner across 29 open steps of 9 features. Generated from the task files.
+**Remaining effort:** 46 h agent + 0.5 h owner across 29 open steps of 9 features. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -349,7 +349,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟣 Very large | 25 h | — | — | 🤖 | — | — |
+| 🔴 Open | 🔹 P3 | 🟣 Very large | 21 h | — | — | 🤖 | — | — |
 
 💻 **→** Next: F-003-T01 — Primitives: button, input, select, toggle, tag (Implemented; verification pending).
 
@@ -364,13 +364,13 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
 |---|---|---|---|---|---|---|---|---|
 | 🟢 Small | <a id="f-003-t01"></a>F-003-T01 — Primitives: button, input, select, toggle, tag | 6 h | 0 h | 0 h | Implemented; verification pending | — | [F-003-T02](#f-003-t02), [F-003-T04](#f-003-t04), [F-003-T05](#f-003-t05) | [PR #7](https://github.com/voidbrain/bricks/pull/7) button, input, select, toggle and tag primitives (first consumer: NERV F-130 dashboard) |
-| 🟡 Medium | <a id="f-003-t03"></a>F-003-T03 — Live-view helper: render once, update changed values, keyed rows | 4 h | 0 h | 4 h | Planned | — | — | — |
+| 🟢 Small | <a id="f-003-t03"></a>F-003-T03 — Live-view helper: render once, update changed values, keyed rows | 4 h | 0 h | 0 h | Implemented; verification pending | — | — | [PR #9](https://github.com/voidbrain/bricks/pull/9) framework-free live-view helper and catalogue demo (demand: NERV B-145 non-Angular live views) |
 | 🟢 Small | <a id="f-003-t07"></a>F-003-T07 — Foundations: layout and icons | 4 h | 0 h | 0 h | Implemented; verification pending | — | — | — |
 | 🔴 Large | <a id="f-003-t02"></a>F-003-T02 — Components: form field, list row, tabs | 5 h | 0 h | 5 h | Planned | [F-003-T01](#f-003-t01) | [F-003-T06](#f-003-t06) | — |
 | 🔴 Large | <a id="f-003-t04"></a>F-003-T04 — Dialog and toast | 5 h | 0 h | 5 h | Planned | [F-003-T01](#f-003-t01) | — | — |
 | 🔴 Large | <a id="f-003-t05"></a>F-003-T05 — Patterns: status row, approval card, empty state | 5 h | 0 h | 5 h | Planned | [F-003-T01](#f-003-t01) | — | — |
 | 🔴 Large | <a id="f-003-t06"></a>F-003-T06 — Patterns: data table and filters | 6 h | 0 h | 6 h | Planned | [F-003-T02](#f-003-t02) | — | — |
-| 🟣 Very large | **Total** | 35 h | 0 h (0 of 7 steps recorded) | 25 h | 0 of 7 completed | | | |
+| 🟣 Very large | **Total** | 35 h | 0 h (0 of 7 steps recorded) | 21 h | 0 of 7 completed | | | |
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -379,7 +379,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-003-T01: [PR #7](https://github.com/voidbrain/bricks/pull/7) button, input, select, toggle and tag primitives (first consumer: NERV F-130 dashboard). [#7](https://github.com/voidbrain/bricks/pull/7) (F-003-T01); Test: `projects/bricks/components/primitives.spec.ts` and `e2e/catalogue.spec.ts` (`bbe6399`); Review: independent review on PR #7 2026-11-25 (Claude Opus 5.5): tokens, themes, keyboard, focus and exports checked; added `touch` on blur so reactive and signal forms mark controls touched (`projects/bricks/components/forms.spec.ts`); [#8](https://github.com/voidbrain/bricks/pull/8) (F-003-T07) |
+| PR / evidence | Steps: F-003-T01: [PR #7](https://github.com/voidbrain/bricks/pull/7) button, input, select, toggle and tag primitives (first consumer: NERV F-130 dashboard) · F-003-T03: [PR #9](https://github.com/voidbrain/bricks/pull/9) framework-free live-view helper and catalogue demo (demand: NERV B-145 non-Angular live views). [#7](https://github.com/voidbrain/bricks/pull/7) (F-003-T01); Test: `projects/bricks/components/primitives.spec.ts` and `e2e/catalogue.spec.ts` (`bbe6399`); Review: independent review on PR #7 2026-11-25 (Claude Opus 5.5): tokens, themes, keyboard, focus and exports checked; added `touch` on blur so reactive and signal forms mark controls touched (`projects/bricks/components/forms.spec.ts`); [#8](https://github.com/voidbrain/bricks/pull/8) (F-003-T07); [#9](https://github.com/voidbrain/bricks/pull/9) (F-003-T03); Test: `projects/bricks/live/live.spec.ts` (`83a32d6`); Review: independent review on PR #9 2026-11-26 (Claude Opus 5.5): render-once, changed-value-only and keyed add/move/remove/patch checked against node identity and MutationObserver; exports, purity lint, three themes with axe checked; added duplicate-key, move, N to 0 to N tests and an `on*` attribute guard in `setAttr`, and documented the Angular hosting pattern in `docs/STYLE-GUIDE.md` |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |

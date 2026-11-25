@@ -16,6 +16,7 @@ import { ICON_NAMES } from '@voidbrain/bricks/foundations';
 import { THEMES } from '@voidbrain/bricks/themes';
 import { SEMANTIC_TOKENS } from '@voidbrain/bricks/tokens';
 import { BxSurface } from '@voidbrain/bricks/surfaces';
+import { LiveDemo } from './live-demo';
 import { samples } from './samples';
 
 /**
@@ -24,7 +25,18 @@ import { samples } from './samples';
  */
 @Component({
   selector: 'cat-root',
-  imports: [BxBadge, BxButton, BxCard, BxIcon, BxInput, BxSelect, BxSurface, BxTag, BxToggle],
+  imports: [
+    BxBadge,
+    BxButton,
+    BxCard,
+    BxIcon,
+    BxInput,
+    BxSelect,
+    BxSurface,
+    BxTag,
+    BxToggle,
+    LiveDemo,
+  ],
   template: `
     <header class="page-head">
       <h1>Bricks catalogue</h1>
@@ -125,6 +137,9 @@ import { samples } from './samples';
 
           <h3>Card</h3>
           <bx-card><p class="flush">A card holds any content on the raised surface.</p></bx-card>
+
+          <h3>Live-view helper</h3>
+          <cat-live-demo />
 
           @if (theme === 'eva') {
             <h3>Nested theme</h3>

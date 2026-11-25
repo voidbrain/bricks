@@ -19,6 +19,7 @@
     "./tokens": "./tokens/public-api.ts",
     "./themes": "./themes/public-api.ts",
     "./foundations": "./foundations/public-api.ts",
+    "./live": "./live/public-api.ts",
     "./components": "./components/public-api.ts",
     "./surfaces": "./surfaces/public-api.ts",
     "./patterns": "./patterns/public-api.ts",
