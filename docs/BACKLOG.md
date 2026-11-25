@@ -3,7 +3,7 @@
 Current work ledger, reviewed 25 November 2026 against main `15ee8d9`. Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 66 h agent + 1.25 h owner across 30 open steps of 9 features. Generated from the task files.
+**Remaining effort:** 66 h agent + 0.75 h owner across 30 open steps of 9 features. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -42,6 +42,49 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Field | Value |
 |---|---|
 | PR / evidence | — |
+| Opened | 2026-11-25 |
+| Verification | Pending |
+| Reviewed | 2026-11-25 |
+
+</details>
+
+---
+### <a id="f-004"></a>[✨ F-004](#top)
+
+**Publish the package on npm with trusted publishing**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🟡 Implemented | 🔶 P2 | 🔴 Large | 5 h agent + 0.25 h owner | [F-005-T01](#f-005-t01), [F-005-T02](#f-005-t02) | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | 🤖 | — | — |
+
+💻 **→** Next: F-004-T01 — Registry decision: public npm with trusted publishing (Implemented; verification pending).
+
+| | |
+|---|---|
+| **Issue** | `@voidbrain/bricks` is built (dist/bricks) but not published, so no project can install it. Owner decision 2026-11-25: the public npm registry (not GitHub Packages), with npm trusted publishing (GitHub Actions OIDC, no stored npm token). The owner sets up the npm side; the agent writes the release workflow and checks the first publish. |
+| **Reproduce** | `npm view @voidbrain/bricks` finds nothing. |
+| **Check** | The owner has an npm account and the npm organisation `voidbrain`; trusted publishing is enabled for voidbrain/bricks and the release workflow; a `v*` tag on main publishes with provenance and no npm token in the repository; 0.1.0 installs in a clean Angular 22 project and its entry points and CSS resolve. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
+|---|---|---|---|---|---|---|---|:---:|---|
+| 🟢 Small | <a id="f-004-t01"></a>F-004-T01 — Registry decision: public npm with trusted publishing | 0 h | 0 h | 0 h | Implemented; verification pending | — | — | 🤖 | [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded |
+| 🟢 Small | <a id="f-004-t02"></a>F-004-T02 — Owner creates or confirms the npm account | 0 h | 0 h | 0 h | Implemented; verification pending | — | [F-004-T03](#f-004-t03) | 🤖 | — |
+| 🟢 Small | <a id="f-004-t03"></a>F-004-T03 — Owner creates the npm organisation voidbrain | 0 h | 0 h | 0 h | Implemented; verification pending | [F-004-T02](#f-004-t02) | [F-004-T05](#f-004-t05) | 🤖 | — |
+| 🟡 Medium | <a id="f-004-t04"></a>F-004-T04 — Release workflow with npm trusted publishing | 3 h | 0 h | 3 h | Planned | [F-005-T01](#f-005-t01) | [F-004-T05](#f-004-t05) | ⏳ 🤖 | — |
+| 🟢 Small | <a id="f-004-t05"></a>F-004-T05 — Owner enables trusted publishing for voidbrain/bricks | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-004-T03](#f-004-t03), [F-004-T04](#f-004-t04) | [F-004-T06](#f-004-t06) | ⏳ 🧑‍🔧 | — |
+| 🟡 Medium | <a id="f-004-t06"></a>F-004-T06 — First publish of 0.1.0 and an install check | 2 h | 0 h | 2 h | Planned | [F-004-T05](#f-004-t05), [F-005-T02](#f-005-t02) | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | ⏳ 🤖 | — |
+| 🔴 Large | **Total** | 5 h | 0 h (0 of 6 steps recorded) | 5 h agent + 0.25 h owner | 0 of 6 completed | | | | |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-004.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-004-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded. [#1](https://github.com/voidbrain/bricks/pull/1), [#2](https://github.com/voidbrain/bricks/pull/2) (npm organisation created) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
@@ -121,49 +164,6 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Field | Value |
 |---|---|
 | PR / evidence | Steps: F-002-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) tokens and themes · F-002-T02: [PR #1](https://github.com/voidbrain/bricks/pull/1) genUI surfaces · F-002-T03: [PR #1](https://github.com/voidbrain/bricks/pull/1) catalogue and axe. [#1](https://github.com/voidbrain/bricks/pull/1) |
-| Opened | 2026-11-25 |
-| Verification | Pending |
-| Reviewed | 2026-11-25 |
-
-</details>
-
----
-### <a id="f-004"></a>[✨ F-004](#top)
-
-**Publish the package on npm with trusted publishing**
-
-| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
-|---|---|---|---|---|---|:---:|:---:|:---:|
-| 🟡 Implemented | 🔶 P2 | 🔴 Large | 5 h agent + 0.75 h owner | [F-005-T01](#f-005-t01), [F-005-T02](#f-005-t02) | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | 🤖 | 🧑‍🔧 | — |
-
-🧑 **→** Next: F-004-T02, the owner creates or confirms the npm account.
-
-| | |
-|---|---|
-| **Issue** | `@voidbrain/bricks` is built (dist/bricks) but not published, so no project can install it. Owner decision 2026-11-25: the public npm registry (not GitHub Packages), with npm trusted publishing (GitHub Actions OIDC, no stored npm token). The owner sets up the npm side; the agent writes the release workflow and checks the first publish. |
-| **Reproduce** | `npm view @voidbrain/bricks` finds nothing. |
-| **Check** | The owner has an npm account and the npm organisation `voidbrain`; trusted publishing is enabled for voidbrain/bricks and the release workflow; a `v*` tag on main publishes with provenance and no npm token in the repository; 0.1.0 installs in a clean Angular 22 project and its entry points and CSS resolve. |
-
-**Feature steps**
-
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
-|---|---|---|---|---|---|---|---|:---:|---|
-| 🟢 Small | <a id="f-004-t01"></a>F-004-T01 — Registry decision: public npm with trusted publishing | 0 h | 0 h | 0 h | Implemented; verification pending | — | — | 🤖 | [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded |
-| 🟢 Small | <a id="f-004-t02"></a>F-004-T02 — Owner creates or confirms the npm account | 0 h | 0 h | 0 h agent + 0.25 h owner | Ready | — | [F-004-T03](#f-004-t03) | [🧑‍🔧](work/records/F-004.md) | — |
-| 🟢 Small | <a id="f-004-t03"></a>F-004-T03 — Owner creates the npm organisation voidbrain | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-004-T02](#f-004-t02) | [F-004-T05](#f-004-t05) | ⏳ 🧑‍🔧 | — |
-| 🟡 Medium | <a id="f-004-t04"></a>F-004-T04 — Release workflow with npm trusted publishing | 3 h | 0 h | 3 h | Planned | [F-005-T01](#f-005-t01) | [F-004-T05](#f-004-t05) | ⏳ 🤖 | — |
-| 🟢 Small | <a id="f-004-t05"></a>F-004-T05 — Owner enables trusted publishing for voidbrain/bricks | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-004-T03](#f-004-t03), [F-004-T04](#f-004-t04) | [F-004-T06](#f-004-t06) | ⏳ 🧑‍🔧 | — |
-| 🟡 Medium | <a id="f-004-t06"></a>F-004-T06 — First publish of 0.1.0 and an install check | 2 h | 0 h | 2 h | Planned | [F-004-T05](#f-004-t05), [F-005-T02](#f-005-t02) | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | ⏳ 🤖 | — |
-| 🔴 Large | **Total** | 5 h | 0 h (0 of 6 steps recorded) | 5 h agent + 0.75 h owner | 0 of 6 completed | | | | |
-
-<details>
-<summary>Next action, estimates and PR history</summary>
-
-[Full notes & evidence](work/records/F-004.md)
-
-| Field | Value |
-|---|---|
-| PR / evidence | Steps: F-004-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded. [#1](https://github.com/voidbrain/bricks/pull/1) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |

@@ -4,10 +4,9 @@
   "parent": "F-004",
   "title": "Owner creates the npm organisation voidbrain",
   "goal": "The @voidbrain scope exists on npm",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
-    "npmjs.com/org/create: organisation `voidbrain` (free, public packages)",
-    "`npm org ls voidbrain` lists the owner"
+    "Done 2026-11-25 (owner, relayed by the coordinator): npm organisation `voidbrain` created; the @voidbrain scope is reserved"
   ],
   "dependsOn": [
     "F-004-T02"
@@ -28,11 +27,11 @@
   "ownerLink": "docs/work/records/F-004.md",
   "effort": {
     "size": "small",
-    "estimate": "0.25 h owner",
-    "basis": "Planned 2026-11-25 in the upfront step plan: owner time only. Not a measurement.",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-25 by the owner. Not a measurement.",
     "reviewed": "2026-11-25",
     "agentHours": 0,
-    "ownerHours": 0.25,
+    "ownerHours": 0,
     "baselineAgentHours": 0,
     "estimateAgentHours": 0,
     "ownerKind": "procedure"
