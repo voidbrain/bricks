@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "id": "F-005-T01",
+  "parent": "F-005",
+  "title": "CHANGELOG.md and the version-to-changelog check",
+  "goal": "Every package version has a changelog entry, enforced in CI",
+  "status": "planned",
+  "acceptance": [
+    "CHANGELOG.md with the 0.1.0 entry",
+    "tools/check-changelog.mjs with a test; npm run check:changelog in CI and check:fast"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "CHANGELOG.md",
+    "tools/check-changelog.mjs",
+    "package.json",
+    ".github/workflows/ci.yml",
+    "docs/work/records/F-005.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "3 h agent, 1 d",
+    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 1 focused day(s). Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 3,
+    "ownerHours": 0,
+    "baselineAgentHours": 3,
+    "estimateAgentHours": 3,
+    "days": 1,
+    "baselineDays": 1
+  }
+}

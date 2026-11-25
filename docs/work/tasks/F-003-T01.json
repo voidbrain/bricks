@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "id": "F-003-T01",
+  "parent": "F-003",
+  "title": "Primitives: button, input, select, toggle, tag",
+  "goal": "Form primitives on semantic tokens",
+  "status": "planned",
+  "acceptance": [
+    "Five primitives with specs, keyboard and focus, catalogue entries",
+    "First consumer named (expected: NERV F-130 dashboard)"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "projects/bricks/components/**",
+    "projects/catalogue/**",
+    "docs/work/records/F-003.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "large",
+    "estimate": "6 h agent, 2 d",
+    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 2 focused day(s). Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 6,
+    "ownerHours": 0,
+    "baselineAgentHours": 6,
+    "estimateAgentHours": 6,
+    "days": 2,
+    "baselineDays": 2
+  }
+}

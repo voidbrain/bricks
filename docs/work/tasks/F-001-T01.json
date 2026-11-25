@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "id": "F-001-T01",
+  "parent": "F-001",
+  "title": "Scaffold the workspace and apply harness v10.21.3",
+  "goal": "An Angular 22 library workspace with the harness checks green in CI",
+  "status": "implemented",
+  "acceptance": [
+    "Angular 22 workspace: library `bricks` (package `@voidbrain/bricks`, entry points tokens, themes, foundations, components, surfaces, CSS under styles/) and app `catalogue`; strict TypeScript and templates",
+    "Harness v10.21.3 core + angular applied and adapted to a library: AGENTS, areas, style guide, backlog rules, tools, CI with the browser suite",
+    "npm run check:fast, npm test, npm run build and npm run test:browser pass; CI green on the PR"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "projects/**",
+    "docs/**",
+    "tools/**",
+    ".github/**",
+    "package.json",
+    ".harness.json",
+    "angular.json",
+    "docs/work/records/F-001.md"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-25 in the setup PR; verification is the PR's CI and a visual look at the catalogue.",
+    "reviewed": "2026-11-25",
+    "agentHours": 0,
+    "ownerHours": 0,
+    "baselineAgentHours": 4,
+    "estimateAgentHours": 4,
+    "days": 0,
+    "baselineDays": 1
+  },
+  "prs": [
+    {
+      "pr": 1,
+      "note": "workspace, harness and first content"
+    }
+  ]
+}

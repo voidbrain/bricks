@@ -1,0 +1,109 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "cli": {
+    "packageManager": "npm"
+  },
+  "newProjectRoot": "projects",
+  "projects": {
+    "bricks": {
+      "projectType": "library",
+      "root": "projects/bricks",
+      "sourceRoot": "projects/bricks",
+      "prefix": "bx",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:library",
+          "options": {
+            "tsConfig": "projects/bricks/tsconfig.lib.json",
+            "assets": [
+              {
+                "glob": "**/*.css",
+                "input": "projects/bricks/styles",
+                "output": "styles"
+              }
+            ]
+          },
+          "configurations": {
+            "production": {},
+            "development": {
+              "compilationMode": "full",
+              "declarationMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/bricks/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "catalogue": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/catalogue",
+      "sourceRoot": "projects/catalogue/src",
+      "prefix": "cat",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/catalogue/src/main.ts",
+            "tsConfig": "projects/catalogue/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/catalogue/public"
+              }
+            ],
+            "styles": [
+              "projects/bricks/styles/bricks.css",
+              "projects/catalogue/src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "catalogue:build:production"
+            },
+            "development": {
+              "buildTarget": "catalogue:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    }
+  }
+}

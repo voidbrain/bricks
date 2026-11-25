@@ -1,0 +1,45 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "paths": {
+      "@voidbrain/bricks": [
+        "./projects/bricks/src/public-api.ts"
+      ],
+      "@voidbrain/bricks/*": [
+        "./projects/bricks/*/public-api.ts"
+      ]
+    },
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve",
+    "strict": true
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/bricks/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/bricks/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/catalogue/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/catalogue/tsconfig.spec.json"
+    }
+  ]
+}

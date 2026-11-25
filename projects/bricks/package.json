@@ -1,0 +1,26 @@
+{
+  "name": "@voidbrain/bricks",
+  "version": "0.1.0",
+  "description": "Bricks: shared Angular UI library for the voidbrain projects (tokens, themes, components, genUI surfaces)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/voidbrain/bricks"
+  },
+  "peerDependencies": {
+    "@angular/common": "^22.3.0",
+    "@angular/core": "^22.3.0"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": "./src/public-api.ts",
+    "./tokens": "./tokens/public-api.ts",
+    "./themes": "./themes/public-api.ts",
+    "./foundations": "./foundations/public-api.ts",
+    "./components": "./components/public-api.ts",
+    "./surfaces": "./surfaces/public-api.ts",
+    "./styles/*": "./styles/*"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "id": "F-002-T03",
+  "parent": "F-002",
+  "title": "Catalogue in all three themes with axe in CI",
+  "goal": "Every component visible and accessible in every theme",
+  "status": "implemented",
+  "acceptance": [
+    "Catalogue page: tokens, badges, card and every surface sample per theme",
+    "Playwright browser suite on the built catalogue: axe on the page and per theme, token coverage, keyboard focus, 320 px",
+    "CI runs the suite in the check job"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "projects/catalogue/**",
+    "e2e/**",
+    "playwright.config.ts",
+    ".github/workflows/ci.yml",
+    "docs/work/records/F-002.md"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-25 in the setup PR; verification is the PR's CI and a visual look at the catalogue.",
+    "reviewed": "2026-11-25",
+    "agentHours": 0,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2,
+    "days": 0,
+    "baselineDays": 1
+  },
+  "prs": [
+    {
+      "pr": 1,
+      "note": "catalogue and axe"
+    }
+  ]
+}

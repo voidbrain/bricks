@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "id": "F-002-T01",
+  "parent": "F-002",
+  "title": "Tokens, foundations and the base, plain and eva themes",
+  "goal": "Three token layers and three themes, test-first",
+  "status": "implemented",
+  "acceptance": [
+    "styles/tokens.css (primitive and component), styles/themes/{base,plain,eva}.css (semantic), foundations.css (focus, motion, type)",
+    "SEMANTIC_TOKENS, THEMES and applyTheme with unit tests; browser suite checks every theme defines every semantic token",
+    "eva matches NERV Eva · Dark · Orange; base and plain are neutral (NERV Simple light and dark)"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "projects/bricks/styles/**",
+    "projects/bricks/tokens/**",
+    "projects/bricks/themes/**",
+    "projects/bricks/foundations/**",
+    "docs/work/records/F-002.md"
+  ],
+  "capabilities": [
+    "bounded-edit"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-25 in the setup PR; verification is the PR's CI and a visual look at the catalogue.",
+    "reviewed": "2026-11-25",
+    "agentHours": 0,
+    "ownerHours": 0,
+    "baselineAgentHours": 3,
+    "estimateAgentHours": 3,
+    "days": 0,
+    "baselineDays": 1
+  },
+  "prs": [
+    {
+      "pr": 1,
+      "note": "tokens and themes"
+    }
+  ]
+}

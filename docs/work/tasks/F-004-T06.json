@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "id": "F-004-T06",
+  "parent": "F-004",
+  "title": "First publish of 0.1.0 and an install check",
+  "goal": "0.1.0 is installable",
+  "status": "planned",
+  "acceptance": [
+    "Tag v0.1.0 on main; the release run publishes with provenance",
+    "0.1.0 installs in a scratch Angular 22 app; tokens, themes, surfaces and styles/*.css resolve"
+  ],
+  "dependsOn": [
+    "F-004-T05",
+    "F-005-T02"
+  ],
+  "resources": [
+    "docs/work/records/F-004.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h agent, 1 d",
+    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 1 focused day(s). Not a measurement.",
+    "reviewed": "2026-11-25",
+    "agentHours": 2,
+    "ownerHours": 0,
+    "baselineAgentHours": 2,
+    "estimateAgentHours": 2,
+    "days": 1,
+    "baselineDays": 1
+  }
+}
