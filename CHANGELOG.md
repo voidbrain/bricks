@@ -6,6 +6,12 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 
 ## [Unreleased]
 
+- Nothing yet.
+
+## [0.3.0] - 2026-11-26
+
+Published from the release workflow with npm trusted publishing and provenance. It also carries everything listed under 0.2.0, which was tagged but never reached npm (its publish failed, F-004-T04).
+
 ### Added
 
 - `@voidbrain/bricks/live`: framework-free live-view helpers (`setText`, `setAttr`, `patchKeyedRows`, `createLiveView`) that render once with DOM nodes (no `innerHTML`) and patch only changed values and keyed rows (F-003-T03).
@@ -16,7 +22,7 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 
 ## [0.2.0] - 2026-11-26
 
-The first version published on npm, from the release workflow with npm trusted publishing and provenance (F-004-T04).
+Tagged `v0.2.0` but not published on npm: the publish step failed (F-004-T04). Its changes ship in 0.3.0.
 
 ### Added
 
