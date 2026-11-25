@@ -3,7 +3,7 @@
 Current work ledger, reviewed 25 November 2026 against main `15ee8d9`. Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 66 h agent + 0.75 h owner across 30 open steps of 9 features. Generated from the task files.
+**Remaining effort:** 66 h agent + 0.5 h owner across 29 open steps of 9 features. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -105,7 +105,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🟡 Implemented | 🔶 P2 | 🟢 Small | 0.25 h owner | — | — | 🤖 | 🧑‍🔧 | — |
+| 🟡 Implemented | 🔶 P2 | 🟢 Small | 0 h | — | — | 🤖 | — | — |
 
 💻 **→** Next: F-001-T01 — Scaffold the workspace and apply harness v10.21.3 (Implemented; verification pending).
 
@@ -120,8 +120,15 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Effort | Step | Estimate | Actual | Remaining | Status | Who | PRs |
 |---|---|---|---|---|---|:---:|---|
 | 🟢 Small | <a id="f-001-t01"></a>F-001-T01 — Scaffold the workspace and apply harness v10.21.3 | 4 h | 0 h | 0 h | Implemented; verification pending | 🤖 | [PR #1](https://github.com/voidbrain/bricks/pull/1) workspace, harness and first content; [PR #3](https://github.com/voidbrain/bricks/pull/3) patterns entry point, Hobo leftovers removed |
-| 🟢 Small | <a id="f-001-t02"></a>F-001-T02 — Owner sets branch protection and auto-merge | 0 h | 0 h | 0 h agent + 0.25 h owner | Ready | [🧑‍🔧](work/records/F-001.md) | — |
-| 🟢 Small | **Total** | 4 h | 0 h (0 of 2 steps recorded) | 0.25 h owner | 0 of 2 completed | | |
+| 🟢 Small | **Total** | 4 h | 0 h (0 of 2 steps recorded) | 0 h | 1 of 2 completed | | |
+
+<details><summary>Done steps (1)</summary>
+
+| Effort | Step | Estimate | Actual | Status | PRs |
+|---|---|---|---|---|---|
+| — | <a id="f-001-t02"></a>F-001-T02 — Owner sets branch protection and auto-merge | 0 h | 0 h | Completed | — |
+
+</details>
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -130,7 +137,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-001-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) workspace, harness and first content; [PR #3](https://github.com/voidbrain/bricks/pull/3) patterns entry point, Hobo leftovers removed. [#1](https://github.com/voidbrain/bricks/pull/1) |
+| PR / evidence | Steps: F-001-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) workspace, harness and first content; [PR #3](https://github.com/voidbrain/bricks/pull/3) patterns entry point, Hobo leftovers removed. [#1](https://github.com/voidbrain/bricks/pull/1); [#4](https://github.com/voidbrain/bricks/pull/4) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
