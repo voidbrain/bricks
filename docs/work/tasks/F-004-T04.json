@@ -50,6 +50,10 @@
     {
       "pr": 6,
       "note": "release.yml"
+    },
+    {
+      "pr": 11,
+      "note": "publish without token fallback, pinned npm"
     }
   ]
 }
