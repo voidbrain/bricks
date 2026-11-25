@@ -44,5 +44,11 @@
     "estimateAgentHours": 3,
     "days": 0,
     "baselineDays": 1
-  }
+  },
+  "prs": [
+    {
+      "pr": 6,
+      "note": "release.yml"
+    }
+  ]
 }

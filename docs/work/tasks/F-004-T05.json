@@ -6,7 +6,9 @@
   "goal": "npm trusts this repository's release workflow",
   "status": "planned",
   "acceptance": [
-    "After F-004-T04 lands release.yml: the agent gives the owner the exact npm steps (package or organisation settings → Trusted publishing → GitHub Actions: organisation voidbrain, repository bricks, workflow release.yml, as npm documents at the time)",
+    "After F-004-T04 lands release.yml: the agent gives the owner the exact npm steps (package settings → Trusted publishing → GitHub Actions: organisation or user voidbrain, repository bricks, workflow filename release.yml, environment npm, allowing npm publish)",
+    "npm configures a trusted publisher on an existing package only: the first version (0.1.0) gets out as F-004-T06 records, a one-time publish by the owner if trusted publishing cannot do it",
+    "GitHub environment `npm` protected by the owner (repository setting): a required reviewer (the owner) and deployments only from `v*` tags, because the workflow's own on-main check runs from the tagged commit's copy",
     "The owner enables it; recorded here with the date"
   ],
   "dependsOn": [

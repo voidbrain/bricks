@@ -8,6 +8,9 @@ name: Release
 # installs no dependencies, so no package script runs while it holds the OIDC token.
 # No npm token: npm trusts this workflow by its file name (release.yml) and the `npm` environment, set by the owner on
 # npmjs.com (F-004-T05). Renaming this file or the environment breaks publishing until that setting is changed too.
+# The checks below run from the tagged commit's own copy of this file, so someone with write access could tag a branch
+# whose copy skips them: the guarantee is the `npm` environment's protection (required reviewer, only `v*` tags),
+# an owner setting in F-004-T05, not this file alone.
 on:
   push:
     tags: ['v*']
@@ -15,7 +18,7 @@ on:
 permissions: {}
 
 concurrency:
-  group: release
+  group: release-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
@@ -57,7 +60,9 @@ jobs:
           echo "version=$version" >> "$GITHUB_OUTPUT"
 
       - name: Changelog entry for the tagged version (F-005)
-        run: node tools/check-changelog.mjs --version "${{ steps.tag.outputs.version }}"
+        env:
+          VERSION: ${{ steps.tag.outputs.version }}
+        run: node tools/check-changelog.mjs --version "$VERSION"
 
   check:
     needs: verify

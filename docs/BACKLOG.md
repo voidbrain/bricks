@@ -70,7 +70,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
 |---|---|---|---|---|---|---|---|:---:|---|
 | 🟢 Small | <a id="f-004-t01"></a>F-004-T01 — Registry decision: public npm with trusted publishing | 0 h | 0 h | 0 h | Implemented; verification pending | — | — | 🤖 | [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded |
-| 🟢 Small | <a id="f-004-t04"></a>F-004-T04 — Release workflow with npm trusted publishing | 3 h | 0 h | 0 h | Implemented; verification pending | [F-005-T01](#f-005-t01) | [F-004-T05](#f-004-t05) | 🤖 | — |
+| 🟢 Small | <a id="f-004-t04"></a>F-004-T04 — Release workflow with npm trusted publishing | 3 h | 0 h | 0 h | Implemented; verification pending | [F-005-T01](#f-005-t01) | [F-004-T05](#f-004-t05) | 🤖 | [PR #6](https://github.com/voidbrain/bricks/pull/6) release.yml |
 | 🟢 Small | <a id="f-004-t05"></a>F-004-T05 — Owner enables trusted publishing for voidbrain/bricks | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-004-T04](#f-004-t04) | [F-004-T06](#f-004-t06) | ⏳ 🧑‍🔧 | — |
 | 🟡 Medium | <a id="f-004-t06"></a>F-004-T06 — First publish of 0.1.0 and an install check | 2 h | 0 h | 2 h | Planned | [F-004-T05](#f-004-t05), [F-005-T02](#f-005-t02) | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | ⏳ 🤖 | — |
 | 🟡 Medium | **Total** | 5 h | 0 h (0 of 6 steps recorded) | 2 h agent + 0.25 h owner | 2 of 6 completed | | | | |
@@ -91,7 +91,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-004-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded. [#1](https://github.com/voidbrain/bricks/pull/1), [#2](https://github.com/voidbrain/bricks/pull/2) (npm organisation created), [#3](https://github.com/voidbrain/bricks/pull/3) (owner steps marked, status Open); [#6](https://github.com/voidbrain/bricks/pull/6) |
+| PR / evidence | Steps: F-004-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded · F-004-T04: [PR #6](https://github.com/voidbrain/bricks/pull/6) release.yml. [#1](https://github.com/voidbrain/bricks/pull/1), [#2](https://github.com/voidbrain/bricks/pull/2) (npm organisation created), [#3](https://github.com/voidbrain/bricks/pull/3) (owner steps marked, status Open); [#6](https://github.com/voidbrain/bricks/pull/6) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
