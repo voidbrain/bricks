@@ -91,7 +91,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-004-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded. [#1](https://github.com/voidbrain/bricks/pull/1), [#2](https://github.com/voidbrain/bricks/pull/2) (npm organisation created), [#3](https://github.com/voidbrain/bricks/pull/3) (owner steps marked, status Open) |
+| PR / evidence | Steps: F-004-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded. [#1](https://github.com/voidbrain/bricks/pull/1), [#2](https://github.com/voidbrain/bricks/pull/2) (npm organisation created), [#3](https://github.com/voidbrain/bricks/pull/3) (owner steps marked, status Open); [#6](https://github.com/voidbrain/bricks/pull/6) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
