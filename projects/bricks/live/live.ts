@@ -54,7 +54,8 @@ function syncFormProperty(el: Element, name: string, value: string | null): void
 
 /**
  * Sets or removes attribute `name` on `el` only when its value changed.
- * Leaves `value` untouched while `el` is the active focused element.
+ * Leaves `value` untouched while `el` is the active focused element. Refuses `on*`
+ * event-handler attributes, so data can never become script; values are never parsed as HTML.
  */
 export function setAttr(
   el: Element | null | undefined,
@@ -62,6 +63,9 @@ export function setAttr(
   value: LivePrimitive,
 ): boolean {
   if (!el) return false;
+  if (/^on/i.test(name)) {
+    throw new Error(`setAttr refuses event-handler attribute "${name}"`);
+  }
   if (name === 'value' && 'value' in el && el === el.ownerDocument?.activeElement) {
     return false;
   }

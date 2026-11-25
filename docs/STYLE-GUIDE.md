@@ -91,7 +91,7 @@ Each component is shown in every theme in the catalogue (`npm start`). Component
 
 ## Live views
 
-Render once, then update only what changed; lists are keyed rows (`@for … track id`): a new payload patches, adds, moves or removes rows, never rebuilds the list. The checklist card keeps a row's DOM node across payloads (unit-tested). Non-Angular pages use `@voidbrain/bricks/live` (`createLiveView`, `patchKeyedRows`, `setText`, `setAttr`), which builds nodes with DOM APIs only (never `innerHTML`) and writes only changed text and attributes.
+Render once, then update only what changed; lists are keyed rows (`@for … track id`): a new payload patches, adds, moves or removes rows, never rebuilds the list. The checklist card keeps a row's DOM node across payloads (unit-tested). Non-Angular pages use `@voidbrain/bricks/live` (`createLiveView`, `patchKeyedRows`, `setText`, `setAttr`), which builds nodes with DOM APIs only (never `innerHTML`) and writes only changed text and attributes. `setAttr` refuses `on*` attributes, and `patchKeyedRows` throws on a duplicate key before touching the DOM. The helper adds no listeners and keeps no global state beyond a `WeakMap` per container. Angular templates keep `@for … track`; when an Angular component hosts the helper (as the catalogue's `live-demo.ts` does), it mounts `createLiveView` in `ngAfterViewInit` on a `viewChild` element, calls `update` from its own state changes, and releases what it started (observers, subscriptions, timers) in `ngOnDestroy`.
 
 ## Accessibility
 
