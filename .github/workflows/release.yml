@@ -1,0 +1,149 @@
+name: Release
+
+# Publishes @voidbrain/bricks to the public npm registry with npm trusted publishing (F-004-T04).
+# Trigger: a pushed tag vX.Y.Z only; never a pull request, a branch push or a manual run.
+# Order: the tag is on main and matches the library version and a changelog entry (verify), the full CI `check` job
+# passes on the tagged commit (check), the package is built and packed without publish rights (build), and only then
+# the publish job, the one job with `id-token: write`, publishes that packed tarball. It checks out no code and
+# installs no dependencies, so no package script runs while it holds the OIDC token.
+# No npm token: npm trusts this workflow by its file name (release.yml) and the `npm` environment, set by the owner on
+# npmjs.com (F-004-T05). Renaming this file or the environment breaks publishing until that setting is changed too.
+# The checks below run from the tagged commit's own copy of this file, so someone with write access could tag a branch
+# whose copy skips them: the guarantee is the `npm` environment's protection (required reviewer, only `v*` tags),
+# an owner setting in F-004-T05, not this file alone.
+on:
+  push:
+    tags: ['v*']
+
+permissions: {}
+
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      version: ${{ steps.tag.outputs.version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # the tagged commit must be on main
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+
+      - name: Tag is vX.Y.Z, on main, and matches the library version
+        id: tag
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          if ! printf '%s' "$TAG" | grep -Eq '^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$'; then
+            echo "::error::Tag $TAG is not vX.Y.Z: nothing is published."
+            exit 1
+          fi
+          version="${TAG#v}"
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" origin/main; then
+            echo "::error::Tag $TAG points at a commit that is not on main: nothing is published."
+            exit 1
+          fi
+          package=$(node -p "require('./projects/bricks/package.json').version")
+          if [ "$package" != "$version" ]; then
+            echo "::error::Tag $TAG does not match projects/bricks/package.json version $package."
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Changelog entry for the tagged version (F-005)
+        env:
+          VERSION: ${{ steps.tag.outputs.version }}
+        run: node tools/check-changelog.mjs --version "$VERSION"
+
+  check:
+    needs: verify
+    permissions:
+      contents: read
+    uses: ./.github/workflows/ci.yml
+
+  build:
+    needs: [verify, check]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build the library
+        run: npx ng build bricks
+
+      - name: The built package is @voidbrain/bricks at the tagged version
+        env:
+          VERSION: ${{ needs.verify.outputs.version }}
+        run: |
+          node -e "
+            const p = require('./dist/bricks/package.json');
+            const want = { name: '@voidbrain/bricks', version: process.env.VERSION };
+            if (p.name !== want.name || p.version !== want.version || p.private)
+              throw Error('dist/bricks/package.json is ' + p.name + '@' + p.version + (p.private ? ' (private)' : '') + ', expected ' + want.name + '@' + want.version);
+            if (p.repository?.url !== 'https://github.com/voidbrain/bricks')
+              throw Error('repository.url must be https://github.com/voidbrain/bricks for provenance, found ' + p.repository?.url);
+          "
+
+      - name: Pack
+        run: |
+          mkdir -p "$RUNNER_TEMP/package"
+          npm pack ./dist/bricks --pack-destination "$RUNNER_TEMP/package"
+          ls -l "$RUNNER_TEMP/package"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: npm-package
+          path: ${{ runner.temp }}/package/*.tgz
+          if-no-files-found: error
+          retention-days: 30
+
+  publish:
+    needs: [verify, check, build]
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write # npm trusted publishing (OIDC) and provenance; only this job has it
+    steps:
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: npm supports trusted publishing (11.5.1 or later)
+        run: |
+          v=$(npm --version)
+          node -e "
+            const [a, b, c] = process.argv[1].split('.').map(Number);
+            if (a < 11 || (a === 11 && (b < 5 || (b === 5 && c < 1)))) throw Error('npm ' + process.argv[1] + ' is older than 11.5.1');
+          " "$v"
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: npm-package
+          path: ${{ runner.temp }}/package
+
+      - name: Publish with provenance
+        run: |
+          set -- "$RUNNER_TEMP"/package/*.tgz
+          if [ "$#" -ne 1 ]; then echo "::error::Expected one tarball, found $#"; exit 1; fi
+          npm publish "$1" --provenance --access public
