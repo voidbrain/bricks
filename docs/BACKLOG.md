@@ -3,7 +3,7 @@
 Current work ledger, reviewed 25 November 2026 against main `15ee8d9`. Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 46 h agent + 0.5 h owner across 29 open steps of 9 features. Generated from the task files.
+**Remaining effort:** 44 h agent + 0.5 h owner across 29 open steps of 9 features. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -191,9 +191,9 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟣 Very large | 9 h | [F-004-T06](#f-004-t06) | — | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🔴 Large | 7 h | [F-004-T06](#f-004-t06) | — | 🤖 | — | — |
 
-💻 **→** Next: F-006-T01 — Inventory NERV's UI against bricks (Planned).
+💻 **→** Next: F-006-T01 — Inventory NERV's UI against bricks (Implemented; verification pending).
 
 | | |
 |---|---|
@@ -203,12 +203,12 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
-|---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-006-t01"></a>F-006-T01 — Inventory NERV's UI against bricks | 2 h | 0 h | 2 h | Planned | — | [F-006-T02](#f-006-t02), [F-006-T03](#f-006-t03) |
-| 🔴 Large | <a id="f-006-t02"></a>F-006-T02 — Eva light mode and the five accents as theme variants | 5 h | 0 h | 5 h | Planned | [F-006-T01](#f-006-t01) | — |
-| 🟡 Medium | <a id="f-006-t03"></a>F-006-T03 — Migration note for NERV and the release that carries it | 2 h | 0 h | 2 h | Planned | [F-006-T01](#f-006-t01), [F-004-T06](#f-004-t06) | — |
-| 🟣 Very large | **Total** | 9 h | 0 h (0 of 3 steps recorded) | 9 h | 0 of 3 completed | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-006-t01"></a>F-006-T01 — Inventory NERV's UI against bricks | 2 h | 0 h | 0 h | Implemented; verification pending | — | [F-006-T02](#f-006-t02), [F-006-T03](#f-006-t03) | [PR #13](https://github.com/voidbrain/bricks/pull/13) NERV UI inventory against bricks 0.3.0, recorded in F-006 (feeds nerv:F-130) |
+| 🔴 Large | <a id="f-006-t02"></a>F-006-T02 — Eva light mode and the five accents as theme variants | 5 h | 0 h | 5 h | Planned | [F-006-T01](#f-006-t01) | — | — |
+| 🟡 Medium | <a id="f-006-t03"></a>F-006-T03 — Migration note for NERV and the release that carries it | 2 h | 0 h | 2 h | Planned | [F-006-T01](#f-006-t01), [F-004-T06](#f-004-t06) | — | — |
+| 🔴 Large | **Total** | 9 h | 0 h (0 of 3 steps recorded) | 7 h | 0 of 3 completed | | | |
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -217,10 +217,10 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | — |
+| PR / evidence | Steps: F-006-T01: [PR #13](https://github.com/voidbrain/bricks/pull/13) NERV UI inventory against bricks 0.3.0, recorded in F-006 (feeds nerv:F-130). F-006-T01 inventory (2026-11-26); [#13](https://github.com/voidbrain/bricks/pull/13) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
-| Reviewed | 2026-11-25 |
+| Reviewed | 2026-11-26 |
 
 </details>
 
