@@ -43,5 +43,11 @@
     "estimateAgentHours": 2,
     "days": 1,
     "baselineDays": 1
-  }
+  },
+  "prs": [
+    {
+      "pr": 14,
+      "note": "plan addition"
+    }
+  ]
 }
