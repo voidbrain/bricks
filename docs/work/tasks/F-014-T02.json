@@ -4,10 +4,9 @@
   "parent": "F-014",
   "title": "Owner decides how charts are drawn",
   "goal": "The decision is recorded on the page and in F-014",
-  "status": "planned",
+  "status": "closed",
   "acceptance": [
-    "F-014-T01 writes docs/decisions/charts.md and sets it as this step's ownerLink",
-    "The owner's answer (plain SVG or the named library) is quoted with its date on docs/decisions/charts.md and in F-014",
+    "The owner's answer is quoted with its date on docs/decisions/charts.md and in F-014",
     "T03 to T06 follow it"
   ],
   "dependsOn": [
@@ -34,13 +33,13 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "0 h agent, 0.25 h owner",
-    "basis": "One reading of the decision page. Estimated 2026-11-26. Not a measurement.",
-    "reviewed": "2026-11-26",
+    "estimate": "0.25 h owner",
+    "basis": "Owner decision 2026-11-27 ~00:10 CET, in chat (\"ok\" to the recommendation): plain SVG, no chart library: no new dependency, theme tokens and light/dark exact, accessibility under our control, matches Grover's hand-made SVG chart. Decided before T01's comparison page was written. No actual: owner time not measured.",
+    "reviewed": "2026-11-27",
     "agentHours": 0,
     "baselineAgentHours": 0,
     "estimateAgentHours": 0,
-    "ownerHours": 0.25,
+    "ownerHours": 0,
     "ownerKind": "decision"
   },
   "prs": [
@@ -48,5 +47,6 @@
       "pr": 29,
       "note": "plan"
     }
-  ]
+  ],
+  "ownerLink": "docs/decisions/charts.md"
 }

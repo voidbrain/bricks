@@ -2,13 +2,12 @@
   "version": 1,
   "id": "F-014-T01",
   "parent": "F-014",
-  "title": "Decision page: small chart library or plain SVG, accessibility and theming",
-  "goal": "The owner has a page with the options and a recommendation",
-  "status": "planned",
+  "title": "Decision note: plain SVG for charts (no library), accessibility and theming",
+  "goal": "The owner's choice and the SVG approach are recorded on a short decision note",
+  "status": "closed",
   "acceptance": [
-    "docs/decisions/charts.md sets out the options: plain Angular + SVG (no dependency, as Grover's plant-chart.ts does) against a small library (named candidates with bundle size, licence, maintenance, SSR and zoneless support), with a recommendation",
-    "The page states the accessibility contract (role img with a summary, a visually hidden or toggled data table, keyboard focus on points or bars, patterns or labels so meaning is never colour alone, prefers-reduced-motion) and the theming contract (series colours and axes from bx tokens only, light and dark from the theme, no literal colours)",
-    "It lists the shared inputs (series, axis formatters, empty state, height) so the four components share one API"
+    "docs/decisions/charts.md records the owner's choice (plain SVG, no chart library) with the owner's reasoning, the SVG approach and the shared base",
+    "The accessibility contract (role img with a summary, a data table, keyboard focus, no colour-only meaning, reduced motion) and the theming contract (bx tokens only, light and dark) stay stated for T03 to T06"
   ],
   "dependsOn": [],
   "resources": [
@@ -33,12 +32,14 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "1 h agent",
-    "basis": "One decision page; Grover's plant-chart.ts is the plain-SVG reference. Estimated 2026-11-26. Not a measurement.",
-    "reviewed": "2026-11-26",
-    "agentHours": 1,
-    "baselineAgentHours": 1,
-    "estimateAgentHours": 1
+    "estimate": "0 remaining",
+    "basis": "Re-estimated 2026-11-27 from 1 h to 0.25 h: the owner chose plain SVG before the comparison page was written, so this is a short decision note, not a comparison. Closed 2026-11-27, about 0.25 h agent (stated).",
+    "reviewed": "2026-11-27",
+    "agentHours": 0,
+    "baselineAgentHours": 0.25,
+    "estimateAgentHours": 0.25,
+    "actualAgentHours": 0.25,
+    "actualSource": "stated"
   },
   "prs": [
     {
