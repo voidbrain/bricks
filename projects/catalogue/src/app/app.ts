@@ -8,6 +8,7 @@ import {
   BxIcon,
   BxInput,
   BxSelect,
+  BxStat,
   BxTag,
   BxToggle,
   type SelectOption,
@@ -32,6 +33,7 @@ import { samples } from './samples';
     BxIcon,
     BxInput,
     BxSelect,
+    BxStat,
     BxSurface,
     BxTag,
     BxToggle,
@@ -137,6 +139,15 @@ import { samples } from './samples';
 
           <h3>Card</h3>
           <bx-card><p class="flush">A card holds any content on the raised surface.</p></bx-card>
+          <bx-card [heading]="'Relay health (' + theme + ')'" [headingLevel]="4" data-testid="card-header">
+            <span bx-card-meta>updated 2 min ago</span>
+            <p class="flush">A card header: a heading and a meta slot.</p>
+            <div class="bx-grid bx-gap-2 stats" data-testid="stats">
+              <bx-stat label="Queue depth" value="12" detail="peak 40 at noon" />
+              <bx-stat label="Uptime" value="99.2 %" detail="last 30 days" />
+              <bx-stat label="Open alerts" value="0" />
+            </div>
+          </bx-card>
 
           <h3>Live-view helper</h3>
           <cat-live-demo />
@@ -228,6 +239,9 @@ import { samples } from './samples';
     .field label {
       font-size: var(--bx-font-size-sm);
       color: var(--bx-text-muted);
+    }
+    .stats {
+      --bx-grid-min: 9rem;
     }
     .three {
       --bx-columns: 3;

@@ -6,7 +6,14 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 
 ## [Unreleased]
 
-- Nothing yet.
+### Added
+
+- `bx-card` header: `heading`, `headingLevel` (2 to 6) and `headingId` inputs and a `[bx-card-meta]` slot; a headed card is a region named by its heading. Component tokens `--bx-card-title`, `--bx-card-header-bg`, `--bx-card-header-fg`, `--bx-card-header-padding`, `--bx-card-glow`; eva sets a filled accent header bar and an inset glow (F-006-T04).
+- `bx-stat`: a stat tile with label, value and detail, and its `--bx-stat-*` component tokens (F-006-T04).
+
+### Changed
+
+- `bx-card` wraps its content in a padded `.body`; the `section.card` itself has no padding now (it holds the header and the body). Content projected into the card is unaffected.
 
 ## [0.3.0] - 2026-11-26
 

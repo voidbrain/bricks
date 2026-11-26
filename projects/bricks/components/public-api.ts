@@ -6,3 +6,4 @@ export * from './select';
 export * from './tag';
 export * from './toggle';
 export * from './icon';
+export * from './stat';

@@ -56,6 +56,17 @@
   --bx-card-radius: var(--bx-radius);
   --bx-card-padding: var(--bx-space-5);
   --bx-card-gap: var(--bx-space-3);
+  --bx-card-title: var(--bx-text);
+  --bx-card-header-bg: transparent;
+  --bx-card-header-fg: var(--bx-text-muted);
+  --bx-card-header-padding: var(--bx-space-2) var(--bx-space-5);
+  --bx-card-glow: none;
+  --bx-stat-bg: var(--bx-surface-sunken);
+  --bx-stat-fg: var(--bx-text);
+  --bx-stat-muted: var(--bx-text-muted);
+  --bx-stat-border: var(--bx-border);
+  --bx-stat-radius: var(--bx-radius);
+  --bx-stat-padding: var(--bx-space-2) var(--bx-space-3);
   --bx-badge-radius: var(--bx-radius-badge);
   --bx-badge-font-size: var(--bx-font-size-xs);
   --bx-badge-padding: 2px var(--bx-space-2);

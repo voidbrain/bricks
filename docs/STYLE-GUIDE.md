@@ -46,6 +46,8 @@ Three layers, each read only by the next. Prefix `--bx-`.
 | Token | Use |
 |---|---|
 | `--bx-card-bg`, `--bx-card-fg`, `--bx-card-border`, `--bx-card-radius`, `--bx-card-padding`, `--bx-card-gap` | card surface, text, border, radius and spacing |
+| `--bx-card-title`, `--bx-card-header-bg`, `--bx-card-header-fg`, `--bx-card-header-padding`, `--bx-card-glow` | card header: heading colour, bar fill, meta text, padding; the card's shadow. Transparent bar and no glow by default; eva fills the bar with the accent (text on accent) and adds an inset accent glow (NERV `--hdr-bg`, `--hdr-fg`, `--title`, `--glow`) |
+| `--bx-stat-bg`, `--bx-stat-fg`, `--bx-stat-muted`, `--bx-stat-border`, `--bx-stat-radius`, `--bx-stat-padding` | stat tile (`bx-stat`) well, value text, label and detail text, border, radius, padding |
 | `--bx-badge-radius`, `--bx-badge-font-size`, `--bx-badge-padding` | badge radius, type size and padding |
 | `--bx-control-bg`, `--bx-control-fg`, `--bx-control-border`, `--bx-control-radius`, `--bx-control-padding` | form controls (`bx-button`, `bx-input`, `bx-select`, `bx-toggle`) |
 | `--bx-tag-bg`, `--bx-tag-fg`, `--bx-tag-border`, `--bx-tag-radius` | tag chip (`bx-tag`) surface, text, border and radius |
@@ -81,7 +83,8 @@ A theme is applied with `data-bx-theme="<name>"` on any element (`applyTheme()` 
 | `bx-select` | `components` | native select over `SelectOption[]`, bound like `bx-input`; emits `touch` on blur |
 | `bx-toggle` | `components` | accessible binary switch (`role="switch"`) bound with `[(checked)]`, `[formField]` or a reactive form control; emits `touch` on blur |
 | `bx-tag` | `components` | bordered chip for metadata or filters; `removable` adds an accessible remove button emitting `removed` |
-| `bx-card` | `components` | a raised panel; `label` makes it a named region |
+| `bx-card` | `components` | a raised panel; `heading` adds a header row (an `h2` to `h6` by `headingLevel`, a meta slot for `[bx-card-meta]` content) and names the region by it; without a heading, `label` names the region |
+| `bx-stat` | `components` | a stat tile: `label`, `value` (text; the project formats numbers) and optional `detail`, as a group named by its label; lay several out with `bx-grid` |
 | `bx-icon` | `components` | an inline SVG icon from the set in `currentColor`; decorative unless given a `label` (then `role="img"` with that name); an unknown name draws nothing |
 | `bx-badge` | `components` | a short label on a tone (`accent`, `ok`, `warn`, `danger`, `info`); `live` gives it `role="status"` |
 | `bx-status-card`, `bx-notice-card`, `bx-checklist-card`, `bx-recipe-card` | `surfaces` | NERV's four genUI cards, same component ids, schemas and validation |
