@@ -587,6 +587,21 @@ test.describe('catalogue', () => {
     expect((await read()).radius).toBe('0px');
   });
 
+  test('the contrast check composites a translucent colour over its background instead of reading it as opaque', async ({
+    page,
+  }) => {
+    // B-001: black at 10 % on white is a pale grey (about 1.2:1); read as opaque black it passed at 21:1.
+    await page.evaluate(() => {
+      const fixture = document.createElement('section');
+      fixture.id = 'bx-alpha-fixture';
+      fixture.style.setProperty('--bx-surface', '#ffffff');
+      fixture.style.setProperty('--bx-text', 'rgba(0, 0, 0, 0.1)');
+      document.body.append(fixture);
+    });
+    const failures = await page.locator('#bx-alpha-fixture').evaluate(contrastFailures);
+    expect(failures.some((f) => f.startsWith('--bx-text on --bx-surface '))).toBe(true);
+  });
+
   test('every theme section keeps every text pair at AA, brand and series colours included', async ({
     page,
   }) => {
