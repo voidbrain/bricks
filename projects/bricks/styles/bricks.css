@@ -1,6 +1,8 @@
-/* Everything at once: tokens, the three themes and the foundations. A project may import the files one by one instead. */
+/* Everything at once: tokens, the four themes with their accent shades, and the foundations. A project may import the files one by one instead. */
 @import './tokens.css';
 @import './themes/base.css';
 @import './themes/plain.css';
 @import './themes/eva.css';
+@import './themes/simple.css';
+@import './themes/accents.css';
 @import './foundations.css';

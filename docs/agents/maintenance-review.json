@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "reviewed": "2026-11-25T22:20:13.516Z",
+  "reviewed": "2026-11-26T09:02:12.327Z",
   "policy": "c9570a34ab0c7e4f1274fe37802a6eff8e7edfb8266c98f0cec7119533729b2b",
   "inputs": {
     "AGENTS.md": "896ed99addbf80c7b4ba71aff976007b0629e19a8df276b6d7b56f18539d0709",
     "docs/BACKLOG-RULES.md": "872efe6ea1ddcf00992aa42d94ea5e55eb7fc56f455f383b5bb47bfa675af83b",
     "docs/agents/architecture-review.md": "5d967314854912b1a5f1446aeab309763b14f9856bceb3c82df5c6c25c166526",
-    "docs/agents/areas.md": "285b93a14dbca23a1b6ffa3bbb1e8d0415fb7e1703a1bbdcae0eac7a8138a713",
+    "docs/agents/areas.md": "5903051f536eb88756dd128a7717ddc93fe076bbe3bfad439bf64638ae88ba00",
     "docs/agents/audit.md": "e58480c21e8afe9a825df4726fa93b8a7f841557f4267f1fc2c61ac3dac8f642",
     "docs/agents/change-impact.md": "dc1c473e274f76bd70a87ff57bbc53fc75dc75a35d121cf67baf163a2fd2e975",
     "docs/agents/coverage-guide.md": "3d539eb8beedfa101a5e47d9973cdf85dce197436fab2ab096f760e12d208106",
@@ -111,6 +111,12 @@
       "disposition": "implemented",
       "target": "docs/agents/areas.md",
       "evidence": "2026-11-25, F-005-T01: Consumers and releases now names npm run check:changelog (CI and check:fast), its --version option and npm run test:tools; tools/check-changelog.test.mjs covers it. The release procedure stays planned in F-005-T02."
+    },
+    {
+      "kind": "rule",
+      "disposition": "implemented",
+      "target": "docs/agents/areas.md",
+      "evidence": "2026-11-26, F-006-T02: Tokens and themes note replaced its stale 'light mode and accents not in bricks yet' line with how the variant attributes work (same element as data-bx-theme, light rule redefines every colour) and the browser suite's 20-combination axe and contrast check; no rule removed."
     }
   ]
 }

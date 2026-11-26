@@ -1,0 +1,44 @@
+/*
+ * Accent shades for the variant themes (simple, eva): NERV's ACCENTS table (src/dashboard-theme.ts, F-047).
+ * base: the accent on dark grounds; tint: text on dark (eva); soft: muted text on dark (eva); deep: the accent on
+ * light grounds; ink: deep mixed 50 % with black, text on light (eva). Primitive tokens: only theme files read them.
+ * `data-bx-accent` takes effect on the element that also carries `data-bx-theme` (applyThemeChoice() sets both);
+ * the selectors with it are more specific than the theme's own default, so they win in any load order.
+ */
+[data-bx-theme='simple'],
+[data-bx-theme='eva'],
+[data-bx-theme][data-bx-accent='orange'] {
+  --bx-hue-base: #ff6600;
+  --bx-hue-tint: #ffaa66;
+  --bx-hue-soft: #a67c52;
+  --bx-hue-deep: #b34700;
+  --bx-hue-ink: #5a2400;
+}
+[data-bx-theme][data-bx-accent='blue'] {
+  --bx-hue-base: #2a7fff;
+  --bx-hue-tint: #9cc4ff;
+  --bx-hue-soft: #7d97bd;
+  --bx-hue-deep: #1d5fd1;
+  --bx-hue-ink: #0f3069;
+}
+[data-bx-theme][data-bx-accent='green'] {
+  --bx-hue-base: #22c55e;
+  --bx-hue-tint: #8ef0b0;
+  --bx-hue-soft: #74a888;
+  --bx-hue-deep: #166534;
+  --bx-hue-ink: #0b331a;
+}
+[data-bx-theme][data-bx-accent='violet'] {
+  --bx-hue-base: #a855f7;
+  --bx-hue-tint: #d5b0ff;
+  --bx-hue-soft: #9d88bf;
+  --bx-hue-deep: #7e3fc4;
+  --bx-hue-ink: #3f2062;
+}
+[data-bx-theme][data-bx-accent='ochre'] {
+  --bx-hue-base: #d4a017;
+  --bx-hue-tint: #f0cf7a;
+  --bx-hue-soft: #a8925f;
+  --bx-hue-deep: #7a5d00;
+  --bx-hue-ink: #3d2f00;
+}

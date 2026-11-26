@@ -1,6 +1,7 @@
 /*
- * Theme "eva": NERV's EVA look (Eva · Dark · Orange, palette() in NERV's dashboard.js, F-047).
- * Square corners, monospace type, orange on near-black. Share Tech Mono is used only when installed locally: no remote fonts.
+ * Theme "eva": NERV's EVA look (palette() in NERV's src/dashboard-theme.ts, F-047). Square corners, monospace type.
+ * Dark and orange by default (Eva · Dark · Orange: orange on near-black); data-bx-mode="light" and data-bx-accent
+ * (accents.css) on the same element change them. Share Tech Mono is used only when installed locally: no remote fonts.
  * It also sets the card's EVA component tokens (NERV --hdr-bg, --hdr-fg, --title, --glow): a filled header bar and an
  * inset glow. Load it after tokens.css (bricks.css does), so these win over the defaults declared on every theme root.
  */
@@ -9,12 +10,12 @@
   --bx-surface: #050508;
   --bx-surface-raised: #0d0d12;
   --bx-surface-sunken: #09090d;
-  --bx-border: rgba(255, 102, 0, 0.4);
-  --bx-text: #ffaa66;
-  --bx-text-muted: #a67c52;
-  --bx-accent: #ff6600;
+  --bx-border: color-mix(in srgb, var(--bx-hue-base) 40%, transparent);
+  --bx-text: var(--bx-hue-tint);
+  --bx-text-muted: var(--bx-hue-soft);
+  --bx-accent: var(--bx-hue-base);
   --bx-on-accent: #000000;
-  --bx-focus: #ff6600;
+  --bx-focus: var(--bx-hue-base);
   --bx-ok: #22c55e;
   --bx-warn: #ffcc00;
   --bx-danger: #ff0033;
@@ -27,4 +28,25 @@
   --bx-card-header-bg: var(--bx-accent);
   --bx-card-header-fg: var(--bx-on-accent);
   --bx-card-glow: inset 0 0 14px color-mix(in srgb, var(--bx-accent) 7%, transparent);
+}
+/* Eva · Light: warm paper, deep accent; the header bar keeps the bright accent with black text, as NERV's does. */
+[data-bx-theme='eva'][data-bx-mode='light'] {
+  color-scheme: light;
+  --bx-surface: #f3f1ec;
+  --bx-surface-raised: #ffffff;
+  --bx-surface-sunken: #f8f7f3;
+  --bx-border: color-mix(in srgb, var(--bx-hue-deep) 45%, transparent);
+  --bx-text: var(--bx-hue-ink);
+  --bx-text-muted: var(--bx-hue-deep);
+  --bx-accent: var(--bx-hue-deep);
+  --bx-on-accent: #ffffff;
+  --bx-focus: var(--bx-hue-deep);
+  --bx-ok: #166534;
+  --bx-warn: #a15c07;
+  --bx-danger: #b91c1c;
+  --bx-info: #0369a1;
+  --bx-on-status: #ffffff;
+  --bx-card-title: #000000;
+  --bx-card-header-bg: var(--bx-hue-base);
+  --bx-card-header-fg: #000000;
 }

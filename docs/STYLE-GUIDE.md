@@ -2,7 +2,7 @@
 
 How bricks looks and talks, and how this repository's documents are written. Read it before changing UI (component templates and styles, tokens, themes, user-facing text). The values live in code: [`projects/bricks/styles/`](../projects/bricks/styles/) (`tokens.css`, `themes/*.css`, `foundations.css`). When this guide and the code disagree, the code is what ships: fix whichever is wrong and record the discrepancy in the backlog if it is not fixed in the same change.
 
-bricks is the shared UI kit of the voidbrain projects (NERV, Grover, FPVBuddy, Hobo). It has no look of its own beyond its themes: **base** and **plain** are neutral, **eva** is NERV's EVA look. A project picks a theme; it never overrides a component.
+bricks is the shared UI kit of the voidbrain projects (NERV, Grover, FPVBuddy, Hobo). It has no look of its own beyond its themes: **base** and **plain** are neutral, **simple** and **eva** are NERV's Simple and EVA looks, each in two modes and five accents. A project picks a theme; it never overrides a component.
 
 ## Documentation ownership
 
@@ -21,7 +21,7 @@ Three layers, each read only by the next. Prefix `--bx-`.
 
 | Layer | Where | Read by | Example |
 |---|---|---|---|
-| Primitive | `styles/tokens.css` `:root` | semantic and component tokens, foundations | `--bx-space-4: 16px` |
+| Primitive | `styles/tokens.css` `:root`; accent shades in `styles/themes/accents.css` | semantic and component tokens, foundations; the shades only by theme files | `--bx-space-4: 16px`, `--bx-hue-base` |
 | Semantic | each `styles/themes/<name>.css` | components | `--bx-accent`, `--bx-text-muted` |
 | Component | `styles/tokens.css`, declared on `:root` and every `[data-bx-theme]` | one component | `--bx-card-bg: var(--bx-surface-raised)` |
 
@@ -47,7 +47,7 @@ Three layers, each read only by the next. Prefix `--bx-`.
 | Token | Use |
 |---|---|
 | `--bx-card-bg`, `--bx-card-fg`, `--bx-card-border`, `--bx-card-radius`, `--bx-card-padding`, `--bx-card-gap` | card surface, text, border, radius and spacing |
-| `--bx-card-title`, `--bx-card-header-bg`, `--bx-card-header-fg`, `--bx-card-header-padding`, `--bx-card-glow` | card header: heading colour, bar fill, meta text, padding; the card's shadow. Transparent bar and no glow by default; eva fills the bar with the accent (text on accent) and adds an inset accent glow (NERV `--hdr-bg`, `--hdr-fg`, `--title`, `--glow`) |
+| `--bx-card-title`, `--bx-card-header-bg`, `--bx-card-header-fg`, `--bx-card-header-padding`, `--bx-card-glow` | card header: heading colour, bar fill, meta text, padding; the card's shadow. Transparent bar and no glow by default; eva fills the bar with the accent (text on accent; in light mode the bright accent shade with black text) and adds an inset accent glow (NERV `--hdr-bg`, `--hdr-fg`, `--title`, `--glow`) |
 | `--bx-stat-bg`, `--bx-stat-fg`, `--bx-stat-muted`, `--bx-stat-border`, `--bx-stat-radius`, `--bx-stat-padding` | stat tile (`bx-stat`) well, value text, label and detail text, border, radius, padding |
 | `--bx-badge-radius`, `--bx-badge-font-size`, `--bx-badge-padding`, `--bx-badge-outline-bg` | badge radius, type size and padding; the fill behind an outlined or dashed badge (transparent) |
 | `--bx-control-bg`, `--bx-control-fg`, `--bx-control-border`, `--bx-control-radius`, `--bx-control-padding`, `--bx-control-padding-sm` | form controls (`bx-button`, `bx-input`, `bx-select`, `bx-toggle`); `-sm` is the compact button's padding |
@@ -64,13 +64,18 @@ Three layers, each read only by the next. Prefix `--bx-`.
 
 ### Themes
 
-| Theme | Look | Source |
-|---|---|---|
-| `base` | neutral, light; also the `:root` default | NERV's Simple · Light palette |
-| `plain` | neutral, dark | NERV's Simple · Dark · Blue palette |
-| `eva` | NERV's EVA look: orange on near-black, square corners, monospace (Share Tech Mono only when installed; no remote fonts) | NERV's Eva · Dark · Orange (`palette()` in NERV's dashboard, F-047) |
+| Theme | Look | Mode and accent | Source |
+|---|---|---|---|
+| `base` | neutral, light, sans, 8 px corners; also the `:root` default | fixed | NERV's Simple · Light palette |
+| `plain` | neutral, dark, sans, 8 px corners | fixed | NERV's Simple · Dark · Blue palette |
+| `simple` | plain's neutral surfaces, monospace, 6 px corners | dark (default) or light; five accents, orange by default | NERV's Simple (`palette()` in NERV's `src/dashboard-theme.ts`); Simple · Dark · Orange is NERV's `/full` default |
+| `eva` | NERV's EVA look: accent-tinted text on near-black (dark) or warm paper (light), square corners, monospace (Share Tech Mono only when installed; no remote fonts), a filled card header bar and glow | dark (default) or light; five accents, orange by default | NERV's Eva (F-047); Eva · Dark · Orange is the original |
 
-A theme is applied with `data-bx-theme="<name>"` on any element (`applyTheme()` in `@voidbrain/bricks/themes`); themes nest. Every theme meets WCAG AA: 4.5:1 for text (including text on status fills), 3:1 for UI parts. The browser suite runs axe on each.
+A theme is applied with `data-bx-theme="<name>"` on any element; themes nest. `simple` and `eva` also read `data-bx-mode` (`dark`, `light`) and `data-bx-accent` (`orange`, `blue`, `green`, `violet`, `ochre`) **on the same element**: `applyThemeChoice(element, { theme, mode, accent })` in `@voidbrain/bricks/themes` sets all three, checks each part (`themeChoice()`) and clears mode and accent for `base` and `plain`; `applyTheme(element, name)` gives a theme its default mode and accent. The 20 combinations are `THEME_COMBINATIONS`.
+
+How it is built: `accents.css` sets five accent shades per accent (`--bx-hue-base`, the accent on dark; `-tint` and `-soft`, eva's text and muted text on dark; `-deep`, the accent on light; `-ink`, deep mixed 50 % with black, eva's text on light), and each variant theme's dark rule and its `[data-bx-mode='light']` rule build the semantic tokens from them. A light rule redefines every colour its dark rule sets. On light grounds the accent is the deep shade with white text on it; eva's light card header keeps the bright shade with black text, as NERV's does.
+
+Every theme and every combination meets WCAG AA: 4.5:1 for text (including text on status fills and on the accent), 3:1 for UI parts. The browser suite runs axe on each theme section and on all 20 combinations through the catalogue's switcher, and checks each text pair's contrast from the computed tokens.
 
 ## Foundations
 

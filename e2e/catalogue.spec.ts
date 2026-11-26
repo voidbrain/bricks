@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
-import { THEMES } from '../projects/bricks/themes/themes';
+import { THEMES, THEME_COMBINATIONS } from '../projects/bricks/themes/themes';
 import { ICON_NAMES } from '../projects/bricks/foundations/icons';
 import { BREAKPOINTS } from '../projects/bricks/foundations/layout';
 import { COMPONENT_TOKENS, SEMANTIC_TOKENS } from '../projects/bricks/tokens/tokens';
@@ -479,6 +479,122 @@ test.describe('catalogue', () => {
       await listbox.getByRole('option', { name: /help/ }).click();
       await expect(input).toHaveValue('/help');
       await expect(input).toBeFocused();
+    }
+  });
+
+  test('theme switcher: the preview takes theme, mode and accent; simple is monospace with 6 px corners', async ({
+    page,
+  }) => {
+    const preview = page.locator('[data-testid="variant-preview"]');
+    await expect(preview).toHaveAttribute('data-bx-theme', 'simple');
+    await expect(preview).toHaveAttribute('data-bx-mode', 'dark');
+    await expect(preview).toHaveAttribute('data-bx-accent', 'orange');
+    const read = () =>
+      preview.evaluate((el) => {
+        const s = getComputedStyle(el);
+        return {
+          accent: s.getPropertyValue('--bx-accent').trim(),
+          surface: s.backgroundColor,
+          scheme: s.colorScheme,
+          font: s.fontFamily,
+          radius: getComputedStyle(el.querySelector('bx-card .card')!).borderTopLeftRadius,
+        };
+      });
+    const dark = await read();
+    expect(dark.scheme).toBe('dark');
+    expect(dark.font).toMatch(/monospace/);
+    expect(dark.radius).toBe('6px');
+    await page.selectOption('#variant-mode', 'light');
+    await page.selectOption('#variant-accent', 'violet');
+    await expect(preview).toHaveAttribute('data-bx-accent', 'violet');
+    const light = await read();
+    expect(light.scheme).toBe('light');
+    expect(light.surface).not.toBe(dark.surface);
+    expect(light.accent).not.toBe(dark.accent);
+    await page.selectOption('#variant-theme', 'eva');
+    await expect(preview).toHaveAttribute('data-bx-theme', 'eva');
+    expect((await read()).radius).toBe('0px');
+  });
+
+  test('all 20 Theme · Mode · Accent combinations pass axe and keep every text pair at AA', async ({
+    page,
+  }) => {
+    test.setTimeout(120_000);
+    const preview = page.locator('[data-testid="variant-preview"]');
+    for (const { theme, mode, accent } of THEME_COMBINATIONS) {
+      const at = `${theme}·${mode}·${accent}`;
+      await page.selectOption('#variant-theme', theme);
+      await page.selectOption('#variant-mode', mode);
+      await page.selectOption('#variant-accent', accent);
+      await expect(preview).toHaveAttribute('data-bx-theme', theme);
+      await expect(preview).toHaveAttribute('data-bx-mode', mode);
+      await expect(preview).toHaveAttribute('data-bx-accent', accent);
+      const results = await new AxeBuilder({ page })
+        .include('[data-testid="variant-preview"]')
+        .withTags(['wcag2a', 'wcag2aa', 'wcag22aa'])
+        .analyze();
+      expect(
+        results.violations.map(
+          (v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`,
+        ),
+        at,
+      ).toEqual([]);
+      const fails = await preview.evaluate(
+        (root, tokens) => {
+          const probe = document.createElement('span');
+          root.append(probe);
+          const rgb = (token: string) => {
+            probe.style.color = `var(${token})`;
+            const m = getComputedStyle(probe)
+              .color.match(/[\d.]+/g)!
+              .map(Number);
+            return m.slice(0, 3);
+          };
+          const lum = (c: number[]) => {
+            const [r, g, b] = c.map((v) => {
+              const x = v / 255;
+              return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4;
+            });
+            return 0.2126 * r! + 0.7152 * g! + 0.0722 * b!;
+          };
+          const ratio = (a: string, b: string) => {
+            const [x, y] = [lum(rgb(a)), lum(rgb(b))].sort((p, q) => q - p);
+            return (x! + 0.05) / (y! + 0.05);
+          };
+          const out: string[] = [];
+          const need = (fg: string, bg: string, min = 4.5) => {
+            const r = ratio(fg, bg);
+            if (r < min) out.push(`${fg} on ${bg} ${r.toFixed(2)}`);
+          };
+          for (const fg of tokens.text)
+            for (const bg of ['--bx-surface', '--bx-surface-raised', '--bx-surface-sunken'])
+              need(fg, bg);
+          need('--bx-on-accent', '--bx-accent');
+          for (const s of ['--bx-ok', '--bx-warn', '--bx-danger', '--bx-info'])
+            need('--bx-on-status', s);
+          probe.style.color = 'var(--bx-card-header-bg)';
+          const bar = /rgba\(.*,\s*0\)$/.test(getComputedStyle(probe).color)
+            ? '--bx-card-bg'
+            : '--bx-card-header-bg';
+          need('--bx-card-header-fg', bar);
+          need('--bx-card-title', bar);
+          need('--bx-focus', '--bx-surface', 3);
+          probe.remove();
+          return out;
+        },
+        {
+          text: [
+            '--bx-text',
+            '--bx-text-muted',
+            '--bx-accent',
+            '--bx-ok',
+            '--bx-warn',
+            '--bx-danger',
+            '--bx-info',
+          ],
+        },
+      );
+      expect(fails, at).toEqual([]);
     }
   });
 });
