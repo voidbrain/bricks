@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "id": "F-013-T02",
+  "parent": "F-013",
+  "title": "image-choice card: gallery, selection, keyboard and screen reader",
+  "goal": "The owner can pick one image with mouse, touch or keyboard",
+  "status": "planned",
+  "acceptance": [
+    "Owner idea 2026-11-26 in chat: \"in future I will be able to recover a recipe or a hobo place, say it was without image, I will be able to put it in chat and tell to use that, or to find some on the web, propose (using genUI?) and save the accepted.\" The proposal is a bricks surface both NERV and the projects can use (nerv:F-143).",
+    "bx-image-choice-card renders a grid of candidates as a radio group (arrow keys move, Space/Enter select, visible focus), each with its alt text and a source/licence line as text, and a \"none of these\" choice when allowNone; emits chosen {candidateId | null}; renders payload text as text",
+    "Works in the base, plain and eva themes with tokens only; axe passes; a browser test for keyboard selection; Italian and English labels come from the consumer, with English defaults"
+  ],
+  "dependsOn": [
+    "F-013-T01"
+  ],
+  "resources": [
+    "projects/bricks/surfaces/**",
+    "projects/bricks/styles/**",
+    "docs/work/records/F-013.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular",
+    "accessibility"
+  ],
+  "privacy": "Invented candidates and placeholder images generated in the test; no third-party image URLs in fixtures.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "Material scope growth or effort increase goes to the owner before adoption"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2 h agent",
+    "basis": "Estimated 2026-11-26: one card with radio-group keyboard handling and axe in three themes. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 2.0,
+    "baselineAgentHours": 2.0,
+    "estimateAgentHours": 2.0
+  },
+  "prs": [
+    {
+      "pr": 27,
+      "note": "plan"
+    }
+  ]
+}
