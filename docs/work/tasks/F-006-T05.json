@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "id": "F-006-T05",
+  "parent": "F-006",
+  "title": "Compact button, outlined badge, meter, disclosure, inline alert, sr-only and phone columns",
+  "goal": "The small gaps NERV needs for its first migration steps",
+  "status": "planned",
+  "acceptance": [
+    "bx-button compact size (.btn.sm row)",
+    "Outlined-tone and dashed variant of bx-badge or bx-tag for vote chips (.vchip row)",
+    "Meter with an optional threshold mark; disclosure (details); inline alert for notes and role=alert errors",
+    "bx-sr-only class and a bx-columns option keeping two columns on a phone",
+    "Catalogue demos pass axe in every theme"
+  ],
+  "dependsOn": [
+    "F-006-T01"
+  ],
+  "resources": [
+    "projects/bricks/components/**",
+    "projects/bricks/styles/**",
+    "docs/work/records/F-006.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "3 h agent, 1 d",
+    "basis": "Estimate from the F-006-T01 inventory, not a measurement. Owner-approved 2026-11-26 as an adopted-plan change; unblocks nerv:F-130-T02 to F-130-T05.",
+    "reviewed": "2026-11-26",
+    "agentHours": 3,
+    "ownerHours": 0,
+    "baselineAgentHours": 3,
+    "estimateAgentHours": 3,
+    "days": 1,
+    "baselineDays": 1
+  },
+  "prs": [
+    {
+      "pr": 14,
+      "note": "plan addition"
+    }
+  ]
+}
