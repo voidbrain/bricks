@@ -483,12 +483,12 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
-|---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-013-t01"></a>F-013-T01 — image-choice surface: schema and validator | 1 h | 0 h | 1 h | Planned | — | [F-013-T02](#f-013-t02) |
-| 🟡 Medium | <a id="f-013-t02"></a>F-013-T02 — image-choice card: gallery, selection, keyboard and screen reader | 2 h | 0 h | 2 h | Planned | [F-013-T01](#f-013-t01) | [F-013-T03](#f-013-t03) |
-| 🟢 Small | <a id="f-013-t03"></a>F-013-T03 — Catalogue entry, release and a note for consumers | 0.5 h | 0 h | 0.5 h | Planned | [F-013-T02](#f-013-t02) | — |
-| 🟡 Medium | **Total** | 3.5 h | 0 h (0 of 3 steps recorded) | 3.5 h | 0 of 3 completed | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-013-t01"></a>F-013-T01 — image-choice surface: schema and validator | 1 h | 0 h | 1 h | Planned | — | [F-013-T02](#f-013-t02) | [PR #27](https://github.com/voidbrain/bricks/pull/27) plan |
+| 🟡 Medium | <a id="f-013-t02"></a>F-013-T02 — image-choice card: gallery, selection, keyboard and screen reader | 2 h | 0 h | 2 h | Planned | [F-013-T01](#f-013-t01) | [F-013-T03](#f-013-t03) | [PR #27](https://github.com/voidbrain/bricks/pull/27) plan |
+| 🟢 Small | <a id="f-013-t03"></a>F-013-T03 — Catalogue entry, release and a note for consumers | 0.5 h | 0 h | 0.5 h | Planned | [F-013-T02](#f-013-t02) | — | [PR #27](https://github.com/voidbrain/bricks/pull/27) plan |
+| 🟡 Medium | **Total** | 3.5 h | 0 h (0 of 3 steps recorded) | 3.5 h | 0 of 3 completed | | | |
 
 <details>
 <summary>Next action, estimates and evidence</summary>
@@ -497,7 +497,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Plan: PR pending |
+| PR / evidence | Steps: F-013-T01: [PR #27](https://github.com/voidbrain/bricks/pull/27) plan · F-013-T02: [PR #27](https://github.com/voidbrain/bricks/pull/27) plan · F-013-T03: [PR #27](https://github.com/voidbrain/bricks/pull/27) plan. Plan: [#27](https://github.com/voidbrain/bricks/pull/27) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
