@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "id": "F-014-T01",
+  "parent": "F-014",
+  "title": "Decision page: small chart library or plain SVG, accessibility and theming",
+  "goal": "The owner has a page with the options and a recommendation",
+  "status": "planned",
+  "acceptance": [
+    "docs/decisions/charts.md sets out the options: plain Angular + SVG (no dependency, as Grover's plant-chart.ts does) against a small library (named candidates with bundle size, licence, maintenance, SSR and zoneless support), with a recommendation",
+    "The page states the accessibility contract (role img with a summary, a visually hidden or toggled data table, keyboard focus on points or bars, patterns or labels so meaning is never colour alone, prefers-reduced-motion) and the theming contract (series colours and axes from bx tokens only, light and dark from the theme, no literal colours)",
+    "It lists the shared inputs (series, axis formatters, empty state, height) so the four components share one API"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "docs/decisions/charts.md",
+    "docs/work/records/F-014.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "documentation",
+    "accessibility"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h agent",
+    "basis": "One decision page; Grover's plant-chart.ts is the plain-SVG reference. Estimated 2026-11-26. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  },
+  "prs": []
+}
