@@ -13,14 +13,29 @@ import { COMPONENT_TOKENS, SEMANTIC_TOKENS } from '../projects/bricks/tokens/tok
 function contrastFailures(root: Element): string[] {
   const probe = document.createElement('span');
   root.append(probe);
-  const rgb = (token: string) => {
+  // Red, green, blue (0-255) and alpha (0-1) of a token's computed colour.
+  const rgba = (token: string) => {
     probe.style.color = `var(${token})`;
     const value = getComputedStyle(probe).color;
-    const n = value
-      .match(/[\d.]+/g)!
-      .map(Number)
-      .slice(0, 3);
-    return value.startsWith('color(srgb') ? n.map((v) => v * 255) : n;
+    const n = value.match(/[\d.]+/g)!.map(Number);
+    const c = value.startsWith('color(srgb') ? n.slice(0, 3).map((v) => v * 255) : n.slice(0, 3);
+    return [...c, n[3] ?? 1];
+  };
+  // A translucent colour as seen over an opaque one (source-over compositing).
+  const over = (top: number[], under: number[]) => [
+    ...top.slice(0, 3).map((v, i) => v * top[3]! + under[i]! * (1 - top[3]!)),
+    1,
+  ];
+  // A translucent background is seen over the theme surface, and a translucent surface over the white page.
+  const backdrop = (bg: string) => {
+    const white = [255, 255, 255, 1];
+    const b = rgba(bg);
+    if (b[3]! === 1) return b;
+    return over(b, bg === '--bx-surface' ? white : over(rgba('--bx-surface'), white));
+  };
+  const rgb = (fg: string, bg: number[]) => {
+    const f = rgba(fg);
+    return f[3]! < 1 ? over(f, bg) : f;
   };
   const lum = (c: number[]) => {
     const [r, g, b] = c.map((v) => {
@@ -31,7 +46,8 @@ function contrastFailures(root: Element): string[] {
   };
   const out: string[] = [];
   const need = (fg: string, bg: string, min = 4.5) => {
-    const [x, y] = [lum(rgb(fg)), lum(rgb(bg))].sort((p, q) => q - p);
+    const back = backdrop(bg);
+    const [x, y] = [lum(rgb(fg, back)), lum(back)].sort((p, q) => q - p);
     const r = (x! + 0.05) / (y! + 0.05);
     if (r < min) out.push(`${fg} on ${bg} ${r.toFixed(2)}`);
   };
