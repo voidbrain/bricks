@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 import { THEMES } from '../projects/bricks/themes/themes';
 import { ICON_NAMES } from '../projects/bricks/foundations/icons';
 import { BREAKPOINTS } from '../projects/bricks/foundations/layout';
-import { SEMANTIC_TOKENS } from '../projects/bricks/tokens/tokens';
+import { COMPONENT_TOKENS, SEMANTIC_TOKENS } from '../projects/bricks/tokens/tokens';
 
 test.describe('catalogue', () => {
   test.beforeEach(async ({ page }) => {
@@ -210,5 +210,59 @@ test.describe('catalogue', () => {
     await page.reload();
     await expect(page.locator('section.theme')).toHaveCount(THEMES.length);
     expect(foreign).toEqual([]);
+  });
+
+  test('every component token resolves in every theme', async ({ page }) => {
+    for (const theme of THEMES) {
+      const missing = await page
+        .locator(`section[data-bx-theme="${theme}"]`)
+        .evaluate(
+          (el, tokens) =>
+            tokens.filter((t) => getComputedStyle(el).getPropertyValue(t).trim() === ''),
+          [...COMPONENT_TOKENS],
+        );
+      expect(missing, theme).toEqual([]);
+    }
+  });
+
+  test('card header: a named region with a heading and meta; eva fills the bar and glows', async ({
+    page,
+  }) => {
+    const read = (theme: string) =>
+      page
+        .locator(`section[data-bx-theme="${theme}"] [data-testid="card-header"]`)
+        .evaluate((host) => {
+          const card = host.querySelector('section.card')!;
+          const head = host.querySelector('header.head')!;
+          const root = host.closest('[data-bx-theme]')!;
+          return {
+            bar: getComputedStyle(head).backgroundColor,
+            accent: getComputedStyle(root).getPropertyValue('--bx-accent').trim(),
+            glow: getComputedStyle(card).boxShadow,
+          };
+        });
+    for (const theme of THEMES) {
+      const card = page.locator(`section[data-bx-theme="${theme}"] [data-testid="card-header"]`);
+      await expect(card.getByRole('region', { name: `Relay health (${theme})` })).toBeVisible();
+      await expect(card.getByRole('heading', { level: 4 })).toHaveText(`Relay health (${theme})`);
+      await expect(card.locator('header [bx-card-meta]')).toHaveText('updated 2 min ago');
+      await expect(card.getByRole('group', { name: 'Queue depth' })).toContainText('12');
+    }
+    const eva = await read('eva');
+    expect(eva.bar).toBe('rgb(255, 102, 0)');
+    expect(eva.glow).not.toBe('none');
+    for (const theme of ['base', 'plain']) {
+      const r = await read(theme);
+      expect(r.bar).toBe('rgba(0, 0, 0, 0)');
+      expect(r.glow).toBe('none');
+    }
+  });
+
+  test('stat tiles wrap to one column at 320 px without overflow', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 800 });
+    const columns = await page
+      .locator('section[data-bx-theme="base"] [data-testid="stats"]')
+      .evaluate((el) => getComputedStyle(el).gridTemplateColumns.split(' ').length);
+    expect(columns).toBe(1);
   });
 });

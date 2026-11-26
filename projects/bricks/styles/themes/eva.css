@@ -1,6 +1,8 @@
 /*
  * Theme "eva": NERV's EVA look (Eva · Dark · Orange, palette() in NERV's dashboard.js, F-047).
  * Square corners, monospace type, orange on near-black. Share Tech Mono is used only when installed locally: no remote fonts.
+ * It also sets the card's EVA component tokens (NERV --hdr-bg, --hdr-fg, --title, --glow): a filled header bar and an
+ * inset glow. Load it after tokens.css (bricks.css does), so these win over the defaults declared on every theme root.
  */
 [data-bx-theme='eva'] {
   color-scheme: dark;
@@ -21,4 +23,8 @@
   --bx-font: 'Share Tech Mono', var(--bx-font-mono);
   --bx-radius: var(--bx-radius-0);
   --bx-radius-badge: var(--bx-radius-0);
+  --bx-card-title: var(--bx-on-accent);
+  --bx-card-header-bg: var(--bx-accent);
+  --bx-card-header-fg: var(--bx-on-accent);
+  --bx-card-glow: inset 0 0 14px color-mix(in srgb, var(--bx-accent) 7%, transparent);
 }
