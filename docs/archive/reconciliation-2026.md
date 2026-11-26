@@ -15,3 +15,7 @@ Reconciled to main: PR #14 merged with CI green (checked with `npm run ci:status
 ## 2026-11-26 — main `498fca3`
 
 Reconciled to main: PRs #1 to #13 merged with CI green (checked with `npm run ci:status`), including the release PRs #10 (0.2.0) and #12 (0.3.0); the records already carry their evidence.
+
+## 2026-11-26 — main `0b9f6f3`
+
+PR #26 reconciles the harness to v10.24.1 (from 10.21.4); the owner authorised it in chat on 2026-11-26 ("ok to all") although the template backlog is not empty. CI pending at this entry.
