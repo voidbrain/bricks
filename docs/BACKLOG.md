@@ -523,11 +523,11 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
-|---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-015-t01"></a>F-015-T01 — Sortable list component with keyboard, pointer and touch reorder | 3 h | 0 h | 3 h | Planned | — | [F-015-T02](#f-015-t02) |
-| 🟢 Small | <a id="f-015-t02"></a>F-015-T02 — Release the sortable list | 0.5 h | 0 h | 0.5 h | Planned | [F-015-T01](#f-015-t01) | — |
-| 🟡 Medium | **Total** | 3.5 h | 0 h (0 of 2 steps recorded) | 3.5 h | 0 of 2 completed | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-015-t01"></a>F-015-T01 — Sortable list component with keyboard, pointer and touch reorder | 3 h | 0 h | 3 h | Planned | — | [F-015-T02](#f-015-t02) | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟢 Small | <a id="f-015-t02"></a>F-015-T02 — Release the sortable list | 0.5 h | 0 h | 0.5 h | Planned | [F-015-T01](#f-015-t01) | — | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟡 Medium | **Total** | 3.5 h | 0 h (0 of 2 steps recorded) | 3.5 h | 0 of 2 completed | | | |
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -536,7 +536,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | pending |
+| PR / evidence | Steps: F-015-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-015-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
@@ -602,16 +602,16 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who |
-|---|---|---|---|---|---|---|---|:---:|
-| 🟢 Small | <a id="f-014-t01"></a>F-014-T01 — Decision page: small chart library or plain SVG, accessibility and theming | 1 h | 0 h | 1 h | Planned | — | [F-014-T02](#f-014-t02) | 🤖 |
-| 🟢 Small | <a id="f-014-t02"></a>F-014-T02 — Owner decides how charts are drawn | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-014-T01](#f-014-t01) | [F-014-T03](#f-014-t03) | ⏳ 🤔 |
-| 🟡 Medium | <a id="f-014-t03"></a>F-014-T03 — Line chart component, with the shared chart base | 2.5 h | 0 h | 2.5 h | Planned | [F-014-T02](#f-014-t02) | [F-014-T04](#f-014-t04), [F-014-T06](#f-014-t06) | ⏳ 🤖 |
-| 🟡 Medium | <a id="f-014-t04"></a>F-014-T04 — Bar chart component | 1.5 h | 0 h | 1.5 h | Planned | [F-014-T03](#f-014-t03) | [F-014-T05](#f-014-t05) | ⏳ 🤖 |
-| 🟢 Small | <a id="f-014-t05"></a>F-014-T05 — Stacked bar chart component | 1 h | 0 h | 1 h | Planned | [F-014-T04](#f-014-t04) | [F-014-T07](#f-014-t07) | ⏳ 🤖 |
-| 🟡 Medium | <a id="f-014-t06"></a>F-014-T06 — Donut chart component | 1.5 h | 0 h | 1.5 h | Planned | [F-014-T03](#f-014-t03) | [F-014-T07](#f-014-t07) | ⏳ 🤖 |
-| 🟢 Small | <a id="f-014-t07"></a>F-014-T07 — Release the charts | 0.5 h | 0 h | 0.5 h | Planned | [F-014-T05](#f-014-t05), [F-014-T06](#f-014-t06) | — | ⏳ 🤖 |
-| 🔴 Large | **Total** | 8 h | 0 h (0 of 7 steps recorded) | 8 h agent + 0.25 h owner | 0 of 7 completed | | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
+|---|---|---|---|---|---|---|---|:---:|---|
+| 🟢 Small | <a id="f-014-t01"></a>F-014-T01 — Decision page: small chart library or plain SVG, accessibility and theming | 1 h | 0 h | 1 h | Planned | — | [F-014-T02](#f-014-t02) | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟢 Small | <a id="f-014-t02"></a>F-014-T02 — Owner decides how charts are drawn | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-014-T01](#f-014-t01) | [F-014-T03](#f-014-t03) | ⏳ 🤔 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟡 Medium | <a id="f-014-t03"></a>F-014-T03 — Line chart component, with the shared chart base | 2.5 h | 0 h | 2.5 h | Planned | [F-014-T02](#f-014-t02) | [F-014-T04](#f-014-t04), [F-014-T06](#f-014-t06) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟡 Medium | <a id="f-014-t04"></a>F-014-T04 — Bar chart component | 1.5 h | 0 h | 1.5 h | Planned | [F-014-T03](#f-014-t03) | [F-014-T05](#f-014-t05) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟢 Small | <a id="f-014-t05"></a>F-014-T05 — Stacked bar chart component | 1 h | 0 h | 1 h | Planned | [F-014-T04](#f-014-t04) | [F-014-T07](#f-014-t07) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟡 Medium | <a id="f-014-t06"></a>F-014-T06 — Donut chart component | 1.5 h | 0 h | 1.5 h | Planned | [F-014-T03](#f-014-t03) | [F-014-T07](#f-014-t07) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟢 Small | <a id="f-014-t07"></a>F-014-T07 — Release the charts | 0.5 h | 0 h | 0.5 h | Planned | [F-014-T05](#f-014-t05), [F-014-T06](#f-014-t06) | — | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🔴 Large | **Total** | 8 h | 0 h (0 of 7 steps recorded) | 8 h agent + 0.25 h owner | 0 of 7 completed | | | | |
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -620,7 +620,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | pending |
+| PR / evidence | Steps: F-014-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T03: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T04: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T05: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T06: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T07: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
