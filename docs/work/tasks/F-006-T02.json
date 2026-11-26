@@ -43,5 +43,11 @@
     "estimateAgentHours": 5,
     "days": 0,
     "baselineDays": 2
-  }
+  },
+  "prs": [
+    {
+      "pr": 20,
+      "note": "theme simple, data-bx-mode and data-bx-accent (20 combinations), catalogue switcher"
+    }
+  ]
 }
