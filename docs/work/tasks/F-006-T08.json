@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "id": "F-006-T08",
+  "parent": "F-006",
+  "title": "Brand and series colour tokens",
+  "goal": "--brand-* and green/orange/blue series tokens, delivered with the theme variants",
+  "status": "planned",
+  "acceptance": [
+    "--brand-bg and --brand-fg per theme (Eva light uses the base accent)",
+    "Series colours green, orange and blue as tokens with AA contrast in every theme (inventory: --brand-*, --green/--orange/--blue rows)"
+  ],
+  "dependsOn": [
+    "F-006-T01",
+    "F-006-T02"
+  ],
+  "resources": [
+    "projects/bricks/styles/themes/**",
+    "docs/work/records/F-006.md"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral, invented test data only; no consuming project's real data, secrets or tokens in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h agent, 1 d",
+    "basis": "Estimate from the F-006-T01 inventory, not a measurement. Owner-approved 2026-11-26 as an adopted-plan change; unblocks nerv:F-130-T02 with F-006-T02.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1,
+    "ownerHours": 0,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1,
+    "days": 1,
+    "baselineDays": 1
+  }
+}
