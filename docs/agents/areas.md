@@ -9,7 +9,6 @@ Detailed rules and lessons for each part of the project, kept out of AGENTS.md s
 - Component tokens are declared on `:root` and on every `[data-bx-theme]`: a `:root`-only declaration resolves `var()` once, with base's values, and leaks them into other themes. The browser suite's "a theme changes colours" test guards it.
 - A theme defines every semantic token; the browser suite checks each theme against `SEMANTIC_TOKENS` and runs axe on it, contrast included.
 - The eva theme follows NERV's Eva · Dark · Orange palette. NERV's light mode and accent colours (20 combinations) are not in bricks yet; they come with NERV adoption (F-006-T01) if NERV still needs them then.
-- A theme may set component tokens too (eva sets the card header bar and glow). Its file then loads after `tokens.css`: both declare on a `[data-bx-theme]` selector of equal specificity, so the later file wins.
 
 ## Components and patterns
 

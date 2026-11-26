@@ -27,6 +27,7 @@ Three layers, each read only by the next. Prefix `--bx-`.
 
 - Components use semantic and component tokens only, never a literal colour. A literal colour lives only in a theme file.
 - A component token is declared on every theme root, not only `:root`: `var()` resolves where a property is declared, so a `:root`-only declaration carries base's colours into every theme (the browser suite caught exactly this on 2026-11-25).
+- A theme may set component tokens too (eva sets the card header bar and glow). Its file then loads after `tokens.css`: both declare on a `[data-bx-theme]` selector of equal specificity, so the later file wins.
 - A new token is added here in the same change; a semantic token goes in every theme and in `SEMANTIC_TOKENS` (`tokens/tokens.ts`).
 
 ### Semantic tokens
