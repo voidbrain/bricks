@@ -3,7 +3,7 @@
 Current work ledger, reviewed 26 November 2026 against main `616bb47` ([log](archive/reconciliation-2026.md); PRs #1 to #19 merged, CI green, #10 and #12 are the 0.2.0 and 0.3.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 42.75 h agent + 0.25 h owner across 41 open steps of 11 features and 1 other record. Generated from the task files.
+**Remaining effort:** 44.75 h agent + 0.25 h owner across 43 open steps of 12 features and 1 other record. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -419,6 +419,45 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Field | Value |
 |---|---|
 | PR / evidence | Steps: F-011-T01: [PR #23](https://github.com/voidbrain/bricks/pull/23) settings on · F-011-T02: [PR #23](https://github.com/voidbrain/bricks/pull/23) first architecture review. [#23](https://github.com/voidbrain/bricks/pull/23) |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-012"></a>[✨ F-012](#top)
+
+**Licence allow-list check for production dependencies**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟡 Medium | 2 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-012-T01 — Licence allow-list tool (Planned).
+
+| | |
+|---|---|
+| **Issue** | bricks is published as `@voidbrain/bricks`, so the licences of its production dependencies reach every consumer. None of the nine repositories checks the licences of its production dependencies, so an incompatible one could ship unseen. Evidence: [NERV practices transfer report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md), class B item B4; missing practice M5. Owner decision 2026-11-26 in chat: "NERV practices inventory accept all" (all 22 proposals of the [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); this record is proposal 19). |
+| **Reproduce** | Read the CI workflow and `package.json` scripts: no licence check. |
+| **Check** | A tool reads the production dependency tree from the lock file and fails on a licence outside an allow-list or an unknown licence, with the allow-list in the repository (F-012-T01); CI runs it on every PR (F-012-T02). |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-012-t01"></a>F-012-T01 — Licence allow-list tool | 1.5 h | 0 h | 1.5 h | Planned | — | [F-012-T02](#f-012-t02) | [PR #24](https://github.com/voidbrain/bricks/pull/24) plan |
+| 🟢 Small | <a id="f-012-t02"></a>F-012-T02 — Run the licence check in CI | 0.5 h | 0 h | 0.5 h | Planned | [F-012-T01](#f-012-t01) | — | [PR #24](https://github.com/voidbrain/bricks/pull/24) plan |
+| 🟡 Medium | **Total** | 2 h | 0 h (0 of 2 steps recorded) | 2 h | 0 of 2 completed | | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-012.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-012-T01: [PR #24](https://github.com/voidbrain/bricks/pull/24) plan · F-012-T02: [PR #24](https://github.com/voidbrain/bricks/pull/24) plan. [#24](https://github.com/voidbrain/bricks/pull/24) (plan); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
