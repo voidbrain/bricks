@@ -46,6 +46,10 @@
     {
       "pr": 29,
       "note": "plan"
+    },
+    {
+      "pr": 30,
+      "note": "decision"
     }
   ],
   "ownerLink": "docs/decisions/charts.md"

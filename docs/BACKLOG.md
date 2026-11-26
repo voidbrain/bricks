@@ -615,8 +615,8 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Effort | Step | Estimate | Actual | Status | PRs |
 |---|---|---|---|---|---|
-| — | <a id="f-014-t01"></a>F-014-T01 — Decision note: plain SVG for charts (no library), accessibility and theming | 0.25 h | 0.25 h (stated) | Completed | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
-| — | <a id="f-014-t02"></a>F-014-T02 — Owner decides how charts are drawn | 0 h | 0 h | Completed | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| — | <a id="f-014-t01"></a>F-014-T01 — Decision note: plain SVG for charts (no library), accessibility and theming | 0.25 h | 0.25 h (stated) | Completed | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision |
+| — | <a id="f-014-t02"></a>F-014-T02 — Owner decides how charts are drawn | 0 h | 0 h | Completed | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision |
 
 </details>
 
@@ -627,7 +627,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-014-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T03: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T04: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T05: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T06: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T07: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) |
+| PR / evidence | Steps: F-014-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T03: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T04: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T05: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T06: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T07: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29). Decision T01, T02: [#30](https://github.com/voidbrain/bricks/pull/30) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
