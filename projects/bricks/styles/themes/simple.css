@@ -20,6 +20,11 @@
   --bx-danger: #ef4444;
   --bx-info: #38bdf8;
   --bx-on-status: #000000;
+  --bx-brand-bg: var(--bx-accent);
+  --bx-brand-fg: var(--bx-on-accent);
+  --bx-series-green: #22c55e;
+  --bx-series-orange: #f59e0b;
+  --bx-series-blue: #3b82f6;
   --bx-font: var(--bx-font-mono);
   --bx-radius: var(--bx-radius-md);
   --bx-radius-badge: var(--bx-radius-sm);
@@ -40,4 +45,7 @@
   --bx-danger: #b91c1c;
   --bx-info: #0369a1;
   --bx-on-status: #ffffff;
+  --bx-series-green: #166534;
+  --bx-series-orange: #9a4708;
+  --bx-series-blue: #1d4ed8;
 }

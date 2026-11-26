@@ -2,8 +2,8 @@
  * Theme "eva": NERV's EVA look (palette() in NERV's src/dashboard-theme.ts, F-047). Square corners, monospace type.
  * Dark and orange by default (Eva · Dark · Orange: orange on near-black); data-bx-mode="light" and data-bx-accent
  * (accents.css) on the same element change them. Share Tech Mono is used only when installed locally: no remote fonts.
- * It also sets the card's EVA component tokens (NERV --hdr-bg, --hdr-fg, --title, --glow): a filled header bar and an
- * inset glow. Load it after tokens.css (bricks.css does), so these win over the defaults declared on every theme root.
+ * It also sets the card's EVA component tokens (NERV --hdr-bg, --hdr-fg, --title, --glow): a header bar filled with the
+ * brand colour and an inset glow. Load it after tokens.css (bricks.css does), so these win over the defaults declared on every theme root.
  */
 [data-bx-theme='eva'] {
   color-scheme: dark;
@@ -21,15 +21,20 @@
   --bx-danger: #ff0033;
   --bx-info: #00aaff;
   --bx-on-status: #000000;
+  --bx-brand-bg: var(--bx-accent);
+  --bx-brand-fg: var(--bx-on-accent);
+  --bx-series-green: #22c55e;
+  --bx-series-orange: #ff8800;
+  --bx-series-blue: #2a7fff;
   --bx-font: 'Share Tech Mono', var(--bx-font-mono);
   --bx-radius: var(--bx-radius-0);
   --bx-radius-badge: var(--bx-radius-0);
-  --bx-card-title: var(--bx-on-accent);
-  --bx-card-header-bg: var(--bx-accent);
-  --bx-card-header-fg: var(--bx-on-accent);
+  --bx-card-title: var(--bx-brand-fg);
+  --bx-card-header-bg: var(--bx-brand-bg);
+  --bx-card-header-fg: var(--bx-brand-fg);
   --bx-card-glow: inset 0 0 14px color-mix(in srgb, var(--bx-accent) 7%, transparent);
 }
-/* Eva · Light: warm paper, deep accent; the header bar keeps the bright accent with black text, as NERV's does. */
+/* Eva · Light: warm paper, deep accent; the brand fill (and so the header bar) keeps the bright accent with black text, as NERV's does. */
 [data-bx-theme='eva'][data-bx-mode='light'] {
   color-scheme: light;
   --bx-surface: #f3f1ec;
@@ -46,7 +51,9 @@
   --bx-danger: #b91c1c;
   --bx-info: #0369a1;
   --bx-on-status: #ffffff;
-  --bx-card-title: #000000;
-  --bx-card-header-bg: var(--bx-hue-base);
-  --bx-card-header-fg: #000000;
+  --bx-brand-bg: var(--bx-hue-base);
+  --bx-brand-fg: #000000;
+  --bx-series-green: #166534;
+  --bx-series-orange: #9a4708;
+  --bx-series-blue: #1d4ed8;
 }

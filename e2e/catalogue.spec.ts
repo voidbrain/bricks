@@ -5,6 +5,62 @@ import { ICON_NAMES } from '../projects/bricks/foundations/icons';
 import { BREAKPOINTS } from '../projects/bricks/foundations/layout';
 import { COMPONENT_TOKENS, SEMANTIC_TOKENS } from '../projects/bricks/tokens/tokens';
 
+/**
+ * Contrast of every text pair a theme root defines, from its computed tokens (WCAG: 4.5:1 for text, 3:1 for the
+ * focus ring): text, status, accent and series colours on the three surfaces; text on the accent, status fills,
+ * brand fill and card header bar. Runs in the page, so it closes over nothing.
+ */
+function contrastFailures(root: Element): string[] {
+  const probe = document.createElement('span');
+  root.append(probe);
+  const rgb = (token: string) => {
+    probe.style.color = `var(${token})`;
+    return getComputedStyle(probe)
+      .color.match(/[\d.]+/g)!
+      .map(Number)
+      .slice(0, 3);
+  };
+  const lum = (c: number[]) => {
+    const [r, g, b] = c.map((v) => {
+      const x = v / 255;
+      return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4;
+    });
+    return 0.2126 * r! + 0.7152 * g! + 0.0722 * b!;
+  };
+  const out: string[] = [];
+  const need = (fg: string, bg: string, min = 4.5) => {
+    const [x, y] = [lum(rgb(fg)), lum(rgb(bg))].sort((p, q) => q - p);
+    const r = (x! + 0.05) / (y! + 0.05);
+    if (r < min) out.push(`${fg} on ${bg} ${r.toFixed(2)}`);
+  };
+  const text = [
+    '--bx-text',
+    '--bx-text-muted',
+    '--bx-accent',
+    '--bx-ok',
+    '--bx-warn',
+    '--bx-danger',
+    '--bx-info',
+    '--bx-series-green',
+    '--bx-series-orange',
+    '--bx-series-blue',
+  ];
+  for (const fg of text)
+    for (const bg of ['--bx-surface', '--bx-surface-raised', '--bx-surface-sunken']) need(fg, bg);
+  need('--bx-on-accent', '--bx-accent');
+  for (const s of ['--bx-ok', '--bx-warn', '--bx-danger', '--bx-info']) need('--bx-on-status', s);
+  need('--bx-brand-fg', '--bx-brand-bg');
+  probe.style.color = 'var(--bx-card-header-bg)';
+  const bar = /rgba\(.*,\s*0\)$/.test(getComputedStyle(probe).color)
+    ? '--bx-card-bg'
+    : '--bx-card-header-bg';
+  need('--bx-card-header-fg', bar);
+  need('--bx-card-title', bar);
+  need('--bx-focus', '--bx-surface', 3);
+  probe.remove();
+  return out;
+}
+
 test.describe('catalogue', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
@@ -516,6 +572,16 @@ test.describe('catalogue', () => {
     expect((await read()).radius).toBe('0px');
   });
 
+  test('every theme section keeps every text pair at AA, brand and series colours included', async ({
+    page,
+  }) => {
+    for (const theme of THEMES)
+      expect(
+        await page.locator(`section[data-bx-theme="${theme}"]`).evaluate(contrastFailures),
+        theme,
+      ).toEqual([]);
+  });
+
   test('all 20 Theme · Mode · Accent combinations pass axe and keep every text pair at AA', async ({
     page,
   }) => {
@@ -539,62 +605,7 @@ test.describe('catalogue', () => {
         ),
         at,
       ).toEqual([]);
-      const fails = await preview.evaluate(
-        (root, tokens) => {
-          const probe = document.createElement('span');
-          root.append(probe);
-          const rgb = (token: string) => {
-            probe.style.color = `var(${token})`;
-            const m = getComputedStyle(probe)
-              .color.match(/[\d.]+/g)!
-              .map(Number);
-            return m.slice(0, 3);
-          };
-          const lum = (c: number[]) => {
-            const [r, g, b] = c.map((v) => {
-              const x = v / 255;
-              return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4;
-            });
-            return 0.2126 * r! + 0.7152 * g! + 0.0722 * b!;
-          };
-          const ratio = (a: string, b: string) => {
-            const [x, y] = [lum(rgb(a)), lum(rgb(b))].sort((p, q) => q - p);
-            return (x! + 0.05) / (y! + 0.05);
-          };
-          const out: string[] = [];
-          const need = (fg: string, bg: string, min = 4.5) => {
-            const r = ratio(fg, bg);
-            if (r < min) out.push(`${fg} on ${bg} ${r.toFixed(2)}`);
-          };
-          for (const fg of tokens.text)
-            for (const bg of ['--bx-surface', '--bx-surface-raised', '--bx-surface-sunken'])
-              need(fg, bg);
-          need('--bx-on-accent', '--bx-accent');
-          for (const s of ['--bx-ok', '--bx-warn', '--bx-danger', '--bx-info'])
-            need('--bx-on-status', s);
-          probe.style.color = 'var(--bx-card-header-bg)';
-          const bar = /rgba\(.*,\s*0\)$/.test(getComputedStyle(probe).color)
-            ? '--bx-card-bg'
-            : '--bx-card-header-bg';
-          need('--bx-card-header-fg', bar);
-          need('--bx-card-title', bar);
-          need('--bx-focus', '--bx-surface', 3);
-          probe.remove();
-          return out;
-        },
-        {
-          text: [
-            '--bx-text',
-            '--bx-text-muted',
-            '--bx-accent',
-            '--bx-ok',
-            '--bx-warn',
-            '--bx-danger',
-            '--bx-info',
-          ],
-        },
-      );
-      expect(fails, at).toEqual([]);
+      expect(await preview.evaluate(contrastFailures), at).toEqual([]);
     }
   });
 });

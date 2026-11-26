@@ -123,6 +123,14 @@ const SPRITE =
         }
       </ul>
 
+      <h3>Brand and series</h3>
+      <div class="row" data-testid="brand-series">
+        <span class="brand">Relay mark</span>
+        <span class="series-green">uplink 12</span>
+        <span class="series-orange">queue 4</span>
+        <span class="series-blue">downlink 9</span>
+      </div>
+
       <h3>Button</h3>
       <div class="row">
         @for (variant of buttonVariants; track variant) {
@@ -366,6 +374,21 @@ const SPRITE =
       inline-size: 24px;
       block-size: 24px;
       border: var(--bx-line-width) solid var(--bx-border);
+    }
+    .brand {
+      padding: 2px var(--bx-space-2);
+      background: var(--bx-brand-bg);
+      color: var(--bx-brand-fg);
+      font-weight: var(--bx-font-weight-bold);
+    }
+    .series-green {
+      color: var(--bx-series-green);
+    }
+    .series-orange {
+      color: var(--bx-series-orange);
+    }
+    .series-blue {
+      color: var(--bx-series-blue);
     }
     .row {
       display: flex;
