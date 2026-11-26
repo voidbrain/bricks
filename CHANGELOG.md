@@ -14,6 +14,7 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 - `bx-meter` (value, range, threshold mark, tone; `--bx-meter-*`), `bx-disclosure` (native `details`, `[(open)]`; `--bx-disclosure-*`) and `bx-alert` (inline note, status or alert; `--bx-alert-*`) (F-006-T05).
 - Foundations: `bx-sr-only` (`SR_ONLY_CLASS`) and `bx-columns-phone`, which keeps `bx-columns` columns on a phone (in `LAYOUT_CLASSES`) (F-006-T05).
 - `bx-timeline` and `bx-timeline-item` (time, meta and actions slots, detail, marker tone; `--bx-timeline-*`), `bx-avatar` (image or initials, decorative, pixelated, `sm` and `md`; `--bx-avatar-*`) and `bx-avatar-stack` (F-006-T06).
+- `bx-message-log` and `bx-message` (log role, keeps the newest in view; `--bx-log-*`, `--bx-message-*`), `bx-composer` (labelled field, send, actions slot, slash-command menu as a WAI-ARIA combobox; `--bx-composer-gap`) and `bx-listbox` (a combobox popup; `--bx-listbox-*`) (F-006-T07).
 
 ### Changed
 

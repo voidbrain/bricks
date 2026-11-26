@@ -100,6 +100,18 @@
   --bx-avatar-border: var(--bx-border);
   --bx-avatar-radius: var(--bx-radius-badge);
   --bx-avatar-stack-gap: var(--bx-space-1);
+  --bx-log-bg: var(--bx-surface-sunken);
+  --bx-log-border: var(--bx-border);
+  --bx-log-padding: var(--bx-space-2);
+  --bx-log-max-height: 300px;
+  --bx-message-gap: var(--bx-space-2);
+  --bx-message-muted: var(--bx-text-muted);
+  --bx-message-own-tint: 7%;
+  --bx-listbox-bg: var(--bx-surface-sunken);
+  --bx-listbox-border: var(--bx-border);
+  --bx-listbox-active: var(--bx-accent);
+  --bx-listbox-max-height: 180px;
+  --bx-composer-gap: var(--bx-space-2);
   --bx-tag-bg: var(--bx-surface-raised);
   --bx-tag-fg: var(--bx-text);
   --bx-tag-border: var(--bx-border);

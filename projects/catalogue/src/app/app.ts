@@ -24,6 +24,7 @@ import { ICON_NAMES } from '@voidbrain/bricks/foundations';
 import { THEMES } from '@voidbrain/bricks/themes';
 import { SEMANTIC_TOKENS } from '@voidbrain/bricks/tokens';
 import { BxSurface } from '@voidbrain/bricks/surfaces';
+import { CommsDemo } from './comms-demo';
 import { LiveDemo } from './live-demo';
 import { samples } from './samples';
 
@@ -60,6 +61,7 @@ const SPRITE =
     BxTimeline,
     BxTimelineItem,
     BxToggle,
+    CommsDemo,
     LiveDemo,
   ],
   template: `
@@ -201,6 +203,9 @@ const SPRITE =
             <bx-avatar name="Sam Okafor" size="md" />
             <span class="row"><bx-avatar name="Kit" [decorative]="true" /> Kit (decorative avatar)</span>
           </div>
+
+          <h3>Message log and composer</h3>
+          <cat-comms-demo [theme]="theme" />
 
           <h3>Layout</h3>
           <div class="bx-stack bx-gap-4" data-testid="layout-stack">

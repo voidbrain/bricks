@@ -421,4 +421,64 @@ test.describe('catalogue', () => {
       await expect(avatars.getByRole('img', { name: 'Kit' })).toHaveCount(1);
     }
   });
+
+  test('message log: a named, focusable log that keeps the newest message in view', async ({
+    page,
+  }) => {
+    for (const theme of THEMES) {
+      const section = page.locator(`section[data-bx-theme="${theme}"]`);
+      const log = section.getByRole('log', { name: `Conversation (${theme})` });
+      await expect(log.locator('bx-message')).toHaveCount(3);
+      await expect(log).toHaveAttribute('tabindex', '0');
+      const composer = section.getByRole('combobox', { name: `Message the agent (${theme})` });
+      await composer.fill('Is relay four back?');
+      await composer.press('Enter');
+      await expect(composer).toHaveValue('');
+      await expect(log.locator('bx-message').last()).toContainText('Is relay four back?');
+      const end = await log.evaluate((el) => el.scrollHeight - el.scrollTop - el.clientHeight);
+      expect(end).toBeLessThanOrEqual(1);
+    }
+  });
+
+  test('slash menu: the combobox pattern by keyboard, and axe with the menu open', async ({
+    page,
+  }) => {
+    for (const theme of THEMES) {
+      const section = page.locator(`section[data-bx-theme="${theme}"]`);
+      const input = section.getByRole('combobox', { name: `Message the agent (${theme})` });
+      await input.fill('/');
+      await expect(input).toHaveAttribute('aria-expanded', 'true');
+      const listbox = section.getByRole('listbox', { name: 'Slash commands' });
+      await expect(listbox.getByRole('option')).toHaveCount(4);
+      await input.press('s');
+      await expect(listbox.getByRole('option')).toHaveCount(2);
+      await input.press('ArrowDown');
+      await input.press('ArrowDown');
+      const active = listbox.getByRole('option', { selected: true });
+      await expect(active).toContainText('/stop TASK');
+      await expect(input).toHaveAttribute(
+        'aria-activedescendant',
+        (await active.getAttribute('id'))!,
+      );
+      await expect(input).toBeFocused();
+      if (theme === 'eva') {
+        const results = await new AxeBuilder({ page })
+          .include(`section[data-bx-theme="${theme}"] bx-composer`)
+          .withTags(['wcag2a', 'wcag2aa', 'wcag22aa'])
+          .analyze();
+        expect(results.violations.map((v) => v.id)).toEqual([]);
+      }
+      await input.press('Enter');
+      await expect(input).toHaveValue('/stop ');
+      await expect(input).toHaveAttribute('aria-expanded', 'false');
+      await expect(listbox).toHaveCount(0);
+      await input.fill('/q');
+      await input.press('Escape');
+      await expect(input).toHaveAttribute('aria-expanded', 'false');
+      await input.fill('/');
+      await listbox.getByRole('option', { name: /help/ }).click();
+      await expect(input).toHaveValue('/help');
+      await expect(input).toBeFocused();
+    }
+  });
 });
