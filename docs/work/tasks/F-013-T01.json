@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "id": "F-013-T01",
+  "parent": "F-013",
+  "title": "image-choice surface: schema and validator",
+  "goal": "An image-choice payload is accepted or rejected exactly by its schema",
+  "status": "planned",
+  "acceptance": [
+    "Owner idea 2026-11-26 in chat: \"in future I will be able to recover a recipe or a hobo place, say it was without image, I will be able to put it in chat and tell to use that, or to find some on the web, propose (using genUI?) and save the accepted.\" The proposal is a bricks surface both NERV and the projects can use (nerv:F-143).",
+    "Surface kind image-choice: title, prompt, 1 to 12 candidates {id, imageUrl, alt (required), source, licence, author, sourceUrl shown as text}, optional allowNone; added to REGISTERED_COMPONENTS and Surface",
+    "imageUrl is accepted only when it matches a pattern the consumer passes (NERV: same-origin /api/… paths; default: relative paths only), so no third-party image is loaded by the card; hostile payloads (javascript:, data: other than image/, oversize text, duplicate ids) rejected in surface.spec.ts"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "projects/bricks/surfaces/surface.ts",
+    "projects/bricks/surfaces/surface.spec.ts",
+    "projects/bricks/surfaces/public-api.ts",
+    "docs/work/records/F-013.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Invented candidates and placeholder images generated in the test; no third-party image URLs in fixtures.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "Material scope growth or effort increase goes to the owner before adoption"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h agent",
+    "basis": "Estimated 2026-11-26 at agent speed: one more schema next to recipe-card's photo pattern, plus hostile cases. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.0,
+    "baselineAgentHours": 1.0,
+    "estimateAgentHours": 1.0
+  },
+  "prs": []
+}

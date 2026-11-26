@@ -3,7 +3,7 @@
 Current work ledger, reviewed 26 November 2026 against main `616bb47` ([log](archive/reconciliation-2026.md); PRs #1 to #19 merged, CI green, #10 and #12 are the 0.2.0 and 0.3.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 44.75 h agent + 0.25 h owner across 43 open steps of 12 features and 1 other record. Generated from the task files.
+**Remaining effort:** 48.25 h agent + 0.25 h owner across 46 open steps of 13 features and 1 other record. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -458,6 +458,46 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Field | Value |
 |---|---|
 | PR / evidence | Steps: F-012-T01: [PR #24](https://github.com/voidbrain/bricks/pull/24) plan · F-012-T02: [PR #24](https://github.com/voidbrain/bricks/pull/24) plan. [#24](https://github.com/voidbrain/bricks/pull/24) (plan); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-013"></a>[✨ F-013](#top)
+
+**image-choice surface: pick one image from candidates, with source and licence**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟡 Medium | 3.5 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-013-T01 — image-choice surface: schema and validator (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner idea 2026-11-26 in chat: "in future I will be able to recover a recipe or a hobo place, say it was without image, I will be able to put it in chat and tell to use that, or to find some on the web, propose (using genUI?) and save the accepted." NERV shows proposals as genUI surface cards rendered with bricks surfaces; the surfaces today are status, notice, checklist and recipe, none of which offers a choice between images. |
+| **Reproduce** | `projects/bricks/surfaces/surface.ts` registers four surfaces; no payload can show image candidates or return a choice. |
+| **Check** | An image-choice surface type with a schema that accepts only consumer-allowed image URLs (F-013-T01); a card showing a gallery of candidates with a source/licence line, single selection and "none of these", keyboard and screen-reader accessible, axe-clean in every theme (F-013-T02); in the catalogue and a release usable by NERV (nerv:F-143) and any project (F-013-T03). |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
+|---|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-013-t01"></a>F-013-T01 — image-choice surface: schema and validator | 1 h | 0 h | 1 h | Planned | — | [F-013-T02](#f-013-t02) |
+| 🟡 Medium | <a id="f-013-t02"></a>F-013-T02 — image-choice card: gallery, selection, keyboard and screen reader | 2 h | 0 h | 2 h | Planned | [F-013-T01](#f-013-t01) | [F-013-T03](#f-013-t03) |
+| 🟢 Small | <a id="f-013-t03"></a>F-013-T03 — Catalogue entry, release and a note for consumers | 0.5 h | 0 h | 0.5 h | Planned | [F-013-T02](#f-013-t02) | — |
+| 🟡 Medium | **Total** | 3.5 h | 0 h (0 of 3 steps recorded) | 3.5 h | 0 of 3 completed | | |
+
+<details>
+<summary>Next action, estimates and evidence</summary>
+
+[Full notes & evidence](work/records/F-013.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Plan: PR pending |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |

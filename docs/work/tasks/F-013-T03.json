@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "id": "F-013-T03",
+  "parent": "F-013",
+  "title": "Catalogue entry, release and a note for consumers",
+  "goal": "NERV and the projects can install and use the new surface",
+  "status": "planned",
+  "acceptance": [
+    "Owner idea 2026-11-26 in chat: \"in future I will be able to recover a recipe or a hobo place, say it was without image, I will be able to put it in chat and tell to use that, or to find some on the web, propose (using genUI?) and save the accepted.\" The proposal is a bricks surface both NERV and the projects can use (nerv:F-143).",
+    "The catalogue shows the image-choice card in all three themes with invented candidates; a minor release with a CHANGELOG note (the imageUrl pattern option, the chosen event); nerv:F-143-T06 named as the first consumer"
+  ],
+  "dependsOn": [
+    "F-013-T02"
+  ],
+  "resources": [
+    "projects/catalogue/**",
+    "CHANGELOG.md",
+    "package.json",
+    "projects/bricks/package.json",
+    "docs/work/records/F-013.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Invented candidates and placeholder images generated in the test; no third-party image URLs in fixtures.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "Material scope growth or effort increase goes to the owner before adoption"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h agent",
+    "basis": "Estimated 2026-11-26: a catalogue page and a release. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0.5,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5
+  },
+  "prs": []
+}
