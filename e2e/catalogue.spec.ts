@@ -15,10 +15,12 @@ function contrastFailures(root: Element): string[] {
   root.append(probe);
   const rgb = (token: string) => {
     probe.style.color = `var(${token})`;
-    return getComputedStyle(probe)
-      .color.match(/[\d.]+/g)!
+    const value = getComputedStyle(probe).color;
+    const n = value
+      .match(/[\d.]+/g)!
       .map(Number)
       .slice(0, 3);
+    return value.startsWith('color(srgb') ? n.map((v) => v * 255) : n;
   };
   const lum = (c: number[]) => {
     const [r, g, b] = c.map((v) => {
@@ -61,6 +63,23 @@ function contrastFailures(root: Element): string[] {
   return out;
 }
 
+/**
+ * The tokens no style rule matching this element itself declares. A computed-value check would miss a token a theme
+ * forgot, because it inherits from the theme around it (base on :root); this reads the theme's own rules.
+ */
+function undeclaredTokens(el: Element, tokens: string[]): string[] {
+  const declared = new Set<string>();
+  const walk = (rules: CSSRuleList) => {
+    for (const rule of Array.from(rules)) {
+      if (rule instanceof CSSStyleRule && el.matches(rule.selectorText))
+        for (const name of Array.from(rule.style)) declared.add(name);
+      else if ('cssRules' in rule) walk((rule as CSSGroupingRule).cssRules);
+    }
+  };
+  for (const sheet of Array.from(document.styleSheets)) walk(sheet.cssRules);
+  return tokens.filter((t) => !declared.has(t));
+}
+
 test.describe('catalogue', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
@@ -88,13 +107,7 @@ test.describe('catalogue', () => {
         .withTags(['wcag2a', 'wcag2aa', 'wcag22aa'])
         .analyze();
       expect(results.violations.map((v) => v.id)).toEqual([]);
-      const missing = await page
-        .locator(selector)
-        .evaluate(
-          (el, tokens) =>
-            tokens.filter((t) => getComputedStyle(el).getPropertyValue(t).trim() === ''),
-          [...SEMANTIC_TOKENS],
-        );
+      const missing = await page.locator(selector).evaluate(undeclaredTokens, [...SEMANTIC_TOKENS]);
       expect(missing).toEqual([]);
     });
   }
@@ -561,12 +574,14 @@ test.describe('catalogue', () => {
     expect(dark.font).toMatch(/monospace/);
     expect(dark.radius).toBe('6px');
     await page.selectOption('#variant-mode', 'light');
-    await page.selectOption('#variant-accent', 'violet');
-    await expect(preview).toHaveAttribute('data-bx-accent', 'violet');
+    await expect(preview).toHaveAttribute('data-bx-mode', 'light');
     const light = await read();
     expect(light.scheme).toBe('light');
     expect(light.surface).not.toBe(dark.surface);
     expect(light.accent).not.toBe(dark.accent);
+    await page.selectOption('#variant-accent', 'violet');
+    await expect(preview).toHaveAttribute('data-bx-accent', 'violet');
+    expect((await read()).accent).not.toBe(light.accent);
     await page.selectOption('#variant-theme', 'eva');
     await expect(preview).toHaveAttribute('data-bx-theme', 'eva');
     expect((await read()).radius).toBe('0px');
@@ -606,6 +621,7 @@ test.describe('catalogue', () => {
         at,
       ).toEqual([]);
       expect(await preview.evaluate(contrastFailures), at).toEqual([]);
+      expect(await preview.evaluate(undeclaredTokens, [...SEMANTIC_TOKENS]), at).toEqual([]);
     }
   });
 });

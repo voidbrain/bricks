@@ -2,7 +2,7 @@
  * Theme "simple": NERV's Simple look (palette() in NERV's src/dashboard-theme.ts): plain's neutral surfaces with
  * monospace type and 6 px corners, in two modes and five accents. Dark and orange by default (NERV's /full default,
  * Simple · Dark · Orange); data-bx-mode="light" and data-bx-accent (accents.css) on the same element change them.
- * The light rule redefines every colour the dark one sets, so a nested theme never inherits the other mode.
+ * The light rule redefines every literal colour the dark one sets, so a nested theme never inherits the other mode.
  */
 [data-bx-theme='simple'] {
   color-scheme: dark;
