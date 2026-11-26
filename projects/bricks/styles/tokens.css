@@ -88,6 +88,18 @@
   --bx-alert-padding: var(--bx-space-2) var(--bx-space-3);
   --bx-alert-radius: var(--bx-radius);
   --bx-alert-tint: 10%;
+  --bx-timeline-line: var(--bx-border);
+  --bx-timeline-marker-size: 8px;
+  --bx-timeline-marker-radius: var(--bx-radius-badge);
+  --bx-timeline-gap: var(--bx-space-3);
+  --bx-timeline-indent: var(--bx-space-4);
+  --bx-avatar-size-sm: 20px;
+  --bx-avatar-size-md: 32px;
+  --bx-avatar-bg: var(--bx-surface-sunken);
+  --bx-avatar-fg: var(--bx-text);
+  --bx-avatar-border: var(--bx-border);
+  --bx-avatar-radius: var(--bx-radius-badge);
+  --bx-avatar-stack-gap: var(--bx-space-1);
   --bx-tag-bg: var(--bx-surface-raised);
   --bx-tag-fg: var(--bx-text);
   --bx-tag-border: var(--bx-border);

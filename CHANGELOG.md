@@ -13,6 +13,7 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 - `bx-button` `size="sm"` (compact, 24 px target; `--bx-control-padding-sm`); `bx-badge` `appearance` (`solid`, `outline`, `dashed`) and a `neutral` tone (`--bx-badge-outline-bg`) (F-006-T05).
 - `bx-meter` (value, range, threshold mark, tone; `--bx-meter-*`), `bx-disclosure` (native `details`, `[(open)]`; `--bx-disclosure-*`) and `bx-alert` (inline note, status or alert; `--bx-alert-*`) (F-006-T05).
 - Foundations: `bx-sr-only` (`SR_ONLY_CLASS`) and `bx-columns-phone`, which keeps `bx-columns` columns on a phone (in `LAYOUT_CLASSES`) (F-006-T05).
+- `bx-timeline` and `bx-timeline-item` (time, meta and actions slots, detail, marker tone; `--bx-timeline-*`), `bx-avatar` (image or initials, decorative, pixelated, `sm` and `md`; `--bx-avatar-*`) and `bx-avatar-stack` (F-006-T06).
 
 ### Changed
 

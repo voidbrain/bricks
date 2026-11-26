@@ -3,6 +3,8 @@ import {
   BADGE_TONES,
   BUTTON_VARIANTS,
   BxAlert,
+  BxAvatar,
+  BxAvatarStack,
   BxBadge,
   BxButton,
   BxCard,
@@ -13,6 +15,8 @@ import {
   BxSelect,
   BxStat,
   BxTag,
+  BxTimeline,
+  BxTimelineItem,
   BxToggle,
   type SelectOption,
 } from '@voidbrain/bricks/components';
@@ -23,6 +27,15 @@ import { BxSurface } from '@voidbrain/bricks/surfaces';
 import { LiveDemo } from './live-demo';
 import { samples } from './samples';
 
+const SPRITE =
+  'data:image/svg+xml,' +
+  encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" shape-rendering="crispEdges">' +
+      '<rect width="8" height="8" fill="#1d3b5a"/><rect x="2" y="1" width="4" height="4" fill="#f2c79b"/>' +
+      '<rect x="2" y="1" width="4" height="1" fill="#5a3a1d"/><rect x="3" y="3" width="1" height="1" fill="#000"/>' +
+      '<rect x="5" y="3" width="1" height="1" fill="#000"/><rect x="1" y="5" width="6" height="3" fill="#3a7d44"/></svg>',
+  );
+
 /**
  * The bricks catalogue: every component and surface in every theme, side by side. The browser suite
  * (e2e/catalogue.spec.ts) runs axe on this page and checks each theme defines every semantic token.
@@ -31,6 +44,8 @@ import { samples } from './samples';
   selector: 'cat-root',
   imports: [
     BxAlert,
+    BxAvatar,
+    BxAvatarStack,
     BxBadge,
     BxButton,
     BxCard,
@@ -42,6 +57,8 @@ import { samples } from './samples';
     BxStat,
     BxSurface,
     BxTag,
+    BxTimeline,
+    BxTimelineItem,
     BxToggle,
     LiveDemo,
   ],
@@ -153,6 +170,36 @@ import { samples } from './samples';
             </bx-alert>
             <bx-alert tone="info">A note read in place, with no live announcement.</bx-alert>
             <bx-alert tone="danger" announce="assertive">Relay unreachable: retry in 30 s.</bx-alert>
+          </div>
+
+          <h3>Timeline</h3>
+          <bx-timeline label="Coming up" data-testid="timeline">
+            <bx-timeline-item time="09:30" datetime="2026-11-27T09:30" detail="in 2 hours">
+              <bx-badge bx-timeline-meta tone="neutral" appearance="outline">Reminder</bx-badge>
+              Water the basil on the balcony
+              <bx-button bx-timeline-actions size="sm">Edit</bx-button>
+              <bx-button bx-timeline-actions size="sm" variant="ghost">Cancel</bx-button>
+            </bx-timeline-item>
+            <bx-timeline-item time="11:00" datetime="2026-11-27T11:00" detail="in 3 hours" tone="info">
+              <bx-badge bx-timeline-meta tone="info">Trigger</bx-badge>
+              Check the relay queue
+            </bx-timeline-item>
+            <bx-timeline-item time="2026-11-20" tone="ok" detail="release notes · relay log">
+              <span bx-timeline-meta class="hint">v2.1</span>
+              Second relay joined the mesh.
+            </bx-timeline-item>
+          </bx-timeline>
+
+          <h3>Avatar</h3>
+          <div class="row" data-testid="avatars">
+            <bx-avatar-stack label="Crew on the relay node">
+              <bx-avatar name="Robin Vale" [src]="sprite" [pixelated]="true" />
+              <bx-avatar name="Sam Okafor" />
+              <bx-avatar name="Kit" />
+            </bx-avatar-stack>
+            <bx-avatar name="Robin Vale" size="md" [src]="sprite" [pixelated]="true" />
+            <bx-avatar name="Sam Okafor" size="md" />
+            <span class="row"><bx-avatar name="Kit" [decorative]="true" /> Kit (decorative avatar)</span>
           </div>
 
           <h3>Layout</h3>
@@ -330,6 +377,8 @@ import { samples } from './samples';
 })
 export class App {
   protected readonly themes = THEMES;
+  /** An invented 8 × 8 pixel-art sprite, inline: the catalogue loads nothing from another origin. */
+  protected readonly sprite = SPRITE;
   protected readonly tones = BADGE_TONES;
   protected readonly icons = ICON_NAMES;
   protected readonly buttonVariants = BUTTON_VARIANTS;
