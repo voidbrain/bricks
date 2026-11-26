@@ -1,6 +1,6 @@
 # <a id="top"></a>bricks backlog
 
-Current work ledger, reviewed 26 November 2026 against main `498fca3` ([log](archive/reconciliation-2026.md); PRs #1 to #13 merged, CI green, #10 and #12 are the 0.2.0 and 0.3.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
+Current work ledger, reviewed 26 November 2026 against main `56b6327` ([log](archive/reconciliation-2026.md); PRs #1 to #14 merged, CI green, #10 and #12 are the 0.2.0 and 0.3.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
 **Remaining effort:** 52 h agent + 0.5 h owner across 34 open steps of 9 features. Generated from the task files.
