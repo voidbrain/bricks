@@ -3,7 +3,7 @@
 Current work ledger, reviewed 26 November 2026 against main `616bb47` ([log](archive/reconciliation-2026.md); PRs #1 to #19 merged, CI green, #10 and #12 are the 0.2.0 and 0.3.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 39 h agent + 0.5 h owner across 34 open steps of 9 features. Generated from the task files.
+**Remaining effort:** 41.5 h agent + 0.25 h owner across 36 open steps of 10 features. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -16,7 +16,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟢 Small | 1 h | — | [F-004-T04](#f-004-t04), [F-004-T06](#f-004-t06) | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🟢 Small | 1 h | — | [F-004-T04](#f-004-t04) | 🤖 | — | — |
 
 💻 **→** Next: F-005-T01 — CHANGELOG.md and the version-to-changelog check (Implemented; verification pending).
 
@@ -31,7 +31,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
 |---|---|---|---|---|---|---|---|
 | 🟢 Small | <a id="f-005-t01"></a>F-005-T01 — CHANGELOG.md and the version-to-changelog check | 3 h | 0 h | 0 h | Implemented; verification pending | — | [F-004-T04](#f-004-t04), [F-005-T02](#f-005-t02) |
-| 🟢 Small | <a id="f-005-t02"></a>F-005-T02 — Release procedure: version, changelog, tag | 1 h | 0 h | 1 h | Planned | [F-005-T01](#f-005-t01) | [F-004-T06](#f-004-t06) |
+| 🟢 Small | <a id="f-005-t02"></a>F-005-T02 — Release procedure: version, changelog, tag | 1 h | 0 h | 1 h | Planned | [F-005-T01](#f-005-t01) | — |
 | 🟢 Small | **Total** | 4 h | 0 h (0 of 2 steps recorded) | 1 h | 0 of 2 completed | | |
 
 <details>
@@ -55,7 +55,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟡 Medium | 2 h agent + 0.25 h owner | [F-005-T01](#f-005-t01), [F-005-T02](#f-005-t02) | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🟢 Small | 1 h | [F-005-T01](#f-005-t01) | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | 🤖 | — | — |
 
 💻 **→** Next: F-004-T01 — Registry decision: public npm with trusted publishing (Implemented; verification pending).
 
@@ -70,17 +70,17 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
 |---|---|---|---|---|---|---|---|:---:|---|
 | 🟢 Small | <a id="f-004-t01"></a>F-004-T01 — Registry decision: public npm with trusted publishing | 0 h | 0 h | 0 h | Implemented; verification pending | — | — | 🤖 | [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded |
-| 🟢 Small | <a id="f-004-t04"></a>F-004-T04 — Release workflow with npm trusted publishing | 3 h | 0 h | 0 h | Implemented; verification pending | [F-005-T01](#f-005-t01) | [F-004-T05](#f-004-t05) | 🤖 | [PR #6](https://github.com/voidbrain/bricks/pull/6) release.yml; [PR #11](https://github.com/voidbrain/bricks/pull/11) publish without token fallback, pinned npm |
-| 🟢 Small | <a id="f-004-t05"></a>F-004-T05 — Owner enables trusted publishing for voidbrain/bricks | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-004-T04](#f-004-t04) | [F-004-T06](#f-004-t06) | ⏳ 🧑‍🔧 | — |
-| 🟡 Medium | <a id="f-004-t06"></a>F-004-T06 — First publish of 0.1.0 and an install check | 2 h | 0 h | 2 h | Planned | [F-004-T05](#f-004-t05), [F-005-T02](#f-005-t02) | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | ⏳ 🤖 | — |
-| 🟡 Medium | **Total** | 5 h | 0 h (0 of 6 steps recorded) | 2 h agent + 0.25 h owner | 2 of 6 completed | | | | |
+| 🟢 Small | <a id="f-004-t04"></a>F-004-T04 — Release workflow with npm trusted publishing | 3 h | 0 h | 0 h | Implemented; verification pending | [F-005-T01](#f-005-t01) | — | 🤖 | [PR #6](https://github.com/voidbrain/bricks/pull/6) release.yml; [PR #11](https://github.com/voidbrain/bricks/pull/11) publish without token fallback, pinned npm |
+| 🟢 Small | <a id="f-004-t06"></a>F-004-T06 — First trusted publish (0.3.0) and an install check | 1 h | 0 h | 1 h | Planned | — | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | 🤖 | — |
+| 🟢 Small | **Total** | 4 h | 0 h (0 of 6 steps recorded) | 1 h | 3 of 6 completed | | | | |
 
-<details><summary>Done steps (2)</summary>
+<details><summary>Done steps (3)</summary>
 
 | Effort | Step | Estimate | Actual | Status | PRs |
 |---|---|---|---|---|---|
 | 🟢 Small | <a id="f-004-t02"></a>F-004-T02 — 🧑‍🔧 Owner creates or confirms the npm account | 0 h | 0 h | Verified | — |
 | 🟢 Small | <a id="f-004-t03"></a>F-004-T03 — 🧑‍🔧 Owner creates the npm organisation voidbrain | 0 h | 0 h | Verified | — |
+| 🟢 Small | <a id="f-004-t05"></a>F-004-T05 — Owner enables trusted publishing for voidbrain/bricks | 0 h | 0 h | Verified | — |
 
 </details>
 
@@ -308,6 +308,45 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 </details>
 
 ---
+### <a id="f-010"></a>[✨ F-010](#top)
+
+**Full audit and audit enforcement**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟡 Medium | 3.5 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-010-T01 — Next audit as kind full (Planned).
+
+| | |
+|---|---|
+| **Issue** | bricks has only a scoped audit (2026-11-25, which checked all eight areas), so no report of kind `full` exists and `audit.enforce` is off. The 2026-11-26 cross-project audit (coordinator, docs/audits/2026-11-26-cross-project.md, proposal 16) proposes a full audit, then enforcement. |
+| **Reproduce** | `docs/audits/2026-11-25-baseline.audit.json` has `"kind": "scoped"`; `.harness.json` has `"audit": {"enforce": false}`. |
+| **Check** | A report with manifest `kind: full` passes `npm run check:audits`, and `audit.enforce` is true. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
+|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-010-t01"></a>F-010-T01 — Next audit as kind full | 3 h | 0 h | 3 h | Planned | — | [F-010-T02](#f-010-t02) |
+| 🟢 Small | <a id="f-010-t02"></a>F-010-T02 — Turn audit.enforce on | 0.5 h | 0 h | 0.5 h | Planned | [F-010-T01](#f-010-t01) | — |
+| 🟡 Medium | **Total** | 3.5 h | 0 h (0 of 2 steps recorded) | 3.5 h | 0 of 2 completed | | |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-010.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | [#22](https://github.com/voidbrain/bricks/pull/22) |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
 ### <a id="f-007"></a>[✨ F-007](#top)
 
 **Hobo adoption: what bricks ships for Hobo**
@@ -356,7 +395,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 |---|---|---|---|---|---|:---:|:---:|:---:|
 | 🔴 Open | 🔹 P3 | 🟣 Very large | 21 h | — | — | 🤖 | — | — |
 
-💻 **→** Next: F-003-T01 — Primitives: button, input, select, toggle, tag (Implemented; verification pending).
+💻 **→** Next: F-003-T02 — Components: form field, list row, tabs (Planned).
 
 | | |
 |---|---|
@@ -368,14 +407,21 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
 |---|---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-003-t01"></a>F-003-T01 — Primitives: button, input, select, toggle, tag | 6 h | 0 h | 0 h | Implemented; verification pending | — | [F-003-T02](#f-003-t02), [F-003-T04](#f-003-t04), [F-003-T05](#f-003-t05) | [PR #7](https://github.com/voidbrain/bricks/pull/7) button, input, select, toggle and tag primitives (first consumer: NERV F-130 dashboard) |
-| 🟢 Small | <a id="f-003-t03"></a>F-003-T03 — Live-view helper: render once, update changed values, keyed rows | 4 h | 0 h | 0 h | Implemented; verification pending | — | — | [PR #9](https://github.com/voidbrain/bricks/pull/9) framework-free live-view helper and catalogue demo (demand: NERV B-145 non-Angular live views) |
-| 🟢 Small | <a id="f-003-t07"></a>F-003-T07 — Foundations: layout and icons | 4 h | 0 h | 0 h | Implemented; verification pending | — | — | — |
-| 🔴 Large | <a id="f-003-t02"></a>F-003-T02 — Components: form field, list row, tabs | 5 h | 0 h | 5 h | Planned | [F-003-T01](#f-003-t01) | [F-003-T06](#f-003-t06) | — |
-| 🔴 Large | <a id="f-003-t04"></a>F-003-T04 — Dialog and toast | 5 h | 0 h | 5 h | Planned | [F-003-T01](#f-003-t01) | — | — |
-| 🔴 Large | <a id="f-003-t05"></a>F-003-T05 — Patterns: status row, approval card, empty state | 5 h | 0 h | 5 h | Planned | [F-003-T01](#f-003-t01) | — | — |
+| 🔴 Large | <a id="f-003-t02"></a>F-003-T02 — Components: form field, list row, tabs | 5 h | 0 h | 5 h | Planned | — | [F-003-T06](#f-003-t06) | — |
+| 🔴 Large | <a id="f-003-t04"></a>F-003-T04 — Dialog and toast | 5 h | 0 h | 5 h | Planned | — | — | — |
+| 🔴 Large | <a id="f-003-t05"></a>F-003-T05 — Patterns: status row, approval card, empty state | 5 h | 0 h | 5 h | Planned | — | — | — |
 | 🔴 Large | <a id="f-003-t06"></a>F-003-T06 — Patterns: data table and filters | 6 h | 0 h | 6 h | Planned | [F-003-T02](#f-003-t02) | — | — |
-| 🟣 Very large | **Total** | 35 h | 0 h (0 of 7 steps recorded) | 21 h | 0 of 7 completed | | | |
+| 🟣 Very large | **Total** | 35 h | 0 h (0 of 7 steps recorded) | 21 h | 3 of 7 completed | | | |
+
+<details><summary>Done steps (3)</summary>
+
+| Effort | Step | Estimate | Actual | Status | PRs |
+|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-003-t01"></a>F-003-T01 — Primitives: button, input, select, toggle, tag | 6 h | 0 h | Verified | [PR #7](https://github.com/voidbrain/bricks/pull/7) button, input, select, toggle and tag primitives (first consumer: NERV F-130 dashboard) |
+| 🟢 Small | <a id="f-003-t03"></a>F-003-T03 — Live-view helper: render once, update changed values, keyed rows | 4 h | 0 h | Verified | [PR #9](https://github.com/voidbrain/bricks/pull/9) framework-free live-view helper and catalogue demo (demand: NERV B-145 non-Angular live views) |
+| 🟢 Small | <a id="f-003-t07"></a>F-003-T07 — Foundations: layout and icons | 4 h | 0 h | Verified | [PR #8](https://github.com/voidbrain/bricks/pull/8) layout classes, breakpoints, safe-area tokens and the icon set |
+
+</details>
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -384,7 +430,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-003-T01: [PR #7](https://github.com/voidbrain/bricks/pull/7) button, input, select, toggle and tag primitives (first consumer: NERV F-130 dashboard) · F-003-T03: [PR #9](https://github.com/voidbrain/bricks/pull/9) framework-free live-view helper and catalogue demo (demand: NERV B-145 non-Angular live views). [#7](https://github.com/voidbrain/bricks/pull/7) (F-003-T01); Test: `projects/bricks/components/primitives.spec.ts` and `e2e/catalogue.spec.ts` (`bbe6399`); Review: independent review on PR #7 2026-11-25 (Claude Opus 5.5): tokens, themes, keyboard, focus and exports checked; added `touch` on blur so reactive and signal forms mark controls touched (`projects/bricks/components/forms.spec.ts`); [#8](https://github.com/voidbrain/bricks/pull/8) (F-003-T07); [#9](https://github.com/voidbrain/bricks/pull/9) (F-003-T03); Test: `projects/bricks/live/live.spec.ts` (`83a32d6`); Review: independent review on PR #9 2026-11-26 (Claude Opus 5.5): render-once, changed-value-only and keyed add/move/remove/patch checked against node identity and MutationObserver; exports, purity lint, three themes with axe checked; added duplicate-key, move, N to 0 to N tests and an `on*` attribute guard in `setAttr`, and documented the Angular hosting pattern in `docs/STYLE-GUIDE.md` |
+| PR / evidence | Steps: F-003-T01: [PR #7](https://github.com/voidbrain/bricks/pull/7) button, input, select, toggle and tag primitives (first consumer: NERV F-130 dashboard) · F-003-T03: [PR #9](https://github.com/voidbrain/bricks/pull/9) framework-free live-view helper and catalogue demo (demand: NERV B-145 non-Angular live views) · F-003-T07: [PR #8](https://github.com/voidbrain/bricks/pull/8) layout classes, breakpoints, safe-area tokens and the icon set. [#7](https://github.com/voidbrain/bricks/pull/7) (F-003-T01); Test: `projects/bricks/components/primitives.spec.ts` and `e2e/catalogue.spec.ts` (`bbe6399`); Review: independent review on PR #7 2026-11-25 (Claude Opus 5.5): tokens, themes, keyboard, focus and exports checked; added `touch` on blur so reactive and signal forms mark controls touched (`projects/bricks/components/forms.spec.ts`); [#8](https://github.com/voidbrain/bricks/pull/8) (F-003-T07); [#9](https://github.com/voidbrain/bricks/pull/9) (F-003-T03); Test: `projects/bricks/live/live.spec.ts` (`83a32d6`); Review: independent review on PR #9 2026-11-26 (Claude Opus 5.5): render-once, changed-value-only and keyed add/move/remove/patch checked against node identity and MutationObserver; exports, purity lint, three themes with axe checked; added duplicate-key, move, N to 0 to N tests and an `on*` attribute guard in `setAttr`, and documented the Angular hosting pattern in `docs/STYLE-GUIDE.md` |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |

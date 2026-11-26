@@ -4,7 +4,7 @@
   "parent": "F-003",
   "title": "Primitives: button, input, select, toggle, tag",
   "goal": "Form primitives on semantic tokens",
-  "status": "implemented",
+  "status": "verified",
   "acceptance": [
     "Five primitives with specs, keyboard and focus, catalogue entries",
     "First consumer named (expected: NERV F-130 dashboard)"
@@ -33,8 +33,8 @@
   "effort": {
     "size": "large",
     "estimate": "0 remaining",
-    "basis": "Implemented 2026-11-25 in PR #7 for first consumer NERV F-130 dashboard (nerv:F-130); verification is green CI on PR #7 and merge.",
-    "reviewed": "2026-11-25",
+    "basis": "Implemented 2026-11-25 in PR #7 for first consumer NERV F-130 dashboard (nerv:F-130); verification is green CI on PR #7 and merge. Verified 2026-11-26: PR #7 merged with green CI (cross-project audit proposal 2, accepted by the owner 2026-11-26). Not a measurement.",
+    "reviewed": "2026-11-26",
     "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 6,

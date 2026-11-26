@@ -2,16 +2,15 @@
   "version": 1,
   "id": "F-004-T06",
   "parent": "F-004",
-  "title": "First publish of 0.1.0 and an install check",
-  "goal": "0.1.0 is installable",
+  "title": "First trusted publish (0.3.0) and an install check",
+  "goal": "0.3.0 is installable",
   "status": "planned",
   "acceptance": [
-    "Tag v0.1.0 on main; the release run publishes with provenance",
-    "0.1.0 installs in a scratch Angular 22 app; tokens, themes, surfaces and styles/*.css resolve"
+    "Published: release run 45722880536 published 0.3.0 with provenance through trusted publishing (npm 2026-11-25 23:44 UTC; 0.1.0 is on npm too; 0.2.0 was never published)",
+    "Remaining: 0.3.0 installs in a scratch Angular 22 app; tokens, themes, surfaces and styles/*.css resolve. Close the step after this check"
   ],
   "dependsOn": [
-    "F-004-T05",
-    "F-005-T02"
+    "F-004-T05"
   ],
   "resources": [
     "docs/work/records/F-004.md"
@@ -32,15 +31,15 @@
     "A material scope or effort increase goes to the owner"
   ],
   "effort": {
-    "size": "medium",
-    "estimate": "2 h agent, 1 d",
-    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 1 focused day(s). Not a measurement.",
-    "reviewed": "2026-11-25",
-    "agentHours": 2,
+    "size": "small",
+    "estimate": "1 h agent",
+    "basis": "Rewritten 2026-11-26 from \"first publish of 0.1.0\": 0.3.0 is published, only the install check remains (cross-project audit proposal 2, accepted by the owner 2026-11-26: \"accept all 17 proposals\"). F-005-T02 is no longer a prerequisite. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1,
     "ownerHours": 0,
     "baselineAgentHours": 2,
-    "estimateAgentHours": 2,
-    "days": 1,
+    "estimateAgentHours": 1,
+    "days": 0,
     "baselineDays": 1
   }
 }
