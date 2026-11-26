@@ -4,7 +4,7 @@
   "parent": "F-006",
   "title": "Inventory NERV's UI against bricks",
   "goal": "A list of what NERV needs from bricks, in order",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "NERV web/src, dashboard and style guide read (read only); each need mapped to a bricks piece or an F-003 step",
     "The list recorded here with dates"
@@ -30,14 +30,20 @@
   ],
   "effort": {
     "size": "medium",
-    "estimate": "2 h agent, 1 d",
-    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 1 focused day(s). Not a measurement.",
-    "reviewed": "2026-11-25",
-    "agentHours": 2,
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-26 in one PR (documentation only); verification is its CI. No actual: the step's start time was not recorded.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 2,
     "estimateAgentHours": 2,
-    "days": 1,
+    "days": 0,
     "baselineDays": 1
-  }
+  },
+  "prs": [
+    {
+      "pr": 13,
+      "note": "NERV UI inventory against bricks 0.3.0, recorded in F-006 (feeds nerv:F-130)"
+    }
+  ]
 }
