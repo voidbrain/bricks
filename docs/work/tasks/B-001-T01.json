@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "id": "B-001-T01",
+  "parent": "B-001",
+  "title": "Composite translucent colours in the contrast check",
+  "goal": "contrastFailures measures what the eye sees for translucent tokens",
+  "status": "implemented",
+  "acceptance": [
+    "A regression test with a 10 % black text token on white fails before the fix and passes after",
+    "Every theme section and the 20 combinations still pass"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "e2e/catalogue.spec.ts",
+    "docs/work/records/B-001.md"
+  ],
+  "capabilities": [
+    "bounded-edit",
+    "typescript",
+    "regression-design"
+  ],
+  "privacy": "Neutral invented fixtures only; no personal data, credentials or private reports in Git.",
+  "validation": [
+    "npm run build && npx playwright test",
+    "CI"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-26 in one PR. Not timed.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0,
+    "ownerHours": 0,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5,
+    "days": 0,
+    "baselineDays": 0
+  },
+  "prs": [
+    {
+      "pr": 23,
+      "note": "alpha compositing"
+    }
+  ]
+}
