@@ -217,7 +217,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-006-T01: [PR #13](https://github.com/voidbrain/bricks/pull/13) NERV UI inventory against bricks 0.3.0, recorded in F-006 (feeds nerv:F-130). F-006-T01 inventory (2026-11-26) |
+| PR / evidence | Steps: F-006-T01: [PR #13](https://github.com/voidbrain/bricks/pull/13) NERV UI inventory against bricks 0.3.0, recorded in F-006 (feeds nerv:F-130). F-006-T01 inventory (2026-11-26); [#13](https://github.com/voidbrain/bricks/pull/13) |
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
