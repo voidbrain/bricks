@@ -444,11 +444,11 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
-|---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-012-t01"></a>F-012-T01 — Licence allow-list tool | 1.5 h | 0 h | 1.5 h | Planned | — | [F-012-T02](#f-012-t02) |
-| 🟢 Small | <a id="f-012-t02"></a>F-012-T02 — Run the licence check in CI | 0.5 h | 0 h | 0.5 h | Planned | [F-012-T01](#f-012-t01) | — |
-| 🟡 Medium | **Total** | 2 h | 0 h (0 of 2 steps recorded) | 2 h | 0 of 2 completed | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-012-t01"></a>F-012-T01 — Licence allow-list tool | 1.5 h | 0 h | 1.5 h | Planned | — | [F-012-T02](#f-012-t02) | [PR #24](https://github.com/voidbrain/bricks/pull/24) plan |
+| 🟢 Small | <a id="f-012-t02"></a>F-012-T02 — Run the licence check in CI | 0.5 h | 0 h | 0.5 h | Planned | [F-012-T01](#f-012-t01) | — | [PR #24](https://github.com/voidbrain/bricks/pull/24) plan |
+| 🟡 Medium | **Total** | 2 h | 0 h (0 of 2 steps recorded) | 2 h | 0 of 2 completed | | | |
 
 <details>
 <summary>Next action, estimates and evidence</summary>
@@ -457,7 +457,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
+| PR / evidence | Steps: F-012-T01: [PR #24](https://github.com/voidbrain/bricks/pull/24) plan · F-012-T02: [PR #24](https://github.com/voidbrain/bricks/pull/24) plan. [#24](https://github.com/voidbrain/bricks/pull/24) (plan); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
