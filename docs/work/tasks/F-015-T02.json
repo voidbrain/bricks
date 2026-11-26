@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "id": "F-015-T02",
+  "parent": "F-015",
+  "title": "Release the sortable list",
+  "goal": "NERV can pin a bricks release with the sortable list",
+  "status": "planned",
+  "acceptance": [
+    "A minor release with the component in the changelog (may share the release with F-014-T07)",
+    "nerv:F-150 is told the version"
+  ],
+  "dependsOn": [
+    "F-015-T01"
+  ],
+  "resources": [
+    "CHANGELOG.md",
+    "projects/bricks/package.json",
+    "docs/work/records/F-015.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "release"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h agent",
+    "basis": "Same as the 0.4.0 release. Estimated 2026-11-26. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0.5,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5
+  },
+  "prs": [
+    {
+      "pr": 29,
+      "note": "plan"
+    }
+  ]
+}

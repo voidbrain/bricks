@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "id": "F-014-T05",
+  "parent": "F-014",
+  "title": "Stacked bar chart component",
+  "goal": "A themed, accessible stacked bar chart for parts per category",
+  "status": "planned",
+  "acceptance": [
+    "bx-stacked-bar-chart (or a stacked mode of the bar chart, as T01 decides): several series per bar, legend, totals, segments told apart without colour alone",
+    "Unit and browser tests (keyboard, axe in every theme)",
+    "Catalogue entry"
+  ],
+  "dependsOn": [
+    "F-014-T04"
+  ],
+  "resources": [
+    "projects/bricks/components/**",
+    "projects/catalogue/**",
+    "docs/work/records/F-014.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h agent",
+    "basis": "Extends the bar chart. Estimated 2026-11-26. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  },
+  "prs": [
+    {
+      "pr": 29,
+      "note": "plan"
+    }
+  ]
+}

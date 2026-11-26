@@ -3,7 +3,7 @@
 Current work ledger, reviewed 26 November 2026 against main `616bb47` ([log](archive/reconciliation-2026.md); PRs #1 to #19 merged, CI green, #10 and #12 are the 0.2.0 and 0.3.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 48.25 h agent + 0.25 h owner across 46 open steps of 13 features and 1 other record. Generated from the task files.
+**Remaining effort:** 59.75 h agent + 0.5 h owner across 55 open steps of 15 features and 1 other record. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -505,6 +505,45 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 </details>
 
 ---
+### <a id="f-015"></a>[✨ F-015](#top)
+
+**Sortable list component: reorder by drag and drop and by keyboard**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟡 Medium | 3.5 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-015-T01 — Sortable list component with keyboard, pointer and touch reorder (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner request 2026-11-26 (late evening): reorder the coordinator's solution order (`docs/solution-order.md`) by drag and drop in NERV's live index card (planned in 🚦 coordinator:F-025; the card side is 𖣂 nerv:F-150). Bricks has a listbox but nothing to reorder items. The component only proposes a new order (an output event); it never saves anything: the consumer decides what a reorder does (for the coordinator, a reviewed PR). |
+| **Reproduce** | `projects/bricks/components/listbox.ts` selects items; no component reorders them. |
+| **Check** | bx-sortable-list reorders by pointer drag, by touch and by keyboard (move up/down buttons and a grab-and-move mode with arrow keys), announces each move in a live region, emits the new order and a cancel, is axe-clean in every theme, and has a catalogue entry (F-015-T01); it ships in a release (F-015-T02). |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-015-t01"></a>F-015-T01 — Sortable list component with keyboard, pointer and touch reorder | 3 h | 0 h | 3 h | Planned | — | [F-015-T02](#f-015-t02) | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟢 Small | <a id="f-015-t02"></a>F-015-T02 — Release the sortable list | 0.5 h | 0 h | 0.5 h | Planned | [F-015-T01](#f-015-t01) | — | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟡 Medium | **Total** | 3.5 h | 0 h (0 of 2 steps recorded) | 3.5 h | 0 of 2 completed | | | |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-015.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-015-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-015-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
 ### <a id="f-007"></a>[✨ F-007](#top)
 
 **Hobo adoption: what bricks ships for Hobo**
@@ -541,6 +580,50 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
+
+</details>
+
+---
+### <a id="f-014"></a>[✨ F-014](#top)
+
+**Chart components: line, bar, stacked bar and donut**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🔴 Large | 8 h agent + 0.25 h owner | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-014-T01 — Decision page: small chart library or plain SVG, accessibility and theming (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner request 2026-11-26 (late evening): plan chart components in bricks. Consumers, each owning its adoption record: 🪴 grover:F-029 (probe readings over time, feeds and doses, plant report; it has a hand-made `apps/client/src/app/plant/plant-chart.ts` today), 🚁 fpvbuddy:F-025 (battery cycles and internal resistance, flights; after fpvbuddy:F-008 adopts bricks) and 🚦 the coordinator through NERV's live index card 𖣂 nerv:F-149 (records per status, steps per repo, PR throughput; the card itself is nerv:F-147). Bricks has no chart today and no runtime dependency besides Angular. |
+| **Reproduce** | `projects/bricks/components/public-api.ts` exports no chart; Grover draws its plant chart by hand in SVG. |
+| **Check** | A recorded decision on how charts are drawn (small library or plain SVG), how they are accessible (text alternative and data table, keyboard, no colour-only meaning) and themed (tokens only, light and dark) (F-014-T01, T02); line, bar, stacked bar and donut components, each with unit and browser tests, axe-clean in every theme, and a catalogue entry (T03 to T06); a release consumers can pin (T07). |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
+|---|---|---|---|---|---|---|---|:---:|---|
+| 🟢 Small | <a id="f-014-t01"></a>F-014-T01 — Decision page: small chart library or plain SVG, accessibility and theming | 1 h | 0 h | 1 h | Planned | — | [F-014-T02](#f-014-t02) | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟢 Small | <a id="f-014-t02"></a>F-014-T02 — Owner decides how charts are drawn | 0 h | 0 h | 0 h agent + 0.25 h owner | Planned | [F-014-T01](#f-014-t01) | [F-014-T03](#f-014-t03) | ⏳ 🤔 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟡 Medium | <a id="f-014-t03"></a>F-014-T03 — Line chart component, with the shared chart base | 2.5 h | 0 h | 2.5 h | Planned | [F-014-T02](#f-014-t02) | [F-014-T04](#f-014-t04), [F-014-T06](#f-014-t06) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟡 Medium | <a id="f-014-t04"></a>F-014-T04 — Bar chart component | 1.5 h | 0 h | 1.5 h | Planned | [F-014-T03](#f-014-t03) | [F-014-T05](#f-014-t05) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟢 Small | <a id="f-014-t05"></a>F-014-T05 — Stacked bar chart component | 1 h | 0 h | 1 h | Planned | [F-014-T04](#f-014-t04) | [F-014-T07](#f-014-t07) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟡 Medium | <a id="f-014-t06"></a>F-014-T06 — Donut chart component | 1.5 h | 0 h | 1.5 h | Planned | [F-014-T03](#f-014-t03) | [F-014-T07](#f-014-t07) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟢 Small | <a id="f-014-t07"></a>F-014-T07 — Release the charts | 0.5 h | 0 h | 0.5 h | Planned | [F-014-T05](#f-014-t05), [F-014-T06](#f-014-t06) | — | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🔴 Large | **Total** | 8 h | 0 h (0 of 7 steps recorded) | 8 h agent + 0.25 h owner | 0 of 7 completed | | | | |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-014.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-014-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T03: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T04: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T05: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T06: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T07: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
 
 </details>
 

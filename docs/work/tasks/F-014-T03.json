@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "id": "F-014-T03",
+  "parent": "F-014",
+  "title": "Line chart component, with the shared chart base",
+  "goal": "A themed, accessible line chart for values over time",
+  "status": "planned",
+  "acceptance": [
+    "bx-line-chart: one or more series over a time or number axis, optional target band and markers (what Grover's plant chart draws), empty state",
+    "The shared base (scales, axes, legend, data-table alternative) is written once here and reused by T04 to T06",
+    "Unit tests for scales and the data table; browser test: keyboard and axe-clean in every theme, light and dark",
+    "Catalogue entry with sample data"
+  ],
+  "dependsOn": [
+    "F-014-T02"
+  ],
+  "resources": [
+    "projects/bricks/components/**",
+    "projects/catalogue/**",
+    "docs/work/records/F-014.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2.5 h agent",
+    "basis": "The shared base plus the first chart; the largest step. Estimated 2026-11-26. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 2.5,
+    "baselineAgentHours": 2.5,
+    "estimateAgentHours": 2.5
+  },
+  "prs": [
+    {
+      "pr": 29,
+      "note": "plan"
+    }
+  ]
+}

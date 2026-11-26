@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "id": "F-014-T06",
+  "parent": "F-014",
+  "title": "Donut chart component",
+  "goal": "A themed, accessible donut for shares of a whole",
+  "status": "planned",
+  "acceptance": [
+    "bx-donut-chart: shares with labels and percentages, a centre total, a legend, at most a set number of slices with an Other slice",
+    "Unit and browser tests (keyboard, axe in every theme)",
+    "Catalogue entry"
+  ],
+  "dependsOn": [
+    "F-014-T03"
+  ],
+  "resources": [
+    "projects/bricks/components/**",
+    "projects/catalogue/**",
+    "docs/work/records/F-014.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "1.5 h agent",
+    "basis": "Arc maths plus the shared legend and data table. Estimated 2026-11-26. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 1.5,
+    "baselineAgentHours": 1.5,
+    "estimateAgentHours": 1.5
+  },
+  "prs": [
+    {
+      "pr": 29,
+      "note": "plan"
+    }
+  ]
+}

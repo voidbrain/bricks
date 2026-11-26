@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "id": "F-015-T01",
+  "parent": "F-015",
+  "title": "Sortable list component with keyboard, pointer and touch reorder",
+  "goal": "A list the user can reorder without a mouse, that emits the new order",
+  "status": "planned",
+  "acceptance": [
+    "bx-sortable-list: items from the consumer (id, label, optional secondary text), pointer and touch drag with a visible drop position, and a keyboard path (move up/down buttons on each item; Space to grab, arrows to move, Space to drop, Escape to cancel)",
+    "Each move is announced in a polite live region; the component emits orderChange (the ids in the new order) and never persists anything",
+    "Unit tests for the reorder logic; browser test: keyboard reorder, drag reorder, axe-clean in every theme, light and dark, reduced motion",
+    "Catalogue entry; style guide entry"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "projects/bricks/components/**",
+    "projects/catalogue/**",
+    "docs/STYLE-GUIDE.md",
+    "docs/work/records/F-015.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular",
+    "accessibility"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run test:browser",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "3 h agent",
+    "basis": "Keyboard and live-region work is most of it; no library (Angular CDK drag-drop is an option T01 may weigh against plain pointer events). Estimated 2026-11-26. Not a measurement.",
+    "reviewed": "2026-11-26",
+    "agentHours": 3,
+    "baselineAgentHours": 3,
+    "estimateAgentHours": 3
+  },
+  "prs": [
+    {
+      "pr": 29,
+      "note": "plan"
+    }
+  ]
+}
