@@ -48,6 +48,9 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
 }
+.bx-columns.bx-columns-phone {
+  grid-template-columns: repeat(var(--bx-columns, 2), minmax(0, 1fr));
+}
 @media (min-width: 768px) {
   .bx-columns {
     grid-template-columns: repeat(var(--bx-columns, 2), minmax(0, 1fr));
@@ -79,4 +82,20 @@
 }
 .bx-gap-8 {
   --bx-gap: var(--bx-space-8);
+}
+
+/*
+ * Visually hidden, still read by screen readers (a label the layout shows another way, a heading for the outline).
+ * Global, not only inside a themed root: it carries no colour.
+ */
+.bx-sr-only {
+  position: absolute !important;
+  inline-size: 1px !important;
+  block-size: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
 }

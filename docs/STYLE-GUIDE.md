@@ -49,8 +49,11 @@ Three layers, each read only by the next. Prefix `--bx-`.
 | `--bx-card-bg`, `--bx-card-fg`, `--bx-card-border`, `--bx-card-radius`, `--bx-card-padding`, `--bx-card-gap` | card surface, text, border, radius and spacing |
 | `--bx-card-title`, `--bx-card-header-bg`, `--bx-card-header-fg`, `--bx-card-header-padding`, `--bx-card-glow` | card header: heading colour, bar fill, meta text, padding; the card's shadow. Transparent bar and no glow by default; eva fills the bar with the accent (text on accent) and adds an inset accent glow (NERV `--hdr-bg`, `--hdr-fg`, `--title`, `--glow`) |
 | `--bx-stat-bg`, `--bx-stat-fg`, `--bx-stat-muted`, `--bx-stat-border`, `--bx-stat-radius`, `--bx-stat-padding` | stat tile (`bx-stat`) well, value text, label and detail text, border, radius, padding |
-| `--bx-badge-radius`, `--bx-badge-font-size`, `--bx-badge-padding` | badge radius, type size and padding |
-| `--bx-control-bg`, `--bx-control-fg`, `--bx-control-border`, `--bx-control-radius`, `--bx-control-padding` | form controls (`bx-button`, `bx-input`, `bx-select`, `bx-toggle`) |
+| `--bx-badge-radius`, `--bx-badge-font-size`, `--bx-badge-padding`, `--bx-badge-outline-bg` | badge radius, type size and padding; the fill behind an outlined or dashed badge (transparent) |
+| `--bx-control-bg`, `--bx-control-fg`, `--bx-control-border`, `--bx-control-radius`, `--bx-control-padding`, `--bx-control-padding-sm` | form controls (`bx-button`, `bx-input`, `bx-select`, `bx-toggle`); `-sm` is the compact button's padding |
+| `--bx-meter-height`, `--bx-meter-track`, `--bx-meter-border`, `--bx-meter-radius`, `--bx-meter-mark` | meter (`bx-meter`) bar height, track, border, radius and threshold mark |
+| `--bx-disclosure-fg`, `--bx-disclosure-indent` | disclosure (`bx-disclosure`) summary text and content indent |
+| `--bx-alert-fg`, `--bx-alert-padding`, `--bx-alert-radius`, `--bx-alert-tint` | inline alert (`bx-alert`) text, padding, radius, and how much of the tone tints its ground (10 %) |
 | `--bx-tag-bg`, `--bx-tag-fg`, `--bx-tag-border`, `--bx-tag-radius` | tag chip (`bx-tag`) surface, text, border and radius |
 
 ### Themes
@@ -70,7 +73,8 @@ A theme is applied with `data-bx-theme="<name>"` on any element (`applyTheme()` 
 - **Radii and lines:** `--bx-radius-0`, `-sm` 3 px, `-md` 6 px, `-lg` 8 px; 1 px lines.
 - **Focus:** a 3 px `--bx-focus` outline, 2 px offset, on `:focus-visible`, inside any themed root (`foundations.css`).
 - **Motion:** `--bx-duration-fast` 120 ms, `--bx-duration-base` 200 ms, one standard easing; `prefers-reduced-motion` stops motion.
-- **Layout:** classes in `foundations.css`, names in `LAYOUT_CLASSES` (`@voidbrain/bricks/foundations`). `bx-stack` (a column), `bx-cluster` (a wrapping row), `bx-grid` (as many columns as fit `--bx-grid-min`, default 16rem, never wider than the screen), `bx-columns` (one column below `md`, `--bx-columns` from `md` up), `bx-safe-area` (padding clear of a phone's notch and home indicator, at least `--bx-safe-min`; the page needs `viewport-fit=cover`). Gaps come from the spacing scale: `--bx-gap`, or a `bx-gap-n` class for `--bx-space-n`; default `--bx-space-3`.
+- **Layout:** classes in `foundations.css`, names in `LAYOUT_CLASSES` (`@voidbrain/bricks/foundations`). `bx-stack` (a column), `bx-cluster` (a wrapping row), `bx-grid` (as many columns as fit `--bx-grid-min`, default 16rem, never wider than the screen), `bx-columns` (one column below `md`, `--bx-columns` from `md` up; add `bx-columns-phone` to keep `--bx-columns`, default 2, on a phone too, for short paired fields), `bx-safe-area` (padding clear of a phone's notch and home indicator, at least `--bx-safe-min`; the page needs `viewport-fit=cover`). Gaps come from the spacing scale: `--bx-gap`, or a `bx-gap-n` class for `--bx-space-n`; default `--bx-space-3`.
+- **Visually hidden:** `bx-sr-only` (`SR_ONLY_CLASS`) hides text on screen and keeps it for screen readers: a label the layout shows another way, a heading for the outline.
 - **Breakpoints:** phone first, `min-width` only: `sm` 480 px, `md` 768 px, `lg` 1024 px (`BREAKPOINTS`, `minWidth()`). A media query cannot read a custom property, so CSS repeats the numbers; the browser suite checks `bx-columns` switches at `md`. Everything fits 320 px without horizontal scroll.
 - **Safe areas:** `--bx-safe-top`, `-right`, `-bottom`, `-left`: `env(safe-area-inset-*)`, 0 px off phones.
 - **Icons:** a small line set on a 24 px box, 2 px stroke, round caps, in `currentColor` so it takes the text colour of every theme (`ICON_NAMES`: check, close, plus, minus, chevrons, menu, more, search, info, warning, error). Inline SVG through `bx-icon`; no icon font, sprite file or CDN. Size `--bx-icon-size` (1.25em), stroke `--bx-icon-stroke`. An icon next to text that says the same is decorative (hidden from screen readers); an icon alone gets a `label`. Colour never carries meaning alone, so a status icon sits next to its status in text. A new icon is added on real demand, drawn to the same box and stroke.
@@ -79,7 +83,7 @@ A theme is applied with `data-bx-theme="<name>"` on any element (`applyTheme()` 
 
 | Component | Entry point | Use |
 |---|---|---|
-| `bx-button` | `components` | action button (`primary`, `secondary`, `danger`, `ghost`), emits `pressed` |
+| `bx-button` | `components` | action button (`primary`, `secondary`, `danger`, `ghost`), `size` `md` or compact `sm` (24 px target, for dense rows), emits `pressed` |
 | `bx-input` | `components` | single-line text input bound with `[(value)]`, `[formField]` or a reactive form control; sets `aria-invalid` when `invalid`; emits `touch` on blur |
 | `bx-select` | `components` | native select over `SelectOption[]`, bound like `bx-input`; emits `touch` on blur |
 | `bx-toggle` | `components` | accessible binary switch (`role="switch"`) bound with `[(checked)]`, `[formField]` or a reactive form control; emits `touch` on blur |
@@ -87,7 +91,10 @@ A theme is applied with `data-bx-theme="<name>"` on any element (`applyTheme()` 
 | `bx-card` | `components` | a raised panel; `heading` adds a header row (an `h2` to `h6` by `headingLevel`, a meta slot for `[bx-card-meta]` content) and names the region by it; without a heading, `label` names the region |
 | `bx-stat` | `components` | a stat tile: `label`, `value` (text; the project formats numbers) and optional `detail`, as a group named by its label; lay several out with `bx-grid` |
 | `bx-icon` | `components` | an inline SVG icon from the set in `currentColor`; decorative unless given a `label` (then `role="img"` with that name); an unknown name draws nothing |
-| `bx-badge` | `components` | a short label on a tone (`accent`, `ok`, `warn`, `danger`, `info`); `live` gives it `role="status"` |
+| `bx-badge` | `components` | a short label on a tone (`accent`, `ok`, `warn`, `danger`, `info`, `neutral`); `appearance` `solid`, `outline` (tone as border and text, a vote chip) or `dashed` (a provisional or shadow state; the text says so too); `live` gives it `role="status"` |
+| `bx-meter` | `components` | a bar for `value` between `min` and `max` (`role="meter"`, needs a `label`, `valueText` for words), an optional `threshold` mark and a tone; show the number in text beside it |
+| `bx-disclosure` | `components` | a native `details` with a `summary` line; `[(open)]`; keyboard and expanded state from the browser |
+| `bx-alert` | `components` | an inline note or error with a toned border and tint, a decorative icon and a `[bx-alert-actions]` slot; `announce` `none` (`role="note"`), `polite` (`status`) or `assertive` (`alert`) |
 | `bx-status-card`, `bx-notice-card`, `bx-checklist-card`, `bx-recipe-card` | `surfaces` | NERV's four genUI cards, same component ids, schemas and validation |
 | `bx-surface` | `surfaces` | validates one surface payload and renders its card, or a rejection alert; emits `rejected` and `checklistToggle` |
 

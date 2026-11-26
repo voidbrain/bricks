@@ -1,4 +1,11 @@
-import { BREAKPOINTS, LAYOUT_CLASSES, SAFE_AREA_TOKENS, gapClass, minWidth } from './layout';
+import {
+  BREAKPOINTS,
+  LAYOUT_CLASSES,
+  SAFE_AREA_TOKENS,
+  SR_ONLY_CLASS,
+  gapClass,
+  minWidth,
+} from './layout';
 
 describe('layout foundations', () => {
   it('names the breakpoints in ascending order, phone first', () => {
@@ -18,8 +25,13 @@ describe('layout foundations', () => {
       'bx-cluster',
       'bx-grid',
       'bx-columns',
+      'bx-columns-phone',
       'bx-safe-area',
     ]);
+  });
+
+  it('names the visually hidden class', () => {
+    expect(SR_ONLY_CLASS).toBe('bx-sr-only');
   });
 
   it('maps a spacing step to a gap class', () => {

@@ -10,10 +10,14 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 
 - `bx-card` header: `heading`, `headingLevel` (2 to 6) and `headingId` inputs and a `[bx-card-meta]` slot; a headed card is a region named by its heading. Component tokens `--bx-card-title`, `--bx-card-header-bg`, `--bx-card-header-fg`, `--bx-card-header-padding`, `--bx-card-glow`; eva sets a filled accent header bar and an inset glow (F-006-T04).
 - `bx-stat`: a stat tile with label, value and detail, and its `--bx-stat-*` component tokens (F-006-T04).
+- `bx-button` `size="sm"` (compact, 24 px target; `--bx-control-padding-sm`); `bx-badge` `appearance` (`solid`, `outline`, `dashed`) and a `neutral` tone (`--bx-badge-outline-bg`) (F-006-T05).
+- `bx-meter` (value, range, threshold mark, tone; `--bx-meter-*`), `bx-disclosure` (native `details`, `[(open)]`; `--bx-disclosure-*`) and `bx-alert` (inline note, status or alert; `--bx-alert-*`) (F-006-T05).
+- Foundations: `bx-sr-only` (`SR_ONLY_CLASS`) and `bx-columns-phone`, which keeps `bx-columns` columns on a phone (in `LAYOUT_CLASSES`) (F-006-T05).
 
 ### Changed
 
 - `bx-card` wraps its content in a padded `.body`; the `section.card` itself has no padding now (it holds the header and the body). Content projected into the card is unaffected.
+- `bx-badge` has a 1 px transparent border (the outlined appearances draw it), so a solid badge is 2 px larger than before.
 
 ## [0.3.0] - 2026-11-26
 
