@@ -4,12 +4,13 @@
   "parent": "F-004",
   "title": "Owner enables trusted publishing for voidbrain/bricks",
   "goal": "npm trusts this repository's release workflow",
-  "status": "planned",
+  "status": "verified",
   "acceptance": [
     "After F-004-T04 lands release.yml: the agent gives the owner the exact npm steps (package settings → Trusted publishing → GitHub Actions: organisation or user voidbrain, repository bricks, workflow filename release.yml, environment npm, allowing npm publish)",
     "npm configures a trusted publisher on an existing package only: the first version (0.1.0) gets out as F-004-T06 records, a one-time publish by the owner if trusted publishing cannot do it",
     "GitHub environment `npm` protected by the owner (repository setting): a required reviewer (the owner) and deployments only from `v*` tags, because the workflow's own on-main check runs from the tagged commit's copy",
-    "The owner enables it; recorded here with the date"
+    "The owner enables it; recorded here with the date",
+    "Done: trusted publishing works. The release run 45722880536 (v0.3.0, https://github.com/voidbrain/bricks/actions/runs/45722880536) published @voidbrain/bricks 0.3.0 with provenance and no stored token (cross-project audit proposal 2, 2026-11-26)"
   ],
   "dependsOn": [
     "F-004-T03",
@@ -31,13 +32,14 @@
   "ownerLink": "docs/work/records/F-004.md",
   "effort": {
     "size": "small",
-    "estimate": "0.25 h owner",
-    "basis": "Planned 2026-11-25 in the upfront step plan: owner time only. Not a measurement.",
-    "reviewed": "2026-11-25",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-26: proven by release run 45722880536 (0.3.0 on npm, trusted publishing). Not a measurement.",
+    "reviewed": "2026-11-26",
     "agentHours": 0,
-    "ownerHours": 0.25,
+    "ownerHours": 0,
     "baselineAgentHours": 0,
     "estimateAgentHours": 0,
-    "ownerKind": "procedure"
+    "ownerKind": "procedure",
+    "days": 0
   }
 }

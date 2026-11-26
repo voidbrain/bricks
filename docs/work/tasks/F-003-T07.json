@@ -4,7 +4,7 @@
   "parent": "F-003",
   "title": "Foundations: layout and icons",
   "goal": "Layout helpers and an icon approach",
-  "status": "implemented",
+  "status": "verified",
   "acceptance": [
     "Layout classes on the spacing scale (bx-stack, bx-cluster, bx-grid, bx-columns, bx-safe-area, bx-gap-n), breakpoints (BREAKPOINTS sm 480, md 768, lg 1024) and safe-area tokens (--bx-safe-*)",
     "Icon approach decided: a small inline SVG set (foundations/icons.ts) in currentColor, no icon font or CDN, with one icon component (bx-icon) that is decorative or labelled",
@@ -40,13 +40,19 @@
   "effort": {
     "size": "medium",
     "estimate": "0 remaining",
-    "basis": "Done 2026-11-25 in one PR; verification is its CI. No actual: the step's start time was not recorded.",
-    "reviewed": "2026-11-25",
+    "basis": "Done 2026-11-25 in one PR; verification is its CI. No actual: the step's start time was not recorded. Verified 2026-11-26: PR #8 merged with green CI (cross-project audit proposal 2, accepted by the owner 2026-11-26). Not a measurement.",
+    "reviewed": "2026-11-26",
     "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 4,
     "estimateAgentHours": 4,
     "days": 0,
     "baselineDays": 1
-  }
+  },
+  "prs": [
+    {
+      "pr": 8,
+      "note": "layout classes, breakpoints, safe-area tokens and the icon set"
+    }
+  ]
 }
