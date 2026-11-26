@@ -1,5 +1,9 @@
 # Reconciliation log 2026
 
+## 2026-11-26 — main `616bb47`
+
+Reconciled to main: PRs #18 (F-006-T06) and #19 (F-006-T07) merged with CI green (checked with `npm run ci:status`); the records already carry their evidence.
+
 ## 2026-11-26 — main `65e4f97`
 
 Reconciled to main: PRs #15 (harness v10.21.4), #16 (F-006-T04) and #17 (F-006-T05) merged with CI green (checked with `npm run ci:status`); the records already carry their evidence.

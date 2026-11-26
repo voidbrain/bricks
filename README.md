@@ -9,7 +9,7 @@ Status: first content (0.1.0, unpublished; it will be published on the public np
 | Entry point | Holds |
 |---|---|
 | `@voidbrain/bricks/tokens` | the token names (`SEMANTIC_TOKENS`, `COMPONENT_TOKENS`, `cssVar`); CSS in `@voidbrain/bricks/styles/tokens.css` |
-| `@voidbrain/bricks/themes` | `THEMES` (`base`, `plain`, `eva`) and `applyTheme`; CSS in `@voidbrain/bricks/styles/themes/<name>.css` |
+| `@voidbrain/bricks/themes` | `THEMES` (`base`, `plain`, `eva`, `simple`), `MODES`, `ACCENTS`, `applyTheme` and `applyThemeChoice`; CSS in `@voidbrain/bricks/styles/themes/<name>.css` |
 | `@voidbrain/bricks/foundations` | type and spacing scales; focus and motion in `@voidbrain/bricks/styles/foundations.css` |
 | `@voidbrain/bricks/live` | framework-free live-view helpers (`setText`, `setAttr`, `patchKeyedRows`, `createLiveView`) |
 | `@voidbrain/bricks/components` | `bx-button`, `bx-input`, `bx-select`, `bx-toggle`, `bx-tag`, `bx-icon`, `bx-card`, `bx-badge` |
@@ -19,12 +19,12 @@ Status: first content (0.1.0, unpublished; it will be published on the public np
 Using it in a project (once published on npm, F-004):
 
 ```css
-/* global styles: everything, or tokens.css + one theme + foundations.css */
+/* global styles: everything, or tokens.css + one theme (+ accents.css for simple or eva) + foundations.css */
 @import '@voidbrain/bricks/styles/bricks.css';
 ```
 
 ```html
-<body data-bx-theme="eva">
+<body data-bx-theme="eva" data-bx-mode="light" data-bx-accent="blue">
   <bx-surface [surface]="payload" (rejected)="log($event)" (checklistToggle)="save($event)" />
 </body>
 ```

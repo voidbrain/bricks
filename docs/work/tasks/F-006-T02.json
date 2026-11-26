@@ -4,7 +4,7 @@
   "parent": "F-006",
   "title": "Eva light mode and the five accents as theme variants",
   "goal": "NERV's 20 palette combinations as bricks themes",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "Mode and accent variants on data attributes, every combination passing axe in the catalogue",
     "Only if the inventory confirms NERV still needs them"
@@ -34,14 +34,14 @@
   ],
   "effort": {
     "size": "large",
-    "estimate": "5 h agent, 2 d",
-    "basis": "Planned 2026-11-25 in the upfront step plan: scoped to one PR, at most 2 focused day(s). Not a measurement.",
-    "reviewed": "2026-11-25",
-    "agentHours": 5,
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-26 in one PR; verification is its CI and the catalogue's browser suite. No actual: the step's start time was not recorded.",
+    "reviewed": "2026-11-26",
+    "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 5,
     "estimateAgentHours": 5,
-    "days": 2,
+    "days": 0,
     "baselineDays": 2
   }
 }

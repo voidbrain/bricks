@@ -1,9 +1,9 @@
 # <a id="top"></a>bricks backlog
 
-Current work ledger, reviewed 26 November 2026 against main `65e4f97` ([log](archive/reconciliation-2026.md); PRs #1 to #17 merged, CI green, #10 and #12 are the 0.2.0 and 0.3.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
+Current work ledger, reviewed 26 November 2026 against main `616bb47` ([log](archive/reconciliation-2026.md); PRs #1 to #19 merged, CI green, #10 and #12 are the 0.2.0 and 0.3.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 45 h agent + 0.5 h owner across 34 open steps of 9 features. Generated from the task files.
+**Remaining effort:** 40 h agent + 0.5 h owner across 34 open steps of 9 features. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -191,7 +191,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🔴 Large | 8 h | [F-004-T06](#f-004-t06) | — | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🟡 Medium | 3 h | [F-004-T06](#f-004-t06) | — | 🤖 | — | — |
 
 💻 **→** Next: F-006-T01 — Inventory NERV's UI against bricks (Implemented; verification pending).
 
@@ -206,14 +206,14 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
 |---|---|---|---|---|---|---|---|---|
 | 🟢 Small | <a id="f-006-t01"></a>F-006-T01 — Inventory NERV's UI against bricks | 2 h | 0 h | 0 h | Implemented; verification pending | — | [F-006-T02](#f-006-t02), [F-006-T03](#f-006-t03), [F-006-T04](#f-006-t04), [F-006-T05](#f-006-t05), [F-006-T06](#f-006-t06), [F-006-T07](#f-006-t07), [F-006-T08](#f-006-t08) | [PR #13](https://github.com/voidbrain/bricks/pull/13) NERV UI inventory against bricks 0.3.0, recorded in F-006 (feeds nerv:F-130) |
+| 🟢 Small | <a id="f-006-t02"></a>F-006-T02 — Eva light mode and the five accents as theme variants | 5 h | 0 h | 0 h | Implemented; verification pending | [F-006-T01](#f-006-t01) | [F-006-T08](#f-006-t08) | — |
 | 🟢 Small | <a id="f-006-t04"></a>F-006-T04 — Card header and stat tile | 2.5 h | 0 h | 0 h | Implemented; verification pending | [F-006-T01](#f-006-t01) | — | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #16](https://github.com/voidbrain/bricks/pull/16) bx-card header (heading, meta slot, eva bar and glow tokens) and bx-stat |
 | 🟢 Small | <a id="f-006-t05"></a>F-006-T05 — Compact button, outlined badge, meter, disclosure, inline alert, sr-only and phone columns | 3 h | 0 h | 0 h | Implemented; verification pending | [F-006-T01](#f-006-t01) | — | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #17](https://github.com/voidbrain/bricks/pull/17) compact button, outlined/dashed badge, meter, disclosure, inline alert, bx-sr-only, bx-columns-phone |
 | 🟢 Small | <a id="f-006-t06"></a>F-006-T06 — Timeline and avatar with stack | 2 h | 0 h | 0 h | Implemented; verification pending | [F-006-T01](#f-006-t01) | — | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #18](https://github.com/voidbrain/bricks/pull/18) bx-timeline, bx-timeline-item, bx-avatar, bx-avatar-stack |
 | 🟢 Small | <a id="f-006-t07"></a>F-006-T07 — Message log, composer and listbox menu | 2 h | 0 h | 0 h | Implemented; verification pending | [F-006-T01](#f-006-t01) | — | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #19](https://github.com/voidbrain/bricks/pull/19) bx-message-log, bx-message, bx-composer, bx-listbox (slash-command combobox) |
-| 🔴 Large | <a id="f-006-t02"></a>F-006-T02 — Eva light mode and the five accents as theme variants | 5 h | 0 h | 5 h | Planned | [F-006-T01](#f-006-t01) | [F-006-T08](#f-006-t08) | — |
 | 🟡 Medium | <a id="f-006-t03"></a>F-006-T03 — Migration note for NERV and the release that carries it | 2 h | 0 h | 2 h | Planned | [F-006-T01](#f-006-t01), [F-004-T06](#f-004-t06) | — | — |
 | 🟢 Small | <a id="f-006-t08"></a>F-006-T08 — Brand and series colour tokens | 1 h | 0 h | 1 h | Planned | [F-006-T01](#f-006-t01), [F-006-T02](#f-006-t02) | — | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition |
-| 🔴 Large | **Total** | 19.5 h | 0 h (0 of 8 steps recorded) | 8 h | 0 of 8 completed | | | |
+| 🟡 Medium | **Total** | 19.5 h | 0 h (0 of 8 steps recorded) | 3 h | 0 of 8 completed | | | |
 
 <details>
 <summary>Next action, estimates and PR history</summary>

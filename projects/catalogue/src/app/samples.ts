@@ -1,7 +1,5 @@
-import type { ThemeName } from '@voidbrain/bricks/themes';
-
-/** Invented sample payloads for the catalogue, one set per theme so every landmark name stays unique on the page. */
-export function samples(theme: ThemeName): { name: string; surface: unknown }[] {
+/** Invented sample payloads for the catalogue, one set per theme section (and the variant preview) so every landmark name stays unique on the page. */
+export function samples(theme: string): { name: string; surface: unknown }[] {
   return [
     { name: 'Status: ok', surface: status('Nodo online', 'Last heartbeat 12 s ago.', 'ok') },
     {

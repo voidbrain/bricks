@@ -8,7 +8,7 @@ Detailed rules and lessons for each part of the project, kept out of AGENTS.md s
 - Three layers: primitive → semantic → component ([style guide](../STYLE-GUIDE.md), "Tokens"). Literal colours only in `styles/themes/*.css`.
 - Component tokens are declared on `:root` and on every `[data-bx-theme]`: a `:root`-only declaration resolves `var()` once, with base's values, and leaks them into other themes. The browser suite's "a theme changes colours" test guards it.
 - A theme defines every semantic token; the browser suite checks each theme against `SEMANTIC_TOKENS` and runs axe on it, contrast included.
-- The eva theme follows NERV's Eva · Dark · Orange palette. NERV's light mode and accent colours (20 combinations) are not in bricks yet; they come with NERV adoption (F-006-T01) if NERV still needs them then.
+- `simple` and `eva` follow NERV's `palette()` (Theme · Mode · Accent, 20 combinations, F-006-T02): `data-bx-mode` and `data-bx-accent` work only on the element that carries `data-bx-theme` (their selectors combine with it, and `var()` resolves where it is declared), so `applyThemeChoice()` sets all three together. A light rule redefines every colour its dark rule sets, or a nested theme would inherit the wrong mode. The browser suite runs axe and a token contrast check on all 20 through the catalogue's switcher.
 
 ## Components and patterns
 

@@ -1,0 +1,43 @@
+/*
+ * Theme "simple": NERV's Simple look (palette() in NERV's src/dashboard-theme.ts): plain's neutral surfaces with
+ * monospace type and 6 px corners, in two modes and five accents. Dark and orange by default (NERV's /full default,
+ * Simple · Dark · Orange); data-bx-mode="light" and data-bx-accent (accents.css) on the same element change them.
+ * The light rule redefines every colour the dark one sets, so a nested theme never inherits the other mode.
+ */
+[data-bx-theme='simple'] {
+  color-scheme: dark;
+  --bx-surface: #0b0c10;
+  --bx-surface-raised: #12141a;
+  --bx-surface-sunken: #0e1015;
+  --bx-border: #2a2e3a;
+  --bx-text: #e6e8ee;
+  --bx-text-muted: #8b93a7;
+  --bx-accent: var(--bx-hue-base);
+  --bx-on-accent: #000000;
+  --bx-focus: var(--bx-hue-base);
+  --bx-ok: #22c55e;
+  --bx-warn: #f59e0b;
+  --bx-danger: #ef4444;
+  --bx-info: #38bdf8;
+  --bx-on-status: #000000;
+  --bx-font: var(--bx-font-mono);
+  --bx-radius: var(--bx-radius-md);
+  --bx-radius-badge: var(--bx-radius-sm);
+}
+[data-bx-theme='simple'][data-bx-mode='light'] {
+  color-scheme: light;
+  --bx-surface: #f4f5f7;
+  --bx-surface-raised: #ffffff;
+  --bx-surface-sunken: #f7f8fa;
+  --bx-border: #d8dde8;
+  --bx-text: #1a1d26;
+  --bx-text-muted: #5c657a;
+  --bx-accent: var(--bx-hue-deep);
+  --bx-on-accent: #ffffff;
+  --bx-focus: var(--bx-hue-deep);
+  --bx-ok: #166534;
+  --bx-warn: #a15c07;
+  --bx-danger: #b91c1c;
+  --bx-info: #0369a1;
+  --bx-on-status: #ffffff;
+}
