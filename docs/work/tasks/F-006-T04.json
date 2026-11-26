@@ -49,6 +49,10 @@
     {
       "pr": 14,
       "note": "plan addition"
+    },
+    {
+      "pr": 16,
+      "note": "bx-card header (heading, meta slot, eva bar and glow tokens) and bx-stat"
     }
   ]
 }
