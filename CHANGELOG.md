@@ -6,6 +6,10 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-11-26
+
+**Breaking (minor under 1.0):** `eva.css` now builds its colours from the accent shades in `styles/themes/accents.css`. A page that imports `eva.css` on its own (not through `bricks.css`) must also import `@voidbrain/bricks/styles/themes/accents.css`, or eva loses its accent colours. Importing `bricks.css` needs no change. Other changes that may affect a consumer are under Changed.
+
 ### Added
 
 - `bx-card` header: `heading`, `headingLevel` (2 to 6) and `headingId` inputs and a `[bx-card-meta]` slot; a headed card is a region named by its heading. Component tokens `--bx-card-title`, `--bx-card-header-bg`, `--bx-card-header-fg`, `--bx-card-header-padding`, `--bx-card-glow`; eva sets a filled accent header bar and an inset glow (F-006-T04).
@@ -24,6 +28,10 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 - `THEMES` lists `simple` too; `applyTheme()` now also sets the default `data-bx-mode` and `data-bx-accent` on `simple` and `eva`, and removes both on `base` and `plain`. `eva` builds its colours from the accent shades: a page importing `eva.css` without `bricks.css` needs `accents.css` too.
 - `bx-card` wraps its content in a padded `.body`; the `section.card` itself has no padding now (it holds the header and the body). Content projected into the card is unaffected.
 - `bx-badge` has a 1 px transparent border (the outlined appearances draw it), so a solid badge is 2 px larger than before.
+
+### Breaking
+
+- Import `styles/themes/accents.css` together with `eva.css` (or `simple.css`) when importing theme files one by one; `bricks.css` already does.
 
 ## [0.3.0] - 2026-11-26
 
