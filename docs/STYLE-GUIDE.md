@@ -40,6 +40,8 @@ Three layers, each read only by the next. Prefix `--bx-`.
 | `--bx-accent` / `--bx-on-accent` | the one accent: primary actions, the waiting badge / text on it |
 | `--bx-focus` | the focus outline |
 | `--bx-ok`, `--bx-warn`, `--bx-danger`, `--bx-info` / `--bx-on-status` | status fills / text on a status fill |
+| `--bx-brand-bg` / `--bx-brand-fg` | a project's mark or brand chip / text on it: the accent and text on accent, except eva light, where it is the bright accent shade with black text (NERV `--brand-bg`, `--brand-fg`); eva's card header bar reads it |
+| `--bx-series-green`, `--bx-series-orange`, `--bx-series-blue` | fixed series and sub-label colours that do not follow the accent (NERV `--green`, `--orange`, `--blue`); text at 4.5:1 on every surface. A hint only: the text says what the series is |
 | `--bx-font`, `--bx-radius`, `--bx-radius-badge` | the theme's type family and corner radii |
 
 ### Component tokens
@@ -47,7 +49,7 @@ Three layers, each read only by the next. Prefix `--bx-`.
 | Token | Use |
 |---|---|
 | `--bx-card-bg`, `--bx-card-fg`, `--bx-card-border`, `--bx-card-radius`, `--bx-card-padding`, `--bx-card-gap` | card surface, text, border, radius and spacing |
-| `--bx-card-title`, `--bx-card-header-bg`, `--bx-card-header-fg`, `--bx-card-header-padding`, `--bx-card-glow` | card header: heading colour, bar fill, meta text, padding; the card's shadow. Transparent bar and no glow by default; eva fills the bar with the accent (text on accent; in light mode the bright accent shade with black text) and adds an inset accent glow (NERV `--hdr-bg`, `--hdr-fg`, `--title`, `--glow`) |
+| `--bx-card-title`, `--bx-card-header-bg`, `--bx-card-header-fg`, `--bx-card-header-padding`, `--bx-card-glow` | card header: heading colour, bar fill, meta text, padding; the card's shadow. Transparent bar and no glow by default; eva fills the bar with the brand colour (`--bx-brand-bg`, text `--bx-brand-fg`) and adds an inset accent glow (NERV `--hdr-bg`, `--hdr-fg`, `--title`, `--glow`) |
 | `--bx-stat-bg`, `--bx-stat-fg`, `--bx-stat-muted`, `--bx-stat-border`, `--bx-stat-radius`, `--bx-stat-padding` | stat tile (`bx-stat`) well, value text, label and detail text, border, radius, padding |
 | `--bx-badge-radius`, `--bx-badge-font-size`, `--bx-badge-padding`, `--bx-badge-outline-bg` | badge radius, type size and padding; the fill behind an outlined or dashed badge (transparent) |
 | `--bx-control-bg`, `--bx-control-fg`, `--bx-control-border`, `--bx-control-radius`, `--bx-control-padding`, `--bx-control-padding-sm` | form controls (`bx-button`, `bx-input`, `bx-select`, `bx-toggle`); `-sm` is the compact button's padding |
@@ -73,9 +75,9 @@ Three layers, each read only by the next. Prefix `--bx-`.
 
 A theme is applied with `data-bx-theme="<name>"` on any element; themes nest. `simple` and `eva` also read `data-bx-mode` (`dark`, `light`) and `data-bx-accent` (`orange`, `blue`, `green`, `violet`, `ochre`) **on the same element**: `applyThemeChoice(element, { theme, mode, accent })` in `@voidbrain/bricks/themes` sets all three, checks each part (`themeChoice()`) and clears mode and accent for `base` and `plain`; `applyTheme(element, name)` gives a theme its default mode and accent. The 20 combinations are `THEME_COMBINATIONS`.
 
-How it is built: `accents.css` sets five accent shades per accent (`--bx-hue-base`, the accent on dark; `-tint` and `-soft`, eva's text and muted text on dark; `-deep`, the accent on light; `-ink`, deep mixed 50 % with black, eva's text on light), and each variant theme's dark rule and its `[data-bx-mode='light']` rule build the semantic tokens from them. A light rule redefines every colour its dark rule sets. On light grounds the accent is the deep shade with white text on it; eva's light card header keeps the bright shade with black text, as NERV's does.
+How it is built: `accents.css` sets five accent shades per accent (`--bx-hue-base`, the accent on dark; `-tint` and `-soft`, eva's text and muted text on dark; `-deep`, the accent on light; `-ink`, deep mixed 50 % with black, eva's text on light), and each variant theme's dark rule and its `[data-bx-mode='light']` rule build the semantic tokens from them. A light rule redefines every literal colour its dark rule sets (tokens built with `var()` from other tokens, such as the brand colours, follow them). On light grounds the accent is the deep shade with white text on it; eva's light card header keeps the bright shade with black text, as NERV's does.
 
-Every theme and every combination meets WCAG AA: 4.5:1 for text (including text on status fills and on the accent), 3:1 for UI parts. The browser suite runs axe on each theme section and on all 20 combinations through the catalogue's switcher, and checks each text pair's contrast from the computed tokens.
+Every theme and every combination meets WCAG AA: 4.5:1 for text (including text on status fills and on the accent), 3:1 for UI parts. The browser suite runs axe on each theme section and on all 20 combinations through the catalogue's switcher, and checks each text pair's contrast from the computed tokens (text, status, accent and series colours on every surface; text on the accent, status, brand and header fills).
 
 ## Foundations
 

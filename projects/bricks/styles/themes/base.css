@@ -16,6 +16,11 @@
   --bx-danger: #b91c1c;
   --bx-info: #0369a1;
   --bx-on-status: #ffffff;
+  --bx-brand-bg: var(--bx-accent);
+  --bx-brand-fg: var(--bx-on-accent);
+  --bx-series-green: #166534;
+  --bx-series-orange: #9a4708;
+  --bx-series-blue: #1d4ed8;
   --bx-font: var(--bx-font-sans);
   --bx-radius: var(--bx-radius-lg);
   --bx-radius-badge: var(--bx-radius-sm);
