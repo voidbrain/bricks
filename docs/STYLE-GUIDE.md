@@ -56,6 +56,10 @@ Three layers, each read only by the next. Prefix `--bx-`.
 | `--bx-alert-fg`, `--bx-alert-padding`, `--bx-alert-radius`, `--bx-alert-tint` | inline alert (`bx-alert`) text, padding, radius, and how much of the tone tints its ground (10 %) |
 | `--bx-timeline-line`, `--bx-timeline-marker-size`, `--bx-timeline-marker-radius`, `--bx-timeline-gap`, `--bx-timeline-indent` | timeline (`bx-timeline`) line colour, marker size (8 px) and radius, gap between rows, indent that holds the line and markers |
 | `--bx-avatar-size-sm`, `--bx-avatar-size-md`, `--bx-avatar-bg`, `--bx-avatar-fg`, `--bx-avatar-border`, `--bx-avatar-radius`, `--bx-avatar-stack-gap` | avatar (`bx-avatar`) sizes (20 and 32 px), the well and initials text behind it, border, radius; the gap in a `bx-avatar-stack` |
+| `--bx-log-bg`, `--bx-log-border`, `--bx-log-padding`, `--bx-log-max-height` | message log (`bx-message-log`) well, border, padding and the height it scrolls past (300 px) |
+| `--bx-message-gap`, `--bx-message-muted`, `--bx-message-own-tint` | message (`bx-message`) gap after the avatar, time and context text, how much accent tints the person's own messages (7 %) |
+| `--bx-listbox-bg`, `--bx-listbox-border`, `--bx-listbox-active`, `--bx-listbox-max-height` | listbox popup (`bx-listbox`) well, border, the active option's border and 12 % tint, the height it scrolls past (180 px) |
+| `--bx-composer-gap` | composer (`bx-composer`) gap between the menu, field and buttons |
 | `--bx-tag-bg`, `--bx-tag-fg`, `--bx-tag-border`, `--bx-tag-radius` | tag chip (`bx-tag`) surface, text, border and radius |
 
 ### Themes
@@ -99,6 +103,9 @@ A theme is applied with `data-bx-theme="<name>"` on any element (`applyTheme()` 
 | `bx-alert` | `components` | an inline note or error with a toned border and tint, a decorative icon and a `[bx-alert-actions]` slot; `announce` `none` (`role="note"`), `polite` (`status`) or `assertive` (`alert`) |
 | `bx-timeline`, `bx-timeline-item` | `components` | a vertical timeline: a list (`label` names it) of items, each a `time` (`datetime` for machines), a `[bx-timeline-meta]` slot (a badge, a version), the body, a muted `detail` and a `[bx-timeline-actions]` slot; the marker's `tone` is a hint, the text says the kind; the project orders the rows and shows its own empty text |
 | `bx-avatar`, `bx-avatar-stack` | `components` | an avatar: the image at `src`, or the initials of `name` when there is none or it fails to load; named by `name`, or `decorative` when the name is written beside it; `pixelated` for pixel-art sprites; `size` `sm` 20 px or `md` 32 px. `bx-avatar-stack` is a row of avatars named as a group by `label` |
+| `bx-message-log`, `bx-message` | `components` | a scrolling, focusable message log (`role="log"`, polite, named by `label`) that keeps the newest message in view while the reader is at the end (`follow`); each `bx-message` has a `[bx-message-avatar]` slot, a `time`, the sender `who`, a muted `context`, the body, `own` (accent tint) and a `tone` side bar (a hint; the text says what happened) |
+| `bx-composer` | `components` | a message field with a visually hidden `label`, `[bx-composer-avatar]` and `[bx-composer-actions]` slots and a send button (`sendLabel`); `[(value)]`; emits `send` with the trimmed text and clears; with `commands`, `/` opens a slash-command menu (WAI-ARIA combobox, list autocomplete: ArrowDown and ArrowUp, Enter picks, Escape closes) and emits `commandPick` |
+| `bx-listbox` | `components` | the popup of a combobox: options (`ListboxOption`) with an `active` index the input points at with `aria-activedescendant`, `handleKey` for the input's keys, `pick` on Enter or click; focus stays in the input |
 | `bx-status-card`, `bx-notice-card`, `bx-checklist-card`, `bx-recipe-card` | `surfaces` | NERV's four genUI cards, same component ids, schemas and validation |
 | `bx-surface` | `surfaces` | validates one surface payload and renders its card, or a rejection alert; emits `rejected` and `checklistToggle` |
 
