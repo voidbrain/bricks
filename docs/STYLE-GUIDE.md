@@ -54,6 +54,8 @@ Three layers, each read only by the next. Prefix `--bx-`.
 | `--bx-meter-height`, `--bx-meter-track`, `--bx-meter-border`, `--bx-meter-radius`, `--bx-meter-mark` | meter (`bx-meter`) bar height, track, border, radius and threshold mark |
 | `--bx-disclosure-fg`, `--bx-disclosure-indent` | disclosure (`bx-disclosure`) summary text and content indent |
 | `--bx-alert-fg`, `--bx-alert-padding`, `--bx-alert-radius`, `--bx-alert-tint` | inline alert (`bx-alert`) text, padding, radius, and how much of the tone tints its ground (10 %) |
+| `--bx-timeline-line`, `--bx-timeline-marker-size`, `--bx-timeline-marker-radius`, `--bx-timeline-gap`, `--bx-timeline-indent` | timeline (`bx-timeline`) line colour, marker size (8 px) and radius, gap between rows, indent that holds the line and markers |
+| `--bx-avatar-size-sm`, `--bx-avatar-size-md`, `--bx-avatar-bg`, `--bx-avatar-fg`, `--bx-avatar-border`, `--bx-avatar-radius`, `--bx-avatar-stack-gap` | avatar (`bx-avatar`) sizes (20 and 32 px), the well and initials text behind it, border, radius; the gap in a `bx-avatar-stack` |
 | `--bx-tag-bg`, `--bx-tag-fg`, `--bx-tag-border`, `--bx-tag-radius` | tag chip (`bx-tag`) surface, text, border and radius |
 
 ### Themes
@@ -95,6 +97,8 @@ A theme is applied with `data-bx-theme="<name>"` on any element (`applyTheme()` 
 | `bx-meter` | `components` | a bar for `value` between `min` and `max` (`role="meter"`, needs a `label`, `valueText` for words), an optional `threshold` mark and a tone; show the number in text beside it |
 | `bx-disclosure` | `components` | a native `details` with a `summary` line; `[(open)]`; keyboard and expanded state from the browser |
 | `bx-alert` | `components` | an inline note or error with a toned border and tint, a decorative icon and a `[bx-alert-actions]` slot; `announce` `none` (`role="note"`), `polite` (`status`) or `assertive` (`alert`) |
+| `bx-timeline`, `bx-timeline-item` | `components` | a vertical timeline: a list (`label` names it) of items, each a `time` (`datetime` for machines), a `[bx-timeline-meta]` slot (a badge, a version), the body, a muted `detail` and a `[bx-timeline-actions]` slot; the marker's `tone` is a hint, the text says the kind; the project orders the rows and shows its own empty text |
+| `bx-avatar`, `bx-avatar-stack` | `components` | an avatar: the image at `src`, or the initials of `name` when there is none or it fails to load; named by `name`, or `decorative` when the name is written beside it; `pixelated` for pixel-art sprites; `size` `sm` 20 px or `md` 32 px. `bx-avatar-stack` is a row of avatars named as a group by `label` |
 | `bx-status-card`, `bx-notice-card`, `bx-checklist-card`, `bx-recipe-card` | `surfaces` | NERV's four genUI cards, same component ids, schemas and validation |
 | `bx-surface` | `surfaces` | validates one surface payload and renders its card, or a rejection alert; emits `rejected` and `checklistToggle` |
 

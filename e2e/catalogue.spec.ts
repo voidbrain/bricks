@@ -372,4 +372,53 @@ test.describe('catalogue', () => {
     );
     expect(overflow).toBeLessThanOrEqual(0);
   });
+
+  test('timeline: a named list whose markers sit on its line, in every theme', async ({ page }) => {
+    for (const theme of THEMES) {
+      const timeline = page
+        .locator(`section[data-bx-theme="${theme}"]`)
+        .getByRole('list', { name: 'Coming up' });
+      await expect(timeline.getByRole('listitem')).toHaveCount(3);
+      const geo = await timeline.evaluate((el) => {
+        const line = getComputedStyle(el, '::before');
+        const box = el.getBoundingClientRect();
+        const lineX = box.left + parseFloat(line.left) + parseFloat(line.width) / 2;
+        return [...el.querySelectorAll('.marker')].map((m) => {
+          const r = m.getBoundingClientRect();
+          return { offset: Math.abs(r.left + r.width / 2 - lineX), width: r.width };
+        });
+      });
+      expect(geo).toHaveLength(3);
+      for (const g of geo) {
+        expect(g.offset).toBeLessThanOrEqual(1);
+        expect(g.width).toBe(8);
+      }
+      await expect(timeline.locator('time').first()).toHaveAttribute(
+        'datetime',
+        '2026-11-27T09:30',
+      );
+    }
+  });
+
+  test('avatars: 20 and 32 px, an image or named initials, decorative ones hidden', async ({
+    page,
+  }) => {
+    for (const theme of THEMES) {
+      const avatars = page.locator(`section[data-bx-theme="${theme}"] [data-testid="avatars"]`);
+      const stack = avatars.getByRole('group', { name: 'Crew on the relay node' });
+      await expect(stack.locator('bx-avatar')).toHaveCount(3);
+      await expect(stack.getByRole('img', { name: 'Robin Vale' })).toHaveCount(1);
+      await expect(stack.getByRole('img', { name: 'Sam Okafor' })).toHaveText('SO');
+      const sizes = await avatars
+        .locator('bx-avatar')
+        .evaluateAll((els) => els.map((el) => Math.round(el.getBoundingClientRect().width)));
+      expect(sizes).toEqual([20, 20, 20, 32, 32, 20]);
+      const sprite = avatars.locator('img').first();
+      await sprite.scrollIntoViewIfNeeded();
+      await expect
+        .poll(() => sprite.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth))
+        .toBeGreaterThan(0);
+      await expect(avatars.getByRole('img', { name: 'Kit' })).toHaveCount(1);
+    }
+  });
 });

@@ -10,3 +10,5 @@ export * from './stat';
 export * from './meter';
 export * from './disclosure';
 export * from './alert';
+export * from './timeline';
+export * from './avatar';
