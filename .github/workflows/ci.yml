@@ -111,7 +111,7 @@ jobs:
         # every library source file is included, so a file no test runs shows at 0 % instead of being left out
         run: npx ng test bricks --watch=false --coverage --coverage-reporters=json-summary --coverage-include='projects/bricks/**/*.ts' --coverage-exclude='**/*.spec.ts' --coverage-exclude='**/public-api.ts' && npx ng test catalogue --watch=false
 
-      - name: Code coverage table (optional enforcement)
+      - name: Code coverage table (enforced since 2026-11-26)
         run: node tools/coverage-table.mjs --check --github
 
       - name: Type check

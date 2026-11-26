@@ -3,7 +3,7 @@
 Current work ledger, reviewed 26 November 2026 against main `616bb47` ([log](archive/reconciliation-2026.md); PRs #1 to #19 merged, CI green, #10 and #12 are the 0.2.0 and 0.3.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 41.5 h agent + 0.25 h owner across 36 open steps of 10 features. Generated from the task files.
+**Remaining effort:** 42.75 h agent + 0.25 h owner across 41 open steps of 11 features and 1 other record. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -230,6 +230,44 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 </details>
 
 ---
+### <a id="b-001"></a>[🐞 B-001](#top)
+
+**The contrast check reads a translucent colour as opaque**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟢 Small | 0 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: B-001-T01 — Composite translucent colours in the contrast check (Implemented; verification pending).
+
+| | |
+|---|---|
+| **Issue** | The in-page contrast helper of the browser suite (`e2e/catalogue.spec.ts`, `contrastFailures`) kept only red, green and blue of a computed colour, so a translucent token was measured as opaque: black at 10 % on white passed at 21:1 instead of about 1.2:1. Found by the coordinator's dormant-checks sweep, 2026-11-26 (C4, proposal 14). |
+| **Reproduce** | On `main` `d94b3fc`: a section with `--bx-surface: #ffffff` and `--bx-text: rgba(0, 0, 0, 0.1)` gives no `--bx-text on --bx-surface` failure. |
+| **Check** | The regression test "the contrast check composites a translucent colour over its background instead of reading it as opaque" (committed failing first) passes; foregrounds are composited over their background, a translucent background over the theme surface, a translucent surface over the white page; every theme and the 20 combinations still pass. |
+
+**Steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | PRs |
+|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="b-001-t01"></a>B-001-T01 — Composite translucent colours in the contrast check | 0.5 h | 0 h | 0 h | Implemented; verification pending | [PR #23](https://github.com/voidbrain/bricks/pull/23) alpha compositing |
+| 🟢 Small | **Total** | 0.5 h | 0 h (0 of 1 steps recorded) | 0 h | 0 of 1 completed | |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/B-001.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: B-001-T01: [PR #23](https://github.com/voidbrain/bricks/pull/23) alpha compositing. [#23](https://github.com/voidbrain/bricks/pull/23) |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
 ### <a id="f-008"></a>[✨ F-008](#top)
 
 **Grover adoption: what bricks ships for Grover**
@@ -340,6 +378,47 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Field | Value |
 |---|---|
 | PR / evidence | [#22](https://github.com/voidbrain/bricks/pull/22) |
+| Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-26 |
+
+</details>
+
+---
+### <a id="f-011"></a>[✨ F-011](#top)
+
+**Turn on the dormant procedure settings and prove the maintenance workflow runs**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟡 Medium | 1.25 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-011-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings (Implemented; verification pending).
+
+| | |
+|---|---|
+| **Issue** | The 2026-11-26 dormant-checks sweep (coordinator `docs/audits/2026-11-26-dormant-checks.md`, rows S1, S2, S3, S5, W1) found no periodic reviews (`reviews` unset), coverage regressions that only warn (`coverage.enforce` unset), work-usage measurement off, no `behaviour.runner`, and a daily maintenance workflow that had never run (the repository was created on 2026-11-25). |
+| **Reproduce** | `.harness.json` on `main` `d94b3fc`: no `reviews`, no `coverage.enforce`, `workUsage.enabled: false`, `behaviour` `{times: 3}`; `gh run list --workflow maintenance.yml`: no runs. |
+| **Check** | `.harness.json` sets `reviews` (token, architecture, skills at 30 days), `coverage.enforce: true`, `workUsage.enabled: true` and `behaviour.runner`; the first architecture review with its outside-landscape comparison is `docs/reviews/architecture/2026-11-26.md`; CI passes with enforcement on (or a real drop is fixed or recorded); a manual maintenance run passed (run 45798439293, 2026-11-26) and a scheduled one runs on 2026-11-27 (F-011-T04). First token and skills reviews: F-011-T03. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | PRs |
+|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-011-t01"></a>F-011-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings | 0.25 h | 0 h | 0 h | Implemented; verification pending | [PR #23](https://github.com/voidbrain/bricks/pull/23) settings on |
+| 🟢 Small | <a id="f-011-t02"></a>F-011-T02 — First architecture review with outside-landscape comparison | 0.5 h | 0 h | 0 h | Implemented; verification pending | [PR #23](https://github.com/voidbrain/bricks/pull/23) first architecture review |
+| 🟢 Small | <a id="f-011-t03"></a>F-011-T03 — First token and skills reviews | 1 h | 0 h | 1 h | Planned | — |
+| 🟢 Small | <a id="f-011-t04"></a>F-011-T04 — Confirm the scheduled maintenance run | 0.25 h | 0 h | 0.25 h | Planned | — |
+| 🟡 Medium | **Total** | 2 h | 0 h (0 of 4 steps recorded) | 1.25 h | 0 of 4 completed | |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-011.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-011-T01: [PR #23](https://github.com/voidbrain/bricks/pull/23) settings on · F-011-T02: [PR #23](https://github.com/voidbrain/bricks/pull/23) first architecture review. [#23](https://github.com/voidbrain/bricks/pull/23) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
 | Reviewed | 2026-11-26 |
