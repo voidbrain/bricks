@@ -265,4 +265,111 @@ test.describe('catalogue', () => {
       .evaluate((el) => getComputedStyle(el).gridTemplateColumns.split(' ').length);
     expect(columns).toBe(1);
   });
+
+  test('compact buttons keep a 24 px target and are smaller than the default', async ({ page }) => {
+    for (const theme of THEMES) {
+      const section = page.locator(`section[data-bx-theme="${theme}"]`);
+      const compact = await section
+        .locator('[data-testid="compact-buttons"] button')
+        .first()
+        .boundingBox();
+      const normal = await section.locator('bx-button button').first().boundingBox();
+      expect(compact!.height).toBeGreaterThanOrEqual(24);
+      expect(compact!.height).toBeLessThan(normal!.height);
+    }
+  });
+
+  test('outlined and dashed badges draw the tone as border and text', async ({ page }) => {
+    const read = await page
+      .locator('section[data-bx-theme="eva"] [data-testid="outline-badges"] .badge')
+      .evaluateAll((els) =>
+        els.map((el) => {
+          const s = getComputedStyle(el);
+          return {
+            border: s.borderTopColor,
+            color: s.color,
+            style: s.borderTopStyle,
+            bg: s.backgroundColor,
+          };
+        }),
+      );
+    expect(read).toHaveLength(5);
+    for (const r of read) {
+      expect(r.border).toBe(r.color);
+      expect(r.bg).toBe('rgba(0, 0, 0, 0)');
+    }
+    expect(read.map((r) => r.style)).toEqual(['solid', 'solid', 'solid', 'solid', 'dashed']);
+  });
+
+  test('meters expose value and range, fill by value and place the threshold mark', async ({
+    page,
+  }) => {
+    for (const theme of THEMES) {
+      const meter = page
+        .locator(`section[data-bx-theme="${theme}"]`)
+        .getByRole('meter', { name: 'Budget used' });
+      await expect(meter).toHaveAttribute('aria-valuenow', '30');
+      await expect(meter).toHaveAttribute('aria-valuemax', '120');
+      const geo = await meter.evaluate((el) => {
+        const box = el.getBoundingClientRect();
+        const fill = el.querySelector('.fill')!.getBoundingClientRect();
+        const mark = el.querySelector('.mark')!.getBoundingClientRect();
+        const border = parseFloat(getComputedStyle(el).borderLeftWidth);
+        const inner = box.width - 2 * border;
+        return {
+          fill: fill.width / inner,
+          mark: (mark.left + mark.width / 2 - box.left - border) / inner,
+        };
+      });
+      expect(geo.fill).toBeCloseTo(0.25, 2);
+      expect(geo.mark).toBeCloseTo(0.75, 2);
+    }
+  });
+
+  test('a disclosure opens and closes from the keyboard', async ({ page }) => {
+    const disclosure = page.locator('section[data-bx-theme="plain"] [data-testid="disclosure"]');
+    const summary = disclosure.locator('summary');
+    const details = disclosure.locator('details');
+    await summary.focus();
+    expect(await summary.evaluate((el) => getComputedStyle(el).outlineStyle)).not.toBe('none');
+    await page.keyboard.press('Enter');
+    await expect(details).toHaveAttribute('open', '');
+    await expect(disclosure.getByText('Three relays')).toBeVisible();
+    await page.keyboard.press('Space');
+    await expect(details).not.toHaveAttribute('open', '');
+  });
+
+  test('inline alerts take the role their announce asks for', async ({ page }) => {
+    for (const theme of THEMES) {
+      const alerts = page.locator(
+        `section[data-bx-theme="${theme}"] [data-testid="alerts"] bx-alert`,
+      );
+      expect(await alerts.evaluateAll((els) => els.map((el) => el.getAttribute('role')))).toEqual([
+        'note',
+        'note',
+        'alert',
+      ]);
+    }
+  });
+
+  test('bx-columns-phone keeps two columns at 320 px; bx-sr-only hides text but keeps it readable', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 320, height: 800 });
+    for (const theme of THEMES) {
+      const section = page.locator(`section[data-bx-theme="${theme}"]`);
+      const columns = await section
+        .locator('[data-testid="layout-columns-phone"]')
+        .evaluate((el) => getComputedStyle(el).gridTemplateColumns.split(' ').length);
+      expect(columns).toBe(2);
+      const hidden = section.locator('[data-testid="sr-only"]');
+      const box = await hidden.boundingBox();
+      expect(box!.width).toBeLessThanOrEqual(1);
+      await expect(hidden).toHaveText(', read only by a screen reader');
+    }
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+    expect(overflow).toBeLessThanOrEqual(0);
+  });
 });

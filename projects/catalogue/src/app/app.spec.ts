@@ -14,7 +14,8 @@ describe('catalogue', () => {
     expect(el.querySelector('section[data-bx-theme="eva"] [data-bx-theme="base"]')).not.toBeNull();
     for (const section of el.querySelectorAll('section.theme')) {
       expect(section.querySelectorAll('bx-surface').length).toBe(9);
-      expect(section.querySelectorAll('[role=alert]').length).toBe(1);
+      expect(section.querySelectorAll('bx-surface [role=alert]').length).toBe(1);
+      expect(section.querySelectorAll('[data-testid=alerts] bx-alert[role=alert]').length).toBe(1);
       expect(section.querySelectorAll('[data-testid=icons] bx-icon svg').length).toBe(
         ICON_NAMES.length + 1,
       );

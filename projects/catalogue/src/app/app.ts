@@ -2,11 +2,14 @@ import { Component, signal } from '@angular/core';
 import {
   BADGE_TONES,
   BUTTON_VARIANTS,
+  BxAlert,
   BxBadge,
   BxButton,
   BxCard,
+  BxDisclosure,
   BxIcon,
   BxInput,
+  BxMeter,
   BxSelect,
   BxStat,
   BxTag,
@@ -27,11 +30,14 @@ import { samples } from './samples';
 @Component({
   selector: 'cat-root',
   imports: [
+    BxAlert,
     BxBadge,
     BxButton,
     BxCard,
+    BxDisclosure,
     BxIcon,
     BxInput,
+    BxMeter,
     BxSelect,
     BxStat,
     BxSurface,
@@ -62,6 +68,11 @@ import { samples } from './samples';
               <bx-button [variant]="variant">{{ variant }}</bx-button>
             }
             <bx-button variant="primary" [disabled]="true">disabled</bx-button>
+          </div>
+          <div class="row" data-testid="compact-buttons">
+            <bx-button size="sm">compact</bx-button>
+            <bx-button size="sm" variant="primary">compact primary</bx-button>
+            <bx-button size="sm" variant="ghost">compact ghost</bx-button>
           </div>
 
           <h3>Input and select</h3>
@@ -111,6 +122,38 @@ import { samples } from './samples';
               <bx-badge [tone]="tone">{{ tone }}</bx-badge>
             }
           </div>
+          <div class="row" data-testid="outline-badges">
+            <bx-badge tone="ok" appearance="outline">Seat one: approve ✓</bx-badge>
+            <bx-badge tone="danger" appearance="outline">Seat two: reject ✗</bx-badge>
+            <bx-badge tone="warn" appearance="outline">Seat three: pending</bx-badge>
+            <bx-badge tone="neutral" appearance="outline">Seat four: abstain ·</bx-badge>
+            <bx-badge tone="ok" appearance="dashed">Peer: approve (shadow)</bx-badge>
+          </div>
+
+          <h3>Meter</h3>
+          <div class="bx-stack bx-gap-2" data-testid="meters">
+            <span class="hint">Budget 30 of 120, forecast mark at 90</span>
+            <bx-meter label="Budget used" [value]="30" [max]="120" [threshold]="90" />
+            <span class="hint">Sync 62 %, threshold 75 %</span>
+            <bx-meter label="Sync" [value]="62" [threshold]="75" tone="warn" valueText="62 percent, below the 75 percent threshold" />
+            <span class="hint">Storage 92 %</span>
+            <bx-meter label="Storage" [value]="92" tone="danger" />
+          </div>
+
+          <h3>Disclosure</h3>
+          <bx-disclosure summary="Show the route brief" data-testid="disclosure">
+            <p class="flush">Three relays, two waypoints, one fallback channel.</p>
+          </bx-disclosure>
+
+          <h3>Inline alert</h3>
+          <div class="bx-stack bx-gap-2" data-testid="alerts">
+            <bx-alert tone="warn">
+              Shadow mode: the extra seat votes, but its vote is not counted.
+              <bx-button bx-alert-actions size="sm">Details</bx-button>
+            </bx-alert>
+            <bx-alert tone="info">A note read in place, with no live announcement.</bx-alert>
+            <bx-alert tone="danger" announce="assertive">Relay unreachable: retry in 30 s.</bx-alert>
+          </div>
 
           <h3>Layout</h3>
           <div class="bx-stack bx-gap-4" data-testid="layout-stack">
@@ -124,6 +167,13 @@ import { samples } from './samples';
               <bx-card><p class="flush">Three from the md breakpoint.</p></bx-card>
               <bx-card><p class="flush">Gaps on the spacing scale.</p></bx-card>
             </div>
+            <div class="bx-columns bx-columns-phone" data-testid="layout-columns-phone">
+              <bx-card><p class="flush">Two columns</p></bx-card>
+              <bx-card><p class="flush">on a phone too.</p></bx-card>
+            </div>
+            <p class="flush">
+              Visually hidden text follows<span class="bx-sr-only" data-testid="sr-only">, read only by a screen reader</span>.
+            </p>
             <div class="bx-safe-area safe" data-testid="layout-safe-area">
               <p class="flush">A safe area: clear of a notch, at least 12 px in.</p>
             </div>
@@ -237,6 +287,10 @@ import { samples } from './samples';
       min-inline-size: 0;
     }
     .field label {
+      font-size: var(--bx-font-size-sm);
+      color: var(--bx-text-muted);
+    }
+    .hint {
       font-size: var(--bx-font-size-sm);
       color: var(--bx-text-muted);
     }
