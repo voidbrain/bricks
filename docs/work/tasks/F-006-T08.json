@@ -4,7 +4,7 @@
   "parent": "F-006",
   "title": "Brand and series colour tokens",
   "goal": "--brand-* and green/orange/blue series tokens, delivered with the theme variants",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "--brand-bg and --brand-fg per theme (Eva light uses the base accent)",
     "Series colours green, orange and blue as tokens with AA contrast in every theme (inventory: --brand-*, --green/--orange/--blue rows)"
@@ -34,20 +34,24 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "1 h agent, 1 d",
-    "basis": "Estimate from the F-006-T01 inventory, not a measurement. Owner-approved 2026-11-26 as an adopted-plan change; unblocks nerv:F-130-T02 with F-006-T02.",
+    "estimate": "0 remaining",
+    "basis": "Done 2026-11-26 in one PR; verification is its CI and the catalogue's browser suite. No actual: the step's start time was not recorded.",
     "reviewed": "2026-11-26",
-    "agentHours": 1,
+    "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 1,
     "estimateAgentHours": 1,
-    "days": 1,
+    "days": 0,
     "baselineDays": 1
   },
   "prs": [
     {
       "pr": 14,
       "note": "plan addition"
+    },
+    {
+      "pr": 21,
+      "note": "--bx-brand-* and --bx-series-* semantic tokens"
     }
   ]
 }

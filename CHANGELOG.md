@@ -16,9 +16,11 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 - `bx-timeline` and `bx-timeline-item` (time, meta and actions slots, detail, marker tone; `--bx-timeline-*`), `bx-avatar` (image or initials, decorative, pixelated, `sm` and `md`; `--bx-avatar-*`) and `bx-avatar-stack` (F-006-T06).
 - `bx-message-log` and `bx-message` (log role, keeps the newest in view; `--bx-log-*`, `--bx-message-*`), `bx-composer` (labelled field, send, actions slot, slash-command menu as a WAI-ARIA combobox; `--bx-composer-gap`) and `bx-listbox` (a combobox popup; `--bx-listbox-*`) (F-006-T07).
 - Theme `simple` (NERV's Simple: monospace, 6 px corners; dark and orange by default, NERV's `/full` default) and theme variants: `simple` and `eva` take `data-bx-mode` (`dark`, `light`) and `data-bx-accent` (`orange`, `blue`, `green`, `violet`, `ochre`), NERV's 20 Theme · Mode · Accent combinations, each at WCAG AA. `styles/themes/accents.css` (accent shades `--bx-hue-*`, imported by `bricks.css`; import it with `simple.css` or `eva.css` when importing files one by one). `@voidbrain/bricks/themes`: `VARIANT_THEMES`, `MODES`, `ACCENTS`, `MODE_ATTRIBUTE`, `ACCENT_ATTRIBUTE`, `VARIANT_DEFAULTS`, `THEME_COMBINATIONS`, `themeChoice()`, `applyThemeChoice()` and the `isVariantTheme`, `isMode`, `isAccent` guards (F-006-T02).
+- Semantic tokens `--bx-brand-bg`, `--bx-brand-fg` (a brand chip or mark; eva light keeps the bright accent with black text) and `--bx-series-green`, `--bx-series-orange`, `--bx-series-blue` (series and sub-label colours, AA on every surface) in every theme and in `SEMANTIC_TOKENS` (F-006-T08).
 
 ### Changed
 
+- eva's card header bar reads `--bx-brand-bg` and `--bx-brand-fg` instead of the accent: the same colours in dark mode.
 - `THEMES` lists `simple` too; `applyTheme()` now also sets the default `data-bx-mode` and `data-bx-accent` on `simple` and `eva`, and removes both on `base` and `plain`. `eva` builds its colours from the accent shades: a page importing `eva.css` without `bricks.css` needs `accents.css` too.
 - `bx-card` wraps its content in a padded `.body`; the `section.card` itself has no padding now (it holds the header and the body). Content projected into the card is unaffected.
 - `bx-badge` has a 1 px transparent border (the outlined appearances draw it), so a solid badge is 2 px larger than before.
