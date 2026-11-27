@@ -677,11 +677,11 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
 |---|---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-017-t01"></a>F-017-T01 — Decision note: the work graph component's inputs, layout and skin hook | 0.5 h | 0 h | 0.5 h | Planned | — | [F-017-T02](#f-017-t02) | [PR #1](https://github.com/voidbrain/bricks/pull/1) plan |
-| 🟡 Medium | <a id="f-017-t02"></a>F-017-T02 — Layout function for the work graph, failing test first | 3 h | 0 h | 3 h | Planned | [F-017-T01](#f-017-t01) | [F-017-T03](#f-017-t03) | [PR #1](https://github.com/voidbrain/bricks/pull/1) plan |
-| 🟡 Medium | <a id="f-017-t03"></a>F-017-T03 — bx-work-graph: the drawing, the text list and node selection | 3 h | 0 h | 3 h | Planned | [F-017-T02](#f-017-t02) | [F-017-T04](#f-017-t04) | [PR #1](https://github.com/voidbrain/bricks/pull/1) plan |
-| 🟡 Medium | <a id="f-017-t04"></a>F-017-T04 — Reorder within a lane, only between nodes with no dependency | 2.5 h | 0 h | 2.5 h | Planned | [F-017-T03](#f-017-t03), [F-015-T01](#f-015-t01) | [F-017-T05](#f-017-t05) | [PR #1](https://github.com/voidbrain/bricks/pull/1) plan |
-| 🟢 Small | <a id="f-017-t05"></a>F-017-T05 — Release the work graph component | 0.75 h | 0 h | 0.75 h | Planned | [F-017-T04](#f-017-t04) | — | [PR #1](https://github.com/voidbrain/bricks/pull/1) plan |
+| 🟢 Small | <a id="f-017-t01"></a>F-017-T01 — Decision note: the work graph component's inputs, layout and skin hook | 0.5 h | 0 h | 0.5 h | Planned | — | [F-017-T02](#f-017-t02) | [PR #37](https://github.com/voidbrain/bricks/pull/37) plan |
+| 🟡 Medium | <a id="f-017-t02"></a>F-017-T02 — Layout function for the work graph, failing test first | 3 h | 0 h | 3 h | Planned | [F-017-T01](#f-017-t01) | [F-017-T03](#f-017-t03) | [PR #37](https://github.com/voidbrain/bricks/pull/37) plan |
+| 🟡 Medium | <a id="f-017-t03"></a>F-017-T03 — bx-work-graph: the drawing, the text list and node selection | 3 h | 0 h | 3 h | Planned | [F-017-T02](#f-017-t02) | [F-017-T04](#f-017-t04) | [PR #37](https://github.com/voidbrain/bricks/pull/37) plan |
+| 🟡 Medium | <a id="f-017-t04"></a>F-017-T04 — Reorder within a lane, only between nodes with no dependency | 2.5 h | 0 h | 2.5 h | Planned | [F-017-T03](#f-017-t03), [F-015-T01](#f-015-t01) | [F-017-T05](#f-017-t05) | [PR #37](https://github.com/voidbrain/bricks/pull/37) plan |
+| 🟢 Small | <a id="f-017-t05"></a>F-017-T05 — Release the work graph component | 0.75 h | 0 h | 0.75 h | Planned | [F-017-T04](#f-017-t04) | — | [PR #37](https://github.com/voidbrain/bricks/pull/37) plan |
 | 🟣 Very large | **Total** | 9.75 h | 0 h (0 of 5 steps recorded) | 9.75 h | 0 of 5 completed | | | |
 
 <details>
@@ -691,7 +691,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-017-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) plan · F-017-T02: [PR #1](https://github.com/voidbrain/bricks/pull/1) plan · F-017-T03: [PR #1](https://github.com/voidbrain/bricks/pull/1) plan · F-017-T04: [PR #1](https://github.com/voidbrain/bricks/pull/1) plan · F-017-T05: [PR #1](https://github.com/voidbrain/bricks/pull/1) plan. Plan: [#PRNUM](https://github.com/voidbrain/REPO/pull/PRNUM) |
+| PR / evidence | Steps: F-017-T01: [PR #37](https://github.com/voidbrain/bricks/pull/37) plan · F-017-T02: [PR #37](https://github.com/voidbrain/bricks/pull/37) plan · F-017-T03: [PR #37](https://github.com/voidbrain/bricks/pull/37) plan · F-017-T04: [PR #37](https://github.com/voidbrain/bricks/pull/37) plan · F-017-T05: [PR #37](https://github.com/voidbrain/bricks/pull/37) plan. Plan: [#37](https://github.com/voidbrain/bricks/pull/37) |
 | Opened | 2026-11-27 |
 | Verification | Pending |
 | Reviewed | 2026-11-27 |
