@@ -31,3 +31,7 @@ PRs #20–#30 merged on green CI. Closed B-001 (#23) and steps F-004-T04 (#6, #1
 ## 2026-11-27 — main `d76419f`
 
 PR #31 merged on green CI (run 45920237382): reconciled PRs #20–#30 and archived B-001.
+
+## 2026-11-27 — main `49230fe`
+
+PRs #29 to #34 merged on green CI. Closed F-014 (charts): 0.5.0 on npm (`npm view @voidbrain/bricks@0.5.0 version` prints 0.5.0; release run 45967712772, npm environment approved by the owner).
