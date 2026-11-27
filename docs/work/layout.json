@@ -2,7 +2,7 @@
   "version": 1,
   "segments": [
     {
-      "text": "# <a id=\"top\"></a>bricks backlog\n\nCurrent work ledger, reviewed 26 November 2026 against main `616bb47` ([log](archive/reconciliation-2026.md); PRs #1 to #19 merged, CI green, #10 and #12 are the 0.2.0 and 0.3.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) \u00b7 [Archive](archive/README.md) \u00b7 [Reading the records](#how-to-use-this-file).\n\n<!-- totals:start -->\n<!-- totals:end -->\n\n## Work items\n\nBugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = remaining agent time (\ud83d\udfe2 up to 1 h \u00b7 \ud83d\udfe1 4 h \u00b7 \ud83d\udd34 8 h \u00b7 \ud83d\udfe3 more); `h` = agent hours, owner time apart; a step status is not the record's acceptance.\n\n"
+      "text": "# <a id=\"top\"></a>bricks backlog\n\nCurrent work ledger, reviewed 27 November 2026 against main `0f04e9b` ([log](archive/reconciliation-2026.md); PRs #1 to #30 merged, CI green, #10, #12 and #25 are the 0.2.0, 0.3.0 and 0.4.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) \u00b7 [Archive](archive/README.md) \u00b7 [Reading the records](#how-to-use-this-file).\n\n<!-- totals:start -->\n<!-- totals:end -->\n\n## Work items\n\nBugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = remaining agent time (\ud83d\udfe2 up to 1 h \u00b7 \ud83d\udfe1 4 h \u00b7 \ud83d\udd34 8 h \u00b7 \ud83d\udfe3 more); `h` = agent hours, owner time apart; a step status is not the record's acceptance.\n\n"
     },
     {
       "records": "all"

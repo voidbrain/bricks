@@ -4,7 +4,7 @@
   "parent": "F-004",
   "title": "Release workflow with npm trusted publishing",
   "goal": "A v* tag publishes from GitHub Actions without a token",
-  "status": "implemented",
+  "status": "closed",
   "acceptance": [
     ".github/workflows/release.yml: on a pushed tag vX.Y.Z only (never a PR); verify (tag on main, matches projects/bricks/package.json version, CHANGELOG entry), the full CI check job (reusable ci.yml), build and npm pack without publish rights, then `npm publish --provenance --access public` of that tarball",
     "id-token: write only in the publish job (environment npm), which checks out no code and installs no dependencies (only npm itself, pinned to packageManager's exact version with --ignore-scripts); no NPM_TOKEN and no setup-node registry-url placeholder token; npm 11.5.1 or later asserted and printed; tools/release-workflow.test.mjs checks these",
@@ -37,8 +37,8 @@
   "effort": {
     "size": "medium",
     "estimate": "0 remaining",
-    "basis": "Done 2026-11-25 in one PR with a fresh-context design review; verification is the first publish (F-004-T06). No actual: the step's start time was not recorded.",
-    "reviewed": "2026-11-25",
+    "basis": "Done 2026-11-25 in #6 and #11 with a fresh-context design review; verified by trusted-publishing releases v0.3.0 (run 45722880536) and v0.4.0 (run 45840855018). No actual: the step's start time was not recorded. Closed 2026-11-27.",
+    "reviewed": "2026-11-27",
     "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 3,
