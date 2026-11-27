@@ -3,7 +3,7 @@
 Current work ledger, reviewed 27 November 2026 against main `d76419f` ([log](archive/reconciliation-2026.md); PRs #1 to #31 merged, CI green, #10, #12 and #25 are the 0.2.0, 0.3.0 and 0.4.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 53.25 h agent + 0.25 h owner across 38 open steps of 15 features. Generated from the task files.
+**Remaining effort:** 63 h agent + 0.25 h owner across 43 open steps of 16 features. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -239,6 +239,45 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | PR / evidence | Steps: F-006-T01: [PR #13](https://github.com/voidbrain/bricks/pull/13) NERV UI inventory against bricks 0.3.0, recorded in F-006 (feeds nerv:F-130) · F-006-T02: [PR #20](https://github.com/voidbrain/bricks/pull/20) theme simple, data-bx-mode and data-bx-accent (20 combinations), catalogue switcher · F-006-T04: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #16](https://github.com/voidbrain/bricks/pull/16) bx-card header (heading, meta slot, eva bar and glow tokens) and bx-stat · F-006-T05: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #17](https://github.com/voidbrain/bricks/pull/17) compact button, outlined/dashed badge, meter, disclosure, inline alert, bx-sr-only, bx-columns-phone · F-006-T06: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #18](https://github.com/voidbrain/bricks/pull/18) bx-timeline, bx-timeline-item, bx-avatar, bx-avatar-stack · F-006-T07: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #19](https://github.com/voidbrain/bricks/pull/19) bx-message-log, bx-message, bx-composer, bx-listbox (slash-command combobox) · F-006-T08: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #21](https://github.com/voidbrain/bricks/pull/21) --bx-brand-&#42; and --bx-series-&#42; semantic tokens. F-006-T01 inventory (2026-11-26); [#13](https://github.com/voidbrain/bricks/pull/13); [#16](https://github.com/voidbrain/bricks/pull/16); [#17](https://github.com/voidbrain/bricks/pull/17); [#18](https://github.com/voidbrain/bricks/pull/18); [#19](https://github.com/voidbrain/bricks/pull/19); [#20](https://github.com/voidbrain/bricks/pull/20); [#21](https://github.com/voidbrain/bricks/pull/21) |
 | Opened | 2026-11-25 |
 | Verification | Browser/accessibility · 2026-11-27 · F-006-T01 (#13), F-006-T02 (#20 CI 45788369718) and F-006-T04–T08 (#16–#19, #21 CI 45789916167) passed CI and catalogue browser suite, released in 0.4.0 (#25); Documentation · Pending (F-006-T03 migration note) |
+| Reviewed | 2026-11-27 |
+
+</details>
+
+---
+### <a id="f-015"></a>[✨ F-015](#top)
+
+**Sortable list component: reorder by drag and drop and by keyboard**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟡 Medium | 3.5 h | — | [F-017-T04](#f-017-t04) | 🤖 | — | — |
+
+💻 **→** Next: F-015-T01 — Sortable list component with keyboard, pointer and touch reorder (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner request 2026-11-26 (late evening): reorder the coordinator's solution order (`docs/solution-order.md`) by drag and drop in NERV's live index card (planned in 🚦 coordinator:F-025; the card side is 𖣂 nerv:F-150). Bricks has a listbox but nothing to reorder items. The component only proposes a new order (an output event); it never saves anything: the consumer decides what a reorder does (for the coordinator, a reviewed PR). |
+| **Reproduce** | `projects/bricks/components/listbox.ts` selects items; no component reorders them. |
+| **Check** | bx-sortable-list reorders by pointer drag, by touch and by keyboard (move up/down buttons and a grab-and-move mode with arrow keys), announces each move in a live region, emits the new order and a cancel, is axe-clean in every theme, and has a catalogue entry (F-015-T01); it ships in a release (F-015-T02). |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟡 Medium | <a id="f-015-t01"></a>F-015-T01 — Sortable list component with keyboard, pointer and touch reorder | 3 h | 0 h | 3 h | Planned | — | [F-015-T02](#f-015-t02), [F-017-T04](#f-017-t04) | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟢 Small | <a id="f-015-t02"></a>F-015-T02 — Release the sortable list | 0.5 h | 0 h | 0.5 h | Planned | [F-015-T01](#f-015-t01) | — | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟡 Medium | **Total** | 3.5 h | 0 h (0 of 2 steps recorded) | 3.5 h | 0 of 2 completed | | | |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-015.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-015-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-015-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) (green CI) |
+| Opened | 2026-11-26 |
+| Verification | Pending |
 | Reviewed | 2026-11-27 |
 
 </details>
@@ -488,45 +527,6 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 </details>
 
 ---
-### <a id="f-015"></a>[✨ F-015](#top)
-
-**Sortable list component: reorder by drag and drop and by keyboard**
-
-| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
-|---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟡 Medium | 3.5 h | — | — | 🤖 | — | — |
-
-💻 **→** Next: F-015-T01 — Sortable list component with keyboard, pointer and touch reorder (Planned).
-
-| | |
-|---|---|
-| **Issue** | Owner request 2026-11-26 (late evening): reorder the coordinator's solution order (`docs/solution-order.md`) by drag and drop in NERV's live index card (planned in 🚦 coordinator:F-025; the card side is 𖣂 nerv:F-150). Bricks has a listbox but nothing to reorder items. The component only proposes a new order (an output event); it never saves anything: the consumer decides what a reorder does (for the coordinator, a reviewed PR). |
-| **Reproduce** | `projects/bricks/components/listbox.ts` selects items; no component reorders them. |
-| **Check** | bx-sortable-list reorders by pointer drag, by touch and by keyboard (move up/down buttons and a grab-and-move mode with arrow keys), announces each move in a live region, emits the new order and a cancel, is axe-clean in every theme, and has a catalogue entry (F-015-T01); it ships in a release (F-015-T02). |
-
-**Feature steps**
-
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
-|---|---|---|---|---|---|---|---|---|
-| 🟡 Medium | <a id="f-015-t01"></a>F-015-T01 — Sortable list component with keyboard, pointer and touch reorder | 3 h | 0 h | 3 h | Planned | — | [F-015-T02](#f-015-t02) | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
-| 🟢 Small | <a id="f-015-t02"></a>F-015-T02 — Release the sortable list | 0.5 h | 0 h | 0.5 h | Planned | [F-015-T01](#f-015-t01) | — | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
-| 🟡 Medium | **Total** | 3.5 h | 0 h (0 of 2 steps recorded) | 3.5 h | 0 of 2 completed | | | |
-
-<details>
-<summary>Next action, estimates and PR history</summary>
-
-[Full notes & evidence](work/records/F-015.md)
-
-| Field | Value |
-|---|---|
-| PR / evidence | Steps: F-015-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-015-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) (green CI) |
-| Opened | 2026-11-26 |
-| Verification | Pending |
-| Reviewed | 2026-11-27 |
-
-</details>
-
----
 ### <a id="f-016"></a>[✨ F-016](#top)
 
 **Chart time axes in the viewer's local time**
@@ -652,6 +652,48 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | PR / evidence | Steps: F-003-T01: [PR #7](https://github.com/voidbrain/bricks/pull/7) button, input, select, toggle and tag primitives (first consumer: NERV F-130 dashboard) · F-003-T03: [PR #9](https://github.com/voidbrain/bricks/pull/9) framework-free live-view helper and catalogue demo (demand: NERV B-145 non-Angular live views) · F-003-T07: [PR #8](https://github.com/voidbrain/bricks/pull/8) layout classes, breakpoints, safe-area tokens and the icon set. [#7](https://github.com/voidbrain/bricks/pull/7) (F-003-T01); Test: `projects/bricks/components/primitives.spec.ts` and `e2e/catalogue.spec.ts` (`bbe6399`); Review: independent review on PR #7 2026-11-25 (Claude Opus 5.5): tokens, themes, keyboard, focus and exports checked; added `touch` on blur so reactive and signal forms mark controls touched (`projects/bricks/components/forms.spec.ts`); [#8](https://github.com/voidbrain/bricks/pull/8) (F-003-T07); [#9](https://github.com/voidbrain/bricks/pull/9) (F-003-T03); Test: `projects/bricks/live/live.spec.ts` (`83a32d6`); Review: independent review on PR #9 2026-11-26 (Claude Opus 5.5): render-once, changed-value-only and keyed add/move/remove/patch checked against node identity and MutationObserver; exports, purity lint, three themes with axe checked; added duplicate-key, move, N to 0 to N tests and an `on*` attribute guard in `setAttr`, and documented the Angular hosting pattern in `docs/STYLE-GUIDE.md` |
 | Opened | 2026-11-25 |
 | Verification | Unit/integration & Browser/accessibility · 2026-11-26 · F-003-T01 (#7), F-003-T07 (#8) and F-003-T03 (#9) verified on green CI (#22 green CI); F-003-T02, F-003-T04–T06 · Pending |
+| Reviewed | 2026-11-27 |
+
+</details>
+
+---
+### <a id="f-017"></a>[✨ F-017](#top)
+
+**Work graph component: dependency graph in swimlanes, critical path, in-lane reorder**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟣 Very large | 9.75 h | [F-015-T01](#f-015-t01) | — | 🤖 | — | — |
+
+💻 **→** Next: F-017-T01 — Decision note: the work graph component's inputs, layout and skin hook (Planned).
+
+| | |
+|---|---|
+| **Issue** | Owner request 2026-11-27 (chat, "ok" to record it across three repositories): one view of the solution's work as a dependency graph, the critical path highlighted and each step's slack shown, laid out in swimlanes by who acts, with two looks (plain, and an Eva "skill tree" skin where finishing a step "unlocks" what depends on it). Explicitly not a Gantt (no calendar dates: work starts when an agent slot frees or the owner has time) and not PERT (no three-point estimates: one estimate per step, plus the recorded actual time). No equivalent record existed in the three repositories (searched `critical path`, `dependency graph`, `swimlane`, `skill tree` in docs on origin/main). Three records: 🚦 coordinator:F-026 (the computation and its read contract), 🧱 bricks:F-017 (the graph component), 𖣂 nerv:F-160 (the view on the "Work across projects" card, nerv:F-147, and the skin). This record is the component: a plain SVG dependency graph (docs/decisions/charts.md), keyboard-accessible, with a text list fallback, tokens and light/dark, that shares F-015's sortable interaction for the in-lane drag. Related: [F-015](work/records/F-017.md#f-015), coordinator:F-026, nerv:F-160. |
+| **Reproduce** | Bricks has charts and (planned, F-015) a sortable list, but no component that draws nodes and dependencies, marks a critical path or reorders inside a lane. |
+| **Check** | bx-work-graph draws lanes, nodes, edges and the critical path from a generic input, has a text list, emits selection, and proposes or refuses in-lane reorders (F-017-T01 to T04), and ships in a release (T05). No dates, no PERT. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-017-t01"></a>F-017-T01 — Decision note: the work graph component's inputs, layout and skin hook | 0.5 h | 0 h | 0.5 h | Planned | — | [F-017-T02](#f-017-t02) | [PR #1](https://github.com/voidbrain/bricks/pull/1) plan |
+| 🟡 Medium | <a id="f-017-t02"></a>F-017-T02 — Layout function for the work graph, failing test first | 3 h | 0 h | 3 h | Planned | [F-017-T01](#f-017-t01) | [F-017-T03](#f-017-t03) | [PR #1](https://github.com/voidbrain/bricks/pull/1) plan |
+| 🟡 Medium | <a id="f-017-t03"></a>F-017-T03 — bx-work-graph: the drawing, the text list and node selection | 3 h | 0 h | 3 h | Planned | [F-017-T02](#f-017-t02) | [F-017-T04](#f-017-t04) | [PR #1](https://github.com/voidbrain/bricks/pull/1) plan |
+| 🟡 Medium | <a id="f-017-t04"></a>F-017-T04 — Reorder within a lane, only between nodes with no dependency | 2.5 h | 0 h | 2.5 h | Planned | [F-017-T03](#f-017-t03), [F-015-T01](#f-015-t01) | [F-017-T05](#f-017-t05) | [PR #1](https://github.com/voidbrain/bricks/pull/1) plan |
+| 🟢 Small | <a id="f-017-t05"></a>F-017-T05 — Release the work graph component | 0.75 h | 0 h | 0.75 h | Planned | [F-017-T04](#f-017-t04) | — | [PR #1](https://github.com/voidbrain/bricks/pull/1) plan |
+| 🟣 Very large | **Total** | 9.75 h | 0 h (0 of 5 steps recorded) | 9.75 h | 0 of 5 completed | | | |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-017.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-017-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) plan · F-017-T02: [PR #1](https://github.com/voidbrain/bricks/pull/1) plan · F-017-T03: [PR #1](https://github.com/voidbrain/bricks/pull/1) plan · F-017-T04: [PR #1](https://github.com/voidbrain/bricks/pull/1) plan · F-017-T05: [PR #1](https://github.com/voidbrain/bricks/pull/1) plan. Plan: [#PRNUM](https://github.com/voidbrain/REPO/pull/PRNUM) |
+| Opened | 2026-11-27 |
+| Verification | Pending |
 | Reviewed | 2026-11-27 |
 
 </details>

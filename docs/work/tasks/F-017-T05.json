@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "id": "F-017-T05",
+  "parent": "F-017",
+  "title": "Release the work graph component",
+  "goal": "bx-work-graph is in a released bricks version a consumer can install",
+  "status": "planned",
+  "acceptance": [
+    "The release is tagged; the changelog names bx-work-graph; nerv:F-160 can depend on the version"
+  ],
+  "dependsOn": [
+    "F-017-T04"
+  ],
+  "resources": [
+    "docs/**",
+    "projects/**",
+    "docs/work/records/F-017.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "documentation"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "CI"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.75 h agent",
+    "basis": "Version bump, changelog and the release as for F-015-T02. Estimated 2026-11-27. Not a measurement.",
+    "reviewed": "2026-11-27",
+    "agentHours": 0.75,
+    "baselineAgentHours": 0.75,
+    "estimateAgentHours": 0.75
+  },
+  "prs": [
+    {
+      "pr": 1,
+      "note": "plan"
+    }
+  ]
+}

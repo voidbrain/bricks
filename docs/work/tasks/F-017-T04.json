@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "id": "F-017-T04",
+  "parent": "F-017",
+  "title": "Reorder within a lane, only between nodes with no dependency",
+  "goal": "A drag or keyboard move inside a lane proposes a new order, or is refused with its reason",
+  "status": "planned",
+  "acceptance": [
+    "Uses the sortable interaction of bx-sortable-list (F-015-T01): pointer, touch and keyboard (grab, arrows, drop, Escape), inside one lane only; no second implementation of it",
+    "A move that would cross a node it may not pass is refused: the node returns to place, a polite live region and a visible message give the reason from the input (\"X depends on Y\"), and the component emits reorderRefused; an allowed move emits reorderRequest with the ids in the new order, and the component never persists it",
+    "Tests: allowed move, refused move with its reason, Escape cancels, keyboard-only reorder; axe-clean in every theme"
+  ],
+  "dependsOn": [
+    "F-017-T03",
+    "F-015-T01"
+  ],
+  "resources": [
+    "projects/bricks/components/**",
+    "projects/catalogue/**",
+    "docs/work/records/F-017.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular",
+    "accessibility"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "CI"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "2.5 h agent",
+    "basis": "The sortable interaction already exists (F-015); this step restricts it by the input's may-not-pass lists and adds the refusal. Estimated 2026-11-27. Not a measurement.",
+    "reviewed": "2026-11-27",
+    "agentHours": 2.5,
+    "baselineAgentHours": 2.5,
+    "estimateAgentHours": 2.5
+  },
+  "prs": [
+    {
+      "pr": 1,
+      "note": "plan"
+    }
+  ]
+}

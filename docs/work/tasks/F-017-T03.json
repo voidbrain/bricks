@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "id": "F-017-T03",
+  "parent": "F-017",
+  "title": "bx-work-graph: the drawing, the text list and node selection",
+  "goal": "A tokened, accessible SVG graph with the critical path marked and a text list beside it",
+  "status": "planned",
+  "acceptance": [
+    "Draws the lanes with their labels, the nodes (label, remaining hours, slack) and the edges; critical nodes and edges are heavier and labelled \"critical\", done nodes are marked done; no literal colours, only bx tokens, light and dark",
+    "Every node is a focusable control: arrows move between connected nodes, Enter emits nodeSelect with its id; the text list lists the same nodes in dependency order with Depends on and Unlocks, and replaces the drawing below a narrow width and on a toggle",
+    "Respects reduced motion; an empty graph and a problems list (unknown reference, cycle) have their own states",
+    "Browser test: axe-clean in every theme, light and dark; keyboard path through a diamond; the text list matches the drawing's nodes; narrow width shows the list",
+    "Catalogue entry and style guide entry"
+  ],
+  "dependsOn": [
+    "F-017-T02"
+  ],
+  "resources": [
+    "projects/bricks/components/**",
+    "projects/catalogue/**",
+    "docs/STYLE-GUIDE.md",
+    "docs/work/records/F-017.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular",
+    "accessibility"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "CI"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "3 h agent",
+    "basis": "One component over the layout function: SVG, a text list, selection output, themes. Interaction between nodes (drag) is the next step. Estimated 2026-11-27. Not a measurement.",
+    "reviewed": "2026-11-27",
+    "agentHours": 3,
+    "baselineAgentHours": 3,
+    "estimateAgentHours": 3
+  },
+  "prs": [
+    {
+      "pr": 1,
+      "note": "plan"
+    }
+  ]
+}

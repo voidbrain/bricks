@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "id": "F-017-T02",
+  "parent": "F-017",
+  "title": "Layout function for the work graph, failing test first",
+  "goal": "A pure function places nodes in layers and lanes and routes the edges",
+  "status": "planned",
+  "acceptance": [
+    "Input nodes and edges; output positions, edge paths and the size, deterministic for the same input",
+    "Tests, committed failing first: a chain, a diamond, two lanes with a cross-lane edge, an isolated node, a cycle (rejected with the cycle named, not a hang), a graph of about 150 nodes laid out in under a second"
+  ],
+  "dependsOn": [
+    "F-017-T01"
+  ],
+  "resources": [
+    "projects/bricks/components/**",
+    "test/**",
+    "docs/work/records/F-017.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "regression-design"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "CI"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "medium",
+    "estimate": "3 h agent",
+    "basis": "One pure function (layering, lane rows, edge paths, crossing reduction kept simple) with tests; no rendering yet. Estimated 2026-11-27. Not a measurement.",
+    "reviewed": "2026-11-27",
+    "agentHours": 3,
+    "baselineAgentHours": 3,
+    "estimateAgentHours": 3
+  },
+  "prs": [
+    {
+      "pr": 1,
+      "note": "plan"
+    }
+  ]
+}
