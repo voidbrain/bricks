@@ -6,6 +6,10 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-11-27
+
+Four chart components in plain SVG, themed by tokens only (F-014). Nothing existing changes.
+
 ### Added
 
 - `@voidbrain/bricks/components`: shared chart frame and scale/axis helpers (`BxChartFrame`, `linearDomain`, `linearScale`, `linearTicks`, `formatChartNumber`, `formatChartTime`, `stepChartIndex`, `CHART_TONES`) and `bx-line-chart` (`BxLineChart`, plain SVG over number or UTC-time axes with target bands, event markers, non-colour series dashes and point glyphs, roving keyboard focus, `<title>`/`<desc>` and a `bx-disclosure` data-table fallback), plus `--bx-chart-*` component tokens in `COMPONENT_TOKENS` (F-014-T03).

@@ -3,7 +3,7 @@
 Current work ledger, reviewed 27 November 2026 against main `d76419f` ([log](archive/reconciliation-2026.md); PRs #1 to #31 merged, CI green, #10, #12 and #25 are the 0.2.0, 0.3.0 and 0.4.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 52.25 h agent + 0.25 h owner across 41 open steps of 15 features. 0.5 h of actual effort recorded on 2 steps. Generated from the task files.
+**Remaining effort:** 51.75 h agent + 0.25 h owner across 41 open steps of 15 features. 0.5 h of actual effort recorded on 2 steps. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -250,7 +250,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟢 Small | 0.5 h | — | — | 🤖 | — | — |
+| 🔴 Open | 🔹 P3 | 🟢 Small | 0 h | — | — | 🤖 | — | — |
 
 💻 **→** Next: F-014-T03 — Line chart component, with the shared chart base (Implemented; verification pending).
 
@@ -268,8 +268,8 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | 🟢 Small | <a id="f-014-t04"></a>F-014-T04 — Bar chart component | 1.5 h | 0 h | 0 h | Implemented; verification pending | [F-014-T03](#f-014-t03) | [F-014-T05](#f-014-t05) | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #33](https://github.com/voidbrain/bricks/pull/33) bar chart |
 | 🟢 Small | <a id="f-014-t05"></a>F-014-T05 — Stacked bar chart component | 1 h | 0 h | 0 h | Implemented; verification pending | [F-014-T04](#f-014-t04) | [F-014-T07](#f-014-t07) | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #33](https://github.com/voidbrain/bricks/pull/33) stacked bar chart |
 | 🟢 Small | <a id="f-014-t06"></a>F-014-T06 — Donut chart component | 1.5 h | 0 h | 0 h | Implemented; verification pending | [F-014-T03](#f-014-t03) | [F-014-T07](#f-014-t07) | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #33](https://github.com/voidbrain/bricks/pull/33) donut chart |
-| 🟢 Small | <a id="f-014-t07"></a>F-014-T07 — Release the charts | 0.5 h | 0 h | 0.5 h | Planned | [F-014-T05](#f-014-t05), [F-014-T06](#f-014-t06) | — | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
-| 🟢 Small | **Total** | 7.25 h | 0.5 h (2 of 7 steps recorded) | 0.5 h | 2 of 7 completed | | | | |
+| 🟢 Small | <a id="f-014-t07"></a>F-014-T07 — Release the charts | 0.5 h | 0 h | 0 h | Implemented; verification pending | [F-014-T05](#f-014-t05), [F-014-T06](#f-014-t06) | — | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟢 Small | **Total** | 7.25 h | 0.5 h (2 of 7 steps recorded) | 0 h | 2 of 7 completed | | | | |
 
 <details><summary>Done steps (2)</summary>
 
