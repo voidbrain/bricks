@@ -603,6 +603,33 @@ test.describe('catalogue', () => {
     expect((await read()).radius).toBe('0px');
   });
 
+  test('line chart: renders inline SVG with title/desc, roving keyboard focus on points and a data table in every theme', async ({
+    page,
+  }) => {
+    for (const theme of THEMES) {
+      const section = page.locator(`section[data-bx-theme="${theme}"]`);
+      const chart = section.locator('bx-line-chart');
+      await expect(chart.locator('svg.svg > title')).toHaveText(`Probe readings (${theme})`);
+      await expect(chart.locator('svg.svg > desc')).toContainText('Canopy (4 points');
+      await expect(chart.locator('svg.svg path.line')).toHaveCount(2);
+      await expect(chart.locator('svg.svg rect.band')).toHaveCount(1);
+    }
+
+    const evaChart = page.locator('section[data-bx-theme="eva"] bx-line-chart');
+    const firstPoint = evaChart.locator('g.datum').first();
+    await firstPoint.focus();
+    await expect(evaChart.locator('.readout')).toContainText('Canopy, 06:00: 21.4 °C');
+    // The focused point already announces its name; the readout is for sighted readers only.
+    await expect(evaChart.locator('.readout')).not.toHaveAttribute('aria-live', /.*/);
+    await page.keyboard.press('ArrowRight');
+    await expect(evaChart.locator('.readout')).toContainText('Canopy, 09:00: 23.1 °C');
+
+    const disclosure = evaChart.locator('details');
+    await disclosure.locator('summary').click();
+    await expect(disclosure).toHaveAttribute('open', '');
+    await expect(disclosure.locator('table.data-table tbody tr')).toHaveCount(8);
+  });
+
   test('the contrast check composites a translucent colour over its background instead of reading it as opaque', async ({
     page,
   }) => {

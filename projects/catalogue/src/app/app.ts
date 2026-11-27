@@ -12,6 +12,7 @@ import {
   BxDisclosure,
   BxIcon,
   BxInput,
+  BxLineChart,
   BxMeter,
   BxSelect,
   BxStat,
@@ -19,6 +20,9 @@ import {
   BxTimeline,
   BxTimelineItem,
   BxToggle,
+  type LineChartBand,
+  type LineChartMarker,
+  type LineChartSeries,
   type SelectOption,
 } from '@voidbrain/bricks/components';
 import { ICON_NAMES } from '@voidbrain/bricks/foundations';
@@ -59,6 +63,7 @@ const SPRITE =
     BxDisclosure,
     BxIcon,
     BxInput,
+    BxLineChart,
     BxMeter,
     BxSelect,
     BxStat,
@@ -304,6 +309,20 @@ const SPRITE =
       <h3>Live-view helper</h3>
       <cat-live-demo />
 
+      <h3>Charts</h3>
+      <div class="bx-stack bx-gap-4" data-testid="charts">
+        <bx-line-chart
+          [label]="'Probe readings (' + key + ')'"
+          unit="°C"
+          axisMode="time"
+          [series]="lineSeries"
+          [bands]="lineBands"
+          [markers]="lineMarkers"
+          xHeader="Time"
+          yHeader="Temperature"
+        />
+      </div>
+
       @if (key === 'eva') {
         <h3>Nested theme</h3>
         <div class="nested" data-bx-theme="base" data-testid="nested-theme">
@@ -462,6 +481,36 @@ export class App {
     { value: 'ch-1', label: 'Primary channel' },
     { value: 'ch-2', label: 'Backup channel' },
     { value: 'ch-3', label: 'Standby (offline)', disabled: true },
+  ];
+  protected readonly lineSeries: readonly LineChartSeries[] = [
+    {
+      id: 'canopy',
+      name: 'Canopy',
+      tone: 'accent',
+      points: [
+        { x: Date.UTC(2026, 10, 27, 6, 0), y: 21.4 },
+        { x: Date.UTC(2026, 10, 27, 9, 0), y: 23.1 },
+        { x: Date.UTC(2026, 10, 27, 12, 0), y: 24.6 },
+        { x: Date.UTC(2026, 10, 27, 15, 0), y: 22.8 },
+      ],
+    },
+    {
+      id: 'root',
+      name: 'Root zone',
+      tone: 'green',
+      points: [
+        { x: Date.UTC(2026, 10, 27, 6, 0), y: 19.8 },
+        { x: Date.UTC(2026, 10, 27, 9, 0), y: 20.4 },
+        { x: Date.UTC(2026, 10, 27, 12, 0), y: 21.2 },
+        { x: Date.UTC(2026, 10, 27, 15, 0), y: 20.7 },
+      ],
+    },
+  ];
+  protected readonly lineBands: readonly LineChartBand[] = [
+    { min: 20, max: 25, tone: 'ok', label: 'Target band (20–25 °C)' },
+  ];
+  protected readonly lineMarkers: readonly LineChartMarker[] = [
+    { at: Date.UTC(2026, 10, 27, 9, 0), label: 'Ventilation cycle' },
   ];
   protected readonly colourTokens = SEMANTIC_TOKENS.filter((t) => !/font|radius/.test(t));
   protected readonly variantThemeOptions = options(VARIANT_THEMES);

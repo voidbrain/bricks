@@ -116,6 +116,13 @@
   --bx-tag-fg: var(--bx-text);
   --bx-tag-border: var(--bx-border);
   --bx-tag-radius: var(--bx-radius-badge);
+  --bx-chart-bg: var(--bx-surface-raised);
+  --bx-chart-fg: var(--bx-text);
+  --bx-chart-axis: var(--bx-text-muted);
+  --bx-chart-grid: var(--bx-border);
+  --bx-chart-border: var(--bx-border);
+  --bx-chart-radius: var(--bx-radius);
+  --bx-chart-band-tint: 14%;
   --bx-icon-size: 1.25em;
   --bx-icon-stroke: 2;
 }

@@ -96,6 +96,13 @@ export const COMPONENT_TOKENS = [
   '--bx-tag-fg',
   '--bx-tag-border',
   '--bx-tag-radius',
+  '--bx-chart-bg',
+  '--bx-chart-fg',
+  '--bx-chart-axis',
+  '--bx-chart-grid',
+  '--bx-chart-border',
+  '--bx-chart-radius',
+  '--bx-chart-band-tint',
   '--bx-icon-size',
   '--bx-icon-stroke',
 ] as const;

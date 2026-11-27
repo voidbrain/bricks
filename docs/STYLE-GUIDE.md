@@ -63,6 +63,7 @@ Three layers, each read only by the next. Prefix `--bx-`.
 | `--bx-listbox-bg`, `--bx-listbox-border`, `--bx-listbox-active`, `--bx-listbox-max-height` | listbox popup (`bx-listbox`) well, border, the active option's border and 12 % tint, the height it scrolls past (180 px) |
 | `--bx-composer-gap` | composer (`bx-composer`) gap between the menu, field and buttons |
 | `--bx-tag-bg`, `--bx-tag-fg`, `--bx-tag-border`, `--bx-tag-radius` | tag chip (`bx-tag`) surface, text, border and radius |
+| `--bx-chart-bg`, `--bx-chart-fg`, `--bx-chart-axis`, `--bx-chart-grid`, `--bx-chart-border`, `--bx-chart-radius`, `--bx-chart-band-tint` | charts (`bx-chart-frame`, `bx-line-chart`): plot surface, value text, axis and tick labels, grid lines, frame border, corner radius and target-band tint (14 %) |
 
 ### Themes
 
@@ -113,6 +114,7 @@ Every theme and every combination meets WCAG AA: 4.5:1 for text (including text 
 | `bx-message-log`, `bx-message` | `components` | a scrolling, focusable message log (`role="log"`, polite, named by `label`) that keeps the newest message in view while the reader is at the end (`follow`); each `bx-message` has a `[bx-message-avatar]` slot, a `time`, the sender `who`, a muted `context`, the body, `own` (accent tint) and a `tone` side bar (a hint; the text says what happened) |
 | `bx-composer` | `components` | a message field with a visually hidden `label`, `[bx-composer-avatar]` and `[bx-composer-actions]` slots and a send button (`sendLabel`); `[(value)]`; emits `send` with the trimmed text and clears; with `commands`, `/` opens a slash-command menu (WAI-ARIA combobox, list autocomplete: ArrowDown and ArrowUp, Enter picks, Escape closes) and emits `commandPick` |
 | `bx-listbox` | `components` | the popup of a combobox: options (`ListboxOption`) with an `active` index the input points at with `aria-activedescendant`, `handleKey` for the input's keys, `pick` on Enter or click; focus stays in the input |
+| `bx-chart-frame`, `bx-line-chart` | `components` | plain-SVG line chart (`bx-line-chart`) on the shared chart frame (`bx-chart-frame`): one or more series over a number or UTC-time axis, optional target bands and markers, non-colour dashes and point shapes, roving keyboard focus on points (`pointSelect`), SVG `<title>`/`<desc>`, and a `bx-disclosure` data-table fallback |
 | `bx-status-card`, `bx-notice-card`, `bx-checklist-card`, `bx-recipe-card` | `surfaces` | NERV's four genUI cards, same component ids, schemas and validation |
 | `bx-surface` | `surfaces` | validates one surface payload and renders its card, or a rejection alert; emits `rejected` and `checklistToggle` |
 

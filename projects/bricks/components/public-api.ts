@@ -15,3 +15,5 @@ export * from './avatar';
 export * from './message';
 export * from './listbox';
 export * from './composer';
+export * from './chart-base';
+export * from './line-chart';
