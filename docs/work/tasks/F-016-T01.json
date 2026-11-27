@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "id": "F-016-T01",
+  "parent": "F-016",
+  "title": "Local-time labels for the line chart's time axis",
+  "goal": "A consumer gets time labels in the viewer's zone without shifting its data",
+  "status": "planned",
+  "acceptance": [
+    "bx-line-chart can format a time axis in local time (axis ticks, point readout, desc and data table); the default and the option are recorded in docs/decisions/charts.md",
+    "Unit tests that hold in any test-machine time zone (expectations built with the local Date getters)",
+    "Catalogue example; changelog entry under Unreleased"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "projects/bricks/components/**",
+    "projects/catalogue/**",
+    "docs/decisions/charts.md",
+    "CHANGELOG.md",
+    "docs/work/records/F-016.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "typescript",
+    "angular"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "npm test",
+    "npm run build",
+    "npm run check:work"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "1 h agent",
+    "basis": "One formatter and one input on an existing component. Estimated 2026-11-27. Not a measurement.",
+    "reviewed": "2026-11-27",
+    "agentHours": 1,
+    "baselineAgentHours": 1,
+    "estimateAgentHours": 1
+  },
+  "prs": [
+    {
+      "pr": 36,
+      "note": "plan"
+    }
+  ]
+}
