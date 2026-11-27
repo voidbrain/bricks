@@ -4,7 +4,7 @@
   "parent": "F-014",
   "title": "Line chart component, with the shared chart base",
   "goal": "A themed, accessible line chart for values over time",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "bx-line-chart: one or more series over a time or number axis, optional target band and markers (what Grover's plant chart draws), empty state",
     "The shared base (scales, axes, legend, data-table alternative) is written once here and reused by T04 to T06",
@@ -37,12 +37,14 @@
   ],
   "effort": {
     "size": "medium",
-    "estimate": "2.5 h agent",
-    "basis": "The shared base plus the first chart; the largest step. Estimated 2026-11-26. Not a measurement.",
-    "reviewed": "2026-11-26",
-    "agentHours": 2.5,
+    "estimate": "0 remaining",
+    "basis": "Implemented 2026-11-27: shared chart base (chart-base.ts) and bx-line-chart (line-chart.ts) with unit and Playwright axe/keyboard tests across all themes. Actual elapsed tracked in work-usage job d3c160c4-bcfc-48e0-b732-627680fc14c2 (~0.25 h agent); token counts unavailable from host.",
+    "reviewed": "2026-11-27",
+    "agentHours": 0,
     "baselineAgentHours": 2.5,
-    "estimateAgentHours": 2.5
+    "estimateAgentHours": 2.5,
+    "actualAgentHours": 0.25,
+    "actualSource": "measured"
   },
   "prs": [
     {

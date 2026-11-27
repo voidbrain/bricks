@@ -6,6 +6,10 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 
 ## [Unreleased]
 
+### Added
+
+- `@voidbrain/bricks/components`: shared chart frame and scale/axis helpers (`BxChartFrame`, `linearDomain`, `linearScale`, `linearTicks`, `formatChartNumber`, `formatChartTime`, `stepChartIndex`, `CHART_TONES`) and `bx-line-chart` (`BxLineChart`, plain SVG over number or UTC-time axes with target bands, event markers, non-colour series dashes and point glyphs, roving keyboard focus, `<title>`/`<desc>` and a `bx-disclosure` data-table fallback), plus `--bx-chart-*` component tokens in `COMPONENT_TOKENS` (F-014-T03).
+
 ## [0.4.0] - 2026-11-26
 
 **Breaking (minor under 1.0):** `eva.css` now builds its colours from the accent shades in `styles/themes/accents.css`. A page that imports `eva.css` on its own (not through `bricks.css`) must also import `@voidbrain/bricks/styles/themes/accents.css`, or eva loses its accent colours. Importing `bricks.css` needs no change. Other changes that may affect a consumer are under Changed.

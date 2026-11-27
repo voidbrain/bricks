@@ -1,9 +1,9 @@
 # <a id="top"></a>bricks backlog
 
-Current work ledger, reviewed 27 November 2026 against main `0f04e9b` ([log](archive/reconciliation-2026.md); PRs #1 to #30 merged, CI green, #10, #12 and #25 are the 0.2.0, 0.3.0 and 0.4.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
+Current work ledger, reviewed 27 November 2026 against main `d76419f` ([log](archive/reconciliation-2026.md); PRs #1 to #31 merged, CI green, #10, #12 and #25 are the 0.2.0, 0.3.0 and 0.4.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 58.75 h agent + 0.25 h owner across 41 open steps of 15 features. 0.25 h of actual effort recorded on 1 step. Generated from the task files.
+**Remaining effort:** 56.25 h agent + 0.25 h owner across 41 open steps of 15 features. 0.5 h of actual effort recorded on 2 steps. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -573,9 +573,9 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 7 h | — | — | 🤖 | — | — |
+| 🔴 Open | 🔹 P3 | 🔴 Large | 4.5 h | — | — | 🤖 | — | — |
 
-💻 **→** Next: F-014-T03 — Line chart component, with the shared chart base (Planned).
+💻 **→** Next: F-014-T03 — Line chart component, with the shared chart base (Implemented; verification pending).
 
 | | |
 |---|---|
@@ -587,12 +587,12 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
 |---|---|---|---|---|---|---|---|:---:|---|
-| 🟡 Medium | <a id="f-014-t03"></a>F-014-T03 — Line chart component, with the shared chart base | 2.5 h | 0 h | 2.5 h | Planned | — | [F-014-T04](#f-014-t04), [F-014-T06](#f-014-t06) | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟢 Small | <a id="f-014-t03"></a>F-014-T03 — Line chart component, with the shared chart base | 2.5 h | 0.25 h so far (measured) | 0 h | Implemented; verification pending | — | [F-014-T04](#f-014-t04), [F-014-T06](#f-014-t06) | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
 | 🟡 Medium | <a id="f-014-t04"></a>F-014-T04 — Bar chart component | 1.5 h | 0 h | 1.5 h | Planned | [F-014-T03](#f-014-t03) | [F-014-T05](#f-014-t05) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
 | 🟢 Small | <a id="f-014-t05"></a>F-014-T05 — Stacked bar chart component | 1 h | 0 h | 1 h | Planned | [F-014-T04](#f-014-t04) | [F-014-T07](#f-014-t07) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
 | 🟡 Medium | <a id="f-014-t06"></a>F-014-T06 — Donut chart component | 1.5 h | 0 h | 1.5 h | Planned | [F-014-T03](#f-014-t03) | [F-014-T07](#f-014-t07) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
 | 🟢 Small | <a id="f-014-t07"></a>F-014-T07 — Release the charts | 0.5 h | 0 h | 0.5 h | Planned | [F-014-T05](#f-014-t05), [F-014-T06](#f-014-t06) | — | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
-| 🔴 Large | **Total** | 7.25 h | 0.25 h (1 of 7 steps recorded) | 7 h | 2 of 7 completed | | | | |
+| 🔴 Large | **Total** | 7.25 h | 0.5 h (2 of 7 steps recorded) | 4.5 h | 2 of 7 completed | | | | |
 
 <details><summary>Done steps (2)</summary>
 
@@ -610,9 +610,9 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-014-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T03: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T04: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T05: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T06: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T07: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) (green CI). Decision T01, T02: [#30](https://github.com/voidbrain/bricks/pull/30) (CI 45909118496 green) |
+| PR / evidence | Steps: F-014-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T03: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T04: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T05: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T06: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T07: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) (green CI). Decision T01, T02: [#30](https://github.com/voidbrain/bricks/pull/30) (CI 45909118496 green). Review: 2026-11-27 fresh-context research subagent on F-014-T03 (STYLE-GUIDE.md adapted file): fixed non-finite/single-point guards, focus/blur/hover separation, `description` `<desc>` override + marker summary, and dropped unused `--bx-chart-height` |
 | Opened | 2026-11-26 |
-| Verification | Documentation & Human · 2026-11-27 · F-014-T01 and F-014-T02 closed (#30 CI 45909118496 green); F-014-T03–T07 · Pending |
+| Verification | Unit/integration & Browser · 2026-11-27 · F-014-T01 and F-014-T02 closed (#30 CI 45909118496 green); F-014-T03 unit + Playwright axe/keyboard passed locally, awaiting PR CI; F-014-T04–T07 · Pending |
 | Reviewed | 2026-11-27 |
 
 </details>
