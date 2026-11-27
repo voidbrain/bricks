@@ -619,6 +619,8 @@ test.describe('catalogue', () => {
     const firstPoint = evaChart.locator('g.datum').first();
     await firstPoint.focus();
     await expect(evaChart.locator('.readout')).toContainText('Canopy, 06:00: 21.4 °C');
+    // The focused point already announces its name; the readout is for sighted readers only.
+    await expect(evaChart.locator('.readout')).not.toHaveAttribute('aria-live', /.*/);
     await page.keyboard.press('ArrowRight');
     await expect(evaChart.locator('.readout')).toContainText('Canopy, 09:00: 23.1 °C');
 

@@ -195,7 +195,7 @@ let nextFrameId = 0;
           <ng-content />
         </div>
         @if (activeText()) {
-          <p class="readout" aria-live="polite">{{ activeText() }}</p>
+          <p class="readout">{{ activeText() }}</p>
         }
         @if (legend().length > 0) {
           <ul class="legend" [attr.aria-label]="legendLabel()">
