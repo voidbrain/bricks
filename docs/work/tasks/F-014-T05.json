@@ -4,7 +4,7 @@
   "parent": "F-014",
   "title": "Stacked bar chart component",
   "goal": "A themed, accessible stacked bar chart for parts per category",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "bx-stacked-bar-chart (or a stacked mode of the bar chart, as T01 decides): several series per bar, legend, totals, segments told apart without colour alone",
     "Unit and browser tests (keyboard, axe in every theme)",
@@ -36,10 +36,10 @@
   ],
   "effort": {
     "size": "small",
-    "estimate": "1 h agent",
-    "basis": "Extends the bar chart. Estimated 2026-11-26. Not a measurement.",
-    "reviewed": "2026-11-26",
-    "agentHours": 1,
+    "estimate": "0 remaining",
+    "basis": "Extends the bar chart. Estimated 2026-11-26. Not a measurement. Implemented 2026-11-27 with T04–T06 in one PR; actual not measured separately.",
+    "reviewed": "2026-11-27",
+    "agentHours": 0,
     "baselineAgentHours": 1,
     "estimateAgentHours": 1
   },

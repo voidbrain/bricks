@@ -17,3 +17,6 @@ export * from './listbox';
 export * from './composer';
 export * from './chart-base';
 export * from './line-chart';
+export * from './bar-chart';
+export * from './stacked-bar-chart';
+export * from './donut-chart';
