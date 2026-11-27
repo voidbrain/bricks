@@ -38,13 +38,15 @@ const DASH_PATTERNS = ['', '6 3', '2 3', '8 3 2 3'] as const;
 
 /**
  * Fill overlays on a 12-unit tile, drawn in the plot colour over a series' tone so filled shapes (bars, segments,
- * slices) differ without colour: none, hatch, dots, cross (F-014-T05).
+ * slices) differ without colour: none, hatch, dots, cross, back hatch, stripes; one per default tone (F-014-T05).
  */
 export const CHART_PATTERNS = [
   '',
   'M0,12L12,0M-3,3L3,-3M9,15L15,9',
   'M3,3h3v3h-3zM9,9h3v3h-3z',
   'M0,6H12M6,0V12',
+  'M0,0L12,12M-3,9L3,15M9,-3L15,3',
+  'M0,3H12M0,9H12',
 ] as const;
 
 /** The fill overlay (a `CHART_PATTERNS` path, `''` for none) for series `index`. */

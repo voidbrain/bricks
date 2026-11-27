@@ -197,6 +197,7 @@ export class BxDonutChart {
   readonly valueHeader = input('Value');
   readonly shareHeader = input('Share');
 
+  /** The picked slice; for the Other slice, `otherLabel` and the grouped total. */
   readonly sliceSelect = output<DonutChartSlice>();
 
   protected readonly size = SIZE;

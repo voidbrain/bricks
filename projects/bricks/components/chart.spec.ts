@@ -334,8 +334,9 @@ describe('chart-base band, share and pattern helpers', () => {
     expect(formatChartShare(1, 3)).toBe('33.3 %');
     expect(formatChartShare(1, 0)).toBe('—');
     expect(seriesPattern(0)).toBe('');
-    expect(seriesPattern(4)).toBe('');
-    expect(new Set([0, 1, 2, 3].map(seriesPattern)).size).toBe(4);
+    // one pattern per default tone, so no two default series share both
+    expect(new Set([0, 1, 2, 3, 4, 5].map(seriesPattern)).size).toBe(6);
+    expect(seriesPattern(6)).toBe('');
   });
 });
 
@@ -380,6 +381,37 @@ describe('bx-bar-chart', () => {
     expect(chart.querySelector('.readout')?.textContent).toContain('Dec: 6 flights');
     datums[2]!.dispatchEvent(new KeyboardEvent('keydown', { key: ' ', bubbles: true }));
     expect(host.pickedBar()).toEqual({ label: 'Dec', value: 6 });
+
+    // a negative value hangs from the zero baseline, its label past its end, in both orientations
+    host.bars.set([
+      { label: 'Gain', value: 4 },
+      { label: 'Loss', value: -2 },
+    ]);
+    for (const orientation of ['horizontal', 'vertical'] as const) {
+      host.orientation.set(orientation);
+      await fixture.whenStable();
+      const base = chart.querySelector('line.baseline')!;
+      const [gain, loss] = [...chart.querySelectorAll<SVGRectElement>('rect.bar')].map((r) => ({
+        x: Number(r.getAttribute('x')),
+        y: Number(r.getAttribute('y')),
+        w: Number(r.getAttribute('width')),
+        h: Number(r.getAttribute('height')),
+      }));
+      const lossLabel = chart.querySelectorAll('text.value')[1]!;
+      if (orientation === 'horizontal') {
+        const zero = Number(base.getAttribute('x1'));
+        expect(gain!.x).toBeCloseTo(zero);
+        expect(loss!.x + loss!.w).toBeCloseTo(zero);
+        expect(lossLabel.getAttribute('text-anchor')).toBe('end');
+        expect(Number(lossLabel.getAttribute('x'))).toBeLessThan(loss!.x);
+      } else {
+        const zero = Number(base.getAttribute('y1'));
+        expect(gain!.y + gain!.h).toBeCloseTo(zero);
+        expect(loss!.y).toBeCloseTo(zero);
+        expect(Number(lossLabel.getAttribute('y'))).toBeGreaterThan(loss!.y + loss!.h);
+      }
+      expect(gain!.h > 0 && loss!.h > 0 && gain!.w > 0 && loss!.w > 0).toBe(true);
+    }
 
     host.bars.set([{ label: 'Bad', value: Number.POSITIVE_INFINITY }]);
     await fixture.whenStable();
