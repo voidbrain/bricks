@@ -1,61 +1,22 @@
 # <a id="top"></a>bricks backlog
 
-Current work ledger, reviewed 26 November 2026 against main `616bb47` ([log](archive/reconciliation-2026.md); PRs #1 to #19 merged, CI green, #10 and #12 are the 0.2.0 and 0.3.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
+Current work ledger, reviewed 27 November 2026 against main `0f04e9b` ([log](archive/reconciliation-2026.md); PRs #1 to #30 merged, CI green, #10, #12 and #25 are the 0.2.0, 0.3.0 and 0.4.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 58.75 h agent + 0.25 h owner across 53 open steps of 15 features and 1 other record. 0.25 h of actual effort recorded on 1 step. Generated from the task files.
+**Remaining effort:** 58.75 h agent + 0.25 h owner across 41 open steps of 15 features. 0.25 h of actual effort recorded on 1 step. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
 
 Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = remaining agent time (🟢 up to 1 h · 🟡 4 h · 🔴 8 h · 🟣 more); `h` = agent hours, owner time apart; a step status is not the record's acceptance.
 
-### <a id="f-005"></a>[✨ F-005](#top)
-
-**Semantic versioning and a changelog**
-
-| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
-|---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟢 Small | 1 h | — | [F-004-T04](#f-004-t04) | 🤖 | — | — |
-
-💻 **→** Next: F-005-T01 — CHANGELOG.md and the version-to-changelog check (Implemented; verification pending).
-
-| | |
-|---|---|
-| **Issue** | Consumers pin a version of `@voidbrain/bricks`, so every release needs a semantic version and a changelog entry saying what changed and what breaks. Before 1.0.0 a minor version may break, and the changelog says so. |
-| **Reproduce** | There is no CHANGELOG.md and no rule tying a package version to an entry. |
-| **Check** | CHANGELOG.md (Keep a Changelog layout) with 0.1.0; a project check fails CI when `projects/bricks/package.json` changes version without a matching changelog heading; the release procedure (version, changelog, tag `vX.Y.Z`) is written in docs/agents/areas.md. |
-
-**Feature steps**
-
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
-|---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-005-t01"></a>F-005-T01 — CHANGELOG.md and the version-to-changelog check | 3 h | 0 h | 0 h | Implemented; verification pending | — | [F-004-T04](#f-004-t04), [F-005-T02](#f-005-t02) |
-| 🟢 Small | <a id="f-005-t02"></a>F-005-T02 — Release procedure: version, changelog, tag | 1 h | 0 h | 1 h | Planned | [F-005-T01](#f-005-t01) | — |
-| 🟢 Small | **Total** | 4 h | 0 h (0 of 2 steps recorded) | 1 h | 0 of 2 completed | | |
-
-<details>
-<summary>Next action, estimates and PR history</summary>
-
-[Full notes & evidence](work/records/F-005.md)
-
-| Field | Value |
-|---|---|
-| PR / evidence | [#5](https://github.com/voidbrain/bricks/pull/5) |
-| Opened | 2026-11-25 |
-| Verification | Pending |
-| Reviewed | 2026-11-25 |
-
-</details>
-
----
 ### <a id="f-004"></a>[✨ F-004](#top)
 
 **Publish the package on npm with trusted publishing**
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟢 Small | 1 h | [F-005-T01](#f-005-t01) | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🟢 Small | 1 h | — | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | 🤖 | — | — |
 
 💻 **→** Next: F-004-T01 — Registry decision: public npm with trusted publishing (Implemented; verification pending).
 
@@ -70,16 +31,16 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
 |---|---|---|---|---|---|---|---|:---:|---|
 | 🟢 Small | <a id="f-004-t01"></a>F-004-T01 — Registry decision: public npm with trusted publishing | 0 h | 0 h | 0 h | Implemented; verification pending | — | — | 🤖 | [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded |
-| 🟢 Small | <a id="f-004-t04"></a>F-004-T04 — Release workflow with npm trusted publishing | 3 h | 0 h | 0 h | Implemented; verification pending | [F-005-T01](#f-005-t01) | — | 🤖 | [PR #6](https://github.com/voidbrain/bricks/pull/6) release.yml; [PR #11](https://github.com/voidbrain/bricks/pull/11) publish without token fallback, pinned npm |
 | 🟢 Small | <a id="f-004-t06"></a>F-004-T06 — First trusted publish (0.3.0) and an install check | 1 h | 0 h | 1 h | Planned | — | [F-006-T03](#f-006-t03), [F-007-T03](#f-007-t03), [F-008-T02](#f-008-t02), [F-009-T02](#f-009-t02) | 🤖 | — |
-| 🟢 Small | **Total** | 4 h | 0 h (0 of 6 steps recorded) | 1 h | 3 of 6 completed | | | | |
+| 🟢 Small | **Total** | 4 h | 0 h (0 of 6 steps recorded) | 1 h | 4 of 6 completed | | | | |
 
-<details><summary>Done steps (3)</summary>
+<details><summary>Done steps (4)</summary>
 
 | Effort | Step | Estimate | Actual | Status | PRs |
 |---|---|---|---|---|---|
 | 🟢 Small | <a id="f-004-t02"></a>F-004-T02 — 🧑‍🔧 Owner creates or confirms the npm account | 0 h | 0 h | Verified | — |
 | 🟢 Small | <a id="f-004-t03"></a>F-004-T03 — 🧑‍🔧 Owner creates the npm organisation voidbrain | 0 h | 0 h | Verified | — |
+| — | <a id="f-004-t04"></a>F-004-T04 — Release workflow with npm trusted publishing | 3 h | 0 h | Completed | [PR #6](https://github.com/voidbrain/bricks/pull/6) release.yml; [PR #11](https://github.com/voidbrain/bricks/pull/11) publish without token fallback, pinned npm |
 | 🟢 Small | <a id="f-004-t05"></a>F-004-T05 — Owner enables trusted publishing for voidbrain/bricks | 0 h | 0 h | Verified | — |
 
 </details>
@@ -91,10 +52,10 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-004-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded · F-004-T04: [PR #6](https://github.com/voidbrain/bricks/pull/6) release.yml; [PR #11](https://github.com/voidbrain/bricks/pull/11) publish without token fallback, pinned npm. [#1](https://github.com/voidbrain/bricks/pull/1), [#2](https://github.com/voidbrain/bricks/pull/2) (npm organisation created), [#3](https://github.com/voidbrain/bricks/pull/3) (owner steps marked, status Open); [#6](https://github.com/voidbrain/bricks/pull/6), [#11](https://github.com/voidbrain/bricks/pull/11) (publish without token fallback) |
+| PR / evidence | Steps: F-004-T01: [PR #1](https://github.com/voidbrain/bricks/pull/1) registry decision recorded · F-004-T04: [PR #6](https://github.com/voidbrain/bricks/pull/6) release.yml; [PR #11](https://github.com/voidbrain/bricks/pull/11) publish without token fallback, pinned npm. [#1](https://github.com/voidbrain/bricks/pull/1), [#2](https://github.com/voidbrain/bricks/pull/2) (npm organisation created), [#3](https://github.com/voidbrain/bricks/pull/3) (owner steps marked, status Open); [#6](https://github.com/voidbrain/bricks/pull/6), [#11](https://github.com/voidbrain/bricks/pull/11) (publish without token fallback); [#22](https://github.com/voidbrain/bricks/pull/22); [#25](https://github.com/voidbrain/bricks/pull/25) (0.4.0 release, CI 45839961832 and release run 45840855018 green) |
 | Opened | 2026-11-25 |
-| Verification | Pending |
-| Reviewed | 2026-11-25 |
+| Verification | Unit/integration · 2026-11-27 · F-004-T04 and F-004-T05 verified by trusted-publishing releases v0.3.0 (run 45722880536) and v0.4.0 (run 45840855018); F-004-T01 visual check and F-004-T06 scratch Angular 22 install · Pending |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -185,15 +146,61 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 </details>
 
 ---
+### <a id="f-005"></a>[✨ F-005](#top)
+
+**Semantic versioning and a changelog**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔶 P2 | 🟢 Small | 1 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-005-T02 — Release procedure: version, changelog, tag (Planned).
+
+| | |
+|---|---|
+| **Issue** | Consumers pin a version of `@voidbrain/bricks`, so every release needs a semantic version and a changelog entry saying what changed and what breaks. Before 1.0.0 a minor version may break, and the changelog says so. |
+| **Reproduce** | There is no CHANGELOG.md and no rule tying a package version to an entry. |
+| **Check** | CHANGELOG.md (Keep a Changelog layout) with 0.1.0; a project check fails CI when `projects/bricks/package.json` changes version without a matching changelog heading; the release procedure (version, changelog, tag `vX.Y.Z`) is written in docs/agents/areas.md. |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status |
+|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-005-t02"></a>F-005-T02 — Release procedure: version, changelog, tag | 1 h | 0 h | 1 h | Planned |
+| 🟢 Small | **Total** | 4 h | 0 h (0 of 2 steps recorded) | 1 h | 1 of 2 completed |
+
+<details><summary>Done steps (1)</summary>
+
+| Effort | Step | Estimate | Actual | Status |
+|---|---|---|---|---|
+| — | <a id="f-005-t01"></a>F-005-T01 — CHANGELOG.md and the version-to-changelog check | 3 h | 0 h | Completed |
+
+</details>
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-005.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | [#5](https://github.com/voidbrain/bricks/pull/5) (CI 45712544876 green) |
+| Opened | 2026-11-25 |
+| Verification | Unit/integration · 2026-11-27 · F-005-T01 verified in #5 CI 45712544876 (`check:changelog`, `test:tools`); F-005-T02 · Pending |
+| Reviewed | 2026-11-27 |
+
+</details>
+
+---
 ### <a id="f-006"></a>[✨ F-006](#top)
 
 **NERV adoption: what bricks ships for NERV**
 
 | Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
 |---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔶 P2 | 🟡 Medium | 2 h | [F-004-T06](#f-004-t06) | — | 🤖 | — | — |
+| 🔴 Open | 🔶 P2 | 🟡 Medium | 2 h | [F-004-T06](#f-004-t06) | — | ⏳ | — | — |
 
-💻 **→** Next: F-006-T01 — Inventory NERV's UI against bricks (Implemented; verification pending).
+💻 **→** Next: F-006-T03 — Migration note for NERV and the release that carries it (Planned).
 
 | | |
 |---|---|
@@ -205,15 +212,22 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
 |---|---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-006-t01"></a>F-006-T01 — Inventory NERV's UI against bricks | 2 h | 0 h | 0 h | Implemented; verification pending | — | [F-006-T02](#f-006-t02), [F-006-T03](#f-006-t03), [F-006-T04](#f-006-t04), [F-006-T05](#f-006-t05), [F-006-T06](#f-006-t06), [F-006-T07](#f-006-t07), [F-006-T08](#f-006-t08) | [PR #13](https://github.com/voidbrain/bricks/pull/13) NERV UI inventory against bricks 0.3.0, recorded in F-006 (feeds nerv:F-130) |
-| 🟢 Small | <a id="f-006-t02"></a>F-006-T02 — Eva light mode and the five accents as theme variants | 5 h | 0 h | 0 h | Implemented; verification pending | [F-006-T01](#f-006-t01) | [F-006-T08](#f-006-t08) | [PR #20](https://github.com/voidbrain/bricks/pull/20) theme simple, data-bx-mode and data-bx-accent (20 combinations), catalogue switcher |
-| 🟢 Small | <a id="f-006-t04"></a>F-006-T04 — Card header and stat tile | 2.5 h | 0 h | 0 h | Implemented; verification pending | [F-006-T01](#f-006-t01) | — | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #16](https://github.com/voidbrain/bricks/pull/16) bx-card header (heading, meta slot, eva bar and glow tokens) and bx-stat |
-| 🟢 Small | <a id="f-006-t05"></a>F-006-T05 — Compact button, outlined badge, meter, disclosure, inline alert, sr-only and phone columns | 3 h | 0 h | 0 h | Implemented; verification pending | [F-006-T01](#f-006-t01) | — | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #17](https://github.com/voidbrain/bricks/pull/17) compact button, outlined/dashed badge, meter, disclosure, inline alert, bx-sr-only, bx-columns-phone |
-| 🟢 Small | <a id="f-006-t06"></a>F-006-T06 — Timeline and avatar with stack | 2 h | 0 h | 0 h | Implemented; verification pending | [F-006-T01](#f-006-t01) | — | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #18](https://github.com/voidbrain/bricks/pull/18) bx-timeline, bx-timeline-item, bx-avatar, bx-avatar-stack |
-| 🟢 Small | <a id="f-006-t07"></a>F-006-T07 — Message log, composer and listbox menu | 2 h | 0 h | 0 h | Implemented; verification pending | [F-006-T01](#f-006-t01) | — | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #19](https://github.com/voidbrain/bricks/pull/19) bx-message-log, bx-message, bx-composer, bx-listbox (slash-command combobox) |
-| 🟢 Small | <a id="f-006-t08"></a>F-006-T08 — Brand and series colour tokens | 1 h | 0 h | 0 h | Implemented; verification pending | [F-006-T01](#f-006-t01), [F-006-T02](#f-006-t02) | — | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #21](https://github.com/voidbrain/bricks/pull/21) --bx-brand-&#42; and --bx-series-&#42; semantic tokens |
-| 🟡 Medium | <a id="f-006-t03"></a>F-006-T03 — Migration note for NERV and the release that carries it | 2 h | 0 h | 2 h | Planned | [F-006-T01](#f-006-t01), [F-004-T06](#f-004-t06) | — | — |
-| 🟡 Medium | **Total** | 19.5 h | 0 h (0 of 8 steps recorded) | 2 h | 0 of 8 completed | | | |
+| 🟡 Medium | <a id="f-006-t03"></a>F-006-T03 — Migration note for NERV and the release that carries it | 2 h | 0 h | 2 h | Planned | [F-004-T06](#f-004-t06) | — | — |
+| 🟡 Medium | **Total** | 19.5 h | 0 h (0 of 8 steps recorded) | 2 h | 7 of 8 completed | | | |
+
+<details><summary>Done steps (7)</summary>
+
+| Effort | Step | Estimate | Actual | Status | PRs |
+|---|---|---|---|---|---|
+| — | <a id="f-006-t01"></a>F-006-T01 — Inventory NERV's UI against bricks | 2 h | 0 h | Completed | [PR #13](https://github.com/voidbrain/bricks/pull/13) NERV UI inventory against bricks 0.3.0, recorded in F-006 (feeds nerv:F-130) |
+| — | <a id="f-006-t02"></a>F-006-T02 — Eva light mode and the five accents as theme variants | 5 h | 0 h | Completed | [PR #20](https://github.com/voidbrain/bricks/pull/20) theme simple, data-bx-mode and data-bx-accent (20 combinations), catalogue switcher |
+| — | <a id="f-006-t04"></a>F-006-T04 — Card header and stat tile | 2.5 h | 0 h | Completed | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #16](https://github.com/voidbrain/bricks/pull/16) bx-card header (heading, meta slot, eva bar and glow tokens) and bx-stat |
+| — | <a id="f-006-t05"></a>F-006-T05 — Compact button, outlined badge, meter, disclosure, inline alert, sr-only and phone columns | 3 h | 0 h | Completed | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #17](https://github.com/voidbrain/bricks/pull/17) compact button, outlined/dashed badge, meter, disclosure, inline alert, bx-sr-only, bx-columns-phone |
+| — | <a id="f-006-t06"></a>F-006-T06 — Timeline and avatar with stack | 2 h | 0 h | Completed | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #18](https://github.com/voidbrain/bricks/pull/18) bx-timeline, bx-timeline-item, bx-avatar, bx-avatar-stack |
+| — | <a id="f-006-t07"></a>F-006-T07 — Message log, composer and listbox menu | 2 h | 0 h | Completed | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #19](https://github.com/voidbrain/bricks/pull/19) bx-message-log, bx-message, bx-composer, bx-listbox (slash-command combobox) |
+| — | <a id="f-006-t08"></a>F-006-T08 — Brand and series colour tokens | 1 h | 0 h | Completed | [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #21](https://github.com/voidbrain/bricks/pull/21) --bx-brand-&#42; and --bx-series-&#42; semantic tokens |
+
+</details>
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -224,46 +238,8 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 |---|---|
 | PR / evidence | Steps: F-006-T01: [PR #13](https://github.com/voidbrain/bricks/pull/13) NERV UI inventory against bricks 0.3.0, recorded in F-006 (feeds nerv:F-130) · F-006-T02: [PR #20](https://github.com/voidbrain/bricks/pull/20) theme simple, data-bx-mode and data-bx-accent (20 combinations), catalogue switcher · F-006-T04: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #16](https://github.com/voidbrain/bricks/pull/16) bx-card header (heading, meta slot, eva bar and glow tokens) and bx-stat · F-006-T05: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #17](https://github.com/voidbrain/bricks/pull/17) compact button, outlined/dashed badge, meter, disclosure, inline alert, bx-sr-only, bx-columns-phone · F-006-T06: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #18](https://github.com/voidbrain/bricks/pull/18) bx-timeline, bx-timeline-item, bx-avatar, bx-avatar-stack · F-006-T07: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #19](https://github.com/voidbrain/bricks/pull/19) bx-message-log, bx-message, bx-composer, bx-listbox (slash-command combobox) · F-006-T08: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #21](https://github.com/voidbrain/bricks/pull/21) --bx-brand-&#42; and --bx-series-&#42; semantic tokens. F-006-T01 inventory (2026-11-26); [#13](https://github.com/voidbrain/bricks/pull/13); [#16](https://github.com/voidbrain/bricks/pull/16); [#17](https://github.com/voidbrain/bricks/pull/17); [#18](https://github.com/voidbrain/bricks/pull/18); [#19](https://github.com/voidbrain/bricks/pull/19); [#20](https://github.com/voidbrain/bricks/pull/20); [#21](https://github.com/voidbrain/bricks/pull/21) |
 | Opened | 2026-11-25 |
-| Verification | Pending |
-| Reviewed | 2026-11-26 |
-
-</details>
-
----
-### <a id="b-001"></a>[🐞 B-001](#top)
-
-**The contrast check reads a translucent colour as opaque**
-
-| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
-|---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🟢 Small | 0 h | — | — | 🤖 | — | — |
-
-💻 **→** Next: B-001-T01 — Composite translucent colours in the contrast check (Implemented; verification pending).
-
-| | |
-|---|---|
-| **Issue** | The in-page contrast helper of the browser suite (`e2e/catalogue.spec.ts`, `contrastFailures`) kept only red, green and blue of a computed colour, so a translucent token was measured as opaque: black at 10 % on white passed at 21:1 instead of about 1.2:1. Found by the coordinator's dormant-checks sweep, 2026-11-26 (C4, proposal 14). |
-| **Reproduce** | On `main` `d94b3fc`: a section with `--bx-surface: #ffffff` and `--bx-text: rgba(0, 0, 0, 0.1)` gives no `--bx-text on --bx-surface` failure. |
-| **Check** | The regression test "the contrast check composites a translucent colour over its background instead of reading it as opaque" (committed failing first) passes; foregrounds are composited over their background, a translucent background over the theme surface, a translucent surface over the white page; every theme and the 20 combinations still pass. |
-
-**Steps**
-
-| Effort | Step | Estimate | Actual | Remaining | Status | PRs |
-|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="b-001-t01"></a>B-001-T01 — Composite translucent colours in the contrast check | 0.5 h | 0 h | 0 h | Implemented; verification pending | [PR #23](https://github.com/voidbrain/bricks/pull/23) alpha compositing |
-| 🟢 Small | **Total** | 0.5 h | 0 h (0 of 1 steps recorded) | 0 h | 0 of 1 completed | |
-
-<details>
-<summary>Next action, estimates and PR history</summary>
-
-[Full notes & evidence](work/records/B-001.md)
-
-| Field | Value |
-|---|---|
-| PR / evidence | Steps: B-001-T01: [PR #23](https://github.com/voidbrain/bricks/pull/23) alpha compositing. [#23](https://github.com/voidbrain/bricks/pull/23) |
-| Opened | 2026-11-26 |
-| Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Verification | Browser/accessibility · 2026-11-27 · F-006-T01 (#13), F-006-T02 (#20 CI 45788369718) and F-006-T04–T08 (#16–#19, #21 CI 45789916167) passed CI and catalogue browser suite, released in 0.4.0 (#25); Documentation · Pending (F-006-T03 migration note) |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -377,10 +353,10 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | [#22](https://github.com/voidbrain/bricks/pull/22) |
+| PR / evidence | [#22](https://github.com/voidbrain/bricks/pull/22) (green CI) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -393,7 +369,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 |---|---|---|---|---|---|:---:|:---:|:---:|
 | 🔴 Open | 🔹 P3 | 🟡 Medium | 1.25 h | — | — | 🤖 | — | — |
 
-💻 **→** Next: F-011-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings (Implemented; verification pending).
+💻 **→** Next: F-011-T03 — First token and skills reviews (Planned).
 
 | | |
 |---|---|
@@ -405,11 +381,18 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Effort | Step | Estimate | Actual | Remaining | Status | PRs |
 |---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-011-t01"></a>F-011-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings | 0.25 h | 0 h | 0 h | Implemented; verification pending | [PR #23](https://github.com/voidbrain/bricks/pull/23) settings on |
-| 🟢 Small | <a id="f-011-t02"></a>F-011-T02 — First architecture review with outside-landscape comparison | 0.5 h | 0 h | 0 h | Implemented; verification pending | [PR #23](https://github.com/voidbrain/bricks/pull/23) first architecture review |
 | 🟢 Small | <a id="f-011-t03"></a>F-011-T03 — First token and skills reviews | 1 h | 0 h | 1 h | Planned | — |
 | 🟢 Small | <a id="f-011-t04"></a>F-011-T04 — Confirm the scheduled maintenance run | 0.25 h | 0 h | 0.25 h | Planned | — |
-| 🟡 Medium | **Total** | 2 h | 0 h (0 of 4 steps recorded) | 1.25 h | 0 of 4 completed | |
+| 🟡 Medium | **Total** | 2 h | 0 h (0 of 4 steps recorded) | 1.25 h | 2 of 4 completed | |
+
+<details><summary>Done steps (2)</summary>
+
+| Effort | Step | Estimate | Actual | Status | PRs |
+|---|---|---|---|---|---|
+| — | <a id="f-011-t01"></a>F-011-T01 — Reviews, coverage enforcement, work usage and behaviour runner settings | 0.25 h | 0 h | Completed | [PR #23](https://github.com/voidbrain/bricks/pull/23) settings on |
+| — | <a id="f-011-t02"></a>F-011-T02 — First architecture review with outside-landscape comparison | 0.5 h | 0 h | Completed | [PR #23](https://github.com/voidbrain/bricks/pull/23) first architecture review |
+
+</details>
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -418,10 +401,10 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-011-T01: [PR #23](https://github.com/voidbrain/bricks/pull/23) settings on · F-011-T02: [PR #23](https://github.com/voidbrain/bricks/pull/23) first architecture review. [#23](https://github.com/voidbrain/bricks/pull/23) |
+| PR / evidence | Steps: F-011-T01: [PR #23](https://github.com/voidbrain/bricks/pull/23) settings on · F-011-T02: [PR #23](https://github.com/voidbrain/bricks/pull/23) first architecture review. [#23](https://github.com/voidbrain/bricks/pull/23) (CI 45799175183 green) |
 | Opened | 2026-11-26 |
-| Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Verification | Unit/integration · 2026-11-27 · F-011-T01 and F-011-T02 verified in #23 CI 45799175183 (coverage enforced, architecture review current); manual maintenance run 45798439293 and 2026-11-26 schedule run 45878730658 green; Pending: F-011-T03 and 2026-11-27 schedule run (F-011-T04) |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -457,10 +440,10 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-012-T01: [PR #24](https://github.com/voidbrain/bricks/pull/24) plan · F-012-T02: [PR #24](https://github.com/voidbrain/bricks/pull/24) plan. [#24](https://github.com/voidbrain/bricks/pull/24) (plan); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
+| PR / evidence | Steps: F-012-T01: [PR #24](https://github.com/voidbrain/bricks/pull/24) plan · F-012-T02: [PR #24](https://github.com/voidbrain/bricks/pull/24) plan. [#24](https://github.com/voidbrain/bricks/pull/24) (plan, green CI); [report](https://github.com/voidbrain/coordinator/blob/main/docs/reviews/2026-11-26-nerv-practices-transfer.md); owner decision 2026-11-26 |
 | Opened | 2026-11-26 |
 | Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -497,10 +480,10 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-013-T01: [PR #27](https://github.com/voidbrain/bricks/pull/27) plan · F-013-T02: [PR #27](https://github.com/voidbrain/bricks/pull/27) plan · F-013-T03: [PR #27](https://github.com/voidbrain/bricks/pull/27) plan. Plan: [#27](https://github.com/voidbrain/bricks/pull/27) |
+| PR / evidence | Steps: F-013-T01: [PR #27](https://github.com/voidbrain/bricks/pull/27) plan · F-013-T02: [PR #27](https://github.com/voidbrain/bricks/pull/27) plan · F-013-T03: [PR #27](https://github.com/voidbrain/bricks/pull/27) plan. Plan: [#27](https://github.com/voidbrain/bricks/pull/27) (green CI) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -536,10 +519,10 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-015-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-015-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) |
+| PR / evidence | Steps: F-015-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-015-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) (green CI) |
 | Opened | 2026-11-26 |
 | Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -627,10 +610,10 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Steps: F-014-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T03: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T04: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T05: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T06: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T07: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29). Decision T01, T02: [#30](https://github.com/voidbrain/bricks/pull/30) |
+| PR / evidence | Steps: F-014-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T03: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T04: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T05: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T06: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T07: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) (green CI). Decision T01, T02: [#30](https://github.com/voidbrain/bricks/pull/30) (CI 45909118496 green) |
 | Opened | 2026-11-26 |
-| Verification | Pending |
-| Reviewed | 2026-11-26 |
+| Verification | Documentation & Human · 2026-11-27 · F-014-T01 and F-014-T02 closed (#30 CI 45909118496 green); F-014-T03–T07 · Pending |
+| Reviewed | 2026-11-27 |
 
 </details>
 
@@ -680,8 +663,8 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 |---|---|
 | PR / evidence | Steps: F-003-T01: [PR #7](https://github.com/voidbrain/bricks/pull/7) button, input, select, toggle and tag primitives (first consumer: NERV F-130 dashboard) · F-003-T03: [PR #9](https://github.com/voidbrain/bricks/pull/9) framework-free live-view helper and catalogue demo (demand: NERV B-145 non-Angular live views) · F-003-T07: [PR #8](https://github.com/voidbrain/bricks/pull/8) layout classes, breakpoints, safe-area tokens and the icon set. [#7](https://github.com/voidbrain/bricks/pull/7) (F-003-T01); Test: `projects/bricks/components/primitives.spec.ts` and `e2e/catalogue.spec.ts` (`bbe6399`); Review: independent review on PR #7 2026-11-25 (Claude Opus 5.5): tokens, themes, keyboard, focus and exports checked; added `touch` on blur so reactive and signal forms mark controls touched (`projects/bricks/components/forms.spec.ts`); [#8](https://github.com/voidbrain/bricks/pull/8) (F-003-T07); [#9](https://github.com/voidbrain/bricks/pull/9) (F-003-T03); Test: `projects/bricks/live/live.spec.ts` (`83a32d6`); Review: independent review on PR #9 2026-11-26 (Claude Opus 5.5): render-once, changed-value-only and keyed add/move/remove/patch checked against node identity and MutationObserver; exports, purity lint, three themes with axe checked; added duplicate-key, move, N to 0 to N tests and an `on*` attribute guard in `setAttr`, and documented the Angular hosting pattern in `docs/STYLE-GUIDE.md` |
 | Opened | 2026-11-25 |
-| Verification | Pending |
-| Reviewed | 2026-11-25 |
+| Verification | Unit/integration & Browser/accessibility · 2026-11-26 · F-003-T01 (#7), F-003-T07 (#8) and F-003-T03 (#9) verified on green CI (#22 green CI); F-003-T02, F-003-T04–T06 · Pending |
+| Reviewed | 2026-11-27 |
 
 </details>
 

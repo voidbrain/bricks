@@ -4,7 +4,7 @@
   "parent": "F-006",
   "title": "Inventory NERV's UI against bricks",
   "goal": "A list of what NERV needs from bricks, in order",
-  "status": "implemented",
+  "status": "closed",
   "acceptance": [
     "NERV web/src, dashboard and style guide read (read only); each need mapped to a bricks piece or an F-003 step",
     "The list recorded here with dates"
@@ -31,8 +31,8 @@
   "effort": {
     "size": "medium",
     "estimate": "0 remaining",
-    "basis": "Done 2026-11-26 in one PR (documentation only); verification is its CI. No actual: the step's start time was not recorded.",
-    "reviewed": "2026-11-26",
+    "basis": "Done 2026-11-26 in #13 (CI 45768595268 green). No actual: the step's start time was not recorded. Closed 2026-11-27.",
+    "reviewed": "2026-11-27",
     "agentHours": 0,
     "ownerHours": 0,
     "baselineAgentHours": 2,
