@@ -1,6 +1,6 @@
 {
   "name": "@voidbrain/bricks",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Bricks: shared Angular UI library for the voidbrain projects (tokens, themes, components, genUI surfaces)",
   "license": "MIT",
   "repository": {
