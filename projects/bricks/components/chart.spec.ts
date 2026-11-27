@@ -266,6 +266,7 @@ describe('bx-line-chart', () => {
   template: `
     <bx-bar-chart
       label="Flights per month"
+      height="240"
       unit="flights"
       [orientation]="orientation()"
       [bars]="bars()"
@@ -274,6 +275,7 @@ describe('bx-line-chart', () => {
     />
     <bx-stacked-bar-chart
       label="Records per status"
+      height="240"
       [orientation]="orientation()"
       [categories]="categories()"
       [series]="stacks()"
@@ -503,5 +505,41 @@ describe('bx-donut-chart', () => {
     host.slices.set([{ label: 'Zero', value: 0 }]);
     await fixture.whenStable();
     expect(chart.querySelector('svg')).toBeNull();
+  });
+});
+
+describe('bar, stacked bar and donut pointer and focus', () => {
+  it('shows the hovered item until the pointer leaves, the focused one until blur, and selects on click', async () => {
+    const { fixture, host, el } = await renderCharts();
+    expect(el.querySelector('bx-bar-chart svg')?.getAttribute('viewBox')).toBe('0 0 800 240');
+    expect(el.querySelector('bx-stacked-bar-chart svg')?.getAttribute('viewBox')).toBe(
+      '0 0 800 240',
+    );
+    const cases = [
+      ['bx-bar-chart', 'Oct: 9 flights', () => host.pickedBar()],
+      ['bx-stacked-bar-chart', 'Done, alpha: 5 (62.5 %)', () => host.pickedSegment()],
+      ['bx-donut-chart', 'Storage: 3 packs (30 %)', () => host.pickedSlice()],
+    ] as const;
+    for (const [selector, text, picked] of cases) {
+      const chart = el.querySelector(selector)!;
+      const item = chart.querySelectorAll<SVGGElement>('g.datum')[1]!;
+      const readout = () => chart.querySelector('.readout')?.textContent?.trim() ?? null;
+      item.dispatchEvent(new MouseEvent('mouseenter'));
+      await fixture.whenStable();
+      expect(readout(), selector).toBe(text);
+      expect(item.hasAttribute('data-hovered')).toBe(true);
+      item.dispatchEvent(new MouseEvent('mouseleave'));
+      await fixture.whenStable();
+      expect(readout(), selector).toBeNull();
+      item.dispatchEvent(new FocusEvent('focus'));
+      await fixture.whenStable();
+      expect(readout(), selector).toBe(text);
+      item.dispatchEvent(new FocusEvent('blur'));
+      await fixture.whenStable();
+      expect(readout(), selector).toBeNull();
+      expect(item.getAttribute('tabindex')).toBe('0');
+      item.dispatchEvent(new MouseEvent('click'));
+      expect(picked(), selector).not.toBeNull();
+    }
   });
 });
