@@ -3,7 +3,7 @@
 Current work ledger, reviewed 27 November 2026 against main `d76419f` ([log](archive/reconciliation-2026.md); PRs #1 to #31 merged, CI green, #10, #12 and #25 are the 0.2.0, 0.3.0 and 0.4.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 51.75 h agent + 0.25 h owner across 36 open steps of 14 features. Generated from the task files.
+**Remaining effort:** 53.25 h agent + 0.25 h owner across 38 open steps of 15 features. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -521,6 +521,45 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 |---|---|
 | PR / evidence | Steps: F-015-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-015-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) (green CI) |
 | Opened | 2026-11-26 |
+| Verification | Pending |
+| Reviewed | 2026-11-27 |
+
+</details>
+
+---
+### <a id="f-016"></a>[✨ F-016](#top)
+
+**Chart time axes in the viewer's local time**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟡 Medium | 1.5 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-016-T01 — Local-time labels for the line chart's time axis (Planned).
+
+| | |
+|---|---|
+| **Issue** | Request from 🪴 Grover (grover:F-029, 2026-11-27) on adopting 0.5.0: `bx-line-chart` with `axisMode="time"` labels its axis, readout, `<desc>` and data table through `formatChartTime`, which reads UTC (`getUTCHours`, `getUTCDate`). A grow on a Pi in Italy reads "23:00" for local midnight. Grover works around it by shifting every instant by the browser's offset and labelling each point itself (`apps/client/src/app/plant/plant-charts.ts`, `localAxis`, `localStamp`); a consumer should not have to. |
+| **Reproduce** | `projects/bricks/components/chart-base.ts` `formatChartTime` uses the UTC getters; `line-chart.ts` `formatX` calls it for the axis ticks (`xStart`, `xMid`, `xEnd`) and for every point without a `label`; no input chooses the zone. |
+| **Check** | A time-axis line chart can label in the viewer's local time (an input such as `timeZone: 'utc' \| 'local'`, or a consumer formatter; the choice and the default recorded in docs/decisions/charts.md), with unit tests that hold in any test-machine zone and a catalogue example (F-016-T01); it ships in a release and Grover is told the version, so grover:F-029's workaround can go (F-016-T02). |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
+|---|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-016-t01"></a>F-016-T01 — Local-time labels for the line chart's time axis | 1 h | 0 h | 1 h | Planned | — | [F-016-T02](#f-016-t02) |
+| 🟢 Small | <a id="f-016-t02"></a>F-016-T02 — Release the local-time axis | 0.5 h | 0 h | 0.5 h | Planned | [F-016-T01](#f-016-t01) | — |
+| 🟡 Medium | **Total** | 1.5 h | 0 h (0 of 2 steps recorded) | 1.5 h | 0 of 2 completed | | |
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-016.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Plan: pending |
+| Opened | 2026-11-27 |
 | Verification | Pending |
 | Reviewed | 2026-11-27 |
 
