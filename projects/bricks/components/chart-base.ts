@@ -1,4 +1,11 @@
-import { Component, input } from '@angular/core';
+import {
+  Component,
+  type Signal,
+  type WritableSignal,
+  computed,
+  input,
+  linkedSignal,
+} from '@angular/core';
 import { cssVar } from '@voidbrain/bricks/tokens';
 import { BxDisclosure } from './disclosure';
 
@@ -28,6 +35,24 @@ export const CHART_SHAPES = ['circle', 'square', 'diamond', 'triangle'] as const
 export type ChartShape = (typeof CHART_SHAPES)[number];
 
 const DASH_PATTERNS = ['', '6 3', '2 3', '8 3 2 3'] as const;
+
+/**
+ * Fill overlays on a 12-unit tile, drawn in the plot colour over a series' tone so filled shapes (bars, segments,
+ * slices) differ without colour: none, hatch, dots, cross, back hatch, stripes; one per default tone (F-014-T05).
+ */
+export const CHART_PATTERNS = [
+  '',
+  'M0,12L12,0M-3,3L3,-3M9,15L15,9',
+  'M3,3h3v3h-3zM9,9h3v3h-3z',
+  'M0,6H12M6,0V12',
+  'M0,0L12,12M-3,9L3,15M9,-3L15,3',
+  'M0,3H12M0,9H12',
+] as const;
+
+/** The fill overlay (a `CHART_PATTERNS` path, `''` for none) for series `index`. */
+export function seriesPattern(index: number): string {
+  return CHART_PATTERNS[index % CHART_PATTERNS.length]!;
+}
 
 /** Maps a `ChartTone` to its semantic CSS custom property (`var(--bx-…)`). */
 export function chartToneColor(tone: ChartTone): string {
@@ -116,6 +141,23 @@ export function linearTicks(domain: readonly [number, number], count = 4): numbe
   return Array.from({ length: n }, (_, i) => lo + ((hi - lo) * i) / (n - 1));
 }
 
+/** Slots for `count` bars across `range`: the slot step, the bar width and each bar's start; `gap` (0–1) of a slot stays empty. */
+export function bandScale(
+  count: number,
+  range: readonly [number, number],
+  gap = 0.3,
+): { readonly step: number; readonly width: number; readonly start: (index: number) => number } {
+  const step = count > 0 ? (range[1] - range[0]) / count : 0;
+  const width = step * (1 - gap);
+  return { step, width, start: (index) => range[0] + step * index + (step - width) / 2 };
+}
+
+/** A share of a whole as text, `40 %`, one decimal at most. */
+export function formatChartShare(part: number, whole: number): string {
+  if (!(whole > 0) || !Number.isFinite(part)) return '—';
+  return `${Number(((part / whole) * 100).toFixed(1))} %`;
+}
+
 /** Concise axis and table number formatter with no trailing `.00` noise. */
 export function formatChartNumber(value: number): string {
   if (!Number.isFinite(value)) return '—';
@@ -156,12 +198,54 @@ export function stepChartIndex(key: string, current: number, count: number): num
   }
 }
 
+/**
+ * Roving keyboard focus, focus and hover across a chart's focusable items, reset whenever `source` (the chart's
+ * model) changes: one tab stop, arrows, Home and End move it; the readout follows focus, else hover.
+ */
+export class ChartRoving {
+  readonly tabStop: WritableSignal<number>;
+  readonly focused: WritableSignal<number>;
+  readonly hovered: WritableSignal<number>;
+  readonly active: Signal<number>;
+
+  constructor(source: Signal<unknown>) {
+    this.tabStop = linkedSignal({ source, computation: () => 0 });
+    this.focused = linkedSignal({ source, computation: () => -1 });
+    this.hovered = linkedSignal({ source, computation: () => -1 });
+    this.active = computed(() => (this.focused() >= 0 ? this.focused() : this.hovered()));
+  }
+
+  focus(index: number): void {
+    this.tabStop.set(index);
+    this.focused.set(index);
+  }
+
+  blur(index: number): void {
+    if (this.focused() === index) this.focused.set(-1);
+  }
+
+  leave(index: number): void {
+    if (this.hovered() === index) this.hovered.set(-1);
+  }
+
+  /** Moves focus for an arrow, Home or End key and returns the index to focus, else `null`. */
+  move(event: KeyboardEvent, index: number, count: number): number | null {
+    const next = stepChartIndex(event.key, index, count);
+    if (next === null) return null;
+    event.preventDefault();
+    this.focus(next);
+    return next;
+  }
+}
+
 export interface ChartLegendItem {
   readonly key: string;
   readonly label: string;
   readonly tone: ChartTone;
   readonly dash?: string;
   readonly shape?: ChartShape;
+  /** A `CHART_PATTERNS` overlay for a filled swatch. */
+  readonly pattern?: string;
   readonly detail?: string;
 }
 
@@ -247,6 +331,27 @@ let nextFrameId = 0;
                       rx="2"
                       [style.fill]="toneColor(item.tone)"
                     />
+                    @if (item.pattern) {
+                      <defs>
+                        <pattern
+                          [id]="titleId + '-swatch-' + $index"
+                          width="12"
+                          height="12"
+                          patternUnits="userSpaceOnUse"
+                          patternTransform="scale(0.5)"
+                        >
+                          <path class="pattern-mark" [attr.d]="item.pattern" />
+                        </pattern>
+                      </defs>
+                      <rect
+                        x="2"
+                        y="1"
+                        width="16"
+                        height="10"
+                        rx="2"
+                        [attr.fill]="'url(#' + titleId + '-swatch-' + $index + ')'"
+                      />
+                    }
                   }
                 </svg>
                 <span class="legend-label">{{ item.label }}</span>
@@ -350,6 +455,11 @@ let nextFrameId = 0;
       inline-size: 20px;
       block-size: 12px;
       flex: none;
+    }
+    .pattern-mark {
+      fill: var(--bx-chart-bg);
+      stroke: var(--bx-chart-bg);
+      stroke-width: 2;
     }
     .legend-detail {
       color: var(--bx-chart-axis);

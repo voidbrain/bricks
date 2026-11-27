@@ -3,7 +3,7 @@
 Current work ledger, reviewed 27 November 2026 against main `d76419f` ([log](archive/reconciliation-2026.md); PRs #1 to #31 merged, CI green, #10, #12 and #25 are the 0.2.0, 0.3.0 and 0.4.0 releases). Generated from [record sources](work/records) and [steps](work/tasks) by `npm run work:build`: edit those, not this file. [Rules](BACKLOG-RULES.md) · [Archive](archive/README.md) · [Reading the records](#how-to-use-this-file).
 
 <!-- totals:start -->
-**Remaining effort:** 56.25 h agent + 0.25 h owner across 41 open steps of 15 features. 0.5 h of actual effort recorded on 2 steps. Generated from the task files.
+**Remaining effort:** 52.25 h agent + 0.25 h owner across 41 open steps of 15 features. 0.5 h of actual effort recorded on 2 steps. Generated from the task files.
 <!-- totals:end -->
 
 ## Work items
@@ -239,6 +239,57 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | PR / evidence | Steps: F-006-T01: [PR #13](https://github.com/voidbrain/bricks/pull/13) NERV UI inventory against bricks 0.3.0, recorded in F-006 (feeds nerv:F-130) · F-006-T02: [PR #20](https://github.com/voidbrain/bricks/pull/20) theme simple, data-bx-mode and data-bx-accent (20 combinations), catalogue switcher · F-006-T04: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #16](https://github.com/voidbrain/bricks/pull/16) bx-card header (heading, meta slot, eva bar and glow tokens) and bx-stat · F-006-T05: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #17](https://github.com/voidbrain/bricks/pull/17) compact button, outlined/dashed badge, meter, disclosure, inline alert, bx-sr-only, bx-columns-phone · F-006-T06: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #18](https://github.com/voidbrain/bricks/pull/18) bx-timeline, bx-timeline-item, bx-avatar, bx-avatar-stack · F-006-T07: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #19](https://github.com/voidbrain/bricks/pull/19) bx-message-log, bx-message, bx-composer, bx-listbox (slash-command combobox) · F-006-T08: [PR #14](https://github.com/voidbrain/bricks/pull/14) plan addition; [PR #21](https://github.com/voidbrain/bricks/pull/21) --bx-brand-&#42; and --bx-series-&#42; semantic tokens. F-006-T01 inventory (2026-11-26); [#13](https://github.com/voidbrain/bricks/pull/13); [#16](https://github.com/voidbrain/bricks/pull/16); [#17](https://github.com/voidbrain/bricks/pull/17); [#18](https://github.com/voidbrain/bricks/pull/18); [#19](https://github.com/voidbrain/bricks/pull/19); [#20](https://github.com/voidbrain/bricks/pull/20); [#21](https://github.com/voidbrain/bricks/pull/21) |
 | Opened | 2026-11-25 |
 | Verification | Browser/accessibility · 2026-11-27 · F-006-T01 (#13), F-006-T02 (#20 CI 45788369718) and F-006-T04–T08 (#16–#19, #21 CI 45789916167) passed CI and catalogue browser suite, released in 0.4.0 (#25); Documentation · Pending (F-006-T03 migration note) |
+| Reviewed | 2026-11-27 |
+
+</details>
+
+---
+### <a id="f-014"></a>[✨ F-014](#top)
+
+**Chart components: line, bar, stacked bar and donut**
+
+| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
+|---|---|---|---|---|---|:---:|:---:|:---:|
+| 🔴 Open | 🔹 P3 | 🟢 Small | 0.5 h | — | — | 🤖 | — | — |
+
+💻 **→** Next: F-014-T03 — Line chart component, with the shared chart base (Implemented; verification pending).
+
+| | |
+|---|---|
+| **Issue** | Owner request 2026-11-26 (late evening): plan chart components in bricks. Consumers, each owning its adoption record: 🪴 grover:F-029 (probe readings over time, feeds and doses, plant report; it has a hand-made `apps/client/src/app/plant/plant-chart.ts` today), 🚁 fpvbuddy:F-025 (battery cycles and internal resistance, flights; after fpvbuddy:F-008 adopts bricks) and 🚦 the coordinator through NERV's live index card 𖣂 nerv:F-149 (records per status, steps per repo, PR throughput; the card itself is nerv:F-147). Bricks has no chart today and no runtime dependency besides Angular. |
+| **Reproduce** | `projects/bricks/components/public-api.ts` exports no chart; Grover draws its plant chart by hand in SVG. |
+| **Check** | A recorded decision on how charts are drawn (small library or plain SVG), how they are accessible (text alternative and data table, keyboard, no colour-only meaning) and themed (tokens only, light and dark) (F-014-T01, T02); line, bar, stacked bar and donut components, each with unit and browser tests, axe-clean in every theme, and a catalogue entry (T03 to T06); a release consumers can pin (T07). |
+
+**Feature steps**
+
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
+|---|---|---|---|---|---|---|---|:---:|---|
+| 🟢 Small | <a id="f-014-t03"></a>F-014-T03 — Line chart component, with the shared chart base | 2.5 h | 0.25 h so far (measured) | 0 h | Implemented; verification pending | — | [F-014-T04](#f-014-t04), [F-014-T06](#f-014-t06) | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #32](https://github.com/voidbrain/bricks/pull/32) line chart and shared base |
+| 🟢 Small | <a id="f-014-t04"></a>F-014-T04 — Bar chart component | 1.5 h | 0 h | 0 h | Implemented; verification pending | [F-014-T03](#f-014-t03) | [F-014-T05](#f-014-t05) | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #33](https://github.com/voidbrain/bricks/pull/33) bar chart |
+| 🟢 Small | <a id="f-014-t05"></a>F-014-T05 — Stacked bar chart component | 1 h | 0 h | 0 h | Implemented; verification pending | [F-014-T04](#f-014-t04) | [F-014-T07](#f-014-t07) | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #33](https://github.com/voidbrain/bricks/pull/33) stacked bar chart |
+| 🟢 Small | <a id="f-014-t06"></a>F-014-T06 — Donut chart component | 1.5 h | 0 h | 0 h | Implemented; verification pending | [F-014-T03](#f-014-t03) | [F-014-T07](#f-014-t07) | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #33](https://github.com/voidbrain/bricks/pull/33) donut chart |
+| 🟢 Small | <a id="f-014-t07"></a>F-014-T07 — Release the charts | 0.5 h | 0 h | 0.5 h | Planned | [F-014-T05](#f-014-t05), [F-014-T06](#f-014-t06) | — | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
+| 🟢 Small | **Total** | 7.25 h | 0.5 h (2 of 7 steps recorded) | 0.5 h | 2 of 7 completed | | | | |
+
+<details><summary>Done steps (2)</summary>
+
+| Effort | Step | Estimate | Actual | Status | PRs |
+|---|---|---|---|---|---|
+| — | <a id="f-014-t01"></a>F-014-T01 — Decision note: plain SVG for charts (no library), accessibility and theming | 0.25 h | 0.25 h (stated) | Completed | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision |
+| — | <a id="f-014-t02"></a>F-014-T02 — Owner decides how charts are drawn | 0 h | 0 h | Completed | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision |
+
+</details>
+
+<details>
+<summary>Next action, estimates and PR history</summary>
+
+[Full notes & evidence](work/records/F-014.md)
+
+| Field | Value |
+|---|---|
+| PR / evidence | Steps: F-014-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T03: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #32](https://github.com/voidbrain/bricks/pull/32) line chart and shared base · F-014-T04: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #33](https://github.com/voidbrain/bricks/pull/33) bar chart · F-014-T05: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #33](https://github.com/voidbrain/bricks/pull/33) stacked bar chart · F-014-T06: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #33](https://github.com/voidbrain/bricks/pull/33) donut chart · F-014-T07: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) (green CI). Decision T01, T02: [#30](https://github.com/voidbrain/bricks/pull/30) (CI 45909118496 green). Review: 2026-11-27 fresh-context research subagent on F-014-T03 (STYLE-GUIDE.md adapted file): fixed non-finite/single-point guards, focus/blur/hover separation, `description` `<desc>` override + marker summary, and dropped unused `--bx-chart-height`. Review: 2026-11-27 fresh Claude Opus 5.5 session that did not write the commit (Gemini's a12f6d9, finished by Claude): read the diff against the record and [charts.md](work/decisions/charts.md); plain SVG, tokens only, title/desc, data table, keyboard and axe in all 20 theme · mode · accent combinations confirmed; fixed: the hover readout duplicated each focused point's name through `aria-live`, now plain text. Review of T04–T06: 2026-11-27 design-reviewer (Opus, fresh context): one should-fix, fixed (4 fill patterns for 6 default tones let series 0/4 and 1/5 differ by colour alone; now 6 patterns, tested), negative bars now tested both ways, the Other slice's `sliceSelect` documented; no blockers. Known limit: time-axis labels are UTC (`formatChartTime`); a consumer that needs local time asks in its adoption record; [#32](https://github.com/voidbrain/bricks/pull/32); [#33](https://github.com/voidbrain/bricks/pull/33) |
+| Opened | 2026-11-26 |
+| Verification | Unit/integration & Browser · 2026-11-27 · F-014-T01 and F-014-T02 closed (#30 CI 45909118496 green); F-014-T03 unit + Playwright axe/keyboard passed locally (33/33 browser, 102 unit), awaiting PR CI; F-014-T04–T06 unit (106) and browser (34) passed locally, awaiting PR CI; F-014-T07 · Pending |
 | Reviewed | 2026-11-27 |
 
 </details>
@@ -563,57 +614,6 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 | Opened | 2026-11-25 |
 | Verification | Pending |
 | Reviewed | 2026-11-25 |
-
-</details>
-
----
-### <a id="f-014"></a>[✨ F-014](#top)
-
-**Chart components: line, bar, stacked bar and donut**
-
-| Status | Priority | Effort | Remaining | Depends on | Unlocks | Agent | Procedures | Decisions |
-|---|---|---|---|---|---|:---:|:---:|:---:|
-| 🔴 Open | 🔹 P3 | 🔴 Large | 4.5 h | — | — | 🤖 | — | — |
-
-💻 **→** Next: F-014-T03 — Line chart component, with the shared chart base (Implemented; verification pending).
-
-| | |
-|---|---|
-| **Issue** | Owner request 2026-11-26 (late evening): plan chart components in bricks. Consumers, each owning its adoption record: 🪴 grover:F-029 (probe readings over time, feeds and doses, plant report; it has a hand-made `apps/client/src/app/plant/plant-chart.ts` today), 🚁 fpvbuddy:F-025 (battery cycles and internal resistance, flights; after fpvbuddy:F-008 adopts bricks) and 🚦 the coordinator through NERV's live index card 𖣂 nerv:F-149 (records per status, steps per repo, PR throughput; the card itself is nerv:F-147). Bricks has no chart today and no runtime dependency besides Angular. |
-| **Reproduce** | `projects/bricks/components/public-api.ts` exports no chart; Grover draws its plant chart by hand in SVG. |
-| **Check** | A recorded decision on how charts are drawn (small library or plain SVG), how they are accessible (text alternative and data table, keyboard, no colour-only meaning) and themed (tokens only, light and dark) (F-014-T01, T02); line, bar, stacked bar and donut components, each with unit and browser tests, axe-clean in every theme, and a catalogue entry (T03 to T06); a release consumers can pin (T07). |
-
-**Feature steps**
-
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | Who | PRs |
-|---|---|---|---|---|---|---|---|:---:|---|
-| 🟢 Small | <a id="f-014-t03"></a>F-014-T03 — Line chart component, with the shared chart base | 2.5 h | 0.25 h so far (measured) | 0 h | Implemented; verification pending | — | [F-014-T04](#f-014-t04), [F-014-T06](#f-014-t06) | 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
-| 🟡 Medium | <a id="f-014-t04"></a>F-014-T04 — Bar chart component | 1.5 h | 0 h | 1.5 h | Planned | [F-014-T03](#f-014-t03) | [F-014-T05](#f-014-t05) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
-| 🟢 Small | <a id="f-014-t05"></a>F-014-T05 — Stacked bar chart component | 1 h | 0 h | 1 h | Planned | [F-014-T04](#f-014-t04) | [F-014-T07](#f-014-t07) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
-| 🟡 Medium | <a id="f-014-t06"></a>F-014-T06 — Donut chart component | 1.5 h | 0 h | 1.5 h | Planned | [F-014-T03](#f-014-t03) | [F-014-T07](#f-014-t07) | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
-| 🟢 Small | <a id="f-014-t07"></a>F-014-T07 — Release the charts | 0.5 h | 0 h | 0.5 h | Planned | [F-014-T05](#f-014-t05), [F-014-T06](#f-014-t06) | — | ⏳ 🤖 | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan |
-| 🔴 Large | **Total** | 7.25 h | 0.5 h (2 of 7 steps recorded) | 4.5 h | 2 of 7 completed | | | | |
-
-<details><summary>Done steps (2)</summary>
-
-| Effort | Step | Estimate | Actual | Status | PRs |
-|---|---|---|---|---|---|
-| — | <a id="f-014-t01"></a>F-014-T01 — Decision note: plain SVG for charts (no library), accessibility and theming | 0.25 h | 0.25 h (stated) | Completed | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision |
-| — | <a id="f-014-t02"></a>F-014-T02 — Owner decides how charts are drawn | 0 h | 0 h | Completed | [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision |
-
-</details>
-
-<details>
-<summary>Next action, estimates and PR history</summary>
-
-[Full notes & evidence](work/records/F-014.md)
-
-| Field | Value |
-|---|---|
-| PR / evidence | Steps: F-014-T01: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T02: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan; [PR #30](https://github.com/voidbrain/bricks/pull/30) decision · F-014-T03: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T04: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T05: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T06: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan · F-014-T07: [PR #29](https://github.com/voidbrain/bricks/pull/29) plan. Plan: [#29](https://github.com/voidbrain/bricks/pull/29) (green CI). Decision T01, T02: [#30](https://github.com/voidbrain/bricks/pull/30) (CI 45909118496 green). Review: 2026-11-27 fresh-context research subagent on F-014-T03 (STYLE-GUIDE.md adapted file): fixed non-finite/single-point guards, focus/blur/hover separation, `description` `<desc>` override + marker summary, and dropped unused `--bx-chart-height`. Review: 2026-11-27 fresh Claude Opus 5.5 session that did not write the commit (Gemini's a12f6d9, finished by Claude): read the diff against the record and [charts.md](work/decisions/charts.md); plain SVG, tokens only, title/desc, data table, keyboard and axe in all 20 theme · mode · accent combinations confirmed; fixed: the hover readout duplicated each focused point's name through `aria-live`, now plain text. Known limit: time-axis labels are UTC (`formatChartTime`); a consumer that needs local time asks in its adoption record; [#32](https://github.com/voidbrain/bricks/pull/32) |
-| Opened | 2026-11-26 |
-| Verification | Unit/integration & Browser · 2026-11-27 · F-014-T01 and F-014-T02 closed (#30 CI 45909118496 green); F-014-T03 unit + Playwright axe/keyboard passed locally (33/33 browser, 102 unit), awaiting PR CI; F-014-T04–T07 · Pending |
-| Reviewed | 2026-11-27 |
 
 </details>
 

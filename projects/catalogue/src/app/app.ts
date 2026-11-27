@@ -12,7 +12,10 @@ import {
   BxDisclosure,
   BxIcon,
   BxInput,
+  BxBarChart,
+  BxDonutChart,
   BxLineChart,
+  BxStackedBarChart,
   BxMeter,
   BxSelect,
   BxStat,
@@ -20,9 +23,12 @@ import {
   BxTimeline,
   BxTimelineItem,
   BxToggle,
+  type BarChartDatum,
+  type DonutChartSlice,
   type LineChartBand,
   type LineChartMarker,
   type LineChartSeries,
+  type StackedBarSeries,
   type SelectOption,
 } from '@voidbrain/bricks/components';
 import { ICON_NAMES } from '@voidbrain/bricks/foundations';
@@ -63,7 +69,10 @@ const SPRITE =
     BxDisclosure,
     BxIcon,
     BxInput,
+    BxBarChart,
+    BxDonutChart,
     BxLineChart,
+    BxStackedBarChart,
     BxMeter,
     BxSelect,
     BxStat,
@@ -321,6 +330,31 @@ const SPRITE =
           xHeader="Time"
           yHeader="Temperature"
         />
+        <bx-bar-chart
+          [label]="'Flights per month (' + key + ')'"
+          unit="flights"
+          [bars]="barData"
+          categoryHeader="Month"
+        />
+        <bx-bar-chart
+          [label]="'Open steps per repository (' + key + ')'"
+          orientation="horizontal"
+          [bars]="barStepsData"
+          categoryHeader="Repository"
+          valueHeader="Open steps"
+        />
+        <bx-stacked-bar-chart
+          [label]="'Records per status (' + key + ')'"
+          [categories]="stackCategories"
+          [series]="stackSeries"
+          categoryHeader="Repository"
+        />
+        <bx-donut-chart
+          [label]="'Battery states (' + key + ')'"
+          unit="packs"
+          [slices]="donutSlices"
+          [maxSlices]="5"
+        />
       </div>
 
       @if (key === 'eva') {
@@ -511,6 +545,31 @@ export class App {
   ];
   protected readonly lineMarkers: readonly LineChartMarker[] = [
     { at: Date.UTC(2026, 10, 27, 9, 0), label: 'Ventilation cycle' },
+  ];
+  protected readonly barData: readonly BarChartDatum[] = [
+    { label: 'Aug', value: 7 },
+    { label: 'Sep', value: 12 },
+    { label: 'Oct', value: 9 },
+    { label: 'Nov', value: 4 },
+  ];
+  protected readonly barStepsData: readonly BarChartDatum[] = [
+    { label: 'relay', value: 14 },
+    { label: 'garden', value: 6 },
+    { label: 'hangar', value: 9 },
+  ];
+  protected readonly stackCategories: readonly string[] = ['relay', 'garden', 'hangar'];
+  protected readonly stackSeries: readonly StackedBarSeries[] = [
+    { name: 'Open', values: [5, 2, 4] },
+    { name: 'In progress', values: [3, 1, 2] },
+    { name: 'Verified', values: [6, 3, 1] },
+  ];
+  protected readonly donutSlices: readonly DonutChartSlice[] = [
+    { label: 'Ready', value: 8 },
+    { label: 'Storage charge', value: 4 },
+    { label: 'Check due', value: 2 },
+    { label: 'Charging', value: 3 },
+    { label: 'Retired', value: 1 },
+    { label: 'Lent out', value: 1 },
   ];
   protected readonly colourTokens = SEMANTIC_TOKENS.filter((t) => !/font|radius/.test(t));
   protected readonly variantThemeOptions = options(VARIANT_THEMES);

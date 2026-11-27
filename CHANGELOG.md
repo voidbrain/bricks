@@ -9,6 +9,7 @@ All notable changes to `@voidbrain/bricks` are listed here. The format follows [
 ### Added
 
 - `@voidbrain/bricks/components`: shared chart frame and scale/axis helpers (`BxChartFrame`, `linearDomain`, `linearScale`, `linearTicks`, `formatChartNumber`, `formatChartTime`, `stepChartIndex`, `CHART_TONES`) and `bx-line-chart` (`BxLineChart`, plain SVG over number or UTC-time axes with target bands, event markers, non-colour series dashes and point glyphs, roving keyboard focus, `<title>`/`<desc>` and a `bx-disclosure` data-table fallback), plus `--bx-chart-*` component tokens in `COMPONENT_TOKENS` (F-014-T03).
+- `@voidbrain/bricks/components`: `bx-bar-chart` (`BxBarChart`, vertical or horizontal, value labels), `bx-stacked-bar-chart` (`BxStackedBarChart`, totals, series told apart by colour and fill pattern) and `bx-donut-chart` (`BxDonutChart`, percentages, centre total, an Other slice past `maxSlices`), on the shared chart frame, with the helpers `bandScale`, `formatChartShare`, `seriesPattern`, `CHART_PATTERNS` and `ChartRoving`; the legend draws a pattern swatch (F-014-T04, T05, T06).
 
 ## [0.4.0] - 2026-11-26
 

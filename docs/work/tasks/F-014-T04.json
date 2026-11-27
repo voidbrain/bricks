@@ -4,7 +4,7 @@
   "parent": "F-014",
   "title": "Bar chart component",
   "goal": "A themed, accessible bar chart for counts per category or period",
-  "status": "planned",
+  "status": "implemented",
   "acceptance": [
     "bx-bar-chart: vertical and horizontal, one series, value labels, on the shared base",
     "Unit and browser tests (keyboard, axe in every theme)",
@@ -36,10 +36,10 @@
   ],
   "effort": {
     "size": "medium",
-    "estimate": "1.5 h agent",
-    "basis": "Reuses the T03 base. Estimated 2026-11-26. Not a measurement.",
-    "reviewed": "2026-11-26",
-    "agentHours": 1.5,
+    "estimate": "0 remaining",
+    "basis": "Reuses the T03 base. Estimated 2026-11-26. Not a measurement. Implemented 2026-11-27 with T04–T06 in one PR; actual not measured separately.",
+    "reviewed": "2026-11-27",
+    "agentHours": 0,
     "baselineAgentHours": 1.5,
     "estimateAgentHours": 1.5
   },
@@ -47,6 +47,10 @@
     {
       "pr": 29,
       "note": "plan"
+    },
+    {
+      "pr": 33,
+      "note": "bar chart"
     }
   ]
 }

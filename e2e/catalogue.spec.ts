@@ -630,6 +630,49 @@ test.describe('catalogue', () => {
     await expect(disclosure.locator('table.data-table tbody tr')).toHaveCount(8);
   });
 
+  test('bar, stacked bar and donut charts: SVG title and desc, keyboard across items, non-colour patterns and a data table in every theme', async ({
+    page,
+  }) => {
+    for (const theme of THEMES) {
+      const section = page.locator(`section[data-bx-theme="${theme}"]`);
+      const bars = section.locator('bx-bar-chart');
+      await expect(bars).toHaveCount(2);
+      await expect(bars.first().locator('svg.svg > title')).toHaveText(
+        `Flights per month (${theme})`,
+      );
+      await expect(bars.first().locator('rect.bar')).toHaveCount(4);
+      await expect(bars.nth(1).locator('svg.svg > desc')).toContainText('relay: 14');
+      const stacked = section.locator('bx-stacked-bar-chart');
+      await expect(stacked.locator('rect.segment')).toHaveCount(9);
+      await expect(stacked.locator('rect.overlay')).toHaveCount(6);
+      const donut = section.locator('bx-donut-chart');
+      await expect(donut.locator('path.slice')).toHaveCount(5);
+      await expect(donut.locator('text.total')).toHaveText('19 packs');
+    }
+
+    const eva = page.locator('section[data-bx-theme="eva"]');
+    const bar = eva.locator('bx-bar-chart').first();
+    await bar.locator('g.datum').first().focus();
+    await expect(bar.locator('.readout')).toHaveText('Aug: 7 flights');
+    await page.keyboard.press('ArrowRight');
+    await expect(bar.locator('.readout')).toHaveText('Sep: 12 flights');
+    await page.keyboard.press('End');
+    await expect(bar.locator('g.datum').last()).toBeFocused();
+
+    const stacked = eva.locator('bx-stacked-bar-chart');
+    await stacked.locator('g.datum').first().focus();
+    await page.keyboard.press('ArrowRight');
+    await expect(stacked.locator('.readout')).toHaveText('In progress, relay: 3 (21.4 %)');
+    await stacked.locator('summary').click();
+    await expect(stacked.locator('table.data-table tbody tr')).toHaveCount(3);
+
+    const donut = eva.locator('bx-donut-chart');
+    await donut.locator('g.datum').last().focus();
+    await expect(donut.locator('.readout')).toHaveText('Other: 2 packs (10.5 %)');
+    await donut.locator('summary').click();
+    await expect(donut.locator('table.data-table tbody tr')).toHaveCount(6);
+  });
+
   test('the contrast check composites a translucent colour over its background instead of reading it as opaque', async ({
     page,
   }) => {
