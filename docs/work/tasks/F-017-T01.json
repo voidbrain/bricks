@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "id": "F-017-T01",
+  "parent": "F-017",
+  "title": "Decision note: the work graph component's inputs, layout and skin hook",
+  "goal": "One short page fixes what the component takes, draws and leaves to its consumer",
+  "status": "planned",
+  "acceptance": [
+    "docs/decisions/work-graph.md: plain SVG, no graph library (as docs/decisions/charts.md); the input is generic (nodes with id, label, lane, remaining and actual hours, slack, state, critical flag, link; edges from to), not the coordinator's payload type, so any consumer can feed it",
+    "Layout: layers left to right by dependency depth, one row per lane, a pure function; critical edges and nodes are marked by weight and a label, never by colour alone; slack is shown as a bar or number on the node",
+    "The component only proposes: it emits a node selection and a reorder request or a refusal; it never saves; which moves are allowed comes from the input (each node lists the nodes it may not pass), not from logic inside the component",
+    "A skin hook: a node template slot and CSS parts so a consumer can draw its own look (nerv:F-160's Eva skill tree) from tokens, with the plain look the default",
+    "A text list fallback (every node with what it depends on, what it unlocks, slack) is always in the page, shown instead of the drawing on narrow screens and by a toggle"
+  ],
+  "dependsOn": [],
+  "resources": [
+    "docs/decisions/work-graph.md",
+    "docs/decisions/charts.md",
+    "docs/work/records/F-017.md",
+    "generated:backlog-views"
+  ],
+  "capabilities": [
+    "documentation"
+  ],
+  "privacy": "Neutral invented data only; no personal data, tokens or private reports in Git.",
+  "validation": [
+    "npm run check:fast",
+    "CI"
+  ],
+  "escalation": [
+    "A material scope or effort increase goes to the owner"
+  ],
+  "effort": {
+    "size": "small",
+    "estimate": "0.5 h agent",
+    "basis": "One decision page, stated; it follows the chart decision (plain SVG, no library). Estimated 2026-11-27. Not a measurement.",
+    "reviewed": "2026-11-27",
+    "agentHours": 0.5,
+    "baselineAgentHours": 0.5,
+    "estimateAgentHours": 0.5
+  },
+  "prs": [
+    {
+      "pr": 37,
+      "note": "plan"
+    }
+  ]
+}
