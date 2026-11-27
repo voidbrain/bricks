@@ -545,11 +545,11 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 **Feature steps**
 
-| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks |
-|---|---|---|---|---|---|---|---|
-| 🟢 Small | <a id="f-016-t01"></a>F-016-T01 — Local-time labels for the line chart's time axis | 1 h | 0 h | 1 h | Planned | — | [F-016-T02](#f-016-t02) |
-| 🟢 Small | <a id="f-016-t02"></a>F-016-T02 — Release the local-time axis | 0.5 h | 0 h | 0.5 h | Planned | [F-016-T01](#f-016-t01) | — |
-| 🟡 Medium | **Total** | 1.5 h | 0 h (0 of 2 steps recorded) | 1.5 h | 0 of 2 completed | | |
+| Effort | Step | Estimate | Actual | Remaining | Status | Depends on | Unlocks | PRs |
+|---|---|---|---|---|---|---|---|---|
+| 🟢 Small | <a id="f-016-t01"></a>F-016-T01 — Local-time labels for the line chart's time axis | 1 h | 0 h | 1 h | Planned | — | [F-016-T02](#f-016-t02) | [PR #36](https://github.com/voidbrain/bricks/pull/36) plan |
+| 🟢 Small | <a id="f-016-t02"></a>F-016-T02 — Release the local-time axis | 0.5 h | 0 h | 0.5 h | Planned | [F-016-T01](#f-016-t01) | — | [PR #36](https://github.com/voidbrain/bricks/pull/36) plan |
+| 🟡 Medium | **Total** | 1.5 h | 0 h (0 of 2 steps recorded) | 1.5 h | 0 of 2 completed | | | |
 
 <details>
 <summary>Next action, estimates and PR history</summary>
@@ -558,7 +558,7 @@ Bugs (B-) and features (F-) in one list, in work-queue order. Steps: `effort` = 
 
 | Field | Value |
 |---|---|
-| PR / evidence | Plan: pending |
+| PR / evidence | Steps: F-016-T01: [PR #36](https://github.com/voidbrain/bricks/pull/36) plan · F-016-T02: [PR #36](https://github.com/voidbrain/bricks/pull/36) plan. Plan: [#36](https://github.com/voidbrain/bricks/pull/36) |
 | Opened | 2026-11-27 |
 | Verification | Pending |
 | Reviewed | 2026-11-27 |
